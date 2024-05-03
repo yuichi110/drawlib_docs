@@ -1,0 +1,27 @@
+drawlib package
+===============
+
+.. automodule:: drawlib
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   drawlib.assets
+   drawlib.v0_1
+
+Submodules
+----------
+
+drawlib.apis module
+-------------------
+
+.. automodule:: drawlib.apis
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>drawlib.v0_1.private.core_canvas package &mdash; drawlib 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6432bc99" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="drawlib.v0_1.private.icons package" href="drawlib.v0_1.private.icons.html" />
+    <link rel="prev" title="drawlib.v0_1.private.core package" href="drawlib.v0_1.private.core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            drawlib
+          </a>
+              <div class="version">
+                version: 0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/introductions/about/doc.html">About drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/introductions/quick_start/doc.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/foundations/canvas/doc.html">Canvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/foundations/image/doc.html">Draw Image</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/many_files/doc.html">Bulk image build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/api_version/doc.html">Backward Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/example_flow/doc.html">drawlib for writing docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawlib.html">drawlib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawlib.v0_1.html">drawlib.v0_1 package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="drawlib.v0_1.private.html">drawlib.v0_1.private package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="drawlib.v0_1.private.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html">drawlib.v0_1.private.core package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">drawlib.v0_1.private.core_canvas package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.base">drawlib.v0_1.private.core_canvas.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.canvas">drawlib.v0_1.private.core_canvas.canvas module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.image">drawlib.v0_1.private.core_canvas.image module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.line">drawlib.v0_1.private.core_canvas.line module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.original_arrow">drawlib.v0_1.private.core_canvas.original_arrow module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.original_polygon">drawlib.v0_1.private.core_canvas.original_polygon module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.patches">drawlib.v0_1.private.core_canvas.patches module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.core_canvas.text">drawlib.v0_1.private.core_canvas.text module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.icons.html">drawlib.v0_1.private.icons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.smartarts.html">drawlib.v0_1.private.smartarts package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.arg_validator">drawlib.v0_1.private.arg_validator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.command">drawlib.v0_1.private.command module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.download">drawlib.v0_1.private.download module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.dutil">drawlib.v0_1.private.dutil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.logging">drawlib.v0_1.private.logging module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.settings">drawlib.v0_1.private.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.tools">drawlib.v0_1.private.tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.util">drawlib.v0_1.private.util module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drawlib.v0_1.private.core.html">drawlib.v0_1.private.core package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">drawlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">drawlib</a></li>
+          <li class="breadcrumb-item"><a href="drawlib.html">drawlib package</a></li>
+          <li class="breadcrumb-item"><a href="drawlib.v0_1.html">drawlib.v0_1 package</a></li>
+          <li class="breadcrumb-item"><a href="drawlib.v0_1.private.html">drawlib.v0_1.private package</a></li>
+      <li class="breadcrumb-item active">drawlib.v0_1.private.core_canvas package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/drawlib.v0_1.private.core_canvas.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-drawlib.v0_1.private.core_canvas">
+<span id="drawlib-v0-1-private-core-canvas-package"></span><h1>drawlib.v0_1.private.core_canvas package<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas" title="Link to this heading"></a></h1>
+<p>drawlib’s core package contains core code of drawing.</p>
+<p>drawlib use matplotlib for drawing.
+core package contains its related codes.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.base">
+<span id="drawlib-v0-1-private-core-canvas-base-module"></span><h2>drawlib.v0_1.private.core_canvas.base module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.base" title="Link to this heading"></a></h2>
+<p>Base canvas features.</p>
+<p>This modules define CanvasBase which is base class of Canvas features.
+Each canvas features are aggregated on Canvas.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.base.</span></span><span class="sig-name descname"><span class="pre">CanvasBase</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class of Canvas and its features.</p>
+<p>This class is designed for diamond inheritance.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_WIDTH">
+<span class="sig-name descname"><span class="pre">DEFAULT_WIDTH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_WIDTH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_HEIGHT">
+<span class="sig-name descname"><span class="pre">DEFAULT_HEIGHT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_HEIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_DPI">
+<span class="sig-name descname"><span class="pre">DEFAULT_DPI</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_DPI" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID">
+<span class="sig-name descname"><span class="pre">DEFAULT_GRID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID_ONLY">
+<span class="sig-name descname"><span class="pre">DEFAULT_GRID_ONLY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID_ONLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID_STYLE">
+<span class="sig-name descname"><span class="pre">DEFAULT_GRID_STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LineStyle(width=1,</span> <span class="pre">style='dashed',</span> <span class="pre">color=(128,</span> <span class="pre">128,</span> <span class="pre">128),</span> <span class="pre">alpha=None)</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID_STYLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID_CENTERSTYLE">
+<span class="sig-name descname"><span class="pre">DEFAULT_GRID_CENTERSTYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LineStyle(width=2,</span> <span class="pre">style='dashed',</span> <span class="pre">color=(128,</span> <span class="pre">128,</span> <span class="pre">128),</span> <span class="pre">alpha=None)</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.DEFAULT_GRID_CENTERSTYLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.SYSTEM_FONTS">
+<span class="sig-name descname"><span class="pre">SYSTEM_FONTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['serif',</span> <span class="pre">'sanserif']</span></em><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.SYSTEM_FONTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.clear" title="Link to this definition"></a></dt>
+<dd><p>Initialize drawlib Canvas config</p>
+<p>Initialize drawlib Canvas completely.
+It will wipe params which are set by config().
+And also, all drawing states.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">dtheme</span></code> is not initialized.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.config">
+<span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'default'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'gray'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_centerstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.config" title="Link to this definition"></a></dt>
+<dd><p>Configure drawlib Canvas</p>
+<p>Configure drawlib canvas parameters.
+Parameters will be wiped when <code class="docutils literal notranslate"><span class="pre">clear()</span></code> method is called except <code class="docutils literal notranslate"><span class="pre">theme</span></code>.
+You can call this function many times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>optional</em>) – Width of canvas. default is 100</p></li>
+<li><p><strong>height</strong> (<em>optional</em>) – Height of canvas. default is 100</p></li>
+<li><p><strong>dpi</strong> (<em>optional</em>) – Output image resolution. default is 100</p></li>
+<li><p><strong>theme</strong> (<em>optional</em>) – Choose draw theme. <code class="docutils literal notranslate"><span class="pre">clear()</span></code> doesn’t initialize this.</p></li>
+<li><p><strong>background_color</strong> (<em>optional</em>) – Background color. default is “white”</p></li>
+<li><p><strong>background_alpha</strong> (<em>optional</em>) – Background alpha. between 0~1. default is 1.0</p></li>
+<li><p><strong>grid</strong> (<em>optional</em>) – show grid for checking coordinate on True</p></li>
+<li><p><strong>grid_style</strong> (<em>optional</em>) – Style of grid line. default is dashed gray. Setting this will set <cite>grid=True</cite> automatically.</p></li>
+<li><p><strong>grid_centerstyle</strong> (<em>optional</em>) – Style of grid line. default is thick dashed gray. Setting this will set <cite>grid=True</cite> automatically.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Calling config after drawing raise RuntimeError.
+It is because few drawing action uses Canvas size and dpi etc.
+Changing them after drawing will mess the drawing status.
+You can call config() again after calling clear().</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'jpg'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'png'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'webp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pdf'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.save" title="Link to this definition"></a></dt>
+<dd><p>Save canvas illustration to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>optional</em>) – saving image file path. Default is “&lt;script-name&gt;.png”.</p></li>
+<li><p><strong>format</strong> (<em>optional</em>) – supported image format. default is “png”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Without arg, save to “&lt;scriptfilename&gt;.png” on script dir.
+For example, calling “save()” at script “mydir/image1.py” will
+generate “mydir/image1.png”</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.shape">
+<span class="sig-name descname"><span class="pre">shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_default_center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.shape" title="Link to this definition"></a></dt>
+<dd><p>Draw basic shape.</p>
+<p>This function is useful for drawing user original shapes.
+Please check document and example for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – start point</p></li>
+<li><p><strong>path_points</strong> – xy and bezier control points.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – shape angle.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – shape style.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text of shape.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – text style.</p></li>
+<li><p><strong>is_default_center</strong> – make (x, y) center of shape.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.get_image_zoom_original">
+<span class="sig-name descname"><span class="pre">get_image_zoom_original</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.get_image_zoom_original" title="Link to this definition"></a></dt>
+<dd><p>Get matplot image zoom which keeps original pixel size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>zoom</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.get_image_zoom_from_width">
+<span class="sig-name descname"><span class="pre">get_image_zoom_from_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Image</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage" title="drawlib.v0_1.private.core.dimage.Dimage"><span class="pre">Dimage</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.get_image_zoom_from_width" title="Link to this definition"></a></dt>
+<dd><p>Get matplot image zoom which is fit to specified width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>zoom</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.get_charwidth_from_fontsize">
+<span class="sig-name descname"><span class="pre">get_charwidth_from_fontsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.get_charwidth_from_fontsize" title="Link to this definition"></a></dt>
+<dd><p>Get character width from font size..</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> – font size</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>width</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.base.CanvasBase.get_fontsize_from_charwidth">
+<span class="sig-name descname"><span class="pre">get_fontsize_from_charwidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase.get_fontsize_from_charwidth" title="Link to this definition"></a></dt>
+<dd><p>Get font size which fit to provided width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>width</strong> – character width</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>size</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.canvas">
+<span id="drawlib-v0-1-private-core-canvas-canvas-module"></span><h2>drawlib.v0_1.private.core_canvas.canvas module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.canvas" title="Link to this heading"></a></h2>
+<p>Aggregate Canvas features</p>
+<p>Drawlib’s canvas is complex and holds many methods.
+Those features are implemented in CanvasFeature classes.
+This module’s Canvas aggregate them.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.canvas.Canvas">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.canvas.</span></span><span class="sig-name descname"><span class="pre">Canvas</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.canvas.Canvas" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.image.CanvasImageFeature" title="drawlib.v0_1.private.core_canvas.image.CanvasImageFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasImageFeature</span></code></a>, <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature" title="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasLineFeature</span></code></a>, <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature" title="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasOriginalPolygonFeature</span></code></a>, <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature" title="drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasOriginalArrowFeature</span></code></a>, <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature" title="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasPatchesFeature</span></code></a>, <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.text.CanvasTextFeature" title="drawlib.v0_1.private.core_canvas.text.CanvasTextFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasTextFeature</span></code></a></p>
+<p>Drawlib’s canvas class</p>
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.image">
+<span id="drawlib-v0-1-private-core-canvas-image-module"></span><h2>drawlib.v0_1.private.core_canvas.image module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.image" title="Link to this heading"></a></h2>
+<p>Wrapper of matplotlib image draw</p>
+<p>Matplotlib is difficult for just drawing image.
+This module wraps it and provides easy to use interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.image.CanvasImageFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.image.</span></span><span class="sig-name descname"><span class="pre">CanvasImageFeature</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.image.CanvasImageFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature" title="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasPatchesFeature</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.image.CanvasImageFeature.image">
+<span class="sig-name descname"><span class="pre">image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Image</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage" title="drawlib.v0_1.private.core.dimage.Dimage"><span class="pre">Dimage</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyle" title="drawlib.v0_1.private.core.model.ImageStyle"><span class="pre">ImageStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.image.CanvasImageFeature.image" title="Link to this definition"></a></dt>
+<dd><p>Draw image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – Left bottom of image</p></li>
+<li><p><strong>width</strong> – Width of image. Height is calculated automatically.</p></li>
+<li><p><strong>image</strong> – Image path or image itself.</p></li>
+<li><p><strong>angle</strong> – Rotation degree.</p></li>
+<li><p><strong>style</strong> – Image style.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.line">
+<span id="drawlib-v0-1-private-core-canvas-line-module"></span><h2>drawlib.v0_1.private.core_canvas.line module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.line" title="Link to this heading"></a></h2>
+<p>Wrapper of matplotlib line draw</p>
+<p>Matplotlib is difficult for just drawing line.
+This module wraps it and provides easy to use interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.line.</span></span><span class="sig-name descname"><span class="pre">CanvasLineFeature</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase" title="drawlib.v0_1.private.core_canvas.base.CanvasBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line">
+<span class="sig-name descname"><span class="pre">line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle" title="drawlib.v0_1.private.core.model.LineArrowStyle"><span class="pre">LineArrowStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line" title="Link to this definition"></a></dt>
+<dd><p>Draw line from xy1 to xy2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy1</strong> – start point.</p></li>
+<li><p><strong>xy2</strong> – end point.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – LineStyle or LineArrowStyle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line_curved">
+<span class="sig-name descname"><span class="pre">line_curved</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle" title="drawlib.v0_1.private.core.model.LineArrowStyle"><span class="pre">LineArrowStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line_curved" title="Link to this definition"></a></dt>
+<dd><p>Draw curved line from xy1 to xy2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy1</strong> – start point.</p></li>
+<li><p><strong>xy2</strong> – end point.</p></li>
+<li><p><strong>bend</strong> – additional line length between xy1 and xy2. 0 is straight.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – LineStyle or LineArrowStyle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line_bezier1">
+<span class="sig-name descname"><span class="pre">line_bezier1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle" title="drawlib.v0_1.private.core.model.LineArrowStyle"><span class="pre">LineArrowStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line_bezier1" title="Link to this definition"></a></dt>
+<dd><p>Draw bezier line from xy1 to xy2. Control line via 1 control point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy1</strong> – start point.</p></li>
+<li><p><strong>cp</strong> – control point.</p></li>
+<li><p><strong>xy2</strong> – end point.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – LineStyle or LineArrowStyle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line_bezier2">
+<span class="sig-name descname"><span class="pre">line_bezier2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle" title="drawlib.v0_1.private.core.model.LineArrowStyle"><span class="pre">LineArrowStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.line_bezier2" title="Link to this definition"></a></dt>
+<dd><p>Draw bezier line from xy1 to xy2. Control line via 2 control point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy1</strong> – start point.</p></li>
+<li><p><strong>cp1</strong> – control point 1.</p></li>
+<li><p><strong>cp2</strong> – control point 2.</p></li>
+<li><p><strong>xy2</strong> – end point.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – LineStyle or LineArrowStyle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.lines">
+<span class="sig-name descname"><span class="pre">lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle" title="drawlib.v0_1.private.core.model.LineArrowStyle"><span class="pre">LineArrowStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.lines" title="Link to this definition"></a></dt>
+<dd><p>Draw line which paths provided xys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xys</strong> – list of xy.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – LineStyle or LineArrowStyle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.lines_bezier">
+<span class="sig-name descname"><span class="pre">lines_bezier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle" title="drawlib.v0_1.private.core.model.LineStyle"><span class="pre">LineStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle" title="drawlib.v0_1.private.core.model.LineArrowStyle"><span class="pre">LineArrowStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.line.CanvasLineFeature.lines_bezier" title="Link to this definition"></a></dt>
+<dd><p>Draw bezier line which paths provided path points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – start point.</p></li>
+<li><p><strong>path_points</strong> – path point and control points.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – LineStyle or LineArrowStyle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.original_arrow">
+<span id="drawlib-v0-1-private-core-canvas-original-arrow-module"></span><h2>drawlib.v0_1.private.core_canvas.original_arrow module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.original_arrow" title="Link to this heading"></a></h2>
+<p>Wrapper of matplotlib image draw</p>
+<p>Matplotlib is difficult for just drawing image.
+This module wraps it and provides easy to use interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.original_arrow.</span></span><span class="sig-name descname"><span class="pre">CanvasOriginalArrowFeature</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase" title="drawlib.v0_1.private.core_canvas.base.CanvasBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature.arrow">
+<span class="sig-name descname"><span class="pre">arrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'-|&gt;'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'&lt;|-'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'&lt;|-|&gt;'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-|&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature.arrow" title="Link to this definition"></a></dt>
+<dd><p>Draw sing and double heads arrow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy1</strong> – Arrow start point</p></li>
+<li><p><strong>xy2</strong> – Arrow end point.</p></li>
+<li><p><strong>tail_width</strong> – Arrow tail width.</p></li>
+<li><p><strong>head_width</strong> – Arrow head width.</p></li>
+<li><p><strong>head_length</strong> – Arrow head length.</p></li>
+<li><p><strong>head_style</strong> (<em>optional</em>) – Arrow head style. default is right head.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of arc.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of arc.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.original_polygon">
+<span id="drawlib-v0-1-private-core-canvas-original-polygon-module"></span><h2>drawlib.v0_1.private.core_canvas.original_polygon module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.original_polygon" title="Link to this heading"></a></h2>
+<p>Wrapper of matplotlib image draw</p>
+<p>Matplotlib is difficult for just drawing image.
+This module wraps it and provides easy to use interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.original_polygon.</span></span><span class="sig-name descname"><span class="pre">CanvasOriginalPolygonFeature</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase" title="drawlib.v0_1.private.core_canvas.base.CanvasBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.bubblespeech">
+<span class="sig-name descname"><span class="pre">bubblespeech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_edge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'left'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'top'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'right'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'bottom'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.bubblespeech" title="Link to this definition"></a></dt>
+<dd><p>Draw bubble speech.</p>
+<p>Almost same to rectangle. But having tail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – always left bottom. Aligns are ignored.</p></li>
+<li><p><strong>width</strong> – width of rectangle</p></li>
+<li><p><strong>height</strong> – height of rectangle</p></li>
+<li><p><strong>tail_edge</strong> – which edge tail exist.</p></li>
+<li><p><strong>tail_start</strong> – ratio where tail start</p></li>
+<li><p><strong>tail_vertex</strong> – vertex xy of tail.</p></li>
+<li><p><strong>tail_width</strong> – ratio where tail end (start + width)</p></li>
+<li><p><strong>style</strong> – ShapeStyle</p></li>
+<li><p><strong>text</strong> – text</p></li>
+<li><p><strong>textstyle</strong> – ShapeTextStyle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.triangle">
+<span class="sig-name descname"><span class="pre">triangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topvertex_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.triangle" title="Link to this definition"></a></dt>
+<dd><p>Draw triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – default left bottom.</p></li>
+<li><p><strong>width</strong> – width of triangle bottom</p></li>
+<li><p><strong>height</strong> – height of traiangle</p></li>
+<li><p><strong>topvertex_start</strong> (<em>option</em>) – topvertex location from left side. default is center.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate degree</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of shape.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – center text.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.parallelogram">
+<span class="sig-name descname"><span class="pre">parallelogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corner_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.parallelogram" title="Link to this definition"></a></dt>
+<dd><p>Draw parallelogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – default left bottom.</p></li>
+<li><p><strong>width</strong> – width of triangle bottom</p></li>
+<li><p><strong>height</strong> – height of traiangle</p></li>
+<li><p><strong>corner_angle</strong> – left bottom corner angle.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate degree</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of shape.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – center text.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.trapezoid">
+<span class="sig-name descname"><span class="pre">trapezoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.trapezoid" title="Link to this definition"></a></dt>
+<dd><p>Draw triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – default left bottom.</p></li>
+<li><p><strong>height</strong> – height of traiangle</p></li>
+<li><p><strong>bottom_width</strong> – width of bottom</p></li>
+<li><p><strong>top_width</strong> – width of top</p></li>
+<li><p><strong>top_start</strong> (<em>optional</em>) – start point of top. Default makes top center.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate degree</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of shape.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – center text.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.rhombus">
+<span class="sig-name descname"><span class="pre">rhombus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.rhombus" title="Link to this definition"></a></dt>
+<dd><p>Draw rhombus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – default left bottom.</p></li>
+<li><p><strong>width</strong> – width of rhombus</p></li>
+<li><p><strong>height</strong> – height of rhombus</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate degree</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of shape.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – center text.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.chevron">
+<span class="sig-name descname"><span class="pre">chevron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corner_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.chevron" title="Link to this definition"></a></dt>
+<dd><p>Draw chevron.</p>
+<p>Vertex is right on default. Provide True for mirror makes left side vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – default left bottom.</p></li>
+<li><p><strong>width</strong> – width of bottom of chevron</p></li>
+<li><p><strong>height</strong> – height of chevron</p></li>
+<li><p><strong>corner_angle</strong> – left bottom corner angle. 0.0 ~ 90.0.</p></li>
+<li><p><strong>mirror</strong> (<em>optional</em>) – make vertex left side.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate degree</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of shape.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – center text.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.star">
+<span class="sig-name descname"><span class="pre">star</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_int</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.star" title="Link to this definition"></a></dt>
+<dd><p>Draw star.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – default center, center.</p></li>
+<li><p><strong>num_vertex</strong> – numver of external vertex. 3 ~.</p></li>
+<li><p><strong>radius_ext</strong> – radius of external vertex.</p></li>
+<li><p><strong>radius_int</strong> – raidus of internal vertex.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate degree</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of shape.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – center text.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.patches">
+<span id="drawlib-v0-1-private-core-canvas-patches-module"></span><h2>drawlib.v0_1.private.core_canvas.patches module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.patches" title="Link to this heading"></a></h2>
+<p>Wrapper of matplotlib shape draw</p>
+<p>Matplotlib is difficult for just drawing shapes.
+This module wraps it and provides easy to use interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.patches.</span></span><span class="sig-name descname"><span class="pre">CanvasPatchesFeature</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase" title="drawlib.v0_1.private.core_canvas.base.CanvasBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.arc">
+<span class="sig-name descname"><span class="pre">arc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_begin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">360</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.arc" title="Link to this definition"></a></dt>
+<dd><p>Draw arc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of arc.</p></li>
+<li><p><strong>width</strong> – width of arc.</p></li>
+<li><p><strong>height</strong> – height of arc.</p></li>
+<li><p><strong>theta_begin</strong> (<em>optional</em>) – where drawing arc start. default is angle 0.0</p></li>
+<li><p><strong>theta_end</strong> (<em>optional</em>) – where drawing arc end. default is angle 360.0</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate arc with specified angle</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of arc.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of arc.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.circle">
+<span class="sig-name descname"><span class="pre">circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.circle" title="Link to this definition"></a></dt>
+<dd><p>Draw cicle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of circle.</p></li>
+<li><p><strong>radius</strong> – radius of circle.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate inside text with specified angle</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of circle.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of arc.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.ellipse">
+<span class="sig-name descname"><span class="pre">ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.ellipse" title="Link to this definition"></a></dt>
+<dd><p>Draw ellipse</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of ellipse</p></li>
+<li><p><strong>width</strong> – width of ellipse.</p></li>
+<li><p><strong>height</strong> – height of ellipse.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate ellipse with specified angle.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of arc.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of ellipse.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.polygon">
+<span class="sig-name descname"><span class="pre">polygon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.polygon" title="Link to this definition"></a></dt>
+<dd><p>Draw polygon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xys</strong> – List of points. [(x1, y1), …(x_n, y_n)].</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of polygon.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of ellipse.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.regularpolygon">
+<span class="sig-name descname"><span class="pre">regularpolygon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.regularpolygon" title="Link to this definition"></a></dt>
+<dd><p>Draw regular polygon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of regular polygon</p></li>
+<li><p><strong>radius</strong> – radius of regular polygon’s vertex.</p></li>
+<li><p><strong>num_vertex</strong> – number of vertex.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of regular polygon.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotation angle</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of regular polygon.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.rectangle">
+<span class="sig-name descname"><span class="pre">rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.rectangle" title="Link to this definition"></a></dt>
+<dd><p>Draw rectangle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – left bottom of rectangle.</p></li>
+<li><p><strong>width</strong> – width of rounded rectangle.</p></li>
+<li><p><strong>height</strong> – height of rounded rectangle.</p></li>
+<li><p><strong>r</strong> (<em>optional</em>) – size of R. default is 0.0.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate rectangle with specified angle. Requires Matplotlib’s ax to achieve it.</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of rounded rectangle.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of rounded rectangle.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.wedge">
+<span class="sig-name descname"><span class="pre">wedge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_begin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">360</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.wedge" title="Link to this definition"></a></dt>
+<dd><p>Draw wedge</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of wedge</p></li>
+<li><p><strong>radius</strong> – radius of wedge.</p></li>
+<li><p><strong>width</strong> (<em>optional</em>) – length from outer to inner circumference. default is same to radius value.</p></li>
+<li><p><strong>theta_begin</strong> (<em>optional</em>) – where drawing arc start. default is angle 0.0</p></li>
+<li><p><strong>theta_end</strong> (<em>optional</em>) – where drawing arc end. default is angle 360.0</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate wedge with specified angle</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of wedge.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of wedge.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.donuts">
+<span class="sig-name descname"><span class="pre">donuts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.donuts" title="Link to this definition"></a></dt>
+<dd><p>Draw donuts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of donuts</p></li>
+<li><p><strong>radius</strong> – radius of donuts.</p></li>
+<li><p><strong>width</strong> (<em>optional</em>) – length from outer to inner circumference. default is same to radius value.</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate wedge with specified angle</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of wedge.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of wedge.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.fan">
+<span class="sig-name descname"><span class="pre">fan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_begin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle" title="drawlib.v0_1.private.core.model.ShapeStyle"><span class="pre">ShapeStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle" title="drawlib.v0_1.private.core.model.ShapeTextStyle"><span class="pre">ShapeTextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.fan" title="Link to this definition"></a></dt>
+<dd><p>Draw fan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center of fan</p></li>
+<li><p><strong>radius</strong> – radius of fan.</p></li>
+<li><p><strong>theta_begin</strong> (<em>optional</em>) – where drawing arc start. default is angle 0.0</p></li>
+<li><p><strong>theta_end</strong> (<em>optional</em>) – where drawing arc end. default is angle 360.0</p></li>
+<li><p><strong>angle</strong> (<em>optional</em>) – rotate wedge with specified angle</p></li>
+<li><p><strong>style</strong> (<em>optional</em>) – style of wedge.</p></li>
+<li><p><strong>text</strong> (<em>optional</em>) – text which is shown at center of wedge.</p></li>
+<li><p><strong>textstyle</strong> (<em>optional</em>) – style of text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.core_canvas.text">
+<span id="drawlib-v0-1-private-core-canvas-text-module"></span><h2>drawlib.v0_1.private.core_canvas.text module<a class="headerlink" href="#module-drawlib.v0_1.private.core_canvas.text" title="Link to this heading"></a></h2>
+<p>Wrapper of matplotlib text draw</p>
+<p>Matplotlib is difficult for just drawing text.
+This module wraps it and provides easy to use interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.text.CanvasTextFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.core_canvas.text.</span></span><span class="sig-name descname"><span class="pre">CanvasTextFeature</span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.text.CanvasTextFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#drawlib.v0_1.private.core_canvas.base.CanvasBase" title="drawlib.v0_1.private.core_canvas.base.CanvasBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanvasBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.text.CanvasTextFeature.text">
+<span class="sig-name descname"><span class="pre">text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyle" title="drawlib.v0_1.private.core.model.TextStyle"><span class="pre">TextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.text.CanvasTextFeature.text" title="Link to this definition"></a></dt>
+<dd><p>Draw text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – left bottom</p></li>
+<li><p><strong>text</strong> – text</p></li>
+<li><p><strong>angle</strong> – angle of texts</p></li>
+<li><p><strong>style</strong> – text style.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.core_canvas.text.CanvasTextFeature.text_vertical">
+<span class="sig-name descname"><span class="pre">text_vertical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyle" title="drawlib.v0_1.private.core.model.TextStyle"><span class="pre">TextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.core_canvas.text.CanvasTextFeature.text_vertical" title="Link to this definition"></a></dt>
+<dd><p>Draw text vertically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xy</strong> – center, center</p></li>
+<li><p><strong>text</strong> – text</p></li>
+<li><p><strong>angle</strong> – angle of texts</p></li>
+<li><p><strong>style</strong> – text style.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="drawlib.v0_1.private.core.html" class="btn btn-neutral float-left" title="drawlib.v0_1.private.core package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="drawlib.v0_1.private.icons.html" class="btn btn-neutral float-right" title="drawlib.v0_1.private.icons package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuichi Ito.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

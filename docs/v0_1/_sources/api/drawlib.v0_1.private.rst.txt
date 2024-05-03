@@ -1,0 +1,85 @@
+drawlib.v0\_1.private package
+=============================
+
+.. automodule:: drawlib.v0_1.private
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   drawlib.v0_1.private.core
+   drawlib.v0_1.private.core_canvas
+   drawlib.v0_1.private.icons
+   drawlib.v0_1.private.smartarts
+
+Submodules
+----------
+
+drawlib.v0\_1.private.arg\_validator module
+-------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.arg_validator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.command module
+------------------------------------
+
+.. automodule:: drawlib.v0_1.private.command
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.download module
+-------------------------------------
+
+.. automodule:: drawlib.v0_1.private.download
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.dutil module
+----------------------------------
+
+.. automodule:: drawlib.v0_1.private.dutil
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.logging module
+------------------------------------
+
+.. automodule:: drawlib.v0_1.private.logging
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.settings module
+-------------------------------------
+
+.. automodule:: drawlib.v0_1.private.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.tools module
+----------------------------------
+
+.. automodule:: drawlib.v0_1.private.tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.util module
+---------------------------------
+
+.. automodule:: drawlib.v0_1.private.util
+   :members:
+   :undoc-members:
+   :show-inheritance:

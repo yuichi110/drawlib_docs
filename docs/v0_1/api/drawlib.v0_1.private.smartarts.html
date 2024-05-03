@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>drawlib.v0_1.private.smartarts package &mdash; drawlib 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6432bc99" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="drawlib.v0_1.private.icons package" href="drawlib.v0_1.private.icons.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            drawlib
+          </a>
+              <div class="version">
+                version: 0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/introductions/about/doc.html">About drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/introductions/quick_start/doc.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/foundations/canvas/doc.html">Canvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/foundations/image/doc.html">Draw Image</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/many_files/doc.html">Bulk image build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/api_version/doc.html">Backward Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/example_flow/doc.html">drawlib for writing docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawlib.html">drawlib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drawlib.v0_1.html">drawlib.v0_1 package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="drawlib.v0_1.private.html">drawlib.v0_1.private package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="drawlib.v0_1.private.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html">drawlib.v0_1.private.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core_canvas.html">drawlib.v0_1.private.core_canvas package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.icons.html">drawlib.v0_1.private.icons package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">drawlib.v0_1.private.smartarts package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.cycle">drawlib.v0_1.private.smartarts.cycle module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.dsart">drawlib.v0_1.private.smartarts.dsart module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.groups">drawlib.v0_1.private.smartarts.groups module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.pyramid">drawlib.v0_1.private.smartarts.pyramid module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.sourcecode">drawlib.v0_1.private.smartarts.sourcecode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.table">drawlib.v0_1.private.smartarts.table module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-drawlib.v0_1.private.smartarts.tree">drawlib.v0_1.private.smartarts.tree module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.arg_validator">drawlib.v0_1.private.arg_validator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.command">drawlib.v0_1.private.command module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.download">drawlib.v0_1.private.download module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.dutil">drawlib.v0_1.private.dutil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.logging">drawlib.v0_1.private.logging module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.settings">drawlib.v0_1.private.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.tools">drawlib.v0_1.private.tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.html#module-drawlib.v0_1.private.util">drawlib.v0_1.private.util module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drawlib.v0_1.private.core.html">drawlib.v0_1.private.core package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">drawlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">drawlib</a></li>
+          <li class="breadcrumb-item"><a href="drawlib.html">drawlib package</a></li>
+          <li class="breadcrumb-item"><a href="drawlib.v0_1.html">drawlib.v0_1 package</a></li>
+          <li class="breadcrumb-item"><a href="drawlib.v0_1.private.html">drawlib.v0_1.private package</a></li>
+      <li class="breadcrumb-item active">drawlib.v0_1.private.smartarts package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/drawlib.v0_1.private.smartarts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-drawlib.v0_1.private.smartarts">
+<span id="drawlib-v0-1-private-smartarts-package"></span><h1>drawlib.v0_1.private.smartarts package<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts" title="Link to this heading"></a></h1>
+<p>drawlib’s dicon package contains fonticon drawing modules.</p>
+<p>util has function “dicon” and it is provided to users.
+Other module has functions which draw provided fonticons.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.cycle">
+<span id="drawlib-v0-1-private-smartarts-cycle-module"></span><h2>drawlib.v0_1.private.smartarts.cycle module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.cycle" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.cycle.Cycle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.smartarts.cycle.</span></span><span class="sig-name descname"><span class="pre">Cycle</span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.cycle.Cycle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.dsart">
+<span id="drawlib-v0-1-private-smartarts-dsart-module"></span><h2>drawlib.v0_1.private.smartarts.dsart module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.dsart" title="Link to this heading"></a></h2>
+<p>drawlib smart art module</p>
+<p>Posses fancy drawing which uses basic drawing features.
+Similar concept of Microsoft Powerpoint’s smart art.</p>
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.groups">
+<span id="drawlib-v0-1-private-smartarts-groups-module"></span><h2>drawlib.v0_1.private.smartarts.groups module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.groups" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.groups.Groups">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.smartarts.groups.</span></span><span class="sig-name descname"><span class="pre">Groups</span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.groups.Groups" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.groups.Groups.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.groups.Groups.render" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.groups.Groups.set_default_style">
+<span class="sig-name descname"><span class="pre">set_default_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">textstyle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.groups.Groups.set_default_style" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.groups.Groups.append_group">
+<span class="sig-name descname"><span class="pre">append_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.groups.Groups.append_group" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.groups.Groups.append_group_member">
+<span class="sig-name descname"><span class="pre">append_group_member</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.groups.Groups.append_group_member" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.pyramid">
+<span id="drawlib-v0-1-private-smartarts-pyramid-module"></span><h2>drawlib.v0_1.private.smartarts.pyramid module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.pyramid" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.pyramid.Pyramid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.smartarts.pyramid.</span></span><span class="sig-name descname"><span class="pre">Pyramid</span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.pyramid.Pyramid" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.pyramid.Pyramid.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.pyramid.Pyramid.render" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.pyramid.Pyramid.set_default_style">
+<span class="sig-name descname"><span class="pre">set_default_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">textstyle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.pyramid.Pyramid.set_default_style" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.pyramid.Pyramid.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.pyramid.Pyramid.insert" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.sourcecode">
+<span id="drawlib-v0-1-private-smartarts-sourcecode-module"></span><h2>drawlib.v0_1.private.smartarts.sourcecode module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.sourcecode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.sourcecode.SourceCode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.smartarts.sourcecode.</span></span><span class="sig-name descname"><span class="pre">SourceCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'bash'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'c'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'c#'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'c++'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'coffeescript'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'css'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'dart'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'docker'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'go'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'groovy'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'haskell'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'html'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ini'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'java'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'javascript'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'json'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'julia'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'kotlin'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'less'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'markdown'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'none'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'objective-c'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'perl'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'php'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'plain'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'powershell'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'promql'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'protobuf'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'python'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'restructuredtext'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ruby'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'rust'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sql'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'swift'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'tex'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'text'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'toml'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'typescript'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'verilog'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'xml'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'yaml'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'bw'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sas'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'staroffice'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'xcode'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'default'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'monokai'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'lightbulb'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'github-dark'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'rrt'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'algol'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'algol_nu'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'friendly_grayscale'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSourceCode" title="drawlib.v0_1.private.core.fonts.FontSourceCode"><span class="pre">FontSourceCode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontFile" title="drawlib.v0_1.private.core.fonts.FontFile"><span class="pre">FontFile</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_linenum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linenum_textcolor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(136,</span> <span class="pre">136,</span> <span class="pre">102)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linenum_bgcolor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(238,</span> <span class="pre">238,</span> <span class="pre">221)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.sourcecode.SourceCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Draw Source Code Image which is created on Pygments</p>
+<p>Configure style at constructor.
+Provide code and size/location at render() method.
+If you want to customize image by your self, call get_image().</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.sourcecode.SourceCode.get_image">
+<span class="sig-name descname"><span class="pre">get_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage" title="drawlib.v0_1.private.core.dimage.Dimage"><span class="pre">Dimage</span></a></span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.sourcecode.SourceCode.get_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.sourcecode.SourceCode.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyle" title="drawlib.v0_1.private.core.model.ImageStyle"><span class="pre">ImageStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.sourcecode.SourceCode.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.table">
+<span id="drawlib-v0-1-private-smartarts-table-module"></span><h2>drawlib.v0_1.private.smartarts.table module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.table" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.table.Table">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.smartarts.table.</span></span><span class="sig-name descname"><span class="pre">Table</span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.table.Table" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-drawlib.v0_1.private.smartarts.tree">
+<span id="drawlib-v0-1-private-smartarts-tree-module"></span><h2>drawlib.v0_1.private.smartarts.tree module<a class="headerlink" href="#module-drawlib.v0_1.private.smartarts.tree" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.tree.Tree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.smartarts.tree.</span></span><span class="sig-name descname"><span class="pre">Tree</span></span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.tree.Tree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.tree.Tree.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmargin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymargin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.tree.Tree.render" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.tree.Tree.set_default_style">
+<span class="sig-name descname"><span class="pre">set_default_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">textstyle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.tree.Tree.set_default_style" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.smartarts.tree.Tree.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textstyle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.smartarts.tree.Tree.append" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="drawlib.v0_1.private.icons.html" class="btn btn-neutral float-left" title="drawlib.v0_1.private.icons package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuichi Ito.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

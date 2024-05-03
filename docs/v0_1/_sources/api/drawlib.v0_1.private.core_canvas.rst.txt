@@ -1,0 +1,74 @@
+drawlib.v0\_1.private.core\_canvas package
+==========================================
+
+.. automodule:: drawlib.v0_1.private.core_canvas
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+drawlib.v0\_1.private.core\_canvas.base module
+----------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.canvas module
+------------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.canvas
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.image module
+-----------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.image
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.line module
+----------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.line
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.original\_arrow module
+---------------------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.original_arrow
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.original\_polygon module
+-----------------------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.original_polygon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.patches module
+-------------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.patches
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+drawlib.v0\_1.private.core\_canvas.text module
+----------------------------------------------
+
+.. automodule:: drawlib.v0_1.private.core_canvas.text
+   :members:
+   :undoc-members:
+   :show-inheritance:

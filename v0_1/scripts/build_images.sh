@@ -18,5 +18,8 @@ cd ../
 # activate
 source .venv/bin/activate
 
-# build all images
-python -m drawlib ./docs/source
+# cd to repo root for let not see docs lib code
+cd ../
+
+# build
+python -m drawlib ./v0_1/docs/source

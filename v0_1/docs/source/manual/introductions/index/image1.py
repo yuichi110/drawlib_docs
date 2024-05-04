@@ -24,7 +24,7 @@ def upper():
         text="Drawlib",
         style=TextStyle(size=28, font=FontRoboto.ROBOTO_BOLD),
     )
-    dicon_phosphor.heart(
+    icon_phosphor.heart(
         xy=(40, y),
         width=10,
         style=IconStyle(color=Colors140.Pink, style="fill"),
@@ -48,10 +48,10 @@ def middle():
 def lower():
     y = 7
     style = TextStyle(size=20, font=FontRoboto.ROBOTO_REGULAR)
-    dicon_phosphor.file_py(xy=(13, y), width=5)
+    icon_phosphor.file_py(xy=(13, y), width=5)
     text((26, y), "Python Code", style=style)
     text((50, y), "to", style=style)
-    dicon_phosphor.file_image(xy=(69, y), width=5)
+    icon_phosphor.file_image(xy=(69, y), width=5)
     text((80, y), "Illustration", style=style)
 
 

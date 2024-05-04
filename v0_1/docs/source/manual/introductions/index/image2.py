@@ -20,34 +20,34 @@ def left():
     )
 
     x = 8
-    dicon_phosphor.folder((x, 45), width=3)
+    icon_phosphor.folder((x, 45), width=3)
     text((x + 6, 45), "docroot", style=ts)
     line((x, 43), (x, 13), style=ls)
 
     line((x, 42), (x + 1, 42), style=ls)
-    dicon_phosphor.folder((x + 3, 42), width=3)
+    icon_phosphor.folder((x + 3, 42), width=3)
     text((x + 9, 42), ".drawlib", style=TextStyle(size=12))
     line((x + 3, 40), (x + 3, 35), style=LineStyle(width=0.5))
-    dicon_phosphor.file_py((x + 6, 39), width=3, style=IconStyle(color=Colors.Red))
+    icon_phosphor.file_py((x + 6, 39), width=3, style=IconStyle(color=Colors.Red))
     text((x + 12, 39), "theme.py", style=TextStyle(size=12, color=Colors.Red))
     line((x + 3, 39), (x + 4, 39), style=LineStyle(width=0.5))
 
     line((x, 30), (x + 1, 30), style=ls)
-    dicon_phosphor.folder((x + 3, 30), width=3)
+    icon_phosphor.folder((x + 3, 30), width=3)
     text((x + 9, 30), "chapter1", style=TextStyle(size=12))
     line((x + 3, 28), (x + 3, 19), style=LineStyle(width=0.5))
-    dicon_phosphor.file_md((x + 6, 27), width=3)
+    icon_phosphor.file_md((x + 6, 27), width=3)
     text((x + 12, 27), "doc.md", style=TextStyle(size=12))
     line((x + 3, 27), (x + 4, 27), style=LineStyle(width=0.5))
-    dicon_phosphor.file_py((x + 6, 24), width=3, style=IconStyle(color=Colors.Red))
+    icon_phosphor.file_py((x + 6, 24), width=3, style=IconStyle(color=Colors.Red))
     text((x + 12, 24), "img1.py", style=TextStyle(size=12, color=Colors.Red))
     line((x + 3, 24), (x + 4, 24), style=LineStyle(width=0.5))
-    dicon_phosphor.file_py((x + 6, 21), width=3, style=IconStyle(color=Colors.Red))
+    icon_phosphor.file_py((x + 6, 21), width=3, style=IconStyle(color=Colors.Red))
     text((x + 12, 21), "img2.py", style=TextStyle(size=12, color=Colors.Red))
     line((x + 3, 21), (x + 4, 21), style=LineStyle(width=0.5))
 
     line((x, 15), (x + 1, 15), style=ls)
-    dicon_phosphor.folder((x + 3, 15), width=3)
+    icon_phosphor.folder((x + 3, 15), width=3)
     text((x + 9, 15), "chapter2", style=TextStyle(size=12))
 
 
@@ -62,26 +62,26 @@ def center():
     )
 
     x = 43
-    dicon_phosphor.folder((x, 45), width=3)
+    icon_phosphor.folder((x, 45), width=3)
     text((x + 6, 45), "docroot", style=ts)
     line((x, 43), (x, 13), style=ls)
 
     line((x, 30), (x + 1, 30), style=ls)
-    dicon_phosphor.folder((x + 3, 30), width=3)
+    icon_phosphor.folder((x + 3, 30), width=3)
     text((x + 9, 30), "chapter1", style=TextStyle(size=12))
     line((x + 3, 28), (x + 3, 19), style=LineStyle(width=0.5))
-    dicon_phosphor.file_md((x + 6, 27), width=3)
+    icon_phosphor.file_md((x + 6, 27), width=3)
     text((x + 12, 27), "doc.md", style=TextStyle(size=12))
     line((x + 3, 27), (x + 4, 27), style=LineStyle(width=0.5))
-    dicon_phosphor.file_image((x + 6, 24), width=3, style=IconStyle(color=Colors.Red))
+    icon_phosphor.file_image((x + 6, 24), width=3, style=IconStyle(color=Colors.Red))
     text((x + 12, 24), "img1.png", style=TextStyle(size=12, color=Colors.Red))
     line((x + 3, 24), (x + 4, 24), style=LineStyle(width=0.5))
-    dicon_phosphor.file_image((x + 6, 21), width=3, style=IconStyle(color=Colors.Red))
+    icon_phosphor.file_image((x + 6, 21), width=3, style=IconStyle(color=Colors.Red))
     text((x + 12, 21), "img2.png", style=TextStyle(size=12, color=Colors.Red))
     line((x + 3, 21), (x + 4, 21), style=LineStyle(width=0.5))
 
     line((x, 15), (x + 1, 15), style=ls)
-    dicon_phosphor.folder((x + 3, 15), width=3)
+    icon_phosphor.folder((x + 3, 15), width=3)
     text((x + 9, 15), "chapter2", style=TextStyle(size=12))
 
 
@@ -96,10 +96,10 @@ def right():
         style=ShapeStyle(fcolor=Colors.Transparent, lstyle="dashed"),
     )
 
-    dicon_phosphor.file_pdf((85, 43), width=6)
-    dicon_phosphor.file_html((85, 35), width=6)
-    dicon_phosphor.file_ppt((85, 27), width=6)
-    dicon_phosphor.book_bookmark((85, 19), width=6)
+    icon_phosphor.file_pdf((85, 43), width=6)
+    icon_phosphor.file_html((85, 35), width=6)
+    icon_phosphor.file_ppt((85, 27), width=6)
+    icon_phosphor.book_bookmark((85, 19), width=6)
     text((85, 14.5), text="eBook")
 
 
@@ -111,7 +111,7 @@ def bottom():
         r=2,
         style=ShapeStyle(fcolor=Colors.Transparent),
     )
-    dicon_phosphor.github_logo((17, 5), width=5)
+    icon_phosphor.github_logo((17, 5), width=5)
     text((53, 5), "Illustration and doc text versioning with CI/CD automation")
 
 

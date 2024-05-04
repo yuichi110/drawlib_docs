@@ -44,7 +44,6 @@ Other version docs
    :maxdepth: 2
    :caption: Introductions:
 
-   index
    manual/introductions/about/doc
    manual/introductions/install/doc
    manual/introductions/quick_start/doc

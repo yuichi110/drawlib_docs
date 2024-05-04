@@ -2,49 +2,76 @@
 About drawlib
 ===============
 
+Drawlib is a pure Python drawing library designed to facilitate **Illustration as Code**, rather than focusing solely on creating polished illustrations. 
+For instance, consider the following Python code:
+
+.. literalinclude:: image1.py
+   :language: python
+   :linenos:
+   :caption: image1.py
+
+Execute it with the python command:
+
+.. code-block:: none
+
+   $ python image1.py
+
+This will generate an image file.
+
+.. figure:: image1.png
+    :width: 300
+    :class: with-border
+    :align: center
+
+    image1.png
+
+As illustrated, drawlib generates an image corresponding to your code.
+Normally, you don't need to specify detailed styles. The theme's style will be automatically applied when it's not provided.
+
+
 Benefit of "Illustration as Code"
 ==================================
 
-As you know, software and documentations are maintained at many version control systems in these days.
-You can easily track diff of code and documentation changes on those environment.
-However, achieving same benefit at illustration is difficult.
-Because original illustration data is not text but binary.
+In today's world, many technical documents are managed using version control systems such as Git. 
+However, managing illustrations poses a challenge as they are typically binary files rather than text-based. 
+Drawlib offers a solution by generating illustrations from pure Python code. 
+This means that if you create your illustrations using Python and drawlib, you can manage them using version control systems too.
 
-drawlib provides Illustration as Code to you.
-It means
+Drawlib is optimized for drawing a large number of illustrations with a consistent style. 
+This can be easily achieved by creating a theme file (which is simply Python code) and importing it into your illustration codes (also Python code). 
+Here is a typical use case of drawlib.
 
-- Same image you get with same code.
-- Easy to update, revert, and copy-paste the image.
-- Applying same style to line/shape/text accross many illustrations through importing your styles.
-- build 100+ codes to 100+ illustrations with ``python -m drawlib <doc root>`` command.
+.. figure:: ../index/image2.png
+    :width: 500
+    :class: with-border
+    :align: center
 
-These feature might make you happy on these situations.
+    image2.png
 
-- Writing documentation with images
-- Writing books with images
-- Just for a hobby
+As a real-world example, almost all of the documentation images are created by drawlib. 
+The build flow is almost the same as the image above. 
+We build images using drawlib first, then build the document via Sphinx, and finally publish it to the Internet. 
+These images are built by scripts locally for quickly checking draw results. 
+We run CI/CD when code is committed to the GitHub repository to reduce human operation costs and avoid human errors.
 
-As a real example, this documentation contains lots of images which is drawn by this command.
-Those image python codes are maintained with text docs on same directory.
-When you want to update the image, just update python code and run it again.
-It will update the image which the doc shows.
+Drawlib adopts the ``theme`` feature, which is similar to a slide theme. 
+When you change the theme, the default theme style is automatically applied to all images. 
+If you want to change the style slightly, modifying the theme will affect all of your images that reference the theme. 
+This is beneficial for maintaining consistency of image style and achieving good styling with less effort.
 
-By the way, we introduce API versioning and keeping old APIs on new library versions.
-So, you can get same image few years later with latest library.
 
 Because it is Python 
 ======================
 
-Many people who read this doc might familiar with Python.
-You will get benefit of python and its ecosystem on this library of course!!
+Many people who read this document might be familiar with Python. 
+You will benefit from Python and its ecosystem with this library, such as:
 
-- create your function for grouping drawing actions
-- using loop for repeated drawing
-- get help from your IDE (I recommend VSCode and python extensions)
-- when having an error on your code, you will get familiar python error messages
+- creating your functions for grouping drawing actions
+- using loops for repeated drawing
+- getting help from your IDE (I recommend VSCode and Python extensions)
+- when encountering an error in your code, you will receive familiar Python error messages
 
-So, don't hesitate to try.
-Just install and write few codes.
-Then you can get your image easily.
+You don't need to learn another programming language or DSL(Domain Specific Language) to achieve illustration as code. 
 
-Enjoy!!
+If you are familiar with Python, you might be able to understand how to use drawlib with just a few hours of struggling. 
+The design of drawlib is consistent and Pythonic.

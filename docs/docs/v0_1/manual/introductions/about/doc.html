@@ -22,7 +22,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Quick Start" href="../quick_start/doc.html" />
+    <link rel="next" title="Install" href="../install/doc.html" />
     <link rel="prev" title="Welcome to the drawlib Documentation!" href="../../../index.html" /> 
 </head>
 
@@ -55,7 +55,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#because-it-is-python">Because it is Python</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../install/doc.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start/doc.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lib_design/doc.html">Drawlib Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul>
@@ -103,47 +105,77 @@
              
   <section id="about-drawlib">
 <h1>About drawlib<a class="headerlink" href="#about-drawlib" title="Link to this heading"></a></h1>
+<p>Drawlib is a pure Python drawing library designed to facilitate <strong>Illustration as Code</strong>, rather than focusing solely on creating polished illustrations.
+For instance, consider the following Python code:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos"> 4</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+<span class="linenos"> 5</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span class="linenos"> 6</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span>
+<span class="linenos"> 7</span>        <span class="n">lstyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span>
+<span class="linenos"> 8</span>        <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">BlueViolet</span><span class="p">,</span>
+<span class="linenos"> 9</span>        <span class="n">lwidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="linenos">10</span>        <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Turquoise</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="p">),</span>
+<span class="linenos">12</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Execute it with the python command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python image1.py
+</pre></div>
+</div>
+<p>This will generate an image file.</p>
+<figure class="align-center" id="id2">
+<a class="with-border reference internal image-reference" href="../../../_images/image11.png"><img alt="../../../_images/image11.png" class="with-border" src="../../../_images/image11.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As illustrated, drawlib generates an image corresponding to your code.
+Normally, you don’t need to specify detailed styles. The theme’s style will be automatically applied when it’s not provided.</p>
 <section id="benefit-of-illustration-as-code">
 <h2>Benefit of “Illustration as Code”<a class="headerlink" href="#benefit-of-illustration-as-code" title="Link to this heading"></a></h2>
-<p>As you know, software and documentations are maintained at many version control systems in these days.
-You can easily track diff of code and documentation changes on those environment.
-However, achieving same benefit at illustration is difficult.
-Because original illustration data is not text but binary.</p>
-<p>drawlib provides Illustration as Code to you.
-It means</p>
-<ul class="simple">
-<li><p>Same image you get with same code.</p></li>
-<li><p>Easy to update, revert, and copy-paste the image.</p></li>
-<li><p>Applying same style to line/shape/text accross many illustrations through importing your styles.</p></li>
-<li><p>build 100+ codes to 100+ illustrations with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span> <span class="pre">&lt;doc</span> <span class="pre">root&gt;</span></code> command.</p></li>
-</ul>
-<p>These feature might make you happy on these situations.</p>
-<ul class="simple">
-<li><p>Writing documentation with images</p></li>
-<li><p>Writing books with images</p></li>
-<li><p>Just for a hobby</p></li>
-</ul>
-<p>As a real example, this documentation contains lots of images which is drawn by this command.
-Those image python codes are maintained with text docs on same directory.
-When you want to update the image, just update python code and run it again.
-It will update the image which the doc shows.</p>
-<p>By the way, we introduce API versioning and keeping old APIs on new library versions.
-So, you can get same image few years later with latest library.</p>
+<p>In today’s world, many technical documents are managed using version control systems such as Git.
+However, managing illustrations poses a challenge as they are typically binary files rather than text-based.
+Drawlib offers a solution by generating illustrations from pure Python code.
+This means that if you create your illustrations using Python and drawlib, you can manage them using version control systems too.</p>
+<p>Drawlib is optimized for drawing a large number of illustrations with a consistent style.
+This can be easily achieved by creating a theme file (which is simply Python code) and importing it into your illustration codes (also Python code).
+Here is a typical use case of drawlib.</p>
+<figure class="align-center" id="id3">
+<a class="with-border reference internal image-reference" href="../../../_images/image2.png"><img alt="../../../_images/image2.png" class="with-border" src="../../../_images/image2.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">image2.png</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As a real-world example, almost all of the documentation images are created by drawlib.
+The build flow is almost the same as the image above.
+We build images using drawlib first, then build the document via Sphinx, and finally publish it to the Internet.
+These images are built by scripts locally for quickly checking draw results.
+We run CI/CD when code is committed to the GitHub repository to reduce human operation costs and avoid human errors.</p>
+<p>Drawlib adopts the <code class="docutils literal notranslate"><span class="pre">theme</span></code> feature, which is similar to a slide theme.
+When you change the theme, the default theme style is automatically applied to all images.
+If you want to change the style slightly, modifying the theme will affect all of your images that reference the theme.
+This is beneficial for maintaining consistency of image style and achieving good styling with less effort.</p>
 </section>
 <section id="because-it-is-python">
 <h2>Because it is Python<a class="headerlink" href="#because-it-is-python" title="Link to this heading"></a></h2>
-<p>Many people who read this doc might familiar with Python.
-You will get benefit of python and its ecosystem on this library of course!!</p>
+<p>Many people who read this document might be familiar with Python.
+You will benefit from Python and its ecosystem with this library, such as:</p>
 <ul class="simple">
-<li><p>create your function for grouping drawing actions</p></li>
-<li><p>using loop for repeated drawing</p></li>
-<li><p>get help from your IDE (I recommend VSCode and python extensions)</p></li>
-<li><p>when having an error on your code, you will get familiar python error messages</p></li>
+<li><p>creating your functions for grouping drawing actions</p></li>
+<li><p>using loops for repeated drawing</p></li>
+<li><p>getting help from your IDE (I recommend VSCode and Python extensions)</p></li>
+<li><p>when encountering an error in your code, you will receive familiar Python error messages</p></li>
 </ul>
-<p>So, don’t hesitate to try.
-Just install and write few codes.
-Then you can get your image easily.</p>
-<p>Enjoy!!</p>
+<p>You don’t need to learn another programming language or DSL(Domain Specific Language) to achieve illustration as code.</p>
+<p>If you are familiar with Python, you might be able to understand how to use drawlib with just a few hours of struggling.
+The design of drawlib is consistent and Pythonic.</p>
 </section>
 </section>
 
@@ -152,7 +184,7 @@ Then you can get your image easily.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../../../index.html" class="btn btn-neutral float-left" title="Welcome to the drawlib Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../quick_start/doc.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../install/doc.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

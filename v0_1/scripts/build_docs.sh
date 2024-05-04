@@ -27,7 +27,7 @@ rsync -ah ./docs/source/ ./docs/merged \
     --exclude ".pylintrc" --exclude ".gitkeep" --exclude "*.ttf" --exclude "__pycache__"
 
 # generate rst apidoc to build target
-sphinx-apidoc -f -o ./docs/merged/api ./drawlib \
+sphinx-apidoc -f -o ./docs/merged/api ./source/drawlib \
     --module-first 
 
 # build to html

@@ -24,7 +24,7 @@ subpackages contains latest and old implementations.
 from typing import Final
 
 # please update here when you release new version
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 
 # might not be changed
 LIB_NAME: Final[str] = "drawlib"

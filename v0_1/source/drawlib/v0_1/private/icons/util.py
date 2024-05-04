@@ -22,7 +22,7 @@ from drawlib.v0_1.private.core.theme import dtheme
 from drawlib.v0_1.private.arg_validator import ArgValidator
 
 
-def dicon(
+def icon(
     xy: typing.Tuple[float, float],
     width: float,
     code: str,

@@ -491,7 +491,7 @@ class CanvasPatchesFeature(CanvasBase):
             None.
 
         """
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_wedge_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_donuts_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
         self.wedge(
             xy=xy,
@@ -532,7 +532,7 @@ class CanvasPatchesFeature(CanvasBase):
 
         """
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_wedge_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_fan_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
         self.wedge(
             xy=xy,

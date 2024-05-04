@@ -89,7 +89,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
             raise ValueError(f"Sum of tail_start={tail_start} and tail_width={tail_width} must be less than 1.0")
 
         x, y = xy
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_bubblespeech_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         xys = []
@@ -175,7 +175,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
 
         # apply default if styles are not specified
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_triangle_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         if topvertex_start is None:
@@ -242,7 +242,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
             x = height / math.tan(angle_rad)
             return x, height
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_parallelogram_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         p1 = (0, 0)
@@ -308,7 +308,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
 
         # apply default if styles are not specified
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_trapezoid_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         if top_start is None:
@@ -367,7 +367,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
         if textstyle is not None:
             ArgValidator.validate_shapetextstyle("textstyle", textstyle)
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_rhombus_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         p1 = (0, height / 2)
@@ -434,7 +434,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
         if textstyle is not None:
             ArgValidator.validate_shapetextstyle("textstyle", textstyle)
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_chevron_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         if mirror:
@@ -517,7 +517,7 @@ class CanvasOriginalPolygonFeature(CanvasBase):
 
         # apply default style
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_star_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         # calculate points

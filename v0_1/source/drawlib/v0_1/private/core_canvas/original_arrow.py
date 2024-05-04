@@ -86,7 +86,7 @@ class CanvasOriginalArrowFeature(CanvasBase):
         if textstyle is not None:
             ArgValidator.validate_shapetextstyle("textstyle", textstyle)
 
-        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_get())
+        style = ShapeUtil.get_merged_shapestyle(style, dtheme.shapestyle_arrow_get())
         textstyle = ShapeUtil.get_merged_shapetextstyle(textstyle, dtheme.shapetextstyle_get())
 
         x1, y1 = xy1

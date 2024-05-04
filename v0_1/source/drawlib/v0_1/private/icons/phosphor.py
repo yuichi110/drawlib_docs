@@ -77,7 +77,7 @@ def _write(
             raise ValueError(f'dicon_phosphor does not support style "{style.style}".')
         file = _get_font_path(style.style)
 
-    drawlib.v0_1.private.icons.util.dicon(xy=xy, width=width, code=code, file=file, angle=angle, style=style)
+    drawlib.v0_1.private.icons.util.icon(xy=xy, width=width, code=code, file=file, angle=angle, style=style)
 
 
 #####################################

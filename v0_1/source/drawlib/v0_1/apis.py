@@ -100,6 +100,13 @@ from drawlib.v0_1.private.core_canvas.canvas import (
     chevron,
 )
 
+from drawlib.v0_1.private.icons.util import (
+    icon,
+)
+from drawlib.v0_1.private.icons import (
+    phosphor as icon_phosphor,
+)
+
 #################
 ### Utilities ###
 #################
@@ -112,12 +119,6 @@ from drawlib.v0_1.private import (
 )
 from drawlib.v0_1.private.settings import (
     dsettings,
-)
-from drawlib.v0_1.private.icons.util import (
-    dicon,
-)
-from drawlib.v0_1.private.icons import (
-    phosphor as dicon_phosphor,
 )
 from drawlib.v0_1.private.smartarts import (
     dsart,

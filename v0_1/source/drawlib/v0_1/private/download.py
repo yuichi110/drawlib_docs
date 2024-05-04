@@ -39,7 +39,7 @@ def download_if_not_exist(file_path: str, download_url: str, md5_hash: str):
                     fout.write(data)
 
         except Exception as e:
-            raise RuntimeError(e)
+            raise RuntimeError(f"File download error happens. {str(e)}")
 
     # if file exist and checksum ok, do nothing
     if is_file_exist():
@@ -47,12 +47,12 @@ def download_if_not_exist(file_path: str, download_url: str, md5_hash: str):
             return
 
     # if file not exist or checksum has problem, try download
-    logger.info(f'No font cache. Downloading from "{download_url}".')
+    logger.info(f'No font on local machine. Downloading from "{download_url}".')
     download()
 
     # after download, check file exist and checksum
     if not is_file_exist():
-        raise RuntimeError()
+        raise RuntimeError("File download completed. But not saved. Abort.")
     if not is_checksum_correct():
-        raise RuntimeError()
-    logger.info("Download completed.")
+        raise RuntimeError("File download completed. But checksum has problem. Abort.")
+    logger.info("Download completed without troubles.")

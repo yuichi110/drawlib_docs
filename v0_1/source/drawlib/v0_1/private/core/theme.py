@@ -144,13 +144,22 @@ class Theme:
         # shape
         self._shapestyles: Dict[str, ShapeStyle] = {}
         self._shapestyles_arc: Dict[str, ShapeStyle] = {}
-        self._shapestyles_arrow: Dict[str, ShapeStyle] = {}
         self._shapestyles_circle: Dict[str, ShapeStyle] = {}
         self._shapestyles_ellipse: Dict[str, ShapeStyle] = {}
         self._shapestyles_polygon: Dict[str, ShapeStyle] = {}
         self._shapestyles_rectangle: Dict[str, ShapeStyle] = {}
         self._shapestyles_regularpolygon: Dict[str, ShapeStyle] = {}
         self._shapestyles_wedge: Dict[str, ShapeStyle] = {}
+        self._shapestyles_donuts: Dict[str, ShapeStyle] = {}
+        self._shapestyles_fan: Dict[str, ShapeStyle] = {}
+        self._shapestyles_arrow: Dict[str, ShapeStyle] = {}
+        self._shapestyles_bubblespeech: Dict[str, ShapeStyle] = {}
+        self._shapestyles_triangle: Dict[str, ShapeStyle] = {}
+        self._shapestyles_parallelogram: Dict[str, ShapeStyle] = {}
+        self._shapestyles_trapezoid: Dict[str, ShapeStyle] = {}
+        self._shapestyles_rhombus: Dict[str, ShapeStyle] = {}
+        self._shapestyles_chevron: Dict[str, ShapeStyle] = {}
+        self._shapestyles_star: Dict[str, ShapeStyle] = {}
         self._shapetextstyles: Dict[str, ShapeTextStyle] = {}
 
         # text
@@ -392,6 +401,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._iconstyles[name] = deepcopy(style)
 
+    def iconstyle_has(self, name: str = "1") -> bool:
+        """Check having theme IconStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._iconstyles
+
+    def iconstyle_list(self) -> List[str]:
+        """Get list of IconStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._iconstyles.keys())
+
     ############
     ### Image ###
     ############
@@ -426,6 +458,29 @@ class Theme:
         ArgValidator.validate_imagestyle("style", style)
         ArgValidator.validate_str("name", name)
         self._imagestyles[name] = deepcopy(style)
+
+    def imagestyle_has(self, name: str = "1") -> bool:
+        """Check having theme ImageStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._imagestyles
+
+    def imagestyle_list(self) -> List[str]:
+        """Get list of ImageStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._imagestyles.keys())
 
     ############
     ### Line ###
@@ -462,6 +517,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._linestyles[name] = deepcopy(style)
 
+    def linestyle_has(self, name: str = "1") -> bool:
+        """Check having theme LineStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._linestyles
+
+    def linestyle_list(self) -> List[str]:
+        """Get list of LineStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._linestyles.keys())
+
     @error_handler
     def linearrowstyle_get(self, name: str = "1") -> LineArrowStyle:
         """Get theme LineArrowStyle.
@@ -492,6 +570,29 @@ class Theme:
         ArgValidator.validate_linearrowstyle("style", style)
         ArgValidator.validate_str("name", name)
         self._linearrowstyles[name] = deepcopy(style)
+
+    def linearrowstyle_has(self, name: str = "1") -> bool:
+        """Check having theme LineArrowStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._linearrowstyles
+
+    def linearrowstyle_list(self) -> List[str]:
+        """Get list of LineArrowStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._linearrowstyles.keys())
 
     ############
     ### Text ###
@@ -527,6 +628,29 @@ class Theme:
         ArgValidator.validate_textstyle("style", style)
         ArgValidator.validate_str("name", name)
         self._textstyles[name] = deepcopy(style)
+
+    def textstyle_has(self, name: str = "1") -> bool:
+        """Check having theme TextStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._textstyles
+
+    def textstyle_list(self) -> List[str]:
+        """Get list of TextStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._textstyles.keys())
 
     @error_handler
     def sourcecodefont_get(self) -> FontSourceCode:
@@ -587,6 +711,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._shapestyles[name] = deepcopy(style)
 
+    def shapestyle_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles
+
+    def shapestyle_list(self) -> List[str]:
+        """Get list of ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles.keys())
+
     @error_handler
     def shapetextstyle_get(self, name: str = "1") -> ShapeTextStyle:
         """Get theme ShapeTextStyle.
@@ -617,6 +764,29 @@ class Theme:
         ArgValidator.validate_shapetextstyle("style", style)
         ArgValidator.validate_str("name", name)
         self._shapetextstyles[name] = deepcopy(style)
+
+    def shapetextstyle_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeTextStyle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapetextstyles
+
+    def shapetextstyle_list(self) -> List[str]:
+        """Get list of ShapeTextStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapetextstyles.keys())
 
     @error_handler
     def shapestyle_arc_get(self, name: str = "1") -> ShapeStyle:
@@ -655,6 +825,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._shapestyles_arc[name] = deepcopy(style)
 
+    def shapestyle_arc_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for arc.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_arc
+
+    def shapestyle_arc_list(self) -> List[str]:
+        """Get list of arc's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_arc.keys())
+
     @error_handler
     def shapestyle_arrow_get(self, name: str = "1") -> ShapeStyle:
         """Get theme ShapeStyle for arrow.
@@ -690,6 +883,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._shapestyles_arrow[name] = deepcopy(style)
 
+    def shapestyle_arrow_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for arrow.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_arrow
+
+    def shapestyle_arrow_list(self) -> List[str]:
+        """Get list of arrow's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_arrow.keys())
+
     @error_handler
     def shapestyle_circle_get(self, name: str = "1") -> ShapeStyle:
         """Get theme ShapeStyle for circle.
@@ -723,6 +939,29 @@ class Theme:
         ArgValidator.validate_shapestyle("style", style)
         ArgValidator.validate_str("name", name)
         self._shapestyles_circle[name] = deepcopy(style)
+
+    def shapestyle_circle_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for circle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_circle
+
+    def shapestyle_circle_list(self) -> List[str]:
+        """Get list of circle's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_circle.keys())
 
     @error_handler
     def shapestyle_ellipse_get(self, name: str = "1") -> ShapeStyle:
@@ -759,6 +998,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._shapestyles_ellipse[name] = deepcopy(style)
 
+    def shapestyle_ellipse_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for ellipse.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_ellipse
+
+    def shapestyle_ellipse_list(self) -> List[str]:
+        """Get list of ellipse's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_ellipse.keys())
+
     @error_handler
     def shapestyle_polygon_get(self, name: str = "1") -> ShapeStyle:
         """Get theme ShapeStyle for polygon.
@@ -793,6 +1055,29 @@ class Theme:
         ArgValidator.validate_shapestyle("style", style)
         ArgValidator.validate_str("name", name)
         self._shapestyles_polygon[name] = deepcopy(style)
+
+    def shapestyle_polygon_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for polygon.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_polygon
+
+    def shapestyle_polygon_list(self) -> List[str]:
+        """Get list of polygon's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_polygon.keys())
 
     @error_handler
     def shapestyle_rectangle_get(self, name: str = "1") -> ShapeStyle:
@@ -829,6 +1114,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._shapestyles_rectangle[name] = deepcopy(style)
 
+    def shapestyle_rectangle_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for rectangle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_rectangle
+
+    def shapestyle_rectangle_list(self) -> List[str]:
+        """Get list of rectangle's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_rectangle.keys())
+
     @error_handler
     def shapestyle_regularpolygon_get(self, name: str = "1") -> ShapeStyle:
         """Get theme ShapeStyle for regularpolygon.
@@ -864,6 +1172,29 @@ class Theme:
         ArgValidator.validate_str("name", name)
         self._shapestyles_regularpolygon[name] = deepcopy(style)
 
+    def shapestyle_regularpolygon_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for regularpolygon.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_regularpolygon
+
+    def shapestyle_regularpolygon_list(self) -> List[str]:
+        """Get list of regularpolygon's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_regularpolygon.keys())
+
     @error_handler
     def shapestyle_wedge_get(self, name: str = "1") -> ShapeStyle:
         """Get theme ShapeStyle for wedge.
@@ -898,6 +1229,578 @@ class Theme:
         ArgValidator.validate_shapestyle("style", style)
         ArgValidator.validate_str("name", name)
         self._shapestyles_wedge[name] = deepcopy(style)
+
+    def shapestyle_wedge_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for wedge.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_wedge
+
+    def shapestyle_wedge_list(self) -> List[str]:
+        """Get list of wedge's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_wedge.keys())
+
+    # donuts
+
+    @error_handler
+    def shapestyle_donuts_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for donuts.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_donuts:
+            return deepcopy(self._shapestyles_donuts[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_donuts_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for donuts.
+
+        Args:
+            style: theme ShapeStyle for donuts
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_donuts[name] = deepcopy(style)
+
+    def shapestyle_donuts_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for donuts.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_donuts
+
+    def shapestyle_donuts_list(self) -> List[str]:
+        """Get list of donuts's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_donuts.keys())
+
+    # fan
+
+    @error_handler
+    def shapestyle_fan_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for fan.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_fan:
+            return deepcopy(self._shapestyles_fan[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_fan_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for fan.
+
+        Args:
+            style: theme ShapeStyle for fan
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_fan[name] = deepcopy(style)
+
+    def shapestyle_fan_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for fan.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_fan
+
+    def shapestyle_fan_list(self) -> List[str]:
+        """Get list of fan's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_fan.keys())
+
+    # bubblespeech
+
+    @error_handler
+    def shapestyle_bubblespeech_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for bubblespeech.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_bubblespeech:
+            return deepcopy(self._shapestyles_bubblespeech[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_bubblespeech_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for bubblespeech.
+
+        Args:
+            style: theme ShapeStyle for bubblespeech
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_bubblespeech[name] = deepcopy(style)
+
+    def shapestyle_bubblespeech_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for bubblespeech.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_bubblespeech
+
+    def shapestyle_bubblespeech_list(self) -> List[str]:
+        """Get list of bubblespeech's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_bubblespeech.keys())
+
+    # triangle
+
+    @error_handler
+    def shapestyle_triangle_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for triangle.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_triangle:
+            return deepcopy(self._shapestyles_triangle[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_triangle_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for triangle.
+
+        Args:
+            style: theme ShapeStyle for triangle
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_triangle[name] = deepcopy(style)
+
+    def shapestyle_triangle_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for triangle.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_triangle
+
+    def shapestyle_triangle_list(self) -> List[str]:
+        """Get list of triangle's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_triangle.keys())
+
+    # parallelogram
+
+    @error_handler
+    def shapestyle_parallelogram_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for parallelogram.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_parallelogram:
+            return deepcopy(self._shapestyles_parallelogram[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_parallelogram_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for parallelogram.
+
+        Args:
+            style: theme ShapeStyle for parallelogram
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_parallelogram[name] = deepcopy(style)
+
+    def shapestyle_parallelogram_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for parallelogram.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_parallelogram
+
+    def shapestyle_parallelogram_list(self) -> List[str]:
+        """Get list of parallelogram's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_parallelogram.keys())
+
+    # trapezoid
+
+    @error_handler
+    def shapestyle_trapezoid_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for trapezoid.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_trapezoid:
+            return deepcopy(self._shapestyles_trapezoid[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_trapezoid_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for trapezoid.
+
+        Args:
+            style: theme ShapeStyle for trapezoid
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_trapezoid[name] = deepcopy(style)
+
+    def shapestyle_trapezoid_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for trapezoid.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_trapezoid
+
+    def shapestyle_trapezoid_list(self) -> List[str]:
+        """Get list of trapezoid's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_trapezoid.keys())
+
+    # rhombus
+
+    @error_handler
+    def shapestyle_rhombus_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for rhombus.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_rhombus:
+            return deepcopy(self._shapestyles_rhombus[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_rhombus_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for rhombus.
+
+        Args:
+            style: theme ShapeStyle for rhombus
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_rhombus[name] = deepcopy(style)
+
+    def shapestyle_rhombus_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for rhombus.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_rhombus
+
+    def shapestyle_rhombus_list(self) -> List[str]:
+        """Get list of rhombus's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_rhombus.keys())
+
+    # chevron
+
+    @error_handler
+    def shapestyle_chevron_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for chevron.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_chevron:
+            return deepcopy(self._shapestyles_chevron[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_chevron_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for chevron.
+
+        Args:
+            style: theme ShapeStyle for chevron
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_chevron[name] = deepcopy(style)
+
+    def shapestyle_chevron_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for chevron.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_chevron
+
+    def shapestyle_chevron_list(self) -> List[str]:
+        """Get list of chevron's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_chevron.keys())
+
+    # star
+
+    @error_handler
+    def shapestyle_star_get(self, name: str = "1") -> ShapeStyle:
+        """Get theme ShapeStyle for star.
+
+        If ShapeStyle is not set for arc, get general ShapeStyle.
+
+        Args:
+            name(optional): key
+
+        Returns:
+            ShapeStyle
+
+        """
+
+        if name in self._shapestyles_star:
+            return deepcopy(self._shapestyles_star[name])
+        style = deepcopy(self._shapestyles[name])
+        return style
+
+    @error_handler
+    def shapestyle_star_set(self, style: ShapeStyle, name: str = "1") -> None:
+        """Set theme ShapeStyle for star.
+
+        Args:
+            style: theme ShapeStyle for star
+            name(optional): key
+
+        Returns:
+            None
+
+        """
+
+        ArgValidator.validate_shapestyle("style", style)
+        ArgValidator.validate_str("name", name)
+        self._shapestyles_star[name] = deepcopy(style)
+
+    def shapestyle_star_has(self, name: str = "1") -> bool:
+        """Check having theme ShapeStyle for star.
+
+        Args:
+            name(option): key
+
+        Returns:
+            bool
+
+        """
+
+        return name in self._shapestyles_star
+
+    def shapestyle_star_list(self) -> List[str]:
+        """Get list of star's ShapeStyle names.
+
+        Returns:
+            List[str]: names
+
+        """
+
+        return list(self._shapestyles_star.keys())
 
     ###############
     ### Private ###

@@ -16,7 +16,7 @@ cd "$(dirname "$0")"
 cd ../
 
 # delete old docs on target directory
-rm -rf ../docs/v0_1
+rm -rf ../docs/docs/v0_1
 
 # copy latest html to target directory
-cp -r ./docs/html ../docs/v0_1
+cp -r ./docs/html ../docs/docs/v0_1

@@ -1,6 +1,6 @@
 from drawlib.apis import *
 
-config(width=100, height=100, grid=True)
+config(width=100, height=100, grid_only=True)
 circle(
     (50, 50),
     radius=30,

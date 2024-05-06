@@ -1,6 +1,6 @@
 from drawlib.apis import *
 
-config(width=100, height=60)
+config(width=100, height=60, grid=True)
 
 line((20, 10), (80, 10))
 line_curved((20, 25), (80, 25), bend=0.2)

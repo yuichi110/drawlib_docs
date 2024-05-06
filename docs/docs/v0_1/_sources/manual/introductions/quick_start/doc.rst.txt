@@ -484,7 +484,7 @@ Let's examine some code examples:
 Executing this code yields the following image:
 
 .. figure:: image_text_1.png
-    :width: 300
+    :width: 500
     :class: with-border
     :align: center
 

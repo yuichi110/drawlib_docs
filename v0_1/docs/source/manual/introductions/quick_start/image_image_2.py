@@ -1,6 +1,6 @@
 from drawlib.apis import *
 
-config(width=100, height=60)
+config(width=100, height=60, grid=True)
 
 
 image(xy=(25, 30), width=20, image="python-logo-notext.png")

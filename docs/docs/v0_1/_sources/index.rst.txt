@@ -46,8 +46,8 @@ Other version docs
 
    manual/introductions/about/doc
    manual/introductions/install/doc
-   manual/introductions/quick_start/doc
    manual/introductions/lib_design/doc
+   manual/introductions/quick_start/doc
 
 .. toctree::
    :maxdepth: 2

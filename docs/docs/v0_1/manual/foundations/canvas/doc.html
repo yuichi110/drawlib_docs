@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="../coordinate_align/doc.html" />
-    <link rel="prev" title="Drawlib Overview" href="../../introductions/lib_design/doc.html" /> 
+    <link rel="prev" title="Quick Start" href="../../introductions/quick_start/doc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,18 +52,25 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Canvas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-use-canvas">How to use canvas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#grid">Grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#size">Size</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dpi-and-resolution">DPI and resolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#background-color-and-alpha">Background color and alpha</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#save">Save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#canvas-related-apis">Canvas related APIs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#config">config()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-canvas-grid">Configuring Canvas Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-canvas-size">Configuring Canvas Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-dpi-and-resolution">Configuring DPI and Resolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-background-color-and-alpha">Configuring Background Color and Alpha</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#save">save()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-saving-filename">Changing the Saving Filename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-saving-format">Changing the Saving Format</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Draw Image</a></li>
@@ -109,94 +116,181 @@
              
   <section id="canvas">
 <h1>Canvas<a class="headerlink" href="#canvas" title="Link to this heading"></a></h1>
-<p>Canvas is drawlib’s canvas class.
-drawlib draws line/shape/text/image over the canvas.</p>
-<p>You don’t need to create Canvas instance and calling drawing methods at drawlib.
-drawlib holds its default canvas object and you are drawing to it with functions.
-drawlib’s code should be script rather than object-oriented programming code.</p>
-<section id="how-to-use-canvas">
-<h2>How to use canvas<a class="headerlink" href="#how-to-use-canvas" title="Link to this heading"></a></h2>
-<p>we have these basic functions for controlling default canvas object.</p>
+<p>Drawlib manages the canvas.
+You use it to draw lines and other elements onto the canvas.
+Afterwards, you save your creation and receive an image.</p>
+<p>The canvas is a crucial concept and implementation within drawlib.
+It exists internally, but it isn’t directly exposed to users.
+Below is a concise overview of drawlib’s canvas architecture:</p>
+<figure class="align-center" id="id1">
+<a class="with-border reference internal image-reference" href="../../../_images/image_architecture_1.png"><img alt="../../../_images/image_architecture_1.png" class="with-border" src="../../../_images/image_architecture_1.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">image_architecture_1.png</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In this architecture, drawlib internally possesses core functions and methods.
+These are made accessible to users through APIs defined in drawlib.apis.
+When you invoke APIs like <code class="docutils literal notranslate"><span class="pre">config()</span></code>, they internally call core functions/methods that manage the canvas state.</p>
+<p>For instance, when you use the public API <code class="docutils literal notranslate"><span class="pre">config(width=200,</span> <span class="pre">height=100)</span></code>, it invokes an internal canvas method, adjusting the canvas width to 200 and height to 100.
+Similarly, calling the API <code class="docutils literal notranslate"><span class="pre">circle(...)</span></code> triggers an internal canvas method, adding a circle to the canvas state.</p>
+<p>Technically, you could create your own Canvas instance and perform drawing operations.
+However, it’s not recommended because other features, such as file handling and theme settings, are not connected to your Canvas instance.
+We’ve designed this architecture to ensure:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">clear()</span></code>: initialize canvas state. Wipe all config and drawing objects</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config()</span></code>: configure canvas. such as size and background color etc.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">title()</span></code>: add image title(text)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">save()</span></code>: export canvas to image file</p></li>
+<li><p>Accessibility for those unfamiliar with Python and object-oriented programming.</p></li>
+<li><p>Ease of learning.</p></li>
+<li><p>Script-like simplicity for drawing code.</p></li>
 </ul>
-<p>normally, <code class="docutils literal notranslate"><span class="pre">config()</span></code> and <code class="docutils literal notranslate"><span class="pre">save()</span></code> will be used all time.
-If 1 script file draw only 1 image, you don’t need to use <code class="docutils literal notranslate"><span class="pre">clear()</span></code>.
-When you do bulk drawing operation (please check the section), <code class="docutils literal notranslate"><span class="pre">clear()</span></code> will be called automatically between script1 and script2.</p>
-<p><code class="docutils literal notranslate"><span class="pre">save()</span></code> function is very simple.
-So, understanding only <code class="docutils literal notranslate"><span class="pre">config()</span></code> is enough for normal users.</p>
+<section id="canvas-related-apis">
+<h2>Canvas related APIs.<a class="headerlink" href="#canvas-related-apis" title="Link to this heading"></a></h2>
+<p>The canvas offers various types of public APIs:</p>
+<ul class="simple">
+<li><p>APIs for managing the canvas itself.</p></li>
+<li><p>APIs for drawing icons.</p></li>
+<li><p>APIs for drawing images.</p></li>
+<li><p>APIs for drawing lines.</p></li>
+<li><p>APIs for drawing shapes.</p></li>
+<li><p>APIs for drawing text.</p></li>
+<li><p>Utility APIs that require canvas information.</p></li>
+</ul>
+<p>This page focuses on the first category, while the other topics are covered in separate pages.</p>
+<p>The first category provides the following APIs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config()</span></code>: Configures the canvas, allowing adjustments such as size and background color.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save()</span></code>: Exports the canvas to an image file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear()</span></code>: Resets the canvas state, wiping all configurations and drawn objects.</p></li>
+</ul>
+<p>Both config() and save() are essential functions introduced in the introductory pages.
+They are necessary for creating illustrations.
+clear() is used when you wish to refresh the canvas state.
+It’s particularly useful when drawing multiple illustrations within a single script file.
+However, we recommend adhering to the guideline of one illustration per script file.
+By following this recommendation, there’s no need to call clear().</p>
 </section>
-<section id="grid">
-<h2>Grid<a class="headerlink" href="#grid" title="Link to this heading"></a></h2>
-<p>You might run illustration code many times for checking how your code will generate image.
-After repeating write/check/fix, your illustration creation will finish.
-On these try and error, showing grid line might be useful for understanding coordinate and size.
-It will help you aligning many objects in one image.</p>
-<p>You can enable grid easily with setting <code class="docutils literal notranslate"><span class="pre">True</span></code> for option grid.
-Default setting is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">image_grid_1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<section id="config">
+<h2>config()<a class="headerlink" href="#config" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">config()</span></code> API is responsible for managing various canvas configurations, including:</p>
+<ul class="simple">
+<li><p>Size (width, height)</p></li>
+<li><p>DPI (resolution)</p></li>
+<li><p>Grid</p></li>
+<li><p>Canvas color (background color)</p></li>
+<li><p>Theme</p></li>
+</ul>
+<p>We’ll begin with the grid settings since they are foundational and utilized in other topics.</p>
+<section id="configuring-canvas-grid">
+<h3>Configuring Canvas Grid<a class="headerlink" href="#configuring-canvas-grid" title="Link to this heading"></a></h3>
+<p>During the process of creating illustrations, you may find yourself running your code multiple times to check how your changes affect the resulting image.
+As you iterate through this write/check/fix cycle, displaying a grid might prove beneficial for understanding item coordinates and sizes, aiding in aligning multiple objects within a single image.</p>
+<p>Enabling the grid is straightforward; simply set the grid option to True.
+By default, this option is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>. Below is an example code snippet:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">image_grid_1.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="linenos">5</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id2">
+<p>Executing this code will generate two files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_grid_1.png</span></code>: The resulting image without the grid.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_grid_1_grid.png</span></code>: The same image with the grid displayed.</p></li>
+</ul>
+<p>By default, the file name is the same as the script file name.
+The grid version appends <code class="docutils literal notranslate"><span class="pre">_grid</span></code> to the file name.</p>
+<p>The former image without the grid:</p>
+<figure class="align-center" id="id3">
 <a class="with-border reference internal image-reference" href="../../../_images/image_grid_1.png"><img alt="../../../_images/image_grid_1.png" class="with-border" src="../../../_images/image_grid_1.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_grid_1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">image_grid_1.png</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>If you want to apply line style to Grid, just provide LineStyle object.
-For example</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">image_grid_2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<p>The latter image with the grid displayed:</p>
+<figure class="align-center" id="id4">
+<a class="with-border reference internal image-reference" href="../../../_images/image_grid_1_grid.png"><img alt="../../../_images/image_grid_1_grid.png" class="with-border" src="../../../_images/image_grid_1_grid.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">image_grid_1_grid.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Normally, grid lines are removed after completing the creation of the drawing code.
+However, if you need to modify the illustration later, having the grid displayed again might be useful.
+To avoid repeatedly enabling/disabling the grid in your code, our option is to export both versions of the image files.</p>
+<p>If you only require the grid illustration, you can use the <code class="docutils literal notranslate"><span class="pre">grid_only=True</span></code> option instead:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image_grid_2.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>This code will generate an image with grid lines but without the additional grid version file (image_grid_2_grid.png).</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image_grid_2.png"><img alt="../../../_images/image_grid_2.png" class="with-border" src="../../../_images/image_grid_2.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">image_grid_2.png</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>If you wish to apply a line style to the grid, simply provide a <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code> object to the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_style</span></code>: The style for all grid lines except the center grid lines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_centerstyle</span></code>: Overrides the style for the center grid lines.</p></li>
+</ul>
+<p>Here’s an example code snippet:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">image_grid_3.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span>
-<span class="linenos"> 4</span>    <span class="n">grid_style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span>
-<span class="linenos"> 5</span>        <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="linenos"> 6</span>        <span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span>
-<span class="linenos"> 7</span>        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span>
-<span class="linenos"> 8</span>    <span class="p">),</span>
-<span class="linenos"> 9</span>    <span class="n">grid_centerstyle</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span>
-<span class="linenos">10</span>        <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<span class="linenos">11</span>        <span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Blue</span><span class="p">,</span>
-<span class="linenos">12</span>        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span>
-<span class="linenos">13</span>    <span class="p">),</span>
-<span class="linenos">14</span><span class="p">)</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="linenos">17</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos"> 4</span>    <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="linenos"> 5</span>    <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+<span class="linenos"> 6</span>    <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 7</span>    <span class="n">grid_style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="n">grid_centerstyle</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Blue</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">),</span>
+<span class="linenos"> 9</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id4">
-<a class="with-border reference internal image-reference" href="../../../_images/image_grid_2.png"><img alt="../../../_images/image_grid_2.png" class="with-border" src="../../../_images/image_grid_2.png" style="width: 300px;" /></a>
+<p>This code will generate an image with the grid displayed using the provided line style.
+Note that providing a grid_style automatically sets the grid option to True, but you can override this by explicitly setting <code class="docutils literal notranslate"><span class="pre">grid=False</span></code>.</p>
+<figure class="align-center" id="id8">
+<a class="with-border reference internal image-reference" href="../../../_images/image_grid_3.png"><img alt="../../../_images/image_grid_3.png" class="with-border" src="../../../_images/image_grid_3.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_grid_2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">image_grid_3.png</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Providing <code class="docutils literal notranslate"><span class="pre">grid_style</span></code> will make option grid <code class="docutils literal notranslate"><span class="pre">True</span></code> since providing style is will of showing grid.
-But you can disable it by providing <code class="docutils literal notranslate"><span class="pre">grid=False</span></code> of course.</p>
 </section>
-<section id="size">
-<h2>Size<a class="headerlink" href="#size" title="Link to this heading"></a></h2>
-<p>The most important setting of canvas is its size.
-Without specifying it, drawlib use its default value.
-To control size, you should specify <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> at least.
-They will be used as maximum shown coordinate of drawing objects.</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">image_size_1.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<section id="configuring-canvas-size">
+<h3>Configuring Canvas Size<a class="headerlink" href="#configuring-canvas-size" title="Link to this heading"></a></h3>
+<p>The canvas size and resolution are distinct concepts.
+Size refers to the coordinate system’s values (the range of xy), while resolution pertains to the output image’s pixel dimensions.</p>
+<p>Normally, configuring the size doesn’t alter the pixel dimensions.
+For instance, setting <code class="docutils literal notranslate"><span class="pre">width=10,</span> <span class="pre">height=10</span></code> and <code class="docutils literal notranslate"><span class="pre">width=100,</span> <span class="pre">height=100</span></code> both generate images of the same pixel size.
+However, to maintain the aspect ratio, <code class="docutils literal notranslate"><span class="pre">width=10,</span> <span class="pre">height=5</span></code> would produce an image with half the pixel height.</p>
+<p>By default, Drawlib’s canvas size is:</p>
+<ul class="simple">
+<li><p>Width: 100</p></li>
+<li><p>Height: 100</p></li>
+</ul>
+<p>which can be adjusted using <code class="docutils literal notranslate"><span class="pre">config(width=&lt;value&gt;,</span> <span class="pre">height=&lt;value&gt;)</span></code>.
+This default size usually suffices for typical situations.
+Therefore, we typically only adjust the height when we need to create horizontally wider images.
+There’s no reason to set a very small value that requires using coordinate values close to 0.01.
+Conversely, excessively large values may become unwieldy.</p>
+<p>Let’s explore how changing the size affects the output.
+Below is a code snippet with <code class="docutils literal notranslate"><span class="pre">config(width=100,</span> <span class="pre">height=100,</span> <span class="pre">...)</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">image_size_1.py</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span><span class="n">circle</span><span class="p">(</span>
 <span class="linenos"> 5</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
 <span class="linenos"> 6</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
@@ -207,18 +301,19 @@ They will be used as maximum shown coordinate of drawing objects.</p>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id6">
+<p>Executing this code generates the following image:</p>
+<figure class="align-center" id="id10">
 <a class="with-border reference internal image-reference" href="../../../_images/image_size_1.png"><img alt="../../../_images/image_size_1.png" class="with-border" src="../../../_images/image_size_1.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_size_1.png</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">image_size_1.png</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>If you want to draw items in big coordinate, just set big value.</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">image_size_2.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<p>Now, let’s adjust the size to <code class="docutils literal notranslate"><span class="pre">config(width=200,</span> <span class="pre">height=200,</span> <span class="pre">...)</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">image_size_2.py</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span><span class="n">circle</span><span class="p">(</span>
 <span class="linenos"> 5</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
 <span class="linenos"> 6</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
@@ -229,15 +324,18 @@ They will be used as maximum shown coordinate of drawing objects.</p>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id8">
+<p>This change results in a new image:</p>
+<figure class="align-center" id="id12">
 <a class="with-border reference internal image-reference" href="../../../_images/image_size_2.png"><img alt="../../../_images/image_size_2.png" class="with-border" src="../../../_images/image_size_2.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_size_2.png</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">image_size_2.png</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>If you want to wide image, make width larger than height.</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">image_size_3.py</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<p>For wider images, increase the width relative to the height.
+You can either increase the width or decrease the height.
+In the following example, we set the canvas size to full HD (1920x1080):</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">image_size_3.py</span><a class="headerlink" href="#id13" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1080</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -251,24 +349,23 @@ They will be used as maximum shown coordinate of drawing objects.</p>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id10">
+<p>This produces the image below:</p>
+<figure class="align-center" id="id14">
 <a class="with-border reference internal image-reference" href="../../../_images/image_size_3.png"><img alt="../../../_images/image_size_3.png" class="with-border" src="../../../_images/image_size_3.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_size_3.png</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">image_size_3.png</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p><cite>config()</cite> will keep previous state if you don’t provide its arg.
-In this case, canvas will keep its width and height 100 after calling above settings.
-arg color accepts text and RGB.
-alpha support 0.0(completely transparent) ~ 1.0(no transparency).</p>
+<p>When setting the size, using simple values such as 50, 100, 150, 200 makes mathematical calculations easier.
+It’s more challenging to compute half or quarter values of 1920 compared to 100.</p>
 </section>
-<section id="dpi-and-resolution">
-<h2>DPI and resolution<a class="headerlink" href="#dpi-and-resolution" title="Link to this heading"></a></h2>
-<p>DPI (Dot Per Inch) is important concept of drawlib’s rendering quality.
-But before understanding DPI, you need to understand real implementation of drawlib’s canvas size.</p>
-<p>In previous examples, you configured <code class="docutils literal notranslate"><span class="pre">config(width=100,</span> <span class="pre">height=100)</span></code> and <code class="docutils literal notranslate"><span class="pre">config(width=200,</span> <span class="pre">height=200)</span></code>.
-You might guess big width/height make big image. It means high resolution.
-But it is not truth. Let’s check image size.</p>
+<section id="configuring-dpi-and-resolution">
+<h3>Configuring DPI and Resolution<a class="headerlink" href="#configuring-dpi-and-resolution" title="Link to this heading"></a></h3>
+<p>Understanding DPI (Dots Per Inch) is crucial for grasping drawlib’s rendering quality.
+However, before delving into DPI, it’s essential to comprehend the actual implementation of drawlib’s canvas size.</p>
+<p>In the previous examples, you configured <code class="docutils literal notranslate"><span class="pre">config(width=100,</span> <span class="pre">height=100)</span></code>, <code class="docutils literal notranslate"><span class="pre">config(width=200,</span> <span class="pre">height=200)</span></code> and <code class="docutils literal notranslate"><span class="pre">config(width=1920,</span> <span class="pre">height=1080)</span></code>.
+One might assume that larger width and height values result in higher resolution images.
+However, let’s check the actual image sizes:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ file image_size_1.png
 image_size_1.png: PNG image data, 1000 x 1000, 8-bit/color RGBA, non-interlaced
 
@@ -279,25 +376,19 @@ $ file image_size_3.png
 image_size_3.png: PNG image data, 1000 x 562, 8-bit/color RGBA, non-interlaced
 </pre></div>
 </div>
-<p>As you can see, all image’s pixel width is 1000.</p>
-<p>drawlib uses Matplotlib for its drawing system.
-At matplot lib, width/height 1 means 1 inch.</p>
-<p>DPI means <strong>how many dots exist in 1 inch</strong>.
-So, matplotlib’s width 10 and DPI 100 means, 10inch * 100dots. 1000 pixel width.</p>
-<p>drawlib’s width is used for its coordinate system.
-drawlib’s width is converted to matplotlib’s width 10.
-So, <code class="docutils literal notranslate"><span class="pre">config(width=100,</span> <span class="pre">height=100)</span></code> and <code class="docutils literal notranslate"><span class="pre">config(width=200,</span> <span class="pre">height=200)</span></code> has no big difference on point of matplotlib’s drawing system.</p>
-<p>Regarding 3rd example <code class="docutils literal notranslate"><span class="pre">config(width=1920,</span> <span class="pre">height=1080)</span></code>, drawlib change 1920 to 10.
-And it try to keep original aspect and calculate matplotlib’s height 5.625 (simple math. <code class="docutils literal notranslate"><span class="pre">1080</span> <span class="pre">/</span> <span class="pre">1920</span> <span class="pre">*</span> <span class="pre">10</span></code>).
-And then, the pixel size becomes <code class="docutils literal notranslate"><span class="pre">1000</span> <span class="pre">x</span> <span class="pre">562</span></code>.</p>
-<p>Keeping same matplotlib width is important for consistent size of text and image.
-Text size 10 is looks different in 500px and 1000px images.
-So, drawlib converts its width to matplotlib’s width 10.</p>
-<p>To export good resolution image, you can configure DPI.
-10 inch x 100 DPI is 1000px. But 10 inch x 200 DPI is 2000px.
-Let’s check it in below example.</p>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">image_dpi_1.py</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
+<p>As observed, all images have a pixel width of 1000.</p>
+<p>DPI refers to the density of dots within one inch.
+The default DPI value in drawlib is <code class="docutils literal notranslate"><span class="pre">100</span></code>, and the canvas width is always considered to be <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">inches</span></code>.
+Hence, the 1000-pixel width arises from 10 inches x 100 DPI.</p>
+<p>The first and second images have heights equal to their widths, resulting in a height of 1000 pixels.
+However, the third image (<code class="docutils literal notranslate"><span class="pre">image_size_3.png</span></code>) has a width of 1920 and a height of 1080.
+In this case, 1920 correspond to 10 inches, while 1080 equate to 5.625 inches.
+Then, 562 pixel height.</p>
+<p>To export high-resolution images, you can adjust the DPI setting.
+For instance, 10 inches x 100 DPI equals 1000 pixels, whereas 10 inches x 200 DPI yields 2000 pixels.
+Let’s demonstrate this with an example:</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">image_dpi_1.py</span><a class="headerlink" href="#id15" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -311,30 +402,32 @@ Let’s check it in below example.</p>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id12">
+<p>Executing this code generates the following image:</p>
+<figure class="align-center" id="id16">
 <a class="with-border reference internal image-reference" href="../../../_images/image_dpi_1.png"><img alt="../../../_images/image_dpi_1.png" class="with-border" src="../../../_images/image_dpi_1.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_dpi_1.png</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+<p><span class="caption-text">image_dpi_1.png</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+<p>It has this pixel size.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ file image_dpi_1.png
 image_dpi_1.png: PNG image data, 2000 x 2000, 8-bit/color RGBA, non-interlaced
 </pre></div>
 </div>
-<p>After we double DPI, we can get 2 times high resolution data.
-But text size is almost same to when we use DPI 100.</p>
+<p>Doubling the DPI results in a twofold increase in resolution.
+However, it’s important to note that higher DPI settings can slow down image generation and require more disk space.
+Hence, setting excessively large values such as <code class="docutils literal notranslate"><span class="pre">dpi=1000</span></code> might not be advisable in typical scenarios.</p>
 </section>
-<section id="background-color-and-alpha">
-<h2>Background color and alpha<a class="headerlink" href="#background-color-and-alpha" title="Link to this heading"></a></h2>
-<p>drawlib has these default regarding background.</p>
-<ul class="simple">
-<li><p>color: white</p></li>
-<li><p>alpha: 1.0 (totaly not transparent)</p></li>
-</ul>
-<p>We can configure them via <code class="docutils literal notranslate"><span class="pre">config()</span></code> command.
-Let’s take a look example.</p>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">image_background_1.py</span><a class="headerlink" href="#id13" title="Link to this code"></a></div>
+<section id="configuring-background-color-and-alpha">
+<h3>Configuring Background Color and Alpha<a class="headerlink" href="#configuring-background-color-and-alpha" title="Link to this heading"></a></h3>
+<p>There are situations where you may want to customize the background color of your illustrations, such as placing a black background image on a black background page.
+In such cases, you can configure the background color and alpha using the <code class="docutils literal notranslate"><span class="pre">config()</span></code> function.</p>
+<p>By default, drawlib’s background color depends on the adopted theme, but typically, it is white with an alpha value of 1.0 (completely opaque).
+You can adjust these settings by changing the theme’s default background color and alpha.
+However, it’s much simpler and takes precedence to configure them directly using <code class="docutils literal notranslate"><span class="pre">config()</span></code>.</p>
+<p>Let’s look at an example:</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">image_background_1.py</span><a class="headerlink" href="#id17" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos">2</span>
 <span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Orange</span><span class="p">,</span> <span class="n">background_alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -343,67 +436,93 @@ Let’s take a look example.</p>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id14">
+<p>In this example, we’ve configured the background color to orange with an alpha value of 0.2.
+Executing this code generates the following output:</p>
+<figure class="align-center" id="id18">
 <a class="with-border reference internal image-reference" href="../../../_images/image_background_1.png"><img alt="../../../_images/image_background_1.png" class="with-border" src="../../../_images/image_background_1.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_background_1.png</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text">image_background_1.png</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you specified, background color becomes orange.
-And transparency is 20%.</p>
-<p>As you might know, few image format such as jpg can’t hold alpha.
-drawlib might not warn you, but generate non-transparent image to you.</p>
+<p>If you wish to create a completely transparent background image, you can set the background color to <code class="docutils literal notranslate"><span class="pre">Colors.Transparent</span></code> or set the alpha value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>It’s important to note that some image formats, such as JPG, do not support alpha values.
+Therefore, a non-transparent JPG file is not a bug; it’s a limitation of the file format.</p>
+</section>
 </section>
 <section id="save">
-<h2>Save<a class="headerlink" href="#save" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">save()</span></code> function will save canvas to image file.</p>
-<p>If you don’t provide args, it will save PNG image which has script file’s name.
-For example, calling <code class="docutils literal notranslate"><span class="pre">save()</span></code> at script <code class="docutils literal notranslate"><span class="pre">myimage.py</span></code> will generate <code class="docutils literal notranslate"><span class="pre">myimage.png</span></code>.
-I recommend this because</p>
+<h2>save()<a class="headerlink" href="#save" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">save()</span></code> function is used to save the canvas as an image file.
+If no arguments are provided, it defaults to saving a PNG image with the same name as the script file.
+For instance, calling save() in a script named <code class="docutils literal notranslate"><span class="pre">myimage.py</span></code> will generate <code class="docutils literal notranslate"><span class="pre">myimage.png</span></code>.</p>
+<p>We recommend using no arguments for save() because:</p>
 <ul class="simple">
-<li><p>You can understand which script make which image easily.</p></li>
-<li><p>PNG is OK for normal situation.</p></li>
+<li><p>It helps in easily understanding which script generated which image.</p></li>
+<li><p>PNG format suffices for normal situations.</p></li>
 </ul>
-<p>But you can provide</p>
-<ul class="simple">
-<li><p>file name</p></li>
-<li><p>extensions (jpg, png, webp)</p></li>
-</ul>
-<p>to this function.
-On that time, image will be saved with the name and extensions.
-Here is a example.</p>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">image_save.py</span><a class="headerlink" href="#id15" title="Link to this code"></a></div>
+<section id="changing-the-saving-filename">
+<h3>Changing the Saving Filename<a class="headerlink" href="#changing-the-saving-filename" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">save()</span></code> function offers optional arguments.
+If you wish to save the image with a specific name, you can use the <code class="docutils literal notranslate"><span class="pre">file</span></code> option.
+Here’s an example:</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">image_save_1.py</span><a class="headerlink" href="#id19" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">background_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="linenos">5</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;myimage.webp&quot;</span><span class="p">)</span>
-<span class="linenos">6</span><span class="n">save</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;jpg&quot;</span><span class="p">)</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">save</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">&quot;myimage.webp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<figure class="align-center" id="id16">
+<p>Executing this code generates the following image:</p>
+<figure class="align-center" id="id20">
 <a class="with-border reference internal image-reference" href="../../../_images/myimage.webp"><img alt="../../../_images/myimage.webp" class="with-border" src="../../../_images/myimage.webp" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">myimage.webp</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">myimage.webp</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id17">
-<a class="with-border reference internal image-reference" href="../../../_images/image_save.jpg"><img alt="../../../_images/image_save.jpg" class="with-border" src="../../../_images/image_save.jpg" style="width: 300px;" /></a>
+<p>In this case, you didn’t specify a file path.
+In such situations, the image will be created in the same directory as the script file.
+Providing a file path works as follows:</p>
+<ul class="simple">
+<li><p>Absolute path: Saves the image normally.</p></li>
+<li><p>Relative path: Saves the image relative to the script file’s directory.</p></li>
+</ul>
+<p>Normally, Python handles relative paths from the entry point (where the program is started).
+However, drawlib handles relative paths from the script file’s directory.
+If you prefer the traditional Python file path behavior, please convert the relative path to an absolute path first, then provide it to the save() function.
+It will work as you expect.</p>
+</section>
+<section id="changing-the-saving-format">
+<h3>Changing the Saving Format<a class="headerlink" href="#changing-the-saving-format" title="Link to this heading"></a></h3>
+<p>If you want to save the image with the script file name but specify a file format other than PNG, the <code class="docutils literal notranslate"><span class="pre">format</span></code> option is useful.
+It behaves almost the same as save() without options, but you can specify the file format.
+Here’s an example:</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">image_save_2.py</span><a class="headerlink" href="#id21" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">save</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This code generate this file.</p>
+<figure class="align-center" id="id22">
+<a class="with-border reference internal image-reference" href="../../../_images/image_save_2.jpg"><img alt="../../../_images/image_save_2.jpg" class="with-border" src="../../../_images/image_save_2.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_save.jpg</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">image_save_2.jpg</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Please be careful.
-All file path at drawlib is relative to script file.
-Normal python behavior is entry point of the program (where you call python).</p>
-<p>This behavior is benefitial for achieving create lots of images on documentation etc.
-Where you want to use the illustration, you write the illustration code.
-Easy to organize images.</p>
-<p>If you prefer traditional python file path, please change relational path to absolute path first.
-Then provide it to <code class="docutils literal notranslate"><span class="pre">save()</span></code> function.
-It works as your wish.</p>
+<p>Drawlib version 0.1 supports the following formats:</p>
+<ul class="simple">
+<li><p>PNG</p></li>
+<li><p>JPG</p></li>
+<li><p>WEBP</p></li>
+<li><p>PDF</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -411,7 +530,7 @@ It works as your wish.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../../introductions/lib_design/doc.html" class="btn btn-neutral float-left" title="Drawlib Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../introductions/quick_start/doc.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../coordinate_align/doc.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,6 +1,6 @@
-===================
-Bulk image build
-===================
+======================
+Building many images
+======================
 
 drawlib is designed for creating lots of illust for ducumentation etc.
 On those kind of situation, these feature is very useful.

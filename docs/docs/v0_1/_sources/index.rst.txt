@@ -58,7 +58,6 @@ Other version docs
    manual/foundations/theme/doc
    manual/foundations/icon/doc
    manual/foundations/image/doc
-   manual/foundations/pimage/doc
    manual/foundations/line/doc
    manual/foundations/line_style/doc
    manual/foundations/shape/doc
@@ -71,9 +70,10 @@ Other version docs
    :caption: Advanced Topics:
 
    manual/advanced_topics/settings/doc
-   manual/advanced_topics/smart_args/doc
+   manual/foundations/dimage/doc
    manual/advanced_topics/color/doc
    manual/advanced_topics/font/doc
+   manual/advanced_topics/smartargs_sourcecode/doc
    manual/advanced_topics/programming/doc
    manual/advanced_topics/many_files/doc
    manual/advanced_topics/api_version/doc

@@ -1,5 +1,5 @@
 ===============
-Draw Image
+Drawing Image
 ===============
 
 We use function ``image()`` for drawing images.

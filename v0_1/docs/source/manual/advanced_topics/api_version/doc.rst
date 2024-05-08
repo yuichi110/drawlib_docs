@@ -1,6 +1,6 @@
-=========================
-Backward Compatibility
-=========================
+==================
+Using Old API
+==================
 
 Software library has dillenma.
 That is

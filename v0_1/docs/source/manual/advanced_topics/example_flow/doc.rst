@@ -1,6 +1,6 @@
-=========================
-drawlib for writing docs
-=========================
+===========================
+Example of Doc Build Flow
+===========================
 
 Many documentation requires illustration images.
 Documentation text is managed by version control system especially Git normally.

@@ -62,6 +62,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../theme/doc.html">Applying Official Themes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icon</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Drawing Image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#image">image()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imagestyle">ImageStyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passing-image-objects">Passing image objects</a></li>
 </ul>
 </li>
@@ -118,8 +120,20 @@
              
   <section id="drawing-image">
 <h1>Drawing Image<a class="headerlink" href="#drawing-image" title="Link to this heading"></a></h1>
+<p>Drawlib uses function <code class="docutils literal notranslate"><span class="pre">image()</span></code> for drawing image.
+You can specify</p>
+<ul class="simple">
+<li><p>coordinate</p></li>
+<li><p>size</p></li>
+<li><p>what you draw</p></li>
+<li><p>styling</p></li>
+</ul>
+<p>In this doc, we explain basics of function first.
+Then styling and types of original image datas.</p>
+<section id="image">
+<h2>image()<a class="headerlink" href="#image" title="Link to this heading"></a></h2>
 <p>We use function <code class="docutils literal notranslate"><span class="pre">image()</span></code> for drawing images.
-It takes these arguments.</p>
+This function takes these arguments.</p>
 <ul class="simple">
 <li><p>xy</p></li>
 <li><p>width</p></li>
@@ -151,8 +165,11 @@ Execute the code.</p>
 <p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see, xy becomes center of image by default.
-It can be changed by specifing style with <code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code>.
+<p>As you can see, xy becomes center of image by default.</p>
+</section>
+<section id="imagestyle">
+<h2>ImageStyle<a class="headerlink" href="#imagestyle" title="Link to this heading"></a></h2>
+<p>Drawing image can be styled with data class <code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code>.
 ImageStyle has these attributes.</p>
 <ul class="simple">
 <li><p>halign: Horizontal Align</p></li>
@@ -161,6 +178,8 @@ ImageStyle has these attributes.</p>
 <li><p>lcolor: Line color</p></li>
 <li><p>lstyle: Line style</p></li>
 </ul>
+<p>Let’s check image styling with example.
+Here is a code which specify stylings.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">image2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -191,23 +210,67 @@ ImageStyle has these attributes.</p>
 </pre></div>
 </div>
 </div>
-<p>We draw 3 images which has different xy and width.
-Execute the code.</p>
+<p>The first image changes alignment.
+Default alignment is center,center, but left,bottom might be useful sometimes.
+Changing image border line at 2nd example.
+Default is no border.
+The 3rd example changes angle of image.
+Executing code generates this output.</p>
 <figure class="align-center" id="id4">
 <a class="with-border reference internal image-reference" href="../../../_images/image22.png"><img alt="../../../_images/image22.png" class="with-border" src="../../../_images/image22.png" style="width: 500px;" /></a>
 <figcaption>
 <p><span class="caption-text">image2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+<p>ImageStyle is not so difficult.</p>
+</section>
 <section id="passing-image-objects">
 <h2>Passing image objects<a class="headerlink" href="#passing-image-objects" title="Link to this heading"></a></h2>
-<p>Function <code class="docutils literal notranslate"><span class="pre">image()</span></code> takes mandatory option image.
-We use file path at last example, but also able to use image objects.</p>
+<p>Function <code class="docutils literal notranslate"><span class="pre">image()</span></code> takes mandatory arg <code class="docutils literal notranslate"><span class="pre">image</span></code>.
+We use file path at previous examples, but also able to use these image objects.</p>
 <ul class="simple">
-<li><p>Dimage</p></li>
-<li><p>PIL.Image.Image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dimage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></p></li>
 </ul>
-<p>Former is our image utility class and latter is famous Image library.</p>
+<p>Former is our image utility class and latter is famous PIL(Pillow) library.
+We mention detail of Dimage at the page, but we show example of how to use it on function image().
+Please check PIL by yourself if you want to use.</p>
+<p>Here is a example of how to use them.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">PIL.Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">dimage</span> <span class="o">=</span> <span class="n">Dimage</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dimage</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">dutil</span><span class="o">.</span><span class="n">get_script_relative_path</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">pil_image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">pil_image</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Both instances are passed to arg <code class="docutils literal notranslate"><span class="pre">image</span></code>.
+Function <code class="docutils literal notranslate"><span class="pre">image()</span></code> will handle them correctly.</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">dutil.get_script_relative_path()</span></code> for just getting correct file path.
+Drawlib’s function always use path <strong>relative path from the script path</strong>.
+However normal python code use path from entry point(where you start Python).
+This utility function changes the python native path rule to drawlib’s path rule.</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image31.png"><img alt="../../../_images/image31.png" class="with-border" src="../../../_images/image31.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">image3.png</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As you can see all 3 arg makes same drawing output.
+If you don’t modify image, there are no reason to use Dimage and PIL image.
+They are useful when you want to apply effect to images.</p>
 </section>
 </section>
 

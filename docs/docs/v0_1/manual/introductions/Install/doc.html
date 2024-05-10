@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../about/doc.html">About drawlib</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-policy">Release policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-environment">Virtual Environment</a></li>
 </ul>
 </li>
@@ -151,6 +152,40 @@ sphinx-rtd-theme == 2.0.*
 </div>
 <p>As you can see, the patch version is not specified. So bug fixes will be updated, but there will be no API change.
 We recommend not only specifying drawlib but also the version of the documentation building tool (sphinx, etc.).</p>
+</section>
+<section id="release-policy">
+<h2>Release policy<a class="headerlink" href="#release-policy" title="Link to this heading"></a></h2>
+<p>Drawlib’s release is as follows</p>
+<ul class="simple">
+<li><p>0.1.* : private alpha release</p></li>
+<li><p>0.2.* : public beta release</p></li>
+<li><p>0.n.* : public releases</p></li>
+<li><p>n.m.* : matured public releases</p></li>
+</ul>
+<p>After public release 0.3, each version have devepment releases. such as</p>
+<ul class="simple">
+<li><p>0.3.0.dev1</p></li>
+<li><p>0.3.0.dev2</p></li>
+<li><p>0.3.0.dev&lt;n&gt;</p></li>
+</ul>
+<p>As you can see, patch version is 0 and having <code class="docutils literal notranslate"><span class="pre">dev&lt;n&gt;</span></code> after that.
+It is under-development testing releases for library developer and power users.
+You can’t install them via pip normally.
+But able to install with specifying exact version. Like this.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install drawlib == 0.3.0.dev1
+</pre></div>
+</div>
+<p>After this under-development phase ends, release official version such as “0.3.1”.</p>
+<p>After drawlib matured, we move to version “1.0.*” and later.
+Here is a release plan image.</p>
+<figure class="align-center" id="id1">
+<a class="with-border reference internal image-reference" href="../../../_images/image16.png"><img alt="../../../_images/image16.png" class="with-border" src="../../../_images/image16.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">image1.png</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Unfortunately, we are not planning to publish older new fix version.
+It means, after releasing version <code class="docutils literal notranslate"><span class="pre">0.n.0</span></code>, we will not provide new patch release <code class="docutils literal notranslate"><span class="pre">0.&lt;n-1&gt;.*</span></code>.</p>
 </section>
 <section id="virtual-environment">
 <h2>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h2>

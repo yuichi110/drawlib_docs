@@ -45,6 +45,46 @@ And install/update them using it.
 As you can see, the patch version is not specified. So bug fixes will be updated, but there will be no API change. 
 We recommend not only specifying drawlib but also the version of the documentation building tool (sphinx, etc.).
 
+Release policy
+=================
+
+Drawlib's release is as follows
+
+* 0.1.* : private alpha release
+* 0.2.* : public beta release
+* 0.n.* : public releases
+* n.m.* : matured public releases
+
+After public release 0.3, each version have devepment releases. such as
+
+* 0.3.0.dev1
+* 0.3.0.dev2
+* 0.3.0.dev<n>
+
+As you can see, patch version is 0 and having ``dev<n>`` after that.
+It is under-development testing releases for library developer and power users.
+You can't install them via pip normally.
+But able to install with specifying exact version. Like this.
+
+.. code-block:: none
+
+   $ pip install drawlib == 0.3.0.dev1
+
+After this under-development phase ends, release official version such as "0.3.1".
+
+After drawlib matured, we move to version "1.0.*" and later.
+Here is a release plan image.
+
+.. figure:: image1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image1.png
+
+Unfortunately, we are not planning to publish older new fix version.
+It means, after releasing version ``0.n.0``, we will not provide new patch release ``0.<n-1>.*``.
+
 Virtual Environment
 =====================
 

@@ -63,7 +63,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icon</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Drawing Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../line/doc.html">Drawing line</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Line and Arrow Style</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Line and Arrow Style</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linestyle">LineStyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linearrowstyle">LineArrowStyle</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../shape/doc.html">Drawing Shape</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shape_style/doc.html">Shape Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../text/doc.html">Drawing Text</a></li>
@@ -115,6 +119,135 @@
              
   <section id="line-and-arrow-style">
 <h1>Line and Arrow Style<a class="headerlink" href="#line-and-arrow-style" title="Link to this heading"></a></h1>
+<p>All functions which draw line takes style option as argument.
+We supports these 2 style class.</p>
+<ul class="simple">
+<li><p>LineStyle</p></li>
+<li><p>LineArrowStyle</p></li>
+</ul>
+<p>As there name shows, LineStyle is used for drawing line.
+And LineArowStyle is used for drawing line which has arrow head.</p>
+<p>We have function <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> too.
+But it is thick and bold arrow shape. Not an arrow line.</p>
+<section id="linestyle">
+<h2>LineStyle<a class="headerlink" href="#linestyle" title="Link to this heading"></a></h2>
+<p>LineStyle has these attributes.</p>
+<ul class="simple">
+<li><p>width: Line width. float value</p></li>
+<li><p>color: Line color. RGB (0~255, 0~255, 0~255) or RGBA (0~255, 0~255, 0~255, 0~1.0). You can use Color class</p></li>
+<li><p>alpha: Line alpha. 0.0 ~ 1.0. 0 is totally transparent</p></li>
+<li><p>style: Line style, such as solid, dash etc</p></li>
+</ul>
+<p>Let’s check by examples.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;no style&quot;</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="linenos"> 7</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="s2">&quot;width: 5&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="linenos"> 9</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="s2">&quot;color: Red&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">))</span>
+<span class="linenos">11</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="s2">&quot;alpha: 0.2&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;style: solid</span><span class="se">\n</span><span class="s2">(default)&quot;</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;solid&quot;</span><span class="p">))</span>
+<span class="linenos">16</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="s2">&quot;style: dashed&quot;</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">))</span>
+<span class="linenos">18</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="s2">&quot;style: dotted&quot;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">))</span>
+<span class="linenos">20</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="s2">&quot;style: dashdot&quot;</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashdot&quot;</span><span class="p">))</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>We change style 1 by 1.
+But you can change style at same time such as <code class="docutils literal notranslate"><span class="pre">LineStyle(color=Colors.Red,</span> <span class="pre">width=5,</span> <span class="pre">style=&quot;dashed&quot;)</span></code>.</p>
+<figure class="align-center" id="id2">
+<a class="with-border reference internal image-reference" href="../../../_images/image14.png"><img alt="../../../_images/image14.png" class="with-border" src="../../../_images/image14.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can see line styles</p>
+</section>
+<section id="linearrowstyle">
+<h2>LineArrowStyle<a class="headerlink" href="#linearrowstyle" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">LineArrowStyle</span></code> is almost similar to <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>.
+But it has few additional attributed and having change of original attribute.
+It has these attributes.</p>
+<ul class="simple">
+<li><p>lwidth: Line width</p></li>
+<li><p>lstyle: Line style</p></li>
+<li><p>hstyle: Arrow head style</p></li>
+<li><p>hscale: Arrow head scale (size)</p></li>
+<li><p>color: Arrow line color</p></li>
+<li><p>alpha: Arrow line alpha</p></li>
+</ul>
+<p>To distinguish whether line and arrow head parameter, few attribute starts from <code class="docutils literal notranslate"><span class="pre">l(line)</span></code> and others starts from <code class="docutils literal notranslate"><span class="pre">h(head)</span></code>.
+<code class="docutils literal notranslate"><span class="pre">hstyle</span></code> can have these values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-&gt;:</span></code>: Arrow at end point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;-:</span></code>: Arrow at start point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;-&gt;:</span></code>: Arrow at both start and end point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-|&gt;:</span></code>: Filled arrow at end point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;|-:</span></code>: Filled arrow at start point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;|-|&gt;:</span></code>: Filled arrow at both start and end point.</p></li>
+</ul>
+<p>Let’s check by example.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">image2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;LineArrowStyle()&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">))</span>
+<span class="linenos"> 6</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">())</span>
+<span class="linenos"> 7</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="s2">&quot;width: 5&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="linenos"> 9</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="s2">&quot;color: Red&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">))</span>
+<span class="linenos">11</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="s2">&quot;alpha: 0.2&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="linenos">13</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="s2">&quot;lstyle: dashed&quot;</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">lstyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">))</span>
+<span class="linenos">15</span><span class="n">text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="s2">&quot;hscale: 50</span><span class="se">\n</span><span class="s2">(default: 20)&quot;</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hscale</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;hstyle: -&gt;</span><span class="se">\n</span><span class="s2">(default)&quot;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">))</span>
+<span class="linenos">20</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="s2">&quot;style: &lt;-&quot;</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;&lt;-&quot;</span><span class="p">))</span>
+<span class="linenos">22</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="s2">&quot;style: &lt;-&gt;&quot;</span><span class="p">)</span>
+<span class="linenos">23</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;&lt;-&gt;&quot;</span><span class="p">))</span>
+<span class="linenos">24</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="s2">&quot;style: -|&gt;&quot;</span><span class="p">)</span>
+<span class="linenos">25</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">))</span>
+<span class="linenos">26</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="s2">&quot;style: &lt;|-&quot;</span><span class="p">)</span>
+<span class="linenos">27</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;&lt;|-&quot;</span><span class="p">))</span>
+<span class="linenos">28</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="s2">&quot;style: &lt;|-|&gt;&quot;</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">line</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;&lt;|-|&gt;&quot;</span><span class="p">))</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>We change style 1 by 1.
+But you can change style at same time such as <code class="docutils literal notranslate"><span class="pre">LineArrowStyle(color=Colors.Red,</span> <span class="pre">lwidth=5,</span> <span class="pre">lstyle=&quot;dashed&quot;,</span> <span class="pre">hstyle=&quot;&lt;-&gt;&quot;)</span></code>.</p>
+<figure class="align-center" id="id4">
+<a class="with-border reference internal image-reference" href="../../../_images/image24.png"><img alt="../../../_images/image24.png" class="with-border" src="../../../_images/image24.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">image2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>To draw default arrow line, please pass <code class="docutils literal notranslate"><span class="pre">LineArrowStyle()</span></code> to line.
+If you don’t specify style, normal line will be drawn.</p>
+</section>
 </section>
 
 

@@ -55,7 +55,6 @@ Other version docs
 
    manual/foundations/canvas/doc
    manual/foundations/coordinate_align/doc
-   manual/foundations/theme/doc
    manual/foundations/icon/doc
    manual/foundations/image/doc
    manual/foundations/line/doc
@@ -63,19 +62,21 @@ Other version docs
    manual/foundations/shape/doc
    manual/foundations/shape_style/doc
    manual/foundations/text/doc
-   manual/foundations/text_style/doc
 
 .. toctree::
    :maxdepth: 2
    :caption: Advanced Topics:
 
-   manual/advanced_topics/settings/doc
-   manual/foundations/dimage/doc
+   manual/advanced_topics/theme_official/doc
+   manual/advanced_topics/theme_custom/doc
    manual/advanced_topics/color/doc
    manual/advanced_topics/font/doc
-   manual/advanced_topics/smartargs_sourcecode/doc
+   manual/advanced_topics/dimage/doc
+   manual/advanced_topics/smartarts_sourcecode/doc
    manual/advanced_topics/programming/doc
    manual/advanced_topics/many_files/doc
+   manual/advanced_topics/debug/doc
+   manual/advanced_topics/settings/doc
    manual/advanced_topics/api_version/doc
    manual/advanced_topics/example_flow/doc
 

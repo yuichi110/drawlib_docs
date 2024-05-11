@@ -30,7 +30,7 @@ Within the for loop, we plot small circles from coordinates (0, 0) to (10, 10).
 Executing this code generates the following image:
 
 .. figure:: image_1.png
-    :width: 300
+    :width: 500
     :class: with-border
     :align: center
 
@@ -106,7 +106,7 @@ If we use alignment like ``(left, bottom)``, aligning items becomes complex.
 However, ``(center, center)`` is straightforward.
 
 .. figure:: image_3.png
-    :width: 300
+    :width: 500
     :class: with-border
     :align: center
 

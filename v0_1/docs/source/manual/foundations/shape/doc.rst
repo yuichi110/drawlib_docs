@@ -289,8 +289,8 @@ And draw visible line over it between specified angles.
 This function takes these arguments.
 
 * xy (tuple[float, float]): X, Y coordinate
-* radius (float): radius
-* width (float): width of donuts fill area
+* width (float): width underlying ellipse
+* height (float): height underlying ellipse
 * from_angle (float): arc starts
 * to_angle (float): arc ends
 * angle (float): rotate arc
@@ -316,6 +316,345 @@ Here is an output.
 
     image_arc1.png
 
+bubblespeech()
+-----------------
+
+chevron()
+-------------
+
+Function ``chevron()`` draws chevron.
+Not only specifying width and height, it specify left bottom corner angle by ``corner_angle``.
+The shape of chevron depends on this value.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* width (float): width underlying ellipse
+* height (float): height underlying ellipse
+* corner_angle (float): Left bottom corner angle.
+* mirror (bool): make chevron reverse horizontally
+* angle (float): rotate arc
+* style (ShapeStyle)
+* text (str): center text
+* textstyle (ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_chevron1.py
+   :language: python
+   :linenos:
+   :caption: image_chevron1.py
+
+Chevron's shape depends on ``corner_angle``.
+Right side chevron uses ``mirror`` option.
+If it is True, the chevron becomes horizontally reverse.
+Default is False.
+
+.. figure:: image_chevron1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_chevron1.png
+
+ellipse()
+-----------
+
+Function ``ellipse()`` draws ellipse.
+If width and height are same, it is almost same to ``circle()``.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* width (float): width of ellipse
+* height (float): height of ellipse
+* angle (float): rotate ellipse
+* style (ShapeStyle)
+* text (str): center text
+* textstyle (ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_ellipse1.py
+   :language: python
+   :linenos:
+   :caption: image_ellipse1.py
+
+This code makes this output.
+
+.. figure:: image_ellipse1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_ellipse1.png
+
+parallelogram()
+------------------
+
+Function ``parallelogram()`` draw parallelogram.
+It takes arguments ``corner_angle`` and it decide left bottom corner angle.
+Another option ``mirror`` reverse the shape horizontally.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* width (float): width of ellipse
+* height (float): height of ellipse
+* corner_angle (float): left bottom corner angle.
+* mirror (optional bool): reverse horizontally.
+* angle (float): rotate ellipse
+* style (ShapeStyle)
+* text (str): center text
+* textstyle (ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_parallelogram1.py
+   :language: python
+   :linenos:
+   :caption: image_parallelogram1.py
+
+This code makes this output.
+
+.. figure:: image_parallelogram1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_parallelogram1.png
+
+
+rectangle()
+-------------
+
+Function ``rectangle()`` draws rectangle.
+Not only specifying width and height, it can specify corner R.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* width (float): width underlying ellipse
+* height (float): height underlying ellipse
+* r (float): corner R.
+* angle (float): rotate arc
+* style (ShapeStyle)
+* text (str): center text
+* textstyle (ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_rectangle1.py
+   :language: python
+   :linenos:
+   :caption: image_rectangle1.py
+
+Default R is 0.
+So, left side rectangle which doesn't specify ``r`` has no R.
+
+.. figure:: image_rectangle1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_rectangle1.png
+
+rhombus()
+-----------
+
+Function ``rhombus()`` draws rhombus.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* width (float): width 
+* height (float): height
+* angle (optional float): rotate arc
+* style (optional ShapeStyle)
+* text (optional str): center text
+* textstyle (optional ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_rhombus1.py
+   :language: python
+   :linenos:
+   :caption: image_rhombus1.py
+
+It generate this output.
+
+.. figure:: image_rhombus1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_rectangle1.png
+
+trapezoid()
+-------------
+
+Function ``trapezoid()`` draws rhombus.
+As you know trapezoid has 2 different "bottom width" and "top width".
+And also, positioning of "top side (or bottom side)" has variations.
+So, this function takes 3 special arguments ``bottom_width``, ``top_width`` and ``top_start``.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* height (float): height
+* bottom_width (float): width of bottom side 
+* top_width (float): width of top side 
+* top_start (optional float): where top side start. default makes top side center.
+* angle (optional float): rotate arc
+* style (optional ShapeStyle)
+* text (optional str): center text
+* textstyle (optional ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_trapezoid1.py
+   :language: python
+   :linenos:
+   :caption: image_trapezoid1.py
+
+First example doesn't specify argument ``top_start``.
+So, top side becomes center.
+When top side is bigger rather than bottom side, bottom side becomes center.
+
+You can specify where top side starts.
+The second example set 0 to ``top_start``. So, top side starts from x where bottom side start.
+
+.. figure:: image_trapezoid1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_trapezoid1.png
+
+triangle()
+------------
+
+Function ``triangle()`` draws triangle.
+It has optional argument ``topvertex_xpos``.
+It defines where top vertex is pointed.
+If you didn't specify it, isosceles triangle is drawn.
+It means x of top vertex becomes center of width.
+
+This function takes these arguments.
+
+* xy (tuple[float, float]): X, Y coordinate
+* width (float): width of bottom side.
+* height (float): height 
+* topvertex_xpos (optional float): where top side vertex is pointed horizontally.
+* angle (optional float): rotate arc
+* style (optional ShapeStyle)
+* text (optional str): center text
+* textstyle (optional ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_triangle1.py
+   :language: python
+   :linenos:
+   :caption: image_triangle1.py
+
+First example doesn't specify argument ``topvertex_xpos``.
+So, top vertex becomes center. And it makes triangle isosceles.
+
+You can specify where top vertex is pointed.
+The second example set 0 to ``topvertex_xpos``. So, top vertex's x is set to where bottom side start.
+
+.. figure:: image_triangle1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_triangle1.png
+
+In this example, inner text is drawn on center of right triangle.
+And it is out of shape.
+In these situation you can move where text is drawn by specifying attribute ``xy_shift`` of ``ShapeTextStyle``.
+We will explain it at shape style document.
 
 Draw Other Type of Shapes
 ============================
+
+arrow()
+---------
+
+Function ``arrow()`` draws arrow shape.
+If you want to draw arrow line, please use function ``line()`` and related ones with style ``LineArrowStyle``.
+
+Arrow has its original positioning method which specify starting point ``xy1`` and end point ``xy2`` which is similar to line.
+And also, you can specify arrow tail and head size.
+
+This function takes these arguments.
+
+* xy1 (tuple[float, float]): Start point
+* xy2 (tuple[float, float]): End point
+* tail_width (float): Tail (not arrow head) width
+* head_width (float): Arrow head width
+* head_length (float): Arrow head length
+* head_style (optional str): Arrow head style
+* style (optional ShapeStyle)
+* text (optional str): center text
+* textstyle (optional ShapeTextStyle)
+
+Argument ``head_style`` can specify arrow types.
+
+* ``"-|>"``: having head on end point
+* ``"<|-"``: having head on start point
+* ``"<|-|>"``: having head on both start and end points
+
+If you doesn't specify head style, end point is applied.
+Let's explore two examples.
+
+.. literalinclude:: image_arrow1.py
+   :language: python
+   :linenos:
+   :caption: image_arrow1.py
+
+There are no argument angle on ``arrow()``.
+But you decide it by start and end points.
+
+.. figure:: image_arrow1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_arrow1.png
+
+``arrow()`` ignores alignment attributes ``halign`` and ``valign`` on ``ShapeStyle``.
+
+polygon()
+-----------
+
+Function ``polygon()`` draws shape which connects specified points.
+Start point and end point are connected automatically.
+
+This function takes these arguments.
+
+* xys (list[tuple[float, float]]): Polygon points
+* style (optional ShapeStyle)
+* text (optional str): center text
+* textstyle (optional ShapeTextStyle)
+
+Let's explore two examples.
+
+.. literalinclude:: image_polygon1.py
+   :language: python
+   :linenos:
+   :caption: image_polygon1.py
+
+Since ``polygon()`` draw shapes which connects points, there are no argument ``angle``.
+This example draws same shapes.
+However, that is achived by calculating points location by ourselves.
+
+.. figure:: image_polygon1.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    image_polygon1.png
+
+If you prefer drawing your shape which has normal coordinate system and angle feature, please consider using function ``shape()``.

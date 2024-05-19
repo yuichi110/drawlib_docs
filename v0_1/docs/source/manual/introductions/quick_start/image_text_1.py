@@ -7,7 +7,7 @@ text(
     (50, 20),
     "Hello drawlib. こんにちは。",
     angle=10,
-    style=TextStyle(font=Font.ROBOTO_REGULAR),
+    style=TextStyle(font=FontRoboto.ROBOTO_REGULAR),
 )
 text(
     (50, 30),

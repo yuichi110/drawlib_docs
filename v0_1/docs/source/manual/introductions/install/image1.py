@@ -9,8 +9,8 @@ def draw_versions(x: float, y: float, versions: list[str]):
 
     s1 = ShapeStyle(halign="left", valign="bottom")
     s2 = ShapeStyle(halign="left", valign="bottom", lstyle="dashed", fcolor=Colors.Transparent)
-    st1 = ShapeTextStyle(size=12, color=Colors.White, font=Font.ROBOTO_REGULAR)
-    st2 = ShapeTextStyle(size=12, font=Font.ROBOTO_REGULAR)
+    st1 = ShapeTextStyle(size=12, color=Colors.White, font=FontRoboto.ROBOTO_REGULAR)
+    st2 = ShapeTextStyle(size=12, font=FontRoboto.ROBOTO_REGULAR)
     for i, version in enumerate(versions):
         if len(versions) == 5 and i in [0, 1]:
             chevron(
@@ -36,7 +36,7 @@ def draw_versions(x: float, y: float, versions: list[str]):
 
 config(width=115, height=72)
 
-ts = TextStyle(size=16, font=Font.ROBOTO_REGULAR)
+ts = TextStyle(size=16, font=FontRoboto.ROBOTO_REGULAR)
 text((7, 6), "private\nα\nrelease", style=ts)
 text((7, 18), "public\nβ\nrelease", style=ts)
 text((7, 30), "public\nreleases", style=ts)
@@ -50,13 +50,13 @@ line((32, 9), (32, 14), style=LineArrowStyle())
 draw_versions(29, 15, ["0.2.1", "...", "0.2.n"])
 line((46, 21), (46, 26), style=LineArrowStyle())
 
-text((50, 34), "dev only", style=TextStyle(size=14, font=Font.ROBOTO_REGULAR))
+text((50, 34), "dev only", style=TextStyle(size=14, font=FontRoboto.ROBOTO_REGULAR))
 draw_versions(43, 27, ["0.3.0\ndev1", "...", "0.3.1", "...", "0.3.n"])
 line((74, 33), (74, 38), style=LineArrowStyle())
-text((74, 39.5), 'keep "0.n.m" till library matures', style=TextStyle(font=Font.ROBOTO_REGULAR))
+text((74, 39.5), 'keep "0.n.m" till library matures', style=TextStyle(font=FontRoboto.ROBOTO_REGULAR))
 line((74, 42), (74, 47), style=LineArrowStyle())
 
-text((78, 55), "dev only", style=TextStyle(size=14, font=Font.ROBOTO_REGULAR))
+text((78, 55), "dev only", style=TextStyle(size=14, font=FontRoboto.ROBOTO_REGULAR))
 draw_versions(71, 48, ["1.0.0\ndev1", "...", "1.0.1", "...", "1.0.n"])
 line((102, 54), (102, 59), style=LineArrowStyle())
 text((102, 62), "...")
@@ -70,6 +70,6 @@ arrow(
     head_style="-|>",
     style=ShapeStyle(lwidth=0),
     text="Time",
-    textstyle=ShapeTextStyle(color=Colors.White, size=14, font=Font.ROBOTO_REGULAR),
+    textstyle=ShapeTextStyle(color=Colors.White, size=14, font=FontRoboto.ROBOTO_REGULAR),
 )
 save()

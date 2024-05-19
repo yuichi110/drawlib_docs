@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme feature &mdash; drawlib 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Building many images" href="../build_many/doc.html" />
+    <link rel="prev" title="Drawing Text" href="../text/doc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            drawlib
+          </a>
+              <div class="version">
+                version: 0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../canvas/doc.html">Canvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coordinate_align/doc.html">Coordinate and Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Drawing Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../line/doc.html">Drawing line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../line_style/doc.html">Line and Arrow Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shape/doc.html">Drawing Shape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shape_style/doc.html">Shape Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text/doc.html">Drawing Text</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Theme feature</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#apply-official-themes">Apply Official Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theme-s-pre-defined-styles">Theme’s pre-defined styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-theme-styles">Accessing Theme Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fallback-mechanism-of-shapestyle-and-shapetextstyle">Fallback Mechanism of ShapeStyle and ShapeTextStyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linestyle-and-arrowstyle">LineStyle and ArrowStyle.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iconstyle-color">IconStyle color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#textshapestyle-s-white">TextShapeStyle’s white</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../build_many/doc.html">Building many images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/doc.html">Coding Best Practices</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/color/doc.html">Color Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/font/doc.html">Font Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/dimage/doc.html">Effecting Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/settings/doc.html">Library Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/api_version/doc.html">Using Old APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.html">drawlib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.v0_1.html">drawlib.v0_1 package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.v0_1.private.html">drawlib.v0_1.private package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.v0_1.private.core.html">drawlib.v0_1.private.core package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">drawlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Theme feature</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/manual/foundations/theme/doc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="theme-feature">
+<h1>Theme feature<a class="headerlink" href="#theme-feature" title="Link to this heading"></a></h1>
+<p>Drawlib posses theme feature.
+Default theme is applied automatically at start.
+It is a combination of styles.
+If you don’t specify style to drawing items, theme style will be applied.
+This feature will ease styling effort.</p>
+<p>They are key concept of drawlib’s theme system.</p>
+<ul class="simple">
+<li><p>Posses official themes. Default theme is <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p></li>
+<li><p>Each theme posses default styles for all drawing items.</p></li>
+<li><p>Few other styles can be used keywords.</p></li>
+<li><p>You can create your own theme</p></li>
+</ul>
+<p>Let’s check them before going details.</p>
+<section id="apply-official-themes">
+<h2>Apply Official Themes<a class="headerlink" href="#apply-official-themes" title="Link to this heading"></a></h2>
+<p>Here is a circle with default(not specify any) theme.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">image1_1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Executing this code yields the following image:</p>
+<figure class="align-center" id="id2">
+<a class="with-border reference internal image-reference" href="../../../_images/image1_1.png"><img alt="../../../_images/image1_1.png" class="with-border" src="../../../_images/image1_1.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">theme “default”</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As you can see, circle color is light blue.
+It is default style color.</p>
+<p>Let’s change theme to <code class="docutils literal notranslate"><span class="pre">gray</span></code>.
+And draw it again.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">image1_2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos">6</span><span class="n">clear</span><span class="p">(</span><span class="n">initialize_theme</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Changing theme is achieved by config option such as <code class="docutils literal notranslate"><span class="pre">config(theme=&lt;theme_name&gt;)</span></code>.
+It is a shortcut of theme handling function <code class="docutils literal notranslate"><span class="pre">dtheme.apply_official_theme(&lt;theme_name&gt;)</span></code>.
+Executing this code yields the following image:</p>
+<figure class="align-center" id="id4">
+<a class="with-border reference internal image-reference" href="../../../_images/image1_2.png"><img alt="../../../_images/image1_2.png" class="with-border" src="../../../_images/image1_2.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">theme “gray”</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can see gray circle.
+The difference of code is almost specifying theme and last line.
+Function <code class="docutils literal notranslate"><span class="pre">clear()</span></code> will initialize drawing state.
+But <code class="docutils literal notranslate"><span class="pre">theme</span></code> and <code class="docutils literal notranslate"><span class="pre">Dimage.cache</span></code> are exceptions.
+They will be keeped even if <code class="docutils literal notranslate"><span class="pre">clear()</span></code> is called.
+Think about it, you create your own styles and want to apply many image buildings.
+Clearing styles each drawing time might make let you having frastration.
+So, it doesn’t clear styles and caches.</p>
+<p>In this time, we want to change theme to default again.
+So, we delete not only drawing state, but also theme by calling <code class="docutils literal notranslate"><span class="pre">clear(clear_theme=True)</span></code>.</p>
+</section>
+<section id="theme-s-pre-defined-styles">
+<h2>Theme’s pre-defined styles<a class="headerlink" href="#theme-s-pre-defined-styles" title="Link to this heading"></a></h2>
+<p>Each drawing item uses theme’s default style.
+But you can apply optional styles easily by providing style name to drawing functions style args.
+Let’s check default theme’s other styles.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image1_3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">text_y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 5</span><span class="n">circle</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">text</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;no style&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">circle</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">text</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;blue&quot;&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">circle</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;green&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">circle</span><span class="p">((</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">text</span><span class="p">((</span><span class="mi">80</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;pink&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>You can see, providing <code class="docutils literal notranslate"><span class="pre">&quot;blue&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;green&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;pink&quot;</span></code> to style.
+Args style can take them.</p>
+<ul class="simple">
+<li><p>Style object such as <code class="docutils literal notranslate"><span class="pre">ShapeStyle()</span></code> and <code class="docutils literal notranslate"><span class="pre">TextStyle()</span></code>. It depends on function that what style object can take.</p></li>
+<li><p>String. Theme’s style name</p></li>
+<li><p>None. Default</p></li>
+</ul>
+<p>When style get Style object, draw style as specified.
+When string is provided, the function search theme’s style name.
+If it exist, apply it.
+If it doens’t, raise error.
+None is a default value of style. Applying default style when arg style get None.</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image1_3.png"><img alt="../../../_images/image1_3.png" class="with-border" src="../../../_images/image1_3.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">theme “gray”</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Default theme is same to “blue” on theme “default”.
+So, specifying “blue” to style is same to no-style.
+However, “green” makes the shape green and “pink” makes it pink.
+Style keywords “blue”, “green” and “pink” can be used since default theme has styles which have the name.</p>
+<p>On the other hand, theme <code class="docutils literal notranslate"><span class="pre">gray</span></code> doesn’t have those style keywords. So specifying them makes value error.
+Theme gray posses another styles <code class="docutils literal notranslate"><span class="pre">&quot;gray1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gray2&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">gray3</span></code>.
+Applyint them to style will work fine.</p>
+<p>Please be careful it depends on drawing function that what style name can be used.
+You can check what style names current theme have by issuing <code class="docutils literal notranslate"><span class="pre">dtheme.print_style_table()</span></code>.
+It will generate style table on console.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">image1_3.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">text_y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 5</span><span class="n">circle</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">text</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;no style&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">circle</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">text</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;blue&quot;&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">circle</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;green&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">circle</span><span class="p">((</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">text</span><span class="p">((</span><span class="mi">80</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;pink&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>We will cover how to access them at next topic.</p>
+</section>
+<section id="accessing-theme-styles">
+<h2>Accessing Theme Styles<a class="headerlink" href="#accessing-theme-styles" title="Link to this heading"></a></h2>
+<p>You can modify official theme and your theme.
+<code class="docutils literal notranslate"><span class="pre">dtheme</span></code> provides style management object for each items.
+Such as</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.linestyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.shapestyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.textstyles</span></code></p></li>
+</ul>
+<p>Each object posses these methods.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">has(name:str</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get(name:str</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set(style:Style,</span> <span class="pre">name:str</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delete(name:str</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code></p></li>
+</ul>
+<p>They modify style caches like <code class="docutils literal notranslate"><span class="pre">dict</span></code>.
+name is key and style is value.
+Default value of <code class="docutils literal notranslate"><span class="pre">name</span></code> is blank string and the pair value contains default style.
+If you want to get default style, just issue <code class="docutils literal notranslate"><span class="pre">dtheme.linestyles.get()</span></code>.
+If you want to get predifined green style, issue <code class="docutils literal notranslate"><span class="pre">dtheme.linestyles.get(&quot;green&quot;)</span></code>.</p>
+<p>They will return copy of original style.
+Since return value is copied one, you can modify the object.
+Modification doesn’t effects original styles.</p>
+<p>When you want to change theme’s style slightly, get and modification might be useful.
+If you want to change theme style completly, get, modify, set might be useful.
+Here is a example.</p>
+</section>
+<section id="fallback-mechanism-of-shapestyle-and-shapetextstyle">
+<h2>Fallback Mechanism of ShapeStyle and ShapeTextStyle<a class="headerlink" href="#fallback-mechanism-of-shapestyle-and-shapetextstyle" title="Link to this heading"></a></h2>
+<p>Drawlib posses lots of shape drawing functions such as <code class="docutils literal notranslate"><span class="pre">circle()</span></code> and <code class="docutils literal notranslate"><span class="pre">rectangle()</span></code>.
+Each shape types posses style caches.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.circlestyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.rectanglestyles</span></code></p></li>
+</ul>
+<p>If you want to change only 1 shape type, use them.
+However, setting styles for each shape type requires lots of effort.
+If you want to apply common styles to all shape types, use <code class="docutils literal notranslate"><span class="pre">dtheme.shapestyles</span></code> instead.</p>
+<p>Drawlib’s each shape’s get() method has fallback mechanism.</p>
+<ol class="arabic simple">
+<li><p>Check whether specific shape type posses style name.</p></li>
+<li><p>If it has, return it.</p></li>
+<li><p>If it doesn’t, request <code class="docutils literal notranslate"><span class="pre">dtheme.shapestyles</span></code> to return same style name.</p></li>
+<li><p>If it has, return it.</p></li>
+<li><p>If it doesn’t, not found error happens.</p></li>
+</ol>
+<p>This behavior is also applied to shape text styles.
+If <code class="docutils literal notranslate"><span class="pre">dtheme.circletextstyles</span></code> can’t find the style name, it asks to <code class="docutils literal notranslate"><span class="pre">dtheme.shapestexttyles</span></code>.</p>
+<p>Please remember, default value (key is “”) must be set to them.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.iconstyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.imagestyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.linestyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.linesarrowtyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.shapestyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.shapetextstyles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtheme.textstyles</span></code></p></li>
+</ul>
+<p>Drawing functions use there default values if style is not specified.
+If default value doesn’t exsit, you will get error.
+Official theme configures them of course.</p>
+</section>
+<section id="linestyle-and-arrowstyle">
+<h2>LineStyle and ArrowStyle.<a class="headerlink" href="#linestyle-and-arrowstyle" title="Link to this heading"></a></h2>
+<p>Please remember how function <code class="docutils literal notranslate"><span class="pre">line()</span></code> specifies style.
+Arg <code class="docutils literal notranslate"><span class="pre">style</span></code> can take both <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code> and <code class="docutils literal notranslate"><span class="pre">lineArrowStyle</span></code>.
+Functions able to judge whether it is line or arrow line through checking types.
+However, using style name via str make the situation comples.
+Function can’t judge whether the style name <code class="docutils literal notranslate"><span class="pre">green</span></code> is line or arrow line.</p>
+<p>Drawlib approach’s this problem with simple solutions.</p>
+<ul class="simple">
+<li><p>Prefer <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code> rather than <code class="docutils literal notranslate"><span class="pre">LineArrowStyle</span></code></p></li>
+<li><p>Additional name is set for LineArrowStyle.</p></li>
+</ul>
+<p>If both style posses style name <code class="docutils literal notranslate"><span class="pre">green</span></code>, line will be displayed since it has high priority.
+If you want to use LineArrowStyle, you have 2 options.</p>
+<ul class="simple">
+<li><p>Get style object first. And then pass it to line function.</p></li>
+<li><p>Use name <code class="docutils literal notranslate"><span class="pre">&quot;la-&lt;style</span> <span class="pre">name&gt;&quot;</span></code>. It is additionally set to <code class="docutils literal notranslate"><span class="pre">dtheme.linearrowstyles</span></code>.</p></li>
+</ul>
+<p>Passing “green” to arg style draws line.
+And passing “arrow-green” to it draws arrow-line.</p>
+</section>
+<section id="iconstyle-color">
+<h2>IconStyle color<a class="headerlink" href="#iconstyle-color" title="Link to this heading"></a></h2>
+<p>Icon can use only 1 color.
+But each official theme posses 2 colors for each style name.
+For example, style “blue” posses <code class="docutils literal notranslate"><span class="pre">lcolor(line-color)</span></code> and <code class="docutils literal notranslate"><span class="pre">fcolor(fill-color)</span></code> for shapes.</p>
+<p>When you pass “blue” to icon’s style, lcolor is used.
+But you can specify which color via</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lc-&lt;style_name&gt;</span></code>: lcolor-blue</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fc-&lt;style_name&gt;</span></code>: fcolor-blue</p></li>
+</ul>
+</section>
+<section id="textshapestyle-s-white">
+<h2>TextShapeStyle’s white<a class="headerlink" href="#textshapestyle-s-white" title="Link to this heading"></a></h2>
+<p>There are many chances that drawing colored shape with white text.
+So, <code class="docutils literal notranslate"><span class="pre">white</span></code> is automatically added to TextShapeStyle’s style.
+It uses text color white and other parameters come from default.
+If official theme posses <code class="docutils literal notranslate"><span class="pre">white</span></code> in definition, this auto add feature will be disabled for the theme.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../text/doc.html" class="btn btn-neutral float-left" title="Drawing Text" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../build_many/doc.html" class="btn btn-neutral float-right" title="Building many images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuichi Ito.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

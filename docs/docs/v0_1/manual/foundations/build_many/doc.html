@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building many images &mdash; drawlib 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Coding Best Practices" href="../programming/doc.html" />
+    <link rel="prev" title="Theme feature" href="../theme/doc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            drawlib
+          </a>
+              <div class="version">
+                version: 0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../canvas/doc.html">Canvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coordinate_align/doc.html">Coordinate and Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Drawing Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../line/doc.html">Drawing line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../line_style/doc.html">Line and Arrow Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shape/doc.html">Drawing Shape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shape_style/doc.html">Shape Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text/doc.html">Drawing Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theme/doc.html">Theme feature</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building many images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#directory-level-build">Directory level build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#order-of-execution">Order of execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-other-drawlib-codes-first-via-dexec">Execute other drawlib codes first via dexec()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#real-world-example">Real World Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-cache-at-common-code">set cache at common code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-common-code-and-get-cache">run the common code and get cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bulk-build">bulk build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/doc.html">Coding Best Practices</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/color/doc.html">Color Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/font/doc.html">Font Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/dimage/doc.html">Effecting Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/settings/doc.html">Library Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/api_version/doc.html">Using Old APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.html">drawlib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.v0_1.html">drawlib.v0_1 package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.v0_1.private.html">drawlib.v0_1.private package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/drawlib.v0_1.private.core.html">drawlib.v0_1.private.core package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">drawlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Building many images</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/manual/foundations/build_many/doc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="building-many-images">
+<h1>Building many images<a class="headerlink" href="#building-many-images" title="Link to this heading"></a></h1>
+<p>Drawlib is designed for creating lots of illust for ducumentation etc.
+Here is a typical build process.</p>
+<figure class="align-center" id="id1">
+<a class="with-border reference internal image-reference" href="../../../_images/image2.png"><img alt="../../../_images/image2.png" class="with-border" src="../../../_images/image2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Build many images</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As you can see you can achieve</p>
+<ul class="simple">
+<li><p>declare styling at 1 or few code files</p></li>
+<li><p>each image codes file imports them and use the style</p></li>
+<li><p>run all image codes under specified directory and generate images</p></li>
+</ul>
+<section id="directory-level-build">
+<h2>Directory level build<a class="headerlink" href="#directory-level-build" title="Link to this heading"></a></h2>
+<p>Suppose you have image code files on directory <code class="docutils literal notranslate"><span class="pre">images</span></code>.
+You can build each image with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;code</span> <span class="pre">file&gt;</span></code> command.
+But you can only specify one image code in this style.</p>
+<p>If you want to achieve build all images in specified directory, you can use this command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python -m drawlib &lt;directory_name&gt;
+</pre></div>
+</div>
+<p>Then, drawlib builds executes all python codes which has extension <code class="docutils literal notranslate"><span class="pre">.py</span></code> in the directory and its sub directories.</p>
+</section>
+<section id="order-of-execution">
+<h2>Order of execution<a class="headerlink" href="#order-of-execution" title="Link to this heading"></a></h2>
+<p>The directory contains many code files.
+Drawlib executes them in this order</p>
+<ol class="arabic simple">
+<li><p>Starting from shallow directory</p></li>
+<li><p>String sort order of python</p></li>
+</ol>
+<p>We recommend each code file doesn’t depends on other codes which are not specified.
+<code class="docutils literal notranslate"><span class="pre">b.py</span></code> will be executed after <code class="docutils literal notranslate"><span class="pre">a.py</span></code>.
+But <code class="docutils literal notranslate"><span class="pre">b.py</span></code> shouldn’t depends on <code class="docutils literal notranslate"><span class="pre">a.py</span></code>.
+Because <code class="docutils literal notranslate"><span class="pre">b.py</span></code> can be executed as <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">directory/b.py</span></code> on that time, <code class="docutils literal notranslate"><span class="pre">a.py</span></code> will not be executed.</p>
+</section>
+<section id="execute-other-drawlib-codes-first-via-dexec">
+<h2>Execute other drawlib codes first via dexec()<a class="headerlink" href="#execute-other-drawlib-codes-first-via-dexec" title="Link to this heading"></a></h2>
+<p>There are many chances that some code files need to be executed before executing the code file.
+For example, run styling code file before executing drawing codes.
+On that situation, function <code class="docutils literal notranslate"><span class="pre">dexec()</span></code> is useful.
+The function name come from “drawlib execute”.</p>
+<p>This function runs specified code or directory first before moving to next line on the original code file.
+This behavior is similar to <code class="docutils literal notranslate"><span class="pre">import</span></code>.
+But there are no feature that imports functions and classes.
+Just run the specified files.</p>
+<p>Drawlib posses cache feature on these items.</p>
+<ul class="simple">
+<li><p>theme and its styles</p></li>
+<li><p>Dimage (image data)</p></li>
+</ul>
+<p>At common code, cache them.
+After that drawing code call the common codes.
+This procedure assure the drawing code can use cached styles and images.</p>
+<p>Function <code class="docutils literal notranslate"><span class="pre">dexec()</span></code> can call same code file again.
+However, they are executed only at first time.
+Second time, execution will be skipped.
+There are no chance to make cache twice.
+We recommend calling <code class="docutils literal notranslate"><span class="pre">dexec()</span></code> at all drawing codes which uses the cache.
+Cache will be created on any code files which calls <code class="docutils literal notranslate"><span class="pre">dexec()</span></code>.</p>
+<p>Let’s check the behavior with simple example.</p>
+</section>
+<section id="real-world-example">
+<h2>Real World Example<a class="headerlink" href="#real-world-example" title="Link to this heading"></a></h2>
+<p>For example, you have these structure</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mydoc ---+--- .drawlib ---+--- mystyle.py
+         |                +--- myimage.py
+         |                +--- lots of icon images
+         |
+         +--- index.rst or index.md
+         +--- image1.py
+         +--- image2.py
+         |
+         +--- chap1 ------+--- chap1.rst or chap1.md
+                          +--- image1.py
+                          +--- image2.py
+</pre></div>
+</div>
+<p>You define common style at <cite>mystyle.py</cite> and load icon images at <cite>myimage.py</cite>.
+I like using directory <cite>.drawlib</cite> as holding common codes and images, but it is not a rule.
+You can use any directory name.</p>
+<p>After defining them, you can use them at all other image code files.
+BTW, same file name can be used if directory is different as you can see above.</p>
+<p>OK, let’s walk through how to acieve bulk image creation.</p>
+</section>
+<section id="set-cache-at-common-code">
+<h2>set cache at common code<a class="headerlink" href="#set-cache-at-common-code" title="Link to this heading"></a></h2>
+</section>
+<section id="run-the-common-code-and-get-cache">
+<h2>run the common code and get cache<a class="headerlink" href="#run-the-common-code-and-get-cache" title="Link to this heading"></a></h2>
+</section>
+<section id="bulk-build">
+<h2>bulk build<a class="headerlink" href="#bulk-build" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../theme/doc.html" class="btn btn-neutral float-left" title="Theme feature" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../programming/doc.html" class="btn btn-neutral float-right" title="Coding Best Practices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuichi Ito.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -124,7 +124,12 @@ arrow(
     head_length=3,
     style=ShapeStyle(lcolor=Colors.Red, fcolor=Colors.Red),
     text="Drawlib",
-    textstyle=ShapeTextStyle(size=14, color=Colors.White, font=Font.ROBOTO_BOLD, xy_shift=(-0.5, -0.1)),
+    textstyle=ShapeTextStyle(
+        size=14,
+        color=Colors.White,
+        font=FontRoboto.ROBOTO_BOLD,
+        xy_shift=(-0.5, -0.1),
+    ),
 )
 text((32, 25), "Build\nImages", style=TextStyle(color=Colors.Red))
 center()

@@ -18,7 +18,7 @@ def left():
         r=outer_r,
         style=outer_style,
         text="Other drawlib features",
-        textstyle=ShapeTextStyle(angle=270, font=Font.ROBOTO_BOLD, size=18),
+        textstyle=ShapeTextStyle(angle=270, font=FontRoboto.ROBOTO_BOLD, size=18),
     )
 
 
@@ -38,7 +38,7 @@ def center():
     text(
         (30 + width / 2, 42),
         "Canvas Instance",
-        style=TextStyle(font=Font.ROBOTO_BOLD, size=18, color=Colors.Red),
+        style=TextStyle(font=FontRoboto.ROBOTO_BOLD, size=18, color=Colors.Red),
     )
     x = 34
     y = 37
@@ -66,7 +66,7 @@ def right():
     text(
         (65 + width / 2, 42),
         "Public APIs",
-        style=TextStyle(font=Font.ROBOTO_BOLD, size=18),
+        style=TextStyle(font=FontRoboto.ROBOTO_BOLD, size=18),
     )
     x = 69
     y = 37
@@ -95,7 +95,11 @@ def center_to_right():
 
 
 rectangle((5, 5), width=55, height=50, r=outer_r, style=outer_style)
-text((5 + 55 / 2, 50), "Drawlib's internal state (Private)", style=TextStyle(font=Font.ROBOTO_BOLD, size=18))
+text(
+    (5 + 55 / 2, 50),
+    "Drawlib's internal state (Private)",
+    style=TextStyle(font=FontRoboto.ROBOTO_BOLD, size=18),
+)
 left()
 arrow(
     (21.5, 30),

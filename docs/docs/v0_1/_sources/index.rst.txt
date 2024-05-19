@@ -62,19 +62,19 @@ Other version docs
    manual/foundations/shape/doc
    manual/foundations/shape_style/doc
    manual/foundations/text/doc
+   manual/foundations/theme/doc
+   manual/foundations/build_many/doc
+   manual/foundations/programming/doc
 
 .. toctree::
    :maxdepth: 2
    :caption: Advanced Topics:
 
-   manual/advanced_topics/theme_official/doc
-   manual/advanced_topics/theme_custom/doc
    manual/advanced_topics/color/doc
    manual/advanced_topics/font/doc
    manual/advanced_topics/dimage/doc
    manual/advanced_topics/smartarts_sourcecode/doc
-   manual/advanced_topics/programming/doc
-   manual/advanced_topics/many_files/doc
+   manual/advanced_topics/theme_custom/doc
    manual/advanced_topics/debug/doc
    manual/advanced_topics/settings/doc
    manual/advanced_topics/api_version/doc

@@ -22,5 +22,4 @@ source .venv/bin/activate
 cd ../
 
 # build
-python -m drawlib ./v0_1/docs/source/docs
-python -m drawlib ./v0_1/docs/source/manual
+python -m drawlib ./v0_1/docs/source/manual/advanced_topics

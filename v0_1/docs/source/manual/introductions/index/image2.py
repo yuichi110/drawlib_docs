@@ -21,16 +21,19 @@ def left():
 
     x = 8
     icon_phosphor.folder((x, 45), width=3)
-    text((x + 6, 45), "docroot", style=ts)
+    text((x + 6, 45), "docs", style=ts)
     line((x, 43), (x, 13), style=ls)
 
     line((x, 42), (x + 1, 42), style=ls)
     icon_phosphor.folder((x + 3, 42), width=3)
-    text((x + 9, 42), ".drawlib", style=TextStyle(size=12))
+    text((x + 9, 42), "commons", style=TextStyle(size=12))
     line((x + 3, 40), (x + 3, 35), style=LineStyle(width=0.5))
     icon_phosphor.file_py((x + 6, 39), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 12, 39), "theme.py", style=TextStyle(size=12, color=Colors.Red))
+    text((x + 12, 39), "style.py", style=TextStyle(size=12, color=Colors.Red))
     line((x + 3, 39), (x + 4, 39), style=LineStyle(width=0.5))
+    icon_phosphor.file_py((x + 6, 36), width=3, style=IconStyle(color=Colors.Red))
+    text((x + 12, 36), "util.py", style=TextStyle(size=12, color=Colors.Red))
+    line((x + 3, 36), (x + 4, 36), style=LineStyle(width=0.5))
 
     line((x, 30), (x + 1, 30), style=ls)
     icon_phosphor.folder((x + 3, 30), width=3)
@@ -63,7 +66,7 @@ def center():
 
     x = 43
     icon_phosphor.folder((x, 45), width=3)
-    text((x + 6, 45), "docroot", style=ts)
+    text((x + 6, 45), "docs", style=ts)
     line((x, 43), (x, 13), style=ls)
 
     line((x, 30), (x + 1, 30), style=ls)

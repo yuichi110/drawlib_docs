@@ -73,7 +73,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/color/doc.html">Color Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/font/doc.html">Font Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Effecting Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Dimage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
@@ -242,19 +242,17 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/foundations/build_many/doc.html">Building many images</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#directory-level-build">Directory level build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#order-of-execution">Order of execution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#execute-other-drawlib-codes-first-via-dexec">Execute other drawlib codes first via dexec()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#real-world-example">Real World Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#set-cache-at-common-code">set cache at common code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#run-the-common-code-and-get-cache">run the common code and get cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#bulk-build">bulk build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#create-drawing-project-as-python-package">Create Drawing Project as Python Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#python-path">Python Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#python-m-drawlib-directory-or-code">python -m drawlib &lt;directory or code&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/build_many/doc.html#sample-codes-and-its-outputs">Sample Codes and Its Outputs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/foundations/programming/doc.html">Coding Best Practices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/programming/doc.html#consider-which-alignment-is-the-best">Consider Which Alignment is the best</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/programming/doc.html#use-variable-when-having-same-values">Use Variable When Having Same Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/programming/doc.html#grouping-by-function">Grouping by Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/programming/doc.html#create-your-package">Create Your Package</a></li>
 </ul>
 </li>
 </ul>
@@ -262,9 +260,32 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/color/doc.html">Color Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/font/doc.html">Font Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Effecting Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/color/doc.html">Color Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/color/doc.html#colors">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/color/doc.html#colors140">Colors140</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/color/doc.html#implement-your-own-colors">Implement Your Own Colors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/font/doc.html">Font Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontfile">FontFile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#font">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontsansserif">FontSansSerif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontserif">FontSerif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontroboto">FontRoboto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontmonospace">FontMonoSpace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontarabic">FontArabic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontbrahmic">FontBrahmic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontchinese">FontChinese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontjapanese">FontJapanese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontkorean">FontKorean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#fontthai">FontThai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/font/doc.html#request-for-adding-fonts">Request for Adding Fonts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Dimage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html#cache">Cache</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
@@ -308,7 +329,7 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 <li class="toctree-l2"><a class="reference internal" href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.dutil">drawlib.v0_1.private.dutil module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.logging">drawlib.v0_1.private.logging module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.settings">drawlib.v0_1.private.settings module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.tools">drawlib.v0_1.private.tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/drawlib.v0_1.private.html#drawlib-v0-1-private-tools-module">drawlib.v0_1.private.tools module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.util">drawlib.v0_1.private.util module</a></li>
 </ul>
 </li>

@@ -109,3 +109,16 @@ Normally, we tend to create these functions
 At each functions define x and y at first.
 All items are relative position from the base x, y position.
 When you want to move group, changing the x, y vars moves all items position.
+
+Create Your Package
+=====================
+
+When you need to create many images, consistency is important.
+You can create independent image codes.
+But we recommend creating package with these reasons.
+
+- Same style for all images. Changing style code effects all images quickly.
+- Create utility functions on utility code file. It makes your image code simple.
+- Grouping images by chapters and sections 
+
+Please check previous document page for details.

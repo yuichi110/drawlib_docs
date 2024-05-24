@@ -71,7 +71,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/color/doc.html">Color Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/font/doc.html">Font Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Effecting Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Dimage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
@@ -289,6 +289,8 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.archive_tray">archive_tray() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arcstyle">arcstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.armchair">armchair() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature.arrow">arrow() (drawlib.v0_1.private.core_canvas.original_arrow.CanvasOriginalArrowFeature method)</a>
@@ -493,6 +495,8 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.article_ny_times">article_ny_times() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arttextstyle">arttextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.asclepius">asclepius() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.asterisk">asterisk() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -548,8 +552,6 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.baseball_cap">baseball_cap() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.baseball_helmet">baseball_helmet() (in module drawlib.v0_1.private.icons.phosphor)</a>
-</li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.BaseColors">BaseColors (class in drawlib.v0_1.private.core.colors)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.basket">basket() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -734,8 +736,6 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.books">books() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.boot">boot() (in module drawlib.v0_1.private.icons.phosphor)</a>
-</li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.border">border() (drawlib.v0_1.private.core.dimage.Dimage method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.boules">boules() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -1087,10 +1087,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circle_wavy_check">circle_wavy_check() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circle_wavy_question">circle_wavy_question() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circle_wavy_warning">circle_wavy_warning() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circles_four">circles_four() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -1204,6 +1204,8 @@
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors">Colors (class in drawlib.v0_1.private.core.colors)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors140">Colors140 (class in drawlib.v0_1.private.core.colors)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.ColorsBase">ColorsBase (class in drawlib.v0_1.private.core.colors)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.util.ColorUtil">ColorUtil (class in drawlib.v0_1.private.core.util)</a>
 </li>
@@ -1475,12 +1477,6 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.devices">devices() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.tools.DrawlibExecuter.dexec">dexec() (drawlib.v0_1.private.tools.DrawlibExecuter method)</a>
-
-      <ul>
-        <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.tools.dexec">(in module drawlib.v0_1.private.tools)</a>
-</li>
-      </ul></li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.diamond">diamond() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.diamonds_four">diamonds_four() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -1843,13 +1839,6 @@
 </li>
       </ul></li>
       <li>
-    drawlib.v0_1.private.tools
-
-      <ul>
-        <li><a href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.tools">module</a>
-</li>
-      </ul></li>
-      <li>
     drawlib.v0_1.private.util
 
       <ul>
@@ -1858,7 +1847,7 @@
       </ul></li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.command.DrawlibArgParser">DrawlibArgParser (class in drawlib.v0_1.private.command)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.tools.DrawlibExecuter">DrawlibExecuter (class in drawlib.v0_1.private.tools)</a>
+      <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.command.DrawlibExecuter">DrawlibExecuter (class in drawlib.v0_1.private.command)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.settings.DrawlibSettings">DrawlibSettings (class in drawlib.v0_1.private.settings)</a>
 </li>
@@ -1941,6 +1930,8 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.exclude">exclude() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.exclude_square">exclude_square() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.command.DrawlibExecuter.execute">execute() (drawlib.v0_1.private.command.DrawlibExecuter method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.export">export() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -2242,7 +2233,7 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontRoboto">FontRoboto (class in drawlib.v0_1.private.core.fonts)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif">FontSanSerif (class in drawlib.v0_1.private.core.fonts)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif">FontSansSerif (class in drawlib.v0_1.private.core.fonts)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSerif">FontSerif (class in drawlib.v0_1.private.core.fonts)</a>
 </li>
@@ -2370,13 +2361,13 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.command.DrawlibArgParser.get_positional_args">get_positional_args() (drawlib.v0_1.private.command.DrawlibArgParser method)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.BaseColors.get_rgba">get_rgba() (drawlib.v0_1.private.core.colors.BaseColors static method)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.ColorsBase.get_rgba">get_rgba() (drawlib.v0_1.private.core.colors.ColorsBase static method)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.BaseColors.get_rgba_from_grayscale">get_rgba_from_grayscale() (drawlib.v0_1.private.core.colors.BaseColors static method)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.ColorsBase.get_rgba_from_grayscale">get_rgba_from_grayscale() (drawlib.v0_1.private.core.colors.ColorsBase static method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.util.ColorUtil.get_rgba_from_hex">get_rgba_from_hex() (drawlib.v0_1.private.core.util.ColorUtil static method)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.BaseColors.get_rgba_from_hexcode">get_rgba_from_hexcode() (drawlib.v0_1.private.core.colors.BaseColors static method)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.ColorsBase.get_rgba_from_hexcode">get_rgba_from_hexcode() (drawlib.v0_1.private.core.colors.ColorsBase static method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.util.get_script_function_name">get_script_function_name() (in module drawlib.v0_1.private.util)</a>
 </li>
@@ -2830,11 +2821,11 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.lastfm_logo">lastfm_logo() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.LATO_BOLD">LATO_BOLD (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.LATO_BOLD">LATO_BOLD (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.LATO_LIGHT">LATO_LIGHT (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.LATO_LIGHT">LATO_LIGHT (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.LATO_REGULAR">LATO_REGULAR (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.LATO_REGULAR">LATO_REGULAR (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors140.Lavender">Lavender (drawlib.v0_1.private.core.colors.Colors140 attribute)</a>
 </li>
@@ -3282,8 +3273,6 @@
 </li>
         <li><a href="api/drawlib.v0_1.private.smartarts.html#module-drawlib.v0_1.private.smartarts.tree">drawlib.v0_1.private.smartarts.tree</a>
 </li>
-        <li><a href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.tools">drawlib.v0_1.private.tools</a>
-</li>
         <li><a href="api/drawlib.v0_1.private.html#module-drawlib.v0_1.private.util">drawlib.v0_1.private.util</a>
 </li>
       </ul></li>
@@ -3305,11 +3294,11 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontRoboto.MONO_REGULAR">MONO_REGULAR (drawlib.v0_1.private.core.fonts.FontRoboto attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.MONTSERRAT_BOLD">MONTSERRAT_BOLD (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.MONTSERRAT_BOLD">MONTSERRAT_BOLD (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.MONTSERRAT_LIGHT">MONTSERRAT_LIGHT (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.MONTSERRAT_LIGHT">MONTSERRAT_LIGHT (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.MONTSERRAT_REGULAR">MONTSERRAT_REGULAR (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.MONTSERRAT_REGULAR">MONTSERRAT_REGULAR (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.moon">moon() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -3527,11 +3516,11 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors140.Orchid">Orchid (drawlib.v0_1.private.core.colors.Colors140 attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.OSWALD_BOLD">OSWALD_BOLD (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.OSWALD_BOLD">OSWALD_BOLD (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.OSWALD_LIGHT">OSWALD_LIGHT (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.OSWALD_LIGHT">OSWALD_LIGHT (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.OSWALD_REGULAR">OSWALD_REGULAR (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.OSWALD_REGULAR">OSWALD_REGULAR (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.oven">oven() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -3685,10 +3674,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.phone_pause">phone_pause() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.phone_plus">phone_plus() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.phone_slash">phone_slash() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.phone_transfer">phone_transfer() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -3783,11 +3772,11 @@
       </ul></li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.popcorn">popcorn() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.POPPINS_BOLD">POPPINS_BOLD (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.POPPINS_BOLD">POPPINS_BOLD (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.POPPINS_LIGHT">POPPINS_LIGHT (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.POPPINS_LIGHT">POPPINS_LIGHT (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.POPPINS_REGULAR">POPPINS_REGULAR (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.POPPINS_REGULAR">POPPINS_REGULAR (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.popsicle">popsicle() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -3804,6 +3793,8 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.presentation">presentation() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.presentation_chart">presentation_chart() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.print_style_table">print_style_table() (drawlib.v0_1.private.core.theme.Theme method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.printer">printer() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -3875,11 +3866,11 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.rainbow_cloud">rainbow_cloud() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.RALEWAYS_BOLD">RALEWAYS_BOLD (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.RALEWAYS_BOLD">RALEWAYS_BOLD (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.RALEWAYS_LIGHT">RALEWAYS_LIGHT (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.RALEWAYS_LIGHT">RALEWAYS_LIGHT (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSanSerif.RALEWAYS_REGULAR">RALEWAYS_REGULAR (drawlib.v0_1.private.core.fonts.FontSanSerif attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.RALEWAYS_REGULAR">RALEWAYS_REGULAR (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.ranking">ranking() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -3966,8 +3957,6 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.rocket_launch">rocket_launch() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors140.RosyBrown">RosyBrown (drawlib.v0_1.private.core.colors.Colors140 attribute)</a>
-</li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.rotate">rotate() (drawlib.v0_1.private.core.dimage.Dimage method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.rows">rows() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -4541,8 +4530,6 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.syringe">syringe() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.base.CanvasBase.SYSTEM_FONTS">SYSTEM_FONTS (drawlib.v0_1.private.core_canvas.base.CanvasBase attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -4777,7 +4764,7 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.translate">translate() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.BaseColors.Transparent">Transparent (drawlib.v0_1.private.core.colors.BaseColors attribute)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.ColorsBase.Transparent">Transparent (drawlib.v0_1.private.core.colors.ColorsBase attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.trapezoid">trapezoid() (drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature method)</a>
 </li>

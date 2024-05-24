@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#consider-which-alignment-is-the-best">Consider Which Alignment is the best</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-variable-when-having-same-values">Use Variable When Having Same Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#grouping-by-function">Grouping by Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-your-package">Create Your Package</a></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +80,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/color/doc.html">Color Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/font/doc.html">Font Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/dimage/doc.html">Effecting Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/dimage/doc.html">Dimage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
@@ -182,7 +183,7 @@ The <code class="docutils literal notranslate"><span class="pre">(x,y)</span></c
 They are just pointing center of each items.
 No calculation and test are required.</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image15.png"><img alt="../../../_images/image15.png" class="with-border" src="../../../_images/image15.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image17.png"><img alt="../../../_images/image17.png" class="with-border" src="../../../_images/image17.png" style="width: 500px;" /></a>
 <figcaption>
 <p><span class="caption-text">theme “default”</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
@@ -283,6 +284,18 @@ However, using function for just grouping items is also recommended coding style
 <p>At each functions define x and y at first.
 All items are relative position from the base x, y position.
 When you want to move group, changing the x, y vars moves all items position.</p>
+</section>
+<section id="create-your-package">
+<h2>Create Your Package<a class="headerlink" href="#create-your-package" title="Link to this heading"></a></h2>
+<p>When you need to create many images, consistency is important.
+You can create independent image codes.
+But we recommend creating package with these reasons.</p>
+<ul class="simple">
+<li><p>Same style for all images. Changing style code effects all images quickly.</p></li>
+<li><p>Create utility functions on utility code file. It makes your image code simple.</p></li>
+<li><p>Grouping images by chapters and sections</p></li>
+</ul>
+<p>Please check previous document page for details.</p>
 </section>
 </section>
 

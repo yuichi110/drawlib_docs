@@ -26,7 +26,7 @@ rectangle(
     textstyle=ShapeTextStyle(
         color=Colors.White,
         size=24,
-        font=FontSanSerif.RALEWAYS_REGULAR,
+        font=FontSansSerif.RALEWAYS_REGULAR,
     ),
 )
 

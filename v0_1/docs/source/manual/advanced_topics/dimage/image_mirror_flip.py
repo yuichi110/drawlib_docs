@@ -9,10 +9,10 @@ text((20, 10), "original")
 
 # mirror
 image((50, 25), 20, original_image.mirror())
-text((50, 10), "mirror")
+text((50, 10), "mirror()")
 
 # flip
 image((80, 25), 20, original_image.flip())
-text((80, 10), "flip")
+text((80, 10), "flip()")
 
 save()

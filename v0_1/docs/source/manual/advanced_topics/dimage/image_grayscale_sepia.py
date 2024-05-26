@@ -9,10 +9,10 @@ text((20, 10), "original")
 
 # grayscale
 image((50, 25), 20, Dimage("linux.png").grayscale())
-text((50, 10), "grayscale")
+text((50, 10), "grayscale()")
 
 # sepia
 image((80, 25), 20, original_image.sepia())
-text((80, 10), "sepia")
+text((80, 10), "sepia()")
 
 save()

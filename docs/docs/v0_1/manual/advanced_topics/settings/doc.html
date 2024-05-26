@@ -75,10 +75,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../color/doc.html">Color Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../font/doc.html">Font Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dimage/doc.html">Dimage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../smartarts/doc.html">Smart Arts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Library Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Library Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-logging-via-cli-arg">Set Logging via CLI arg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#suppressing-warnings">Suppressing Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handler-and-logging-mode">Error Handler and Logging Mode</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
 </ul>
@@ -117,6 +124,41 @@
              
   <section id="library-settings">
 <h1>Library Settings<a class="headerlink" href="#library-settings" title="Link to this heading"></a></h1>
+<p>Drawlib provides <code class="docutils literal notranslate"><span class="pre">dsettings</span></code> object.
+It posses few functions for changing library settings.
+Here are the function.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_logging_mode()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_logging_mode(mode:</span> <span class="pre">str)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_suppress_warning()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_suppress_warning(enable:</span> <span class="pre">bool)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_debug_mode()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_developer_debug_mode()</span></code></p></li>
+</ul>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+<p>Drawlib can change log level.
+But log level doesn’t mean syslog’s one.
+But drawlib’s level.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">quiet</span></code>: show only warning and error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">normal</span></code>: default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: many log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">developer</span></code>: verbose + disable error handler.</p></li>
+</ul>
+<p>You can set level via <code class="docutils literal notranslate"><span class="pre">set_logging_mode(mode)</span></code>.
+And able to get current level via <code class="docutils literal notranslate"><span class="pre">get_logging_mode()</span></code>.</p>
+</section>
+<section id="set-logging-via-cli-arg">
+<h2>Set Logging via CLI arg<a class="headerlink" href="#set-logging-via-cli-arg" title="Link to this heading"></a></h2>
+<p>You can change log level via calling <code class="docutils literal notranslate"><span class="pre">set_logging_mode()</span></code>.</p>
+</section>
+<section id="suppressing-warnings">
+<h2>Suppressing Warnings<a class="headerlink" href="#suppressing-warnings" title="Link to this heading"></a></h2>
+</section>
+<section id="error-handler-and-logging-mode">
+<h2>Error Handler and Logging Mode<a class="headerlink" href="#error-handler-and-logging-mode" title="Link to this heading"></a></h2>
+</section>
 </section>
 
 

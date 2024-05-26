@@ -75,6 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/color/doc.html">Color Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/font/doc.html">Font Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/dimage/doc.html">Dimage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/smartarts/doc.html">Smart Arts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
@@ -384,6 +385,7 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.copy"><code class="docutils literal notranslate"><span class="pre">Dimage.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.save"><code class="docutils literal notranslate"><span class="pre">Dimage.save()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.resize"><code class="docutils literal notranslate"><span class="pre">Dimage.resize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.crop"><code class="docutils literal notranslate"><span class="pre">Dimage.crop()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.flip"><code class="docutils literal notranslate"><span class="pre">Dimage.flip()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.mirror"><code class="docutils literal notranslate"><span class="pre">Dimage.mirror()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.invert"><code class="docutils literal notranslate"><span class="pre">Dimage.invert()</span></code></a></li>
@@ -735,6 +737,7 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.list_official_themes"><code class="docutils literal notranslate"><span class="pre">Theme.list_official_themes()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_official_theme"><code class="docutils literal notranslate"><span class="pre">Theme.apply_official_theme()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_custome_theme"><code class="docutils literal notranslate"><span class="pre">Theme.apply_custome_theme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.print_theme_colors"><code class="docutils literal notranslate"><span class="pre">Theme.print_theme_colors()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.print_style_table"><code class="docutils literal notranslate"><span class="pre">Theme.print_style_table()</span></code></a></li>
 </ul>
 </li>
@@ -2642,7 +2645,7 @@ Please take care not to import utility modules.</p>
 <dt class="sig sig-object py" id="drawlib.v0_1.private.logging.logger">
 <span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.logging.</span></span><span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Logger</span> <span class="pre">drawlib</span> <span class="pre">(INFO)&gt;</span></em><a class="headerlink" href="#drawlib.v0_1.private.logging.logger" title="Link to this definition"></a></dt>
 <dd><p>Global logger object which is shared on this library.
-Logger name comes from <code class="docutils literal notranslate"><span class="pre">drawlib.const.LIB_NAME</span></code>.</p>
+Logger name comes from <code class="docutils literal notranslate"><span class="pre">drawlib.LIB_NAME</span></code>.</p>
 </dd></dl>
 
 </section>

@@ -149,7 +149,46 @@ Here is an output.
    :align: center
 
 ``brightness()`` change brightness.
-0.0 is complete dark and 1.0 is original. You can set values bigger than 1.0.
+0.0 is complete dark and 1.0 is original. You can set values bigger than 1.0. It makes more light on the image.
 
+.. literalinclude:: image_brightness.py
+   :language: python
+   :linenos:
+   :caption: image_brightness.py
 
+Here is an output.
 
+.. figure:: image_brightness.png
+   :width: 600
+   :class: with-border
+   :align: center
+
+``invert()`` reverse RGB and ``colorize()`` put colors to grayscaled image.
+
+.. literalinclude:: image_invert_colorize.py
+   :language: python
+   :linenos:
+   :caption: image_invert_colorize.py
+
+Here is an output.
+
+.. figure:: image_invert_colorize.png
+   :width: 600
+   :class: with-border
+   :align: center
+
+``mosaic()`` apply mosaic effect.
+It takes optional argument ``block_size``. It is a mosaic pixel size. Default is 8.
+``blur()`` apply blur effect.
+
+.. literalinclude:: image_mosaic_blur.py
+   :language: python
+   :linenos:
+   :caption: image_mosaic_blur.py
+
+Here is an output.
+
+.. figure:: image_mosaic_blur.png
+   :width: 600
+   :class: with-border
+   :align: center

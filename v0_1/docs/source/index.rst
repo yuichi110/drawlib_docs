@@ -73,6 +73,7 @@ Other version docs
    manual/advanced_topics/color/doc
    manual/advanced_topics/font/doc
    manual/advanced_topics/dimage/doc
+   manual/advanced_topics/smartarts/doc
    manual/advanced_topics/smartarts_sourcecode/doc
    manual/advanced_topics/theme_custom/doc
    manual/advanced_topics/debug/doc

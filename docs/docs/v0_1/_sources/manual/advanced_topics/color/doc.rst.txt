@@ -14,6 +14,39 @@ Currently, we have these classes.
 - Color140: basic web 140 colors + Transparent
 - ColorBase: Base class for creating your own Color class
 
+Here is an image for showing their relations.
+
+.. figure:: image_architecture.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Structure of color classes
+
+As you can see, ``ColorBase`` implements color ``TransParent`` and utility functions.
+Each child classes inherit them and implement each colors.
+You can create your color class too.
+We will take a look example of creating Google color class.
+
+Utility functions
+====================
+
+Drawlib's color format is only RGB and RGBA.
+However, there are many color format such as hex.
+
+``ColorsBase`` posses utility functions (static method).
+They will be able to be used for converting color style.
+Since color classes inherit ``ColorsBase``, all color classes can use utility functions of course.
+Let's take a look functions.
+
+.. literalinclude:: color_util.py
+   :language: python
+   :linenos:
+   :caption: color_util.py
+
+Default alpha values are ``1.0``.
+
+
 Colors
 ========
 
@@ -189,3 +222,29 @@ Implement Your Own Colors
 ===========================
 
 We provide base class of colors ``ColorsBase``.
+You can define your color palette class via extend the base class.
+
+Suppose you are Google's official partner who eligible to use corporate color.
+Let's try define colors and use it.
+
+Partner Marketing Hub: Google News Color Palette.
+
+https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/
+
+.. literalinclude:: image_mycolor.py
+   :language: python
+   :linenos:
+   :caption: image_mycolor.py
+
+In this example, we define color class and using it at image drawing code.
+But normally, you should define your color class at styling code and import it at image code.
+
+Here is an output.
+
+.. figure:: image_mycolor.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+
+    

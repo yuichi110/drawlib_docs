@@ -76,7 +76,7 @@ After drawlib matured, we move to version "1.0.*" and later.
 Here is a release plan image.
 
 .. figure:: image1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 

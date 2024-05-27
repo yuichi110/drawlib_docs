@@ -19,7 +19,7 @@ Execute it with the python command:
 This will generate an image file.
 
 .. figure:: image1.png
-    :width: 300
+    :width: 450
     :class: with-border
     :align: center
 
@@ -42,7 +42,7 @@ This can be easily achieved by creating a theme file (which is simply Python cod
 Here is a typical use case of drawlib.
 
 .. figure:: ../index/image2.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 

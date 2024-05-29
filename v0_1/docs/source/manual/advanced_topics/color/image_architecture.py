@@ -45,15 +45,16 @@ def draw_base():
 
 
 def draw_line_arrows():
+    lastyle = dtheme.linearrowstyles.get()
     x1 = 40
     x2 = 47.5
     x3 = 55
-    line((x1, y1), (x3, y1), style="la-blue")
+    line((x1, y1), (x3, y1), style=lastyle)
     text((x2, y1 + 3), "inherit", style=TextStyle(size=20))
     line((x2, y1), (x2, y4))
-    line((x2, y2), (x3, y2), style="la-blue")
-    line((x2, y3), (x3, y3), style="la-blue")
-    line((x2, y4), (x3, y4), style="la-blue")
+    line((x2, y2), (x3, y2), style=lastyle)
+    line((x2, y3), (x3, y3), style=lastyle)
+    line((x2, y4), (x3, y4), style=lastyle)
 
 
 def draw_childs():

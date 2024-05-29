@@ -74,10 +74,12 @@ Other version docs
    manual/advanced_topics/font/doc
    manual/advanced_topics/dimage/doc
    manual/advanced_topics/smartarts/doc
+   manual/advanced_topics/smartarts_bubblespeech/doc
    manual/advanced_topics/smartarts_sourcecode/doc
    manual/advanced_topics/theme_custom/doc
    manual/advanced_topics/debug/doc
    manual/advanced_topics/settings/doc
+   manual/advanced_topics/cli_options/doc
    manual/advanced_topics/api_version/doc
    manual/advanced_topics/example_flow/doc
 

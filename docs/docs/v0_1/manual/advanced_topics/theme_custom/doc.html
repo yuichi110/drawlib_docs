@@ -76,10 +76,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../font/doc.html">Font Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dimage/doc.html">Dimage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts/doc.html">Smart Arts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Define your own theme</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Define your own theme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dtheme-apply-custom-theme">dtheme.apply_custom_theme</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
 </ul>
@@ -118,6 +123,122 @@
              
   <section id="define-your-own-theme">
 <h1>Define your own theme<a class="headerlink" href="#define-your-own-theme" title="Link to this heading"></a></h1>
+<p>We provides official themes.
+But some users may want to create your own theme.
+You can achieve it with these 2 ways.</p>
+<ul class="simple">
+<li><p>Register your style objects manually</p></li>
+<li><p>Syntax sugar of above</p></li>
+</ul>
+<p>We recommend using syntax sugar way at styling code which is explained at “building many images” doc.</p>
+<section id="dtheme-apply-custom-theme">
+<h2>dtheme.apply_custom_theme<a class="headerlink" href="#dtheme-apply-custom-theme" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code> provides setting custom theme feature.
+It takes these arguments.</p>
+<ul class="simple">
+<li><p>default_style:<code class="docutils literal notranslate"><span class="pre">dtheme.ThemeStyle</span></code></p></li>
+<li><p>named_styles:<code class="docutils literal notranslate"><span class="pre">List[Tuple[str,</span> <span class="pre">dtheme.ThemeStyle]]</span></code></p></li>
+<li><p>theme_colors:<code class="docutils literal notranslate"><span class="pre">List[Tuple[str,</span> <span class="pre">Tuple[int,</span> <span class="pre">int,</span> <span class="pre">int]]]</span></code></p></li>
+</ul>
+<p>The type <code class="docutils literal notranslate"><span class="pre">dtheme.ThemeStyle</span></code> is data class which holds all drawlib styles.
+All member of the class is optional (default is None).
+But data which is passed to arg <code class="docutils literal notranslate"><span class="pre">default_style</span></code> requires them.</p>
+<ul class="simple">
+<li><p>backgroundcolor</p></li>
+<li><p>sourcecodefont</p></li>
+<li><p>iconstyle</p></li>
+<li><p>imagestyle</p></li>
+<li><p>linestyle</p></li>
+<li><p>linearrowstyle</p></li>
+<li><p>shapestyle</p></li>
+<li><p>shapetextstyle</p></li>
+<li><p>textstyle</p></li>
+</ul>
+<p>You can get these styles with <code class="docutils literal notranslate"><span class="pre">dtheme.&lt;styles&gt;.get()</span></code>.
+Those value becomes default.</p>
+<p>On the other hand, <code class="docutils literal notranslate"><span class="pre">named_styles</span></code> is a list of tuple. The tuple posses name and <code class="docutils literal notranslate"><span class="pre">dtheme.ThemeStyle</span></code> object.
+You can get those styles via <code class="docutils literal notranslate"><span class="pre">dtheme.&lt;styles&gt;.get(name)</span></code>.</p>
+<p>OK, let’s check example custom theme which uses gold and silver colors.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">default</span> <span class="o">=</span> <span class="n">dtheme</span><span class="o">.</span><span class="n">ThemeStyle</span><span class="p">(</span>
+<span class="linenos"> 4</span>    <span class="n">backgroundcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">AliceBlue</span><span class="p">,</span>
+<span class="linenos"> 5</span>    <span class="n">sourcecodefont</span><span class="o">=</span><span class="n">FontSourceCode</span><span class="o">.</span><span class="n">ROBOTO_MONO</span><span class="p">,</span>
+<span class="linenos"> 6</span>    <span class="n">iconstyle</span><span class="o">=</span><span class="n">IconStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="n">imagestyle</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">,</span> <span class="n">lwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="n">linestyle</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos"> 9</span>    <span class="n">linearrowstyle</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">10</span>    <span class="n">shapestyle</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Black</span><span class="p">,</span> <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">11</span>    <span class="n">shapetextstyle</span><span class="o">=</span><span class="n">ShapeTextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">DarkRed</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_BOLD</span><span class="p">),</span>
+<span class="linenos">12</span>    <span class="n">textstyle</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">DarkRed</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_BOLD</span><span class="p">),</span>
+<span class="linenos">13</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">gold</span> <span class="o">=</span> <span class="n">dtheme</span><span class="o">.</span><span class="n">ThemeStyle</span><span class="p">(</span>
+<span class="linenos">16</span>    <span class="n">iconstyle</span><span class="o">=</span><span class="n">IconStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">17</span>    <span class="n">imagestyle</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">,</span> <span class="n">lwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+<span class="linenos">18</span>    <span class="n">linestyle</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">19</span>    <span class="n">linearrowstyle</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">20</span>    <span class="n">shapestyle</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Black</span><span class="p">,</span> <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">21</span>    <span class="n">shapetextstyle</span><span class="o">=</span><span class="n">ShapeTextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_BOLD</span><span class="p">),</span>
+<span class="linenos">22</span>    <span class="n">textstyle</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_BOLD</span><span class="p">),</span>
+<span class="linenos">23</span><span class="p">)</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="n">silver</span> <span class="o">=</span> <span class="n">dtheme</span><span class="o">.</span><span class="n">ThemeStyle</span><span class="p">(</span>
+<span class="linenos">26</span>    <span class="n">iconstyle</span><span class="o">=</span><span class="n">IconStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">),</span>
+<span class="linenos">27</span>    <span class="n">imagestyle</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">,</span> <span class="n">lwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+<span class="linenos">28</span>    <span class="n">linestyle</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">),</span>
+<span class="linenos">29</span>    <span class="n">linearrowstyle</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">),</span>
+<span class="linenos">30</span>    <span class="n">shapestyle</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Black</span><span class="p">,</span> <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">),</span>
+<span class="linenos">31</span>    <span class="n">shapetextstyle</span><span class="o">=</span><span class="n">ShapeTextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_BOLD</span><span class="p">),</span>
+<span class="linenos">32</span>    <span class="n">textstyle</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_BOLD</span><span class="p">),</span>
+<span class="linenos">33</span><span class="p">)</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_custom_theme</span><span class="p">(</span>
+<span class="linenos">36</span>    <span class="n">default_style</span><span class="o">=</span><span class="n">default</span><span class="p">,</span>
+<span class="linenos">37</span>    <span class="n">named_styles</span><span class="o">=</span><span class="p">[</span>
+<span class="linenos">38</span>        <span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">gold</span><span class="p">),</span>
+<span class="linenos">39</span>        <span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">,</span> <span class="n">silver</span><span class="p">),</span>
+<span class="linenos">40</span>    <span class="p">],</span>
+<span class="linenos">41</span>    <span class="n">theme_colors</span><span class="o">=</span><span class="p">[</span>
+<span class="linenos">42</span>        <span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">Colors140</span><span class="o">.</span><span class="n">Gold</span><span class="p">),</span>
+<span class="linenos">43</span>        <span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">,</span> <span class="n">Colors140</span><span class="o">.</span><span class="n">Silver</span><span class="p">),</span>
+<span class="linenos">44</span>    <span class="p">],</span>
+<span class="linenos">45</span><span class="p">)</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">48</span><span class="n">x1</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="linenos">49</span><span class="n">x2</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="linenos">50</span><span class="n">x3</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="linenos">51</span><span class="n">y1</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos">52</span><span class="n">y2</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="linenos">53</span><span class="n">y3</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="n">line</span><span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
+<span class="linenos">56</span><span class="n">circle</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">57</span><span class="n">text</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Hello Drawlib!&quot;</span><span class="p">)</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">x2</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">)]:</span>
+<span class="linenos">60</span>    <span class="n">line</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">61</span>    <span class="n">circle</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">62</span>    <span class="n">text</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Hello Drawlib!&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos">65</span><span class="n">clear</span><span class="p">(</span><span class="n">initialize_theme</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We define theme styles first.
+After that, calling <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code>.</p>
+<figure class="align-center" id="id2">
+<a class="with-border reference internal image-reference" href="../../../_images/image13.png"><img alt="../../../_images/image13.png" class="with-border" src="../../../_images/image13.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can see your theme is applied.</p>
+</section>
 </section>
 
 

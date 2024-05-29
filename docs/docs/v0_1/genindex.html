@@ -73,10 +73,12 @@
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/font/doc.html">Font Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/dimage/doc.html">Dimage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts/doc.html">Smart Arts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/settings/doc.html">Library Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/cli_options/doc.html">CLI Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
 </ul>
@@ -266,7 +268,7 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.util.ShapeUtil.apply_alignment">apply_alignment() (drawlib.v0_1.private.core.util.ShapeUtil static method)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_custome_theme">apply_custome_theme() (drawlib.v0_1.private.core.theme.Theme method)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_custom_theme">apply_custom_theme() (drawlib.v0_1.private.core.theme.Theme method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_official_theme">apply_official_theme() (drawlib.v0_1.private.core.theme.Theme method)</a>
 </li>
@@ -291,6 +293,8 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.archive_tray">archive_tray() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arcstyle">arcstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arctextstyle">arctextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.armchair">armchair() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -490,13 +494,15 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.arrows_vertical">arrows_vertical() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arrowstyle">arrowstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arrowtextstyle">arrowtextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.article">article() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.article_medium">article_medium() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.article_ny_times">article_ny_times() (in module drawlib.v0_1.private.icons.phosphor)</a>
-</li>
-      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.arttextstyle">arttextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.asclepius">asclepius() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -786,6 +792,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.browsers">browsers() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.bubblespeechstyle">bubblespeechstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.bubblespeechtextstyle">bubblespeechtextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.bug">bug() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.bug_beetle">bug_beetle() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -1062,6 +1072,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.chevron">chevron() (drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature method)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.chevronstyle">chevronstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.chevrontextstyle">chevrontextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors140.Chocolate">Chocolate (drawlib.v0_1.private.core.colors.Colors140 attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.church">church() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -1099,6 +1113,10 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circles_three">circles_three() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circles_three_plus">circles_three_plus() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.circlestyle">circlestyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.circletextstyle">circletextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.circuitry">circuitry() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -1520,6 +1538,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.donuts">donuts() (drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature method)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.donutsstyle">donutsstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.donutstextstyle">donutstextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.door">door() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.door_open">door_open() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -1575,6 +1597,8 @@
         <li><a href="api/drawlib.assets.html#module-drawlib.assets">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     drawlib.assets.v0_1
 
@@ -1582,8 +1606,6 @@
         <li><a href="api/drawlib.assets.v0_1.html#module-drawlib.assets.v0_1">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     drawlib.assets.v0_1.fonticons
 
@@ -1902,6 +1924,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.ellipse">ellipse() (drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature method)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.ellipsestyle">ellipsestyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.ellipsetextstyle">ellipsetextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.empty">empty() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.engine">engine() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -1916,10 +1942,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.equalizer">equalizer() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.equals">equals() (in module drawlib.v0_1.private.icons.phosphor)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.equals">equals() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.eraser">eraser() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.util.error_handler">error_handler() (in module drawlib.v0_1.private.util)</a>
@@ -1978,6 +2004,10 @@
         <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.fan">(in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       </ul></li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.fanstyle">fanstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.fantextstyle">fantextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.farm">farm() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.fast_forward">fast_forward() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -2120,10 +2150,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.flag">flag() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-      <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.flag_banner">flag_banner() (in module drawlib.v0_1.private.icons.phosphor)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.flag_banner">flag_banner() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.flag_banner_fold">flag_banner_fold() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.flag_checkered">flag_checkered() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -2385,6 +2415,8 @@
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.util.ShapeUtil.get_shape_text">get_shape_text() (drawlib.v0_1.private.core.util.ShapeUtil static method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.settings.DrawlibSettings.get_suppress_warning">get_suppress_warning() (drawlib.v0_1.private.settings.DrawlibSettings method)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.smartarts.html#drawlib.v0_1.private.smartarts.sourcecode.SourceCode.get_text">get_text() (drawlib.v0_1.private.smartarts.sourcecode.SourceCode static method)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.util.TextUtil.get_text_options">get_text_options() (drawlib.v0_1.private.core.util.TextUtil static method)</a>
 </li>
@@ -3583,6 +3615,10 @@
         <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.parallelogram">(in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       </ul></li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.parallelogramstyle">parallelogramstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.parallelogramtextstyle">parallelogramtextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.park">park() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.html#drawlib.v0_1.private.command.DrawlibArgParser.parse">parse() (drawlib.v0_1.private.command.DrawlibArgParser method)</a>
@@ -3775,6 +3811,10 @@
         <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.polygon">(in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       </ul></li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.polygonstyle">polygonstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.polygontextstyle">polygontextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.popcorn">popcorn() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.fonts.FontSansSerif.POPPINS_BOLD">POPPINS_BOLD (drawlib.v0_1.private.core.fonts.FontSansSerif attribute)</a>
@@ -3899,6 +3939,10 @@
       </ul></li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.rectangle_dashed">rectangle_dashed() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.rectanglestyle">rectanglestyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.rectangletextstyle">rectangletextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.recycle">recycle() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors.Red">Red (drawlib.v0_1.private.core.colors.Colors attribute)</a>
@@ -3910,6 +3954,10 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.reddit_logo">reddit_logo() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.regularpolygon">regularpolygon() (drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature method)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.regularpolygonstyle">regularpolygonstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.regularpolygontextstyle">regularpolygontextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.dimage.Dimage.remove_margin">remove_margin() (drawlib.v0_1.private.core.dimage.Dimage method)</a>
 </li>
@@ -3940,6 +3988,10 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.rewind_circle">rewind_circle() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.rhombus">rhombus() (drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature method)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.rhombusstyle">rhombusstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.rhombustextstyle">rhombustextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.road_horizon">road_horizon() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -4269,10 +4321,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.skip_back">skip_back() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.skip_back_circle">skip_back_circle() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.skip_forward">skip_forward() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.skip_forward_circle">skip_forward_circle() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -4456,6 +4508,10 @@
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.star_half">star_half() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.star_of_david">star_of_david() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.starstyle">starstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.startextstyle">startextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.steam_logo">steam_logo() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -4685,12 +4741,12 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.thermometer_hot">thermometer_hot() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.thermometer_simple">thermometer_simple() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.colors.Colors140.Thistle">Thistle (drawlib.v0_1.private.core.colors.Colors140 attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.threads_logo">threads_logo() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.three_d">three_d() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -4775,6 +4831,10 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature.trapezoid">trapezoid() (drawlib.v0_1.private.core_canvas.original_polygon.CanvasOriginalPolygonFeature method)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.trapezoidstyle">trapezoidstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.trapezoidtextstyle">trapezoidtextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.trash">trash() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.trash_simple">trash_simple() (in module drawlib.v0_1.private.icons.phosphor)</a>
@@ -4810,6 +4870,10 @@
 </li>
       </ul></li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.triangle_dashed">triangle_dashed() (in module drawlib.v0_1.private.icons.phosphor)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.trianglestyle">trianglestyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.triangletextstyle">triangletextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.trolley">trolley() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
@@ -5003,9 +5067,13 @@
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.wechat_logo">wechat_logo() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>
+      <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.wedge">wedge() (drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/drawlib.v0_1.private.core_canvas.html#drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature.wedge">wedge() (drawlib.v0_1.private.core_canvas.patches.CanvasPatchesFeature method)</a>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.wedgestyle">wedgestyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
+</li>
+      <li><a href="api/drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle.wedgetextstyle">wedgetextstyle (drawlib.v0_1.private.core.theme.Theme.ThemeStyle attribute)</a>
 </li>
       <li><a href="api/drawlib.v0_1.private.icons.html#drawlib.v0_1.private.icons.phosphor.whatsapp_logo">whatsapp_logo() (in module drawlib.v0_1.private.icons.phosphor)</a>
 </li>

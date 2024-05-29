@@ -13,6 +13,8 @@ Here are the function.
 - ``is_debug_mode()``
 - ``is_developer_debug_mode()``
 
+Currently, settings are related to only logging level and its behavior.
+
 Logging
 ==========
 
@@ -20,18 +22,13 @@ Drawlib can change log level.
 But log level doesn't mean syslog's one.
 But drawlib's level.
 
-- ``quiet``: show only warning and error.
-- ``normal``: default.
-- ``verbose``: many log.
-- ``developer``: verbose + disable error handler.
+- ``quiet``: show only warning and error. Equivalent to logging.ERROR
+- ``normal``: default. Equivalent to logging.INFO
+- ``verbose``: many log. Equivalent to logging.DEBUG
+- ``developer``: verbose option + disabling error handling.
 
 You can set level via ``set_logging_mode(mode)``.
 And able to get current level via ``get_logging_mode()``.
-
-Set Logging via CLI arg
-=========================
-
-You can change log level via calling ``set_logging_mode()``.
 
 Suppressing Warnings
 ========================

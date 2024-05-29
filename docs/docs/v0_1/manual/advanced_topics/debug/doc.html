@@ -76,10 +76,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../font/doc.html">Font Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dimage/doc.html">Dimage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts/doc.html">Smart Arts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theme_custom/doc.html">Define your own theme</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging errors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-enable-debug-mode">How to enable debug mode</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
 </ul>
@@ -118,6 +123,27 @@
              
   <section id="debugging-errors">
 <h1>Debugging errors<a class="headerlink" href="#debugging-errors" title="Link to this heading"></a></h1>
+<p>Drawlib hide detail error when user code makes trouble.
+On that time drawlib shows only</p>
+<ul class="simple">
+<li><p>Which file and line has problem</p></li>
+<li><p>What error happens</p></li>
+</ul>
+<p>It means drawlib doesn’t show stucktrace and where library code makes error from user input.
+It is because we believe showing detail error and inside of drawlib is not good for ordinary users.</p>
+<p>However, some times you want to check details.
+On that situation you need to enable debug mode.</p>
+<section id="how-to-enable-debug-mode">
+<h2>How to enable debug mode<a class="headerlink" href="#how-to-enable-debug-mode" title="Link to this heading"></a></h2>
+<p>Drawlib controlls which output is shown on cosole via logging level.
+Detail of error log is shown only on debug level logging.</p>
+<p>To set logging level debug, you have 2 options.</p>
+<ul class="simple">
+<li><p>Set logging level via calling function: <code class="docutils literal notranslate"><span class="pre">dsettings.set_logging_mode(&quot;debug&quot;)</span></code></p></li>
+<li><p>Set logging level via CLI Option <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span> <span class="pre">--quiet/--verbose/--developer</span></code></p></li>
+</ul>
+<p>Please check details on settings doc and CLI options docs for details.</p>
+</section>
 </section>
 
 

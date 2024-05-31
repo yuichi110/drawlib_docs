@@ -4,18 +4,40 @@ Theme feature
 
 Drawlib posses theme feature.
 Default theme is applied automatically at start.
-It is a combination of styles.
-If you don't specify style to drawing items, theme style will be applied.
-This feature will ease styling effort.
+
+Theme is a combination of pre-defined styles.
+If you don't specify style to drawing items, pre-defined theme style will be applied.
+Or you can specify style with shortcut such as ``text((10, 10), "Hello", style="blue")``.
+
+Understanding drawlib's theme feature will release you defining lots of style object.
+And also, your illustration can achieve consistency of styles.
 
 They are key concept of drawlib's theme system.
 
+- Theme feature exists under ``dtheme``.
 - Posses official themes. Default theme is ``default``.
-- Each theme posses default styles for all drawing items.
-- Few other styles can be used keywords.
-- You can create your own theme
+- Each theme posses default styles for drawing items.
+- Other theme styles can be used with keywords.
+- You can modify existing theme
+- Able to create your own new theme
 
-Let's check them before going details.
+We will take care basic things in this doc.
+Advanced topics are covered in Theme chapter docs.
+
+Get list of official docs
+===========================
+
+Drawlib posses few official themes.
+Default theme is ``default``.
+To use other theme, you need to specify its name.
+
+You can get list of official theme names.
+
+.. literalinclude:: get_theme_names.py
+   :language: python
+   :linenos:
+   :caption: How to get official theme names
+
 
 Apply Official Themes
 ========================
@@ -77,10 +99,10 @@ Each drawing item uses theme's default style.
 But you can apply optional styles easily by providing style name to drawing functions style args.
 Let's check default theme's other styles.
 
-.. literalinclude:: image1_3.py
+.. literalinclude:: image2_1.py
    :language: python
    :linenos:
-   :caption: image1_3.py
+   :caption: image2_1.py
 
 You can see, providing ``"blue"``, ``"green"`` and ``"pink"`` to style.
 Args style can take them.
@@ -95,145 +117,156 @@ If it exist, apply it.
 If it doens't, raise error.
 None is a default value of style. Applying default style when arg style get None.
 
-.. figure:: image1_3.png
+.. figure:: image2_1.png
     :width: 500
     :class: with-border
     :align: center
 
-    theme "gray"
+    Specifying theme style name
 
 Default theme is same to "blue" on theme "default".
 So, specifying "blue" to style is same to no-style.
 However, "green" makes the shape green and "pink" makes it pink.
 Style keywords "blue", "green" and "pink" can be used since default theme has styles which have the name.
-
 On the other hand, theme ``gray`` doesn't have those style keywords. So specifying them makes value error.
-Theme gray posses another styles ``"gray1"``, ``"gray2"``, ``gray3``.
-Applyint them to style will work fine.
 
-Please be careful it depends on drawing function that what style name can be used.
-You can check what style names current theme have by issuing ``dtheme.print_style_table()``.
-It will generate style table on console.
+You can check what style name you can use via ``dtheme.print_style_table()``
 
-.. literalinclude:: image1_3.py
+.. literalinclude:: print_theme_style_table.py
    :language: python
    :linenos:
-   :caption: image1_3.py
+   :caption: print_theme_style_table.py
 
-We will cover how to access them at next topic.
+Let's check another official theme ``flat``.
+It is flat design style theme.
+
+.. literalinclude:: image2_2.py
+   :language: python
+   :linenos:
+   :caption: image2_2.py
+
+.. figure:: image2_2.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    Specifying theme style name
+
 
 Accessing Theme Styles
-=========================
+=======================
 
-You can modify official theme and your theme.
-``dtheme`` provides style management object for each items.
-Such as
+At previous examples, you use predefined styles.
+Sometimes, you need to modify it slightly such as changing text size.
+On that situation, you can use ``dtheme.<type>styles`` style caching objects.
+Name is equivalent to drawlib's style class name.
+For example
 
-- ``dtheme.linestyles``
-- ``dtheme.shapestyles``
-- ``dtheme.textstyles``
+- ``IconStyle``: ``dtheme.iconstyles``
+- ``ImageStyle``: ``dtheme.imagestyles``
+- ``LineStyle``: ``dtheme.linestyles``
+- ``LineArrowStyle``: ``dtheme.linearrowstyles``
+- ``ShapeStyle``: ``dtheme.shapestyles``
+- ``ShapeTextStyle``: ``dtheme.shapetextstyles``
+- ``TextStyle``: ``dtheme.textstyles``
 
-Each object posses these methods.
+Are important caches.
 
-- ``has(name:str = "")``
-- ``list()``
-- ``get(name:str = "")``
-- ``set(style:Style, name:str = "")``
-- ``delete(name:str = "")``
+Each style cache objects posses these methods.
 
-They modify style caches like ``dict``.
-name is key and style is value.
-Default value of ``name`` is blank string and the pair value contains default style.
-If you want to get default style, just issue ``dtheme.linestyles.get()``.
-If you want to get predifined green style, issue ``dtheme.linestyles.get("green")``.
+- ``has(name)``: whether the name style exists or not
+- ``list()``: get names of styles
+- ``get(name)``: get style object
+- ``set(name)``: set style object
+- ``delete(name)``: delete style object
 
-They will return copy of original style.
-Since return value is copied one, you can modify the object.
-Modification doesn't effects original styles.
+When you get and set objects, copied object is saved and retrieved.
+No worry to modify style object after get/set.
 
-When you want to change theme's style slightly, get and modification might be useful.
-If you want to change theme style completly, get, modify, set might be useful.
-Here is a example.
+.. literalinclude:: image3_1.py
+   :language: python
+   :linenos:
+   :caption: image3_1.py
 
-Fallback Mechanism of ShapeStyle and ShapeTextStyle
-========================================================
+.. figure:: image3_1.png
+    :width: 600
+    :class: with-border
+    :align: center
 
-Drawlib posses lots of shape drawing functions such as ``circle()`` and ``rectangle()``.
-Each shape types posses style caches.
+    Specifying theme style name
 
-- ``dtheme.circlestyles``
-- ``dtheme.rectanglestyles``
-
-If you want to change only 1 shape type, use them.
-However, setting styles for each shape type requires lots of effort.
-If you want to apply common styles to all shape types, use ``dtheme.shapestyles`` instead.
-
-Drawlib's each shape's get() method has fallback mechanism.
-
-1. Check whether specific shape type posses style name.
-2. If it has, return it.
-3. If it doesn't, request ``dtheme.shapestyles`` to return same style name.
-4. If it has, return it.
-5. If it doesn't, not found error happens.
-
-This behavior is also applied to shape text styles.
-If ``dtheme.circletextstyles`` can't find the style name, it asks to ``dtheme.shapestexttyles``.
-
-Please remember, default value (key is "") must be set to them.
-
-- ``dtheme.iconstyles``
-- ``dtheme.imagestyles``
-- ``dtheme.linestyles``
-- ``dtheme.linesarrowtyles``
-- ``dtheme.shapestyles``
-- ``dtheme.shapetextstyles``
-- ``dtheme.textstyles``
-
-Drawing functions use there default values if style is not specified.
-If default value doesn't exsit, you will get error.
-Official theme configures them of course.
+Drawlib can customize style per shape objects such as ``circle()`` and ``rectangle()``.
+However, if you don't need to customize per shape types, just using ``dtheme.shapestyles`` and ``dtheme.shapetextstyles`` are OK.
+If each style cache doesn't have the name style, it will use those values.
 
 
-LineStyle and ArrowStyle.
-============================
+Accessing Theme Colors
+=======================
 
-Please remember how function ``line()`` specifies style.
-Arg ``style`` can take both ``LineStyle`` and ``lineArrowStyle``.
-Functions able to judge whether it is line or arrow line through checking types.
-However, using style name via str make the situation comples.
-Function can't judge whether the style name ``green`` is line or arrow line.
+When you create style object from scratch, you may want to get theme colors.
+Drawlib provides ``dtheme.colors`` object.
+It is almost same to last style cache object.
+It has same name methods.
 
-Drawlib approach's this problem with simple solutions.
+- ``has(name)``: whether the name color exists or not
+- ``list()``: get names of colors
+- ``get(name)``: get color
+- ``set(name)``: set color
+- ``delete(name)``: delete color
 
-- Prefer ``LineStyle`` rather than ``LineArrowStyle``
-- Additional name is set for LineArrowStyle.
+.. literalinclude:: image4_1.py
+   :language: python
+   :linenos:
+   :caption: image4_1.py
 
-If both style posses style name ``green``, line will be displayed since it has high priority.
-If you want to use LineArrowStyle, you have 2 options.
 
-- Get style object first. And then pass it to line function.
-- Use name ``"la-<style name>"``. It is additionally set to ``dtheme.linearrowstyles``.
+Rename Style Name
+=====================
 
-Passing "green" to arg style draws line.
-And passing "arrow-green" to it draws arrow-line.
+If you have possibilities for changing theme later, please consider renaming style names.
+For example, ``default`` theme's style name ``blue`` can't be used in many other themes.
+Hard coding ``style="blue"`` makes difficulty of changing style.
+To change theme, you need to change all illustration codes.
 
-IconStyle color
-=================
+Suppose, we want to change theme from ``default`` to ``flat``.
+In this situation, changing style name from ``blue`` to ``1`` might be useful for theme ``default``.
+And also, changing style name from ``peter_river`` to ``1`` is useful for theme ``flat``.
+I prefer "1", "2", "3" for anonym of primary color, secondary color etc.
+But standadize to color name "blue", "red", "green" etc might be good too.
 
-Icon can use only 1 color.
-But each official theme posses 2 colors for each style name.
-For example, style "blue" posses ``lcolor(line-color)`` and ``fcolor(fill-color)`` for shapes.
+To change style name, we use ``dtheme.allstyles`` object.
+It posses methods for modifying style name.
+Here are the list of methods.
 
-When you pass "blue" to icon's style, lcolor is used.
-But you can specify which color via
+- ``rename(from_name, to_name)``
+- ``copy(from_name, to_name)``
+- ``delete(name)``
 
-- ``lc-<style_name>``: lcolor-blue
-- ``fc-<style_name>``: fcolor-blue
+In our situation, we use ``dtheme.allstyles.rename()``.
 
-TextShapeStyle's white
-========================
+OK, take a look at theme ``default`` code.
 
-There are many chances that drawing colored shape with white text.
-So, ``white`` is automatically added to TextShapeStyle's style.
-It uses text color white and other parameters come from default.
-If official theme posses ``white`` in definition, this auto add feature will be disabled for the theme.
+.. literalinclude:: image5_1.py
+   :language: python
+   :linenos:
+   :caption: image5_1.py
+
+.. figure:: image5_1.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+Next, take a look at theme ``flat`` code.
+
+.. literalinclude:: image5_2.py
+   :language: python
+   :linenos:
+   :caption: image5_2.py
+
+.. figure:: image5_2.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+We did this name modification at illustration code in these examples.
+But you should implement it on common style code which we explained at building many images topic.

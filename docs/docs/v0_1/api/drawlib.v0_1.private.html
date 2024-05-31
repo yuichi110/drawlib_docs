@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual/introductions/install/doc.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/introductions/lib_design/doc.html">Drawlib Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/introductions/quick_start/doc.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/introductions/other_version_docs/doc.html">Other version docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul>
@@ -78,12 +79,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/smartarts/doc.html">Smart Arts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/cli_options/doc.html">CLI Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_default/doc.html">Official Theme: default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_flat/doc.html">Official Theme: flat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_black_and_white/doc.html">Official Theme: black_and_white</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_gray/doc.html">Official Theme: gray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/customize/doc.html">Customize official theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
 <ul class="current">
@@ -730,12 +738,70 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyle.bgfcolor"><code class="docutils literal notranslate"><span class="pre">TextStyle.bgfcolor</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles"><code class="docutils literal notranslate"><span class="pre">ThemeStyles</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.iconstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.iconstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.imagestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.imagestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.linestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.linestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.linearrowstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.linearrowstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.shapestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.shapestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.shapetextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.shapetextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.textstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.textstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.arcstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.arcstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.arctextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.arctextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.circlestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.circlestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.circletextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.circletextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.ellipsestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.ellipsestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.ellipsetextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.ellipsetextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.polygonstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.polygonstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.polygontextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.polygontextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.rectanglestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.rectanglestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.rectangletextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.rectangletextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.regularpolygonstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.regularpolygonstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.regularpolygontextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.regularpolygontextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.wedgestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.wedgestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.wedgetextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.wedgetextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.donutsstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.donutsstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.donutstextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.donutstextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.fanstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.fanstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.fantextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.fantextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.arrowstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.arrowstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.arrowtextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.arrowtextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.rhombusstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.rhombusstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.rhombustextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.rhombustextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.parallelogramstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.parallelogramstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.parallelogramtextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.parallelogramtextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.trapezoidstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.trapezoidstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.trapezoidtextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.trapezoidtextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.trianglestyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.trianglestyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.triangletextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.triangletextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.starstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.starstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.startextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.startextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.chevronstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.chevronstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.chevrontextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.chevrontextstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.bubblespeechstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.bubblespeechstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ThemeStyles.bubblespeechtextstyle"><code class="docutils literal notranslate"><span class="pre">ThemeStyles.bubblespeechtextstyle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.OfficialThemeStyle"><code class="docutils literal notranslate"><span class="pre">OfficialThemeStyle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.OfficialThemeStyle.default_style"><code class="docutils literal notranslate"><span class="pre">OfficialThemeStyle.default_style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.OfficialThemeStyle.named_styles"><code class="docutils literal notranslate"><span class="pre">OfficialThemeStyle.named_styles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.OfficialThemeStyle.theme_colors"><code class="docutils literal notranslate"><span class="pre">OfficialThemeStyle.theme_colors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.OfficialThemeStyle.backgroundcolor"><code class="docutils literal notranslate"><span class="pre">OfficialThemeStyle.backgroundcolor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.OfficialThemeStyle.sourcecodefont"><code class="docutils literal notranslate"><span class="pre">OfficialThemeStyle.sourcecodefont</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib-v0-1-private-core-model-validator-module">drawlib.v0_1.private.core.model_validator module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.core.html#module-drawlib.v0_1.private.core.theme">drawlib.v0_1.private.core.theme module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.copy"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.delete"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.rename"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.rename()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme"><code class="docutils literal notranslate"><span class="pre">Theme</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyle"><code class="docutils literal notranslate"><span class="pre">Theme.ThemeStyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.ThemeStyles"><code class="docutils literal notranslate"><span class="pre">Theme.ThemeStyles</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.list_official_themes"><code class="docutils literal notranslate"><span class="pre">Theme.list_official_themes()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_official_theme"><code class="docutils literal notranslate"><span class="pre">Theme.apply_official_theme()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme.apply_custom_theme"><code class="docutils literal notranslate"><span class="pre">Theme.apply_custom_theme()</span></code></a></li>

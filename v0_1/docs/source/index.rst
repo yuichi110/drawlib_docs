@@ -34,12 +34,6 @@ Not only can textual documentation be version-controlled, but illustration code 
 Beyond mere illustration, drawlib empowers users to define and apply custom themes to illustration codes. 
 Refer to the Quickstart guide for a comprehensive understanding of drawlib's underlying concepts. All images within this documentation are generated using drawlib.
 
-Other version docs
-=====================
-
-- `Latest </>`_
-- `Version list </versions/>`_
-
 .. toctree::
    :maxdepth: 2
    :caption: Introductions:
@@ -48,6 +42,7 @@ Other version docs
    manual/introductions/install/doc
    manual/introductions/lib_design/doc
    manual/introductions/quick_start/doc
+   manual/introductions/other_version_docs/doc
 
 .. toctree::
    :maxdepth: 2
@@ -76,12 +71,21 @@ Other version docs
    manual/advanced_topics/smartarts/doc
    manual/advanced_topics/smartarts_bubblespeech/doc
    manual/advanced_topics/smartarts_sourcecode/doc
-   manual/advanced_topics/theme_custom/doc
    manual/advanced_topics/debug/doc
    manual/advanced_topics/settings/doc
    manual/advanced_topics/cli_options/doc
-   manual/advanced_topics/api_version/doc
    manual/advanced_topics/example_flow/doc
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Themes:
+
+   manual/themes/official_default/doc
+   manual/themes/official_flat/doc
+   manual/themes/official_black_and_white/doc
+   manual/themes/official_gray/doc
+   manual/themes/customize/doc
+   manual/themes/create/doc
 
 .. toctree::
    :maxdepth: 2

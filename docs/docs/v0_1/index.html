@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/install/doc.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/lib_design/doc.html">Drawlib Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/quick_start/doc.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/introductions/other_version_docs/doc.html">Other version docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul>
@@ -77,12 +78,19 @@
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts/doc.html">Smart Arts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html">Define your own theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/cli_options/doc.html">CLI Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_default/doc.html">Official Theme: default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_flat/doc.html">Official Theme: flat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_black_and_white/doc.html">Official Theme: black_and_white</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_gray/doc.html">Official Theme: gray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/customize/doc.html">Customize official theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
 <ul>
@@ -140,12 +148,6 @@ Not only can textual documentation be version-controlled, but illustration code 
 </figure>
 <p>Beyond mere illustration, drawlib empowers users to define and apply custom themes to illustration codes.
 Refer to the Quickstart guide for a comprehensive understanding of drawlib’s underlying concepts. All images within this documentation are generated using drawlib.</p>
-<section id="other-version-docs">
-<h2>Other version docs<a class="headerlink" href="#other-version-docs" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="/">Latest</a></p></li>
-<li><p><a class="reference external" href="/versions/">Version list</a></p></li>
-</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
 <ul>
@@ -175,6 +177,7 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 <li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#drawing-texts">Drawing texts</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="manual/introductions/other_version_docs/doc.html">Other version docs</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -235,13 +238,12 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/foundations/theme/doc.html">Theme feature</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#get-list-of-official-docs">Get list of official docs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#apply-official-themes">Apply Official Themes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#theme-s-pre-defined-styles">Theme’s pre-defined styles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#accessing-theme-styles">Accessing Theme Styles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#fallback-mechanism-of-shapestyle-and-shapetextstyle">Fallback Mechanism of ShapeStyle and ShapeTextStyle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#linestyle-and-arrowstyle">LineStyle and ArrowStyle.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#iconstyle-color">IconStyle color</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#textshapestyle-s-white">TextShapeStyle’s white</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#accessing-theme-colors">Accessing Theme Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#rename-style-name">Rename Style Name</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/foundations/build_many/doc.html">Building many images</a><ul>
@@ -304,10 +306,6 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/smartarts_sourcecode/doc.html#get-text">get_text()</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html">Define your own theme</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/theme_custom/doc.html#dtheme-apply-custom-theme">dtheme.apply_custom_theme</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/debug/doc.html">Debugging errors</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/debug/doc.html#how-to-enable-debug-mode">How to enable debug mode</a></li>
 </ul>
@@ -319,13 +317,32 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/cli_options/doc.html">CLI Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/api_version/doc.html">Using Old APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html#what-tool-we-use">What tool we use</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html#documentation-creation-process">Documentation creation process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html#directory-structure-of-workspace">Directory structure of workspace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html#sphinx-conf-py">sphinx conf.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/advanced_topics/example_flow/doc.html#build-script">Build script</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_default/doc.html">Official Theme: default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_flat/doc.html">Official Theme: flat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_black_and_white/doc.html">Official Theme: black_and_white</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/official_gray/doc.html">Official Theme: gray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/customize/doc.html">Customize official theme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/themes/customize/doc.html#update-style-objects">Update style objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/themes/customize/doc.html#copy-style-name">Copy style name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/themes/customize/doc.html#rename-style-name">Rename style name</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/themes/create/doc.html">Create Your Custom Theme from Scratch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/themes/create/doc.html#create-theme-style-object">Create Theme Style Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/themes/create/doc.html#apply-theme-styles">Apply Theme Styles</a></li>
 </ul>
 </li>
 </ul>
@@ -375,7 +392,6 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib’s u
 </li>
 </ul>
 </div>
-</section>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h2>
 <ul class="simple">

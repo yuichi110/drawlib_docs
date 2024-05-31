@@ -1,6 +1,9 @@
 from drawlib.apis import *
 
-config(width=100, height=50, theme="gray")
+dtheme.apply_official_theme("gray")
+
+config(width=100, height=50)
 circle((50, 25), radius=15)
 save()
-clear(initialize_theme=True)
+
+dtheme.apply_official_theme("default")

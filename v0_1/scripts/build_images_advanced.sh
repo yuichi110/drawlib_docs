@@ -22,4 +22,4 @@ source .venv/bin/activate
 cd ../
 
 # build
-python -m drawlib ./v0_1/docs/source/manual/advanced_topics
+drawlib --enable_auto_initialize ./v0_1/docs/source/manual/advanced_topics

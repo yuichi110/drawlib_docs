@@ -21,4 +21,3 @@ text((75, 15), "Hello Drawlib!!")
 text((75, 35), "Hello Drawlib!!", style="green")
 
 save()
-dtheme.apply_official_theme("default")

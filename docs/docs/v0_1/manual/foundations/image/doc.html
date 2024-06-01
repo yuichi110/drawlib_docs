@@ -93,8 +93,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_flat/doc.html">Official Theme: flat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_black_and_white/doc.html">Official Theme: black_and_white</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_gray/doc.html">Official Theme: gray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: black_and_white</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
@@ -261,7 +260,7 @@ Please check PIL by yourself if you want to use.</p>
 <span class="linenos"> 8</span><span class="n">dimage</span> <span class="o">=</span> <span class="n">Dimage</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
 <span class="linenos"> 9</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dimage</span><span class="p">)</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">dutil</span><span class="o">.</span><span class="n">get_script_relative_path</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">dutil_script</span><span class="o">.</span><span class="n">get_relative_path</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
 <span class="linenos">12</span><span class="n">pil_image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
 <span class="linenos">13</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">pil_image</span><span class="p">)</span>
 <span class="linenos">14</span>

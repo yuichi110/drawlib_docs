@@ -12,5 +12,3 @@ tstyle = dtheme.textstyles.get("3")
 tstyle.size = 28
 text((80, 25), text="Hello\nDrawlib!", style=tstyle)
 save()
-
-clear(initialize_theme=True)

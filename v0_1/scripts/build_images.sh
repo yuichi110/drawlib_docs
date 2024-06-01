@@ -23,4 +23,4 @@ cd ../
 
 # build
 python -m drawlib ./v0_1/docs/source/docs
-python -m drawlib ./v0_1/docs/source/manual
+python -m drawlib --enable_auto_initialize ./v0_1/docs/source/manual

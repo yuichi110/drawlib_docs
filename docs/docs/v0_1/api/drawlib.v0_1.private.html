@@ -88,8 +88,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_default/doc.html">Official Theme: default</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_flat/doc.html">Official Theme: flat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_black_and_white/doc.html">Official Theme: black_and_white</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_gray/doc.html">Official Theme: gray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/themes/official_monochrome/doc.html">Official Theme: black_and_white</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
@@ -110,11 +109,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#drawlib-v0-1-private-arg-validator-module">drawlib.v0_1.private.arg_validator module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-drawlib.v0_1.private.command">drawlib.v0_1.private.command module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.command.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.command.show_version"><code class="docutils literal notranslate"><span class="pre">show_version()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.parse"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.parse()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_positional_args"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.get_positional_args()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.show_version_then_exit0_if_requested"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.show_version_then_exit0_if_requested()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.apply_options"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.apply_options()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.is_show_version"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.is_show_version()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.is_purge_font_cache"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.is_purge_font_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_logging_mode"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.get_logging_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_exec_mode"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.get_exec_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_target_files"><code class="docutils literal notranslate"><span class="pre">DrawlibArgParser.get_target_files()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.command.DrawlibExecuter"><code class="docutils literal notranslate"><span class="pre">DrawlibExecuter</span></code></a><ul>
@@ -132,19 +134,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.logging.logger"><code class="docutils literal notranslate"><span class="pre">logger</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-drawlib.v0_1.private.settings">drawlib.v0_1.private.settings module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings.get_logging_mode"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings.get_logging_mode()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings.set_logging_mode"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings.set_logging_mode()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings.get_suppress_warning"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings.get_suppress_warning()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings.set_suppress_warning"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings.set_suppress_warning()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings.is_debug_mode"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings.is_debug_mode()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawlib.v0_1.private.settings.DrawlibSettings.is_developer_debug_mode"><code class="docutils literal notranslate"><span class="pre">DrawlibSettings.is_developer_debug_mode()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.settings.dsettings"><code class="docutils literal notranslate"><span class="pre">dsettings</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#drawlib-v0-1-private-settings-module">drawlib.v0_1.private.settings module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#drawlib-v0-1-private-tools-module">drawlib.v0_1.private.tools module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-drawlib.v0_1.private.util">drawlib.v0_1.private.util module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.util.error_handler"><code class="docutils literal notranslate"><span class="pre">error_handler()</span></code></a></li>
@@ -156,7 +146,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.util.get_script_path"><code class="docutils literal notranslate"><span class="pre">get_script_path()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.util.get_script_relative_path"><code class="docutils literal notranslate"><span class="pre">get_script_relative_path()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.util.get_script_function_name"><code class="docutils literal notranslate"><span class="pre">get_script_function_name()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.util.delete_font_file_cache"><code class="docutils literal notranslate"><span class="pre">delete_font_file_cache()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drawlib.v0_1.private.util.purge_font_cache"><code class="docutils literal notranslate"><span class="pre">purge_font_cache()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -595,14 +585,6 @@ Other moduels under this module is helpers.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="drawlib.v0_1.private.core.html#module-drawlib.v0_1.private.core.model">drawlib.v0_1.private.core.model module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyleDefault"><code class="docutils literal notranslate"><span class="pre">IconStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyleDefault.style"><code class="docutils literal notranslate"><span class="pre">IconStyleDefault.style</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyleDefault.color"><code class="docutils literal notranslate"><span class="pre">IconStyleDefault.color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyleDefault.alpha"><code class="docutils literal notranslate"><span class="pre">IconStyleDefault.alpha</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyleDefault.haligh"><code class="docutils literal notranslate"><span class="pre">IconStyleDefault.haligh</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyleDefault.valign"><code class="docutils literal notranslate"><span class="pre">IconStyleDefault.valign</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyle"><code class="docutils literal notranslate"><span class="pre">IconStyle</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyle.copy"><code class="docutils literal notranslate"><span class="pre">IconStyle.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyle.style"><code class="docutils literal notranslate"><span class="pre">IconStyle.style</span></code></a></li>
@@ -610,14 +592,6 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyle.alpha"><code class="docutils literal notranslate"><span class="pre">IconStyle.alpha</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyle.halign"><code class="docutils literal notranslate"><span class="pre">IconStyle.halign</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.IconStyle.valign"><code class="docutils literal notranslate"><span class="pre">IconStyle.valign</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyleDefault"><code class="docutils literal notranslate"><span class="pre">ImageStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyleDefault.lstyle"><code class="docutils literal notranslate"><span class="pre">ImageStyleDefault.lstyle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyleDefault.lcolor"><code class="docutils literal notranslate"><span class="pre">ImageStyleDefault.lcolor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyleDefault.lwidth"><code class="docutils literal notranslate"><span class="pre">ImageStyleDefault.lwidth</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyleDefault.halign"><code class="docutils literal notranslate"><span class="pre">ImageStyleDefault.halign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyleDefault.valign"><code class="docutils literal notranslate"><span class="pre">ImageStyleDefault.valign</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyle"><code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code></a><ul>
@@ -629,28 +603,12 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ImageStyle.lcolor"><code class="docutils literal notranslate"><span class="pre">ImageStyle.lcolor</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyleDefault"><code class="docutils literal notranslate"><span class="pre">LineStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyleDefault.width"><code class="docutils literal notranslate"><span class="pre">LineStyleDefault.width</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyleDefault.style"><code class="docutils literal notranslate"><span class="pre">LineStyleDefault.style</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyleDefault.color"><code class="docutils literal notranslate"><span class="pre">LineStyleDefault.color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyleDefault.alpha"><code class="docutils literal notranslate"><span class="pre">LineStyleDefault.alpha</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle"><code class="docutils literal notranslate"><span class="pre">LineStyle</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle.copy"><code class="docutils literal notranslate"><span class="pre">LineStyle.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle.width"><code class="docutils literal notranslate"><span class="pre">LineStyle.width</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle.style"><code class="docutils literal notranslate"><span class="pre">LineStyle.style</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle.color"><code class="docutils literal notranslate"><span class="pre">LineStyle.color</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineStyle.alpha"><code class="docutils literal notranslate"><span class="pre">LineStyle.alpha</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault.lwidth"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault.lwidth</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault.lstyle"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault.lstyle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault.hstyle"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault.hstyle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault.hscale"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault.hscale</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault.color"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault.color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyleDefault.alpha"><code class="docutils literal notranslate"><span class="pre">LineArrowStyleDefault.alpha</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle"><code class="docutils literal notranslate"><span class="pre">LineArrowStyle</span></code></a><ul>
@@ -661,16 +619,6 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle.hstyle"><code class="docutils literal notranslate"><span class="pre">LineArrowStyle.hstyle</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle.color"><code class="docutils literal notranslate"><span class="pre">LineArrowStyle.color</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.LineArrowStyle.alpha"><code class="docutils literal notranslate"><span class="pre">LineArrowStyle.alpha</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.halign"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.halign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.valign"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.valign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.lwidth"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.lwidth</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.lstyle"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.lstyle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.lcolor"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.lcolor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.fcolor"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.fcolor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyleDefault.alpha"><code class="docutils literal notranslate"><span class="pre">ShapeStyleDefault.alpha</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle"><code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code></a><ul>
@@ -684,18 +632,6 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeStyle.fcolor"><code class="docutils literal notranslate"><span class="pre">ShapeStyle.fcolor</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.alpha"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.alpha</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.color"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.size"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.size</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.halign"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.halign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.valign"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.valign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.font"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.font</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.angle"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.angle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.flip"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.flip</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyleDefault.xy_shift"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyleDefault.xy_shift</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle.copy"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle.halign"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle.halign</span></code></a></li>
@@ -707,20 +643,6 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle.angle"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle.angle</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle.flip"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle.flip</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.ShapeTextStyle.xy_shift"><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle.xy_shift</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.alpha"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.alpha</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.color"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.color</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.size"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.size</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.halign"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.halign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.valign"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.valign</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.font"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.font</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.bgalpha"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.bgalpha</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.bgfcolor"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.bgfcolor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.bglcolor"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.bglcolor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.bglstyle"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.bglstyle</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyleDefault.bglwidth"><code class="docutils literal notranslate"><span class="pre">TextStyleDefault.bglwidth</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.model.TextStyle"><code class="docutils literal notranslate"><span class="pre">TextStyle</span></code></a><ul>
@@ -798,6 +720,7 @@ Other moduels under this module is helpers.</p>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.copy"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.delete"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.delete()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.rename"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.rename()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.AllStyleNameModifier.merge"><code class="docutils literal notranslate"><span class="pre">AllStyleNameModifier.merge()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="drawlib.v0_1.private.core.html#drawlib.v0_1.private.core.theme.Theme"><code class="docutils literal notranslate"><span class="pre">Theme</span></code></a><ul>
@@ -2571,6 +2494,11 @@ If the API is latest, called from root package’s <code class="docutils literal
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.command.show_version">
+<span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.command.</span></span><span class="sig-name descname"><span class="pre">show_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.command.show_version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.command.</span></span><span class="sig-name descname"><span class="pre">DrawlibArgParser</span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser" title="Link to this definition"></a></dt>
@@ -2590,8 +2518,48 @@ This method must be called before calling get methods.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.get_positional_args">
-<span class="sig-name descname"><span class="pre">get_positional_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_positional_args" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.is_show_version">
+<span class="sig-name descname"><span class="pre">is_show_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.is_show_version" title="Link to this definition"></a></dt>
+<dd><p>show version if option <code class="docutils literal notranslate"><span class="pre">-v/</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code> exists. And then quit.</p>
+<p>Check whether option has <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code>.
+If yes, show version. And then, quit with <code class="docutils literal notranslate"><span class="pre">sys.exit(0)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.is_purge_font_cache">
+<span class="sig-name descname"><span class="pre">is_purge_font_cache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.is_purge_font_cache" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.get_logging_mode">
+<span class="sig-name descname"><span class="pre">get_logging_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'quiet'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'normal'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'verbose'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'developer'</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_logging_mode" title="Link to this definition"></a></dt>
+<dd><p>Check named args and apply appropriate configs.</p>
+<p>Check these named argses. And do appropriate actions.</p>
+<ul class="simple">
+<li><p>–quiet: make logging mode quiet</p></li>
+<li><p>–debug: make logging mode verbose</p></li>
+<li><p>–devdebug: make logging mode developer</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.get_exec_mode">
+<span class="sig-name descname"><span class="pre">get_exec_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'none'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'auto_clear'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'auto_initialize'</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_exec_mode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.get_target_files">
+<span class="sig-name descname"><span class="pre">get_target_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.get_target_files" title="Link to this definition"></a></dt>
 <dd><p>Get positional args. which are files and directories.</p>
 <p>drawlib command requires files and directories as positional args.
 They are the target of <code class="docutils literal notranslate"><span class="pre">tool.run()</span></code> function.
@@ -2609,45 +2577,15 @@ If those python files are drawlib’s one, generate images.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.show_version_then_exit0_if_requested">
-<span class="sig-name descname"><span class="pre">show_version_then_exit0_if_requested</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.show_version_then_exit0_if_requested" title="Link to this definition"></a></dt>
-<dd><p>show version if option <code class="docutils literal notranslate"><span class="pre">-v/</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code> exists. And then quit.</p>
-<p>Check whether option has <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code>.
-If yes, show version. And then, quit with <code class="docutils literal notranslate"><span class="pre">sys.exit(0)</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibArgParser.apply_options">
-<span class="sig-name descname"><span class="pre">apply_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibArgParser.apply_options" title="Link to this definition"></a></dt>
-<dd><p>Check named args and apply appropriate configs.</p>
-<p>Check these named argses. And do appropriate actions.</p>
-<ul class="simple">
-<li><p>–quiet: make logging mode quiet</p></li>
-<li><p>–debug: make logging mode verbose</p></li>
-<li><p>–devdebug: make logging mode developer</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibExecuter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.command.</span></span><span class="sig-name descname"><span class="pre">DrawlibExecuter</span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibExecuter" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.command.</span></span><span class="sig-name descname"><span class="pre">DrawlibExecuter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'none'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'auto_clear'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'auto_initialize'</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibExecuter" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="drawlib.v0_1.private.command.DrawlibExecuter.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_or_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_clear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibExecuter.execute" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_or_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.command.DrawlibExecuter.execute" title="Link to this definition"></a></dt>
 <dd><p>Run specified python file or python files in specified directory</p>
 <p>Call python file via OS path.
 When you specify python file, only run it.
@@ -2694,9 +2632,6 @@ Default value of <code class="docutils literal notranslate"><span class="pre">au
 </section>
 <section id="module-drawlib.v0_1.private.dutil">
 <span id="drawlib-v0-1-private-dutil-module"></span><h2>drawlib.v0_1.private.dutil module<a class="headerlink" href="#module-drawlib.v0_1.private.dutil" title="Link to this heading"></a></h2>
-<p>drawlib utility module</p>
-<p>This module contains utility functions which is called many points.
-Regarding drawing utility functions, they are defined at <code class="docutils literal notranslate"><span class="pre">core.util</span></code>.</p>
 </section>
 <section id="module-drawlib.v0_1.private.logging">
 <span id="drawlib-v0-1-private-logging-module"></span><h2>drawlib.v0_1.private.logging module<a class="headerlink" href="#module-drawlib.v0_1.private.logging" title="Link to this heading"></a></h2>
@@ -2718,152 +2653,8 @@ Logger name comes from <code class="docutils literal notranslate"><span class="p
 </dd></dl>
 
 </section>
-<section id="module-drawlib.v0_1.private.settings">
-<span id="drawlib-v0-1-private-settings-module"></span><h2>drawlib.v0_1.private.settings module<a class="headerlink" href="#module-drawlib.v0_1.private.settings" title="Link to this heading"></a></h2>
-<p>Module for drawlib global settings</p>
-<p>You can configure</p>
-<ul class="simple">
-<li><p>logging mode</p></li>
-<li><p>debug mode or not</p></li>
-<li><p>devdebug mode or not</p></li>
-<li><p>suppressing-warning or not</p></li>
-</ul>
-<p>at this module.
-Please use <code class="docutils literal notranslate"><span class="pre">config()</span></code> for changing drawing settings.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.settings.</span></span><span class="sig-name descname"><span class="pre">DrawlibSettings</span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class for managing drawlib settings.</p>
-<p>Please don’t use this class directly.
-But use its singleton instance <code class="docutils literal notranslate"><span class="pre">dsettings</span></code>.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings.get_logging_mode">
-<span class="sig-name descname"><span class="pre">get_logging_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'normal'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'quiet'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'verbose'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'developer'</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings.get_logging_mode" title="Link to this definition"></a></dt>
-<dd><p>Get current logging mode</p>
-<p>Get current logging mode. drawlib has these 4 logging mode.</p>
-<ul class="simple">
-<li><p>“quiet”: Only show error log. logging level CRITICAL.</p></li>
-<li><p>“normal”: Normal logging. logging level INFO.</p></li>
-<li><p>“verbose”: Show detail logging. logging level DEBUG.</p></li>
-<li><p>“developer”: Verbose + disable error handling. logging level DEBUG.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>current logging mode.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings.set_logging_mode">
-<span class="sig-name descname"><span class="pre">set_logging_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'normal'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'quiet'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'verbose'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'developer'</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings.set_logging_mode" title="Link to this definition"></a></dt>
-<dd><p>Set logging mode</p>
-<ul class="simple">
-<li><p>“quiet” sets logging level CRITICAL</p></li>
-<li><p>“normal” sets logging level INFO</p></li>
-<li><p>“verbose” sets logging level DEBUG</p></li>
-<li><p>“developer” sets logging level DEBUG</p></li>
-</ul>
-<p>Settung “verbose” enables debug mode.
-Setting “developer” enables debug mode and devdebug mode.
-Stacktrace is shown when error happens on debug mode.
-Error handling is disabled on devdebug mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mode</strong> – one of “normal”, “quiet”, “verbose”, “developer”.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>if selected mode string is not supported, call <code class="docutils literal notranslate"><span class="pre">sys.exit(1)</span></code></p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings.get_suppress_warning">
-<span class="sig-name descname"><span class="pre">get_suppress_warning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings.get_suppress_warning" title="Link to this definition"></a></dt>
-<dd><p>Get supressing-warning is enabled or not.</p>
-<p>Matplot warnings are shown when it detects small troubles.
-Such as draw non ascii text without specifying font.
-If suppress warning is enabled, suppress those warnings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>whether suppressing warning or not</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings.set_suppress_warning">
-<span class="sig-name descname"><span class="pre">set_suppress_warning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings.set_suppress_warning" title="Link to this definition"></a></dt>
-<dd><p>Set enable/disable suppress-warning</p>
-<p>Matplot warnings are shown when it detects small troubles.
-Such as draw non ascii text without specifying font.
-If suppress warning is enabled, suppress those warnings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>enable</strong> – True means suppress</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings.is_debug_mode">
-<span class="sig-name descname"><span class="pre">is_debug_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings.is_debug_mode" title="Link to this definition"></a></dt>
-<dd><p>Get whether debug mode is enabled or not</p>
-<p>Stacktrace will be shown when error happens on debug mode.
-You can set debug mode at <code class="docutils literal notranslate"><span class="pre">set_logging_mode()</span></code>.
-Setting “verbose” and “developer” enables debug mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>whether debug mode is enabled or not</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.DrawlibSettings.is_developer_debug_mode">
-<span class="sig-name descname"><span class="pre">is_developer_debug_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#drawlib.v0_1.private.settings.DrawlibSettings.is_developer_debug_mode" title="Link to this definition"></a></dt>
-<dd><p>Get whether devdebug mode is enabled or not</p>
-<p>Error handling is disabled on devdebug mode which is useful on
-development and testing.
-You can set devdebug mode at <code class="docutils literal notranslate"><span class="pre">set_logging_mode()</span></code>.
-Setting “developer” enables devdebug mode.
-When you run pytest, devdebug is automatically enabled.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>whether devdebug mode is enabled or not</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.settings.dsettings">
-<span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.settings.</span></span><span class="sig-name descname"><span class="pre">dsettings</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;drawlib.v0_1.private.settings.DrawlibSettings</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#drawlib.v0_1.private.settings.dsettings" title="Link to this definition"></a></dt>
-<dd><p>Singleton instance of class Settings</p>
-</dd></dl>
-
+<section id="drawlib-v0-1-private-settings-module">
+<h2>drawlib.v0_1.private.settings module<a class="headerlink" href="#drawlib-v0-1-private-settings-module" title="Link to this heading"></a></h2>
 </section>
 <section id="drawlib-v0-1-private-tools-module">
 <h2>drawlib.v0_1.private.tools module<a class="headerlink" href="#drawlib-v0-1-private-tools-module" title="Link to this heading"></a></h2>
@@ -3024,8 +2815,8 @@ After finding it, returns the function name.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="drawlib.v0_1.private.util.delete_font_file_cache">
-<span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.util.</span></span><span class="sig-name descname"><span class="pre">delete_font_file_cache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.util.delete_font_file_cache" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="drawlib.v0_1.private.util.purge_font_cache">
+<span class="sig-prename descclassname"><span class="pre">drawlib.v0_1.private.util.</span></span><span class="sig-name descname"><span class="pre">purge_font_cache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drawlib.v0_1.private.util.purge_font_cache" title="Link to this definition"></a></dt>
 <dd><p>Delete downloaded font file cache.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>

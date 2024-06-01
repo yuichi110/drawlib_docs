@@ -82,8 +82,7 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib's und
 
    manual/themes/official_default/doc
    manual/themes/official_flat/doc
-   manual/themes/official_black_and_white/doc
-   manual/themes/official_gray/doc
+   manual/themes/official_monochrome/doc
    manual/themes/customize/doc
    manual/themes/create/doc
 

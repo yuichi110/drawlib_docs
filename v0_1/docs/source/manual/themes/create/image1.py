@@ -62,4 +62,3 @@ for x, name in [(x2, "gold"), (x3, "silver")]:
     text((x, y3), "Hello Drawlib!", style=name)
 
 save()
-clear(initialize_theme=True)

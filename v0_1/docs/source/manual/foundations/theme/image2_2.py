@@ -1,6 +1,6 @@
 from drawlib.apis import *
 
-dtheme.apply_official_theme("flat")
+dtheme.apply_official_theme("rich")
 config(width=100, height=50)
 line_y = 40
 text_y = 10

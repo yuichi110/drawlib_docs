@@ -22,7 +22,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Official Theme: flat" href="../official_flat/doc.html" />
+    <link rel="next" title="Official Theme: simple" href="../official_simple/doc.html" />
     <link rel="prev" title="Example of Doc Build Flow" href="../../advanced_topics/example_flow/doc.html" /> 
 </head>
 
@@ -81,14 +81,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/settings/doc.html">Library Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/cli_options/doc.html">CLI Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/cli_options/doc.html">CLI and Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../official_flat/doc.html">Official Theme: flat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../official_monochrome/doc.html">Official Theme: black_and_white</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Official Theme: default</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-colors">Main Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style-names">Style Names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../official_simple/doc.html">Official Theme: simple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../official_rich/doc.html">Official Theme: rich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../official_monochrome/doc.html">Official Theme: monochrome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
@@ -127,6 +132,78 @@
              
   <section id="official-theme-default">
 <h1>Official Theme: default<a class="headerlink" href="#official-theme-default" title="Link to this heading"></a></h1>
+<p>Theme <code class="docutils literal notranslate"><span class="pre">default</span></code> is default drawlib theme.
+It is traditional styling and requires less knowledge to use.</p>
+<p>Theme <code class="docutils literal notranslate"><span class="pre">simple</span></code> might be better if you want to use many style types such as flat(no-border) and outlined shapes.
+The theme color is exactly same to default.</p>
+<section id="main-colors">
+<h2>Main Colors<a class="headerlink" href="#main-colors" title="Link to this heading"></a></h2>
+<p>Theme default posses 5 colors.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code>: light blue. RGB(109, 124, 197)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code>: light green. RGB(112, 194, 191)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pink</span></code>: light pink. RGB(193, 102, 107)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: soft black. RGB(27, 38, 59)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: white. RGB(255, 255, 255)</p></li>
+</ul>
+<p>Color <code class="docutils literal notranslate"><span class="pre">black</span></code> is not real RGB(0, 0, 0) black.
+Here is a color chart.</p>
+<figure class="align-center" id="id1">
+<a class="with-border reference internal image-reference" href="../../../_images/image_colors.png"><img alt="../../../_images/image_colors.png" class="with-border" src="../../../_images/image_colors.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">image_colors.png</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="style-names">
+<h2>Style Names<a class="headerlink" href="#style-names" title="Link to this heading"></a></h2>
+<p>Theme default posses 6 style names which includes default(no-name).</p>
+<ul class="simple">
+<li><p>default(no name): black for icon/line/text, blue for shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code>: black for shape line. blue for all others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code>: black for shape line. greeb for all others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pink</span></code>: black for shape line. pink for all others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: white for shape line. black for all.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: black for shape line. white for others.</p></li>
+</ul>
+<p>Here is a example of theme styles.
+Each drawing items are applied the styles.</p>
+<ul class="simple">
+<li><p>heart: <code class="docutils literal notranslate"><span class="pre">icon()</span></code></p></li>
+<li><p>line: <code class="docutils literal notranslate"><span class="pre">line()</span></code></p></li>
+<li><p>rectangle: <code class="docutils literal notranslate"><span class="pre">rectangle()</span></code></p></li>
+<li><p>python logo: <code class="docutils literal notranslate"><span class="pre">image()</span></code></p></li>
+<li><p>text: <code class="docutils literal notranslate"><span class="pre">text()</span></code></p></li>
+</ul>
+<figure class="align-center" id="id2">
+<a class="with-border reference internal image-reference" href="manual/themes/official_default/image_style.png"><img alt="manual/themes/official_default/image_style.png" class="with-border" src="manual/themes/official_default/image_style.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">image_colors.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can check which style name supports what style class via <code class="docutils literal notranslate"><span class="pre">dtheme.print_style_table()</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">style table</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">print_style_table</span><span class="p">()</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># +----------------+---+------+-------+------+-------+-------+</span>
+<span class="linenos"> 6</span><span class="c1"># |                |   | blue | green | pink | black | white |</span>
+<span class="linenos"> 7</span><span class="c1"># +----------------+---+------+-------+------+-------+-------+</span>
+<span class="linenos"> 8</span><span class="c1"># | IconStyle      | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos"> 9</span><span class="c1"># | ImageStyle     | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos">10</span><span class="c1"># | LineStyle      | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos">11</span><span class="c1"># | LineArrowStyle | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos">12</span><span class="c1"># | ShapeStyle     | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos">13</span><span class="c1"># | ShapeTextStyle | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos">14</span><span class="c1"># | TextStyle      | x | x    | x     | x    | x     | x     |</span>
+<span class="linenos">15</span><span class="c1"># +----------------+---+------+-------+------+-------+-------+</span>
+</pre></div>
+</div>
+</div>
+<p>Theme <code class="docutils literal notranslate"><span class="pre">default</span></code> supports all style class on all style names.</p>
+</section>
 </section>
 
 
@@ -134,7 +211,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../../advanced_topics/example_flow/doc.html" class="btn btn-neutral float-left" title="Example of Doc Build Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../official_flat/doc.html" class="btn btn-neutral float-right" title="Official Theme: flat" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../official_simple/doc.html" class="btn btn-neutral float-right" title="Official Theme: simple" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

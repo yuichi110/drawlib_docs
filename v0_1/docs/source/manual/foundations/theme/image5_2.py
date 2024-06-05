@@ -1,6 +1,6 @@
 from drawlib.apis import *
 
-dtheme.apply_official_theme("flat")
+dtheme.apply_official_theme("rich")
 dtheme.allstyles.rename("peter_river", "1")
 dtheme.allstyles.rename("green_sea", "2")
 dtheme.allstyles.rename("alizarin", "3")

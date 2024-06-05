@@ -11,11 +11,40 @@ drawlib is a pure Python drawing library crafted to facilitate **Illustration as
 Witness Python code in action generating a circular image:
 
 .. figure:: manual/introductions/index/image1.png
-    :width: 600
+    :width: 800
     :class: with-border
     :align: center
 
-    image1.png
+    Code makes Illustration
+
+As you can see, we define circle location, size and styles.
+Running this code generate the image.
+
+CSS like Styling
+====================
+
+Regarding style, we introduce CSS like concept. 
+You define style at 1 location and reference it every where.
+Then, the style is applied automatically.
+You don't need to provide detail style for each drawing items.
+
+Here is an example of using style.
+
+.. figure:: manual/introductions/index/image2.png
+    :width: 800
+    :class: with-border
+    :align: center
+
+    CSS like styling feature
+
+This code has around 20+ drawing items which includes background gray area.
+You can see variety of drawing styles (default, flat, solid, dashed).
+But total code line is less than 100.
+You can customize pre-defined theme.
+If you wish, you are able to create your own theme.
+
+Good to build lots of images
+===============================
 
 In contemporary software development, version control extends beyond code to encompass documentation, all managed seamlessly through Git. 
 While I compose technical documents and literature using VSCode and Markdown, hitherto, I relied on PowerPoint for illustration. 
@@ -24,15 +53,15 @@ However, this approach lacks compatibility with versioning documentation images.
 Enter drawlib, a solution meticulously developed to address this quandary. 
 Not only can textual documentation be version-controlled, but illustration code can also be managed through Git, facilitating automation of build tasks via CI/CD pipelines.
 
-.. figure:: manual/introductions/index/image2.png
-    :width: 600
+.. figure:: manual/introductions/index/image3.png
+    :width: 800
     :class: with-border
     :align: center
 
-    image2.png
+    Doc image/text build flow.
 
-Beyond mere illustration, drawlib empowers users to define and apply custom themes to illustration codes. 
-Refer to the Quickstart guide for a comprehensive understanding of drawlib's underlying concepts. All images within this documentation are generated using drawlib.
+Refer to the Quickstart guide for a comprehensive understanding of drawlib's underlying concepts. 
+All images within this documentation are generated using drawlib.
 
 .. toctree::
    :maxdepth: 2
@@ -81,7 +110,8 @@ Refer to the Quickstart guide for a comprehensive understanding of drawlib's und
    :caption: Themes:
 
    manual/themes/official_default/doc
-   manual/themes/official_flat/doc
+   manual/themes/official_simple/doc
+   manual/themes/official_rich/doc
    manual/themes/official_monochrome/doc
    manual/themes/customize/doc
    manual/themes/create/doc

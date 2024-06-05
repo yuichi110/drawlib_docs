@@ -45,7 +45,7 @@ You can do same for using ``drawlib`` command.
 
 .. code-block:: bash
 
-    python -m drawlib.v0_1 \<args\>
+    python -m drawlib.v0_1 <args>
 
 It will call API version 0.1 on drawlib version 0.5 too.
 

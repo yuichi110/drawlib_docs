@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLI Options &mdash; drawlib 0.1 documentation</title>
+  <title>CLI and Options &mdash; drawlib 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
@@ -81,14 +81,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI Options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI and Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_flat/doc.html">Official Theme: flat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: black_and_white</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_simple/doc.html">Official Theme: simple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_rich/doc.html">Official Theme: rich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
@@ -115,7 +119,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">CLI Options</li>
+      <li class="breadcrumb-item active">CLI and Options</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/manual/advanced_topics/cli_options/doc.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,8 +129,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="cli-options">
-<h1>CLI Options<a class="headerlink" href="#cli-options" title="Link to this heading"></a></h1>
+  <section id="cli-and-options">
+<h1>CLI and Options<a class="headerlink" href="#cli-and-options" title="Link to this heading"></a></h1>
+<p>After you install drawlib via pip, you can use <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command.
+The command is equivalent to calling drawlib module via <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span></code>.</p>
+<p>There are big difference between <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;your</span> <span class="pre">drawlib</span> <span class="pre">code&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">drawlib</span> <span class="pre">&lt;your</span> <span class="pre">drawlib</span> <span class="pre">code</span> <span class="pre">or</span> <span class="pre">directory&gt;</span></code>.
+Former one just call python program normally.
+However, the latter call drawlib’s special function first. And then it calls your codes.</p>
+<p>When you call single file which doesn’t import any of your another file, there are no big difference.
+However, <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command do these thing before executing your code.</p>
+<ul class="simple">
+<li><p>Detect your package architecture and register path</p></li>
+<li><p>Call all python files which exsits under the target directory</p></li>
+<li><p>Able to enable auto apply <code class="docutils literal notranslate"><span class="pre">clear()</span></code> and <code class="docutils literal notranslate"><span class="pre">dutil_canvas.initialize()</span></code> before executing each files.</p></li>
+</ul>
+<p>If you want to draw many illustrations, we strongly recommend using <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command rather than calling file via <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command has <code class="docutils literal notranslate"><span class="pre">-h</span></code> option which shows command help.</p>
+<p>Auto <code class="docutils literal notranslate"><span class="pre">clear()</span></code> is enabled by default.
+You can disable it via <code class="docutils literal notranslate"><span class="pre">--disable_auto_clear</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">clear()</span></code> doesn’t wipe theme settings and image cache.
+They should be keep normally since many user want to apply same theme to many illustration codes.
+However, if you want to completely initialize drawlib per illustration code, you can use option <code class="docutils literal notranslate"><span class="pre">--enable_auto_initialize</span></code>.
+It will make drawlib call <code class="docutils literal notranslate"><span class="pre">dutil_canvas.initialize()</span></code> every time when drawlib execute your code files.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--purge_font_cache</span></code> option remove drawlib’s font file cache from your local machine.
+Font file is downloaded when you use the font first time and it is cached.
+This purge option delete them and release disk space.
+Normally, sum of font file size is less than 100MB.
+Using Chinese Japanese font tends to use more space since they posses lots of characters.
+Uninstalling drawlib will also delete fonts too since drawlib make font file caches in its library directory.</p>
+<p>Option <code class="docutils literal notranslate"><span class="pre">--quiet</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">--debug</span></code>, <code class="docutils literal notranslate"><span class="pre">--developer</span></code> will change log level.
+If you hit trouble and want to investigate detail error, please use <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">--debug</span></code>.
+If you good at Python, <code class="docutils literal notranslate"><span class="pre">--developer</span></code> option might give you more detail error.</p>
+</section>
 </section>
 
 

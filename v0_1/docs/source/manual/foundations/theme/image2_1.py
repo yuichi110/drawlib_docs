@@ -19,9 +19,9 @@ line((53, line_y), (67, line_y), style="green")
 circle((60, 25), radius=8, style="green")
 text((60, text_y), text='style="green"', style="green")
 
-# pink style
-line((73, line_y), (87, line_y), style="pink")
-circle((80, 25), radius=8, style="pink")
-text((80, text_y), text='style="pink"', style="pink")
+# red style
+line((73, line_y), (87, line_y), style="red")
+circle((80, 25), radius=8, style="red")
+text((80, text_y), text='style="red"', style="red")
 
 save()

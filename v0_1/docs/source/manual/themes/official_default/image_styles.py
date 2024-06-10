@@ -19,7 +19,9 @@ rectangle(
     style=ShapeStyle(halign="left", valign="bottom", lwidth=0, fcolor=Colors140.LightGray),
 )
 
-for i, style_name in enumerate(["", "blue", "green", "pink", "black", "white"]):
+colors = dtheme.colors.list()
+colors.insert(0, "")
+for i, style_name in enumerate(colors):
     x = start_x + pad_x * i
     t = style_name if style_name != "" else "(default)"
 

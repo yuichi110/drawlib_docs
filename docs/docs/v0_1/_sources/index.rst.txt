@@ -110,8 +110,8 @@ All images within this documentation are generated using drawlib.
    :caption: Themes:
 
    manual/themes/official_default/doc
-   manual/themes/official_simple/doc
-   manual/themes/official_rich/doc
+   manual/themes/official_default2/doc
+   manual/themes/official_essentials/doc
    manual/themes/official_monochrome/doc
    manual/themes/customize/doc
    manual/themes/create/doc

@@ -1,17 +1,20 @@
 from drawlib.apis import *
 
-dtheme.apply_official_theme("simple")
+dtheme.apply_official_theme("essentials")
 config(grid=True, height=60)
 
 rect_width = 20
 rect_height = 38
-ls = LineStyle(width=0.5)
-bts = TextStyle(size=12, halign="left")
-rts = TextStyle(size=12, halign="left", color=Colors.Red)
+dtheme.linestyles.merge(LineStyle(width=0.5), [""])
+dtheme.textstyles.merge(TextStyle(size=12, halign="left"))
+dtheme.iconstyles.merge(IconStyle(style="thin"))
+
+tscenter16 = TextStyle(halign="center", size=16)
+tscenter16r = TextStyle(halign="center", size=16, color=ColorsThemeEssentials.Red)
 
 
 def left():
-    text((15, 54), "Drawlib's\nDocument Source")
+    text((15, 54), "Drawlib's\nDocument Source", style=tscenter16)
 
     rectangle(
         xy=(15, 30),
@@ -23,41 +26,41 @@ def left():
 
     x = 8
     icon_phosphor.folder((x, 45), width=3)
-    text((x + 2.5, 45), "docs", style=bts)
-    line((x, 43), (x, 13), style=ls)
+    text((x + 2.5, 45), "docs")
+    line((x, 43), (x, 13))
 
-    line((x, 42), (x + 1, 42), style=ls)
+    line((x, 42), (x + 1, 42))
     icon_phosphor.folder((x + 3, 42), width=3)
-    text((x + 5.5, 42), "commons", style=bts)
-    line((x + 3, 40), (x + 3, 35), style=LineStyle(width=0.5))
-    icon_phosphor.file_py((x + 6, 39), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 8.5, 39), "style.py", style=rts)
-    line((x + 3, 39), (x + 4, 39), style=LineStyle(width=0.5))
-    icon_phosphor.file_py((x + 6, 36), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 8.5, 36), "util.py", style=rts)
-    line((x + 3, 36), (x + 4, 36), style=LineStyle(width=0.5))
+    text((x + 5.5, 42), "commons")
+    line((x + 3, 40), (x + 3, 35))
+    icon_phosphor.file_py((x + 6, 39), width=3, style="red")
+    text((x + 8.5, 39), "style.py", style="red")
+    line((x + 3, 39), (x + 4, 39))
+    icon_phosphor.file_py((x + 6, 36), width=3, style="red")
+    text((x + 8.5, 36), "util.py", style="red")
+    line((x + 3, 36), (x + 4, 36))
 
-    line((x, 30), (x + 1, 30), style=ls)
+    line((x, 30), (x + 1, 30))
     icon_phosphor.folder((x + 3, 30), width=3)
-    text((x + 5.5, 30), "chapter1", style=bts)
-    line((x + 3, 28), (x + 3, 19), style=LineStyle(width=0.5))
+    text((x + 5.5, 30), "chapter1")
+    line((x + 3, 28), (x + 3, 19))
     icon_phosphor.file_md((x + 6, 27), width=3)
-    text((x + 8.5, 27), "doc.md", style=bts)
-    line((x + 3, 27), (x + 4, 27), style=LineStyle(width=0.5))
-    icon_phosphor.file_py((x + 6, 24), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 8.5, 24), "img1.py", style=rts)
-    line((x + 3, 24), (x + 4, 24), style=LineStyle(width=0.5))
-    icon_phosphor.file_py((x + 6, 21), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 8.5, 21), "img2.py", style=rts)
-    line((x + 3, 21), (x + 4, 21), style=LineStyle(width=0.5))
+    text((x + 8.5, 27), "doc.md")
+    line((x + 3, 27), (x + 4, 27))
+    icon_phosphor.file_py((x + 6, 24), width=3, style="red")
+    text((x + 8.5, 24), "img1.py", style="red")
+    line((x + 3, 24), (x + 4, 24))
+    icon_phosphor.file_py((x + 6, 21), width=3, style="red")
+    text((x + 8.5, 21), "img2.py", style="red")
+    line((x + 3, 21), (x + 4, 21))
 
-    line((x, 15), (x + 1, 15), style=ls)
+    line((x, 15), (x + 1, 15))
     icon_phosphor.folder((x + 3, 15), width=3)
-    text((x + 5.5, 15), "chapter2", style=bts)
+    text((x + 5.5, 15), "chapter2")
 
 
 def center():
-    text((50, 54), "Traditional\nDocument Source")
+    text((50, 54), "Traditional\nDocument Source", style=tscenter16)
     rectangle(
         xy=(50, 30),
         width=rect_width,
@@ -68,30 +71,30 @@ def center():
 
     x = 43
     icon_phosphor.folder((x, 45), width=3)
-    text((x + 2.5, 45), "docs", style=bts)
-    line((x, 43), (x, 13), style=ls)
+    text((x + 2.5, 45), "docs")
+    line((x, 43), (x, 13))
 
-    line((x, 30), (x + 1, 30), style=ls)
+    line((x, 30), (x + 1, 30))
     icon_phosphor.folder((x + 3, 30), width=3)
-    text((x + 5.5, 30), "chapter1", style=bts)
+    text((x + 5.5, 30), "chapter1")
     line((x + 3, 28), (x + 3, 19), style=LineStyle(width=0.5))
     icon_phosphor.file_md((x + 6, 27), width=3)
-    text((x + 8.5, 27), "doc.md", style=bts)
+    text((x + 8.5, 27), "doc.md")
     line((x + 3, 27), (x + 4, 27), style=LineStyle(width=0.5))
-    icon_phosphor.file_image((x + 6, 24), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 8.5, 24), "img1.png", style=rts)
+    icon_phosphor.file_image((x + 6, 24), width=3, style="red")
+    text((x + 8.5, 24), "img1.png", style="red")
     line((x + 3, 24), (x + 4, 24), style=LineStyle(width=0.5))
-    icon_phosphor.file_image((x + 6, 21), width=3, style=IconStyle(color=Colors.Red))
-    text((x + 8.5, 21), "img2.png", style=rts)
-    line((x + 3, 21), (x + 4, 21), style=LineStyle(width=0.5))
+    icon_phosphor.file_image((x + 6, 21), width=3, style="red")
+    text((x + 8.5, 21), "img2.png", style="red")
+    line((x + 3, 21), (x + 4, 21))
 
-    line((x, 15), (x + 1, 15), style=ls)
+    line((x, 15), (x + 1, 15))
     icon_phosphor.folder((x + 3, 15), width=3)
-    text((x + 5.5, 15), "chapter2", style=bts)
+    text((x + 5.5, 15), "chapter2")
 
 
 def right():
-    text((85, 54), "Output Documents")
+    text((85, 54), "Output Documents", style=tscenter16)
 
     rectangle(
         xy=(85, 30),
@@ -117,7 +120,11 @@ def bottom():
         style="solid.75",
     )
     icon_phosphor.github_logo((17, 5), width=5)
-    text((53, 5), "Illustration and doc text versioning with CI/CD automation")
+    text(
+        (53, 5),
+        "Illustration and doc text versioning with CI/CD automation",
+        style=tscenter16,
+    )
 
 
 left()
@@ -127,7 +134,7 @@ arrow(
     tail_width=3,
     head_width=6,
     head_length=3,
-    style=ShapeStyle(lcolor=Colors.Red, fcolor=Colors.Red),
+    style="red_flat",
     text="Drawlib",
     textstyle=ShapeTextStyle(
         size=14,
@@ -136,7 +143,7 @@ arrow(
         xy_shift=(-0.5, -0.1),
     ),
 )
-text((32, 25), "Build\nImages", style=TextStyle(color=Colors.Red))
+text((32, 25), "Build\nImages", style=tscenter16r)
 center()
 arrow(
     (63, 35),
@@ -146,7 +153,7 @@ arrow(
     head_length=3,
     style="solid.75",
 )
-text((67, 25), "Build\nDocs")
+text((67, 25), "Build\nDocs", style=tscenter16)
 right()
 bottom()
 save()

@@ -11,9 +11,9 @@ def draw_3circles(x: float, y: float, radius: float, margin: float) -> None:
 
 def draw_3rectangle(x: float, y: float, width: float, height: float, margin: float) -> None:
     x_shift = width + margin
-    drawlib.apis.rectangle((x - x_shift, y), width, height)
-    drawlib.apis.rectangle((x, y), width, height)
-    drawlib.apis.rectangle((x + x_shift, y), width, height)
+    drawlib.apis.rectangle((x - x_shift, y), width, height, style="flat")
+    drawlib.apis.rectangle((x, y), width, height, style="flat")
+    drawlib.apis.rectangle((x + x_shift, y), width, height, style="flat")
 
 
 def draw_logo(x: float = 15, y: float = 5):

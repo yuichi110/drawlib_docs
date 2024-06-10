@@ -1,14 +1,14 @@
 from drawlib.apis import *
 
 dtheme.print_style_table()
-# +----------------+---+------+-------+------+-------+-------+
-# |                |   | blue | green | pink | black | white |
-# +----------------+---+------+-------+------+-------+-------+
-# | IconStyle      | x | x    | x     | x    | x     | x     |
-# | ImageStyle     | x | x    | x     | x    | x     | x     |
-# | LineStyle      | x | x    | x     | x    | x     | x     |
-# | LineArrowStyle | x | x    | x     | x    | x     | x     |
-# | ShapeStyle     | x | x    | x     | x    | x     | x     |
-# | ShapeTextStyle | x | x    | x     | x    | x     | x     |
-# | TextStyle      | x | x    | x     | x    | x     | x     |
-# +----------------+---+------+-------+------+-------+-------+
+# +----------------+---+-----+-------+------+-------+-------+
+# | class \ name   |   | red | green | blue | black | white |
+# +----------------+---+-----+-------+------+-------+-------+
+# | IconStyle      | x | x   | x     | x    | x     | x     |
+# | ImageStyle     | x | x   | x     | x    | x     | x     |
+# | LineStyle      | x | x   | x     | x    | x     | x     |
+# | LineArrowStyle | x | x   | x     | x    | x     | x     |
+# | ShapeStyle     | x | x   | x     | x    | x     | x     |
+# | ShapeTextStyle | x | x   | x     | x    | x     | x     |
+# | TextStyle      | x | x   | x     | x    | x     | x     |
+# +----------------+---+-----+-------+------+-------+-------+

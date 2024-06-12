@@ -3,18 +3,18 @@ Official Theme: essentials
 ========================
 
 Theme ``essentials`` has basic 25 colors.
-It is difficult to remember all colors since theme volume is large.
-So, we recommend to use this theme for base of your custom theme.
-You posses lots of option for color and styles.
+We recommend this theme for advanced users since it covers all of ``default``, ``default2``, ``monochrome`` themes.
+If you want to customize our theme, this theme might be good too.
 
-The style rule is almost same to simple theme ``default2``.
-If you don't know the theme, please check it first.
+The style rule is same to simple theme ``default2``.
+If you don't know it, please check it first.
+This documentation doesn't mention details.
 
 Colors
 ==============
 
-Theme monochrome posses lots of colors.
-Color came from Flat UI Colors (https://flatuicolors.com).
+Theme essentials posses 25 colors.
+It covers all other theme's color.
 
 .. figure:: image_colors.png
     :width: 600
@@ -23,28 +23,34 @@ Color came from Flat UI Colors (https://flatuicolors.com).
 
     image_colors.png
 
-- ``turquoise``
-- ``green_sea``
-- ``emerald``
-- ``nephritis``
-- ``peter_river``: default fill color
-- ``belize_hole``
-- ``amethyst``
-- ``wisteria``
-- ``wet_asphalt``
-- ``midnight_blue``: default line color
-- ``sun_flower``
-- ``orange``
-- ``carrot``
-- ``pumpkin``
-- ``alizarin``
-- ``pomegranate``
-- ``clouds``
-- ``silver``
-- ``concrete``
-- ``asbestos``
-- ``black``
-- ``white``
+Here is a list of colors.
+You can use ``ColorsThemeEssentials`` for getting RGB codes by its names.
+
+- ``red``: RGB(255, 23, 23)
+- ``lightred``: RGB(239, 95, 95). Same to ``red`` of default theme.
+- ``pink``: RGB(239, 63, 239)
+- ``brown``: RGB(159, 31, 31)
+- ``orange``: RGB(255, 95, 31)
+- ``green``: RGB(15, 127, 15)
+- ``lightgreen``: RGB(79, 191, 79). Same to ``green`` of default theme.
+- ``greenyellow``: RGB(127, 207, 31)
+- ``teal``: RGB(15, 127, 127)
+- ``olive``: RGB(127, 127, 31)
+- ``blue``: RGB(31, 31, 255)
+- ``lightblue``: RGB(111, 111, 239). Default color of shape fill. Same to ``blue`` of default theme.
+- ``aqua``: RGB(47, 239, 239)
+- ``navy``: RGB(15, 15, 127)
+- ``steel``: RGB(96, 96, 143)
+- ``yellow``: RGB(239, 239, 31)
+- ``purple``: RGB(127, 31, 127)
+- ``ivory``: RGB(239, 239, 207)
+- ``black``: RGB(0, 0, 0)
+- ``charcoal``: RGB(39, 39, 39). Default color of line and test
+- ``graphite``: RGB(63, 63, 63)
+- ``gray``: RGB(127, 127, 127)
+- ``silver``: RGB(191, 191, 191)
+- ``snow``: RGB(239, 239, 239)
+- ``white``: RGB(255, 255, 255)
 
 Style Names
 ==============
@@ -67,200 +73,227 @@ style default.
 
     default style
 
-style ``turquoise``
+Style ``red``
 
-.. figure:: image_style_turquoise.png
+.. figure:: image_style_red.png
     :width: 600
     :class: with-border
     :align: center
 
-    style turquoise
+    Theme Style red
 
-style ``green_sea``
+Style ``lightred``
 
-.. figure:: image_style_green_sea.png
+.. figure:: image_style_lightred.png
     :width: 600
     :class: with-border
     :align: center
 
-    style green_sea
+    Theme Style lightred
 
-style ``emerald``
+Style ``pink``
 
-.. figure:: image_style_emerald.png
+.. figure:: image_style_pink.png
     :width: 600
     :class: with-border
     :align: center
 
-    style emerald
+    Theme Style pink
 
-style ``nephritis``
+Style ``brown``
 
-.. figure:: image_style_nephritis.png
+.. figure:: image_style_brown.png
     :width: 600
     :class: with-border
     :align: center
 
-    style nephritis
+    Theme Style brown
 
-style ``peter_river``
-
-.. figure:: image_style_peter_river.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style peter_river
-
-style ``belize_hole``
-
-.. figure:: image_style_belize_hole.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style belize_hole
-
-style ``amethyst``
-
-.. figure:: image_style_amethyst.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style amethyst
-
-style ``wisteria``
-
-.. figure:: image_style_wisteria.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style wisteria
-
-style ``wet_asphalt``
-
-.. figure:: image_style_wet_asphalt.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style wet_asphalt
-
-style ``midnight_blue``
-
-.. figure:: image_style_midnight_blue.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style midnight_blue
-
-style ``sun_flower``
-
-.. figure:: image_style_sun_flower.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    style sun_flower
-
-style ``orange``
+Style ``orange``
 
 .. figure:: image_style_orange.png
     :width: 600
     :class: with-border
     :align: center
 
-    style orange
+    Theme Style orange
 
-style ``carrot``
+Style ``green``
 
-.. figure:: image_style_carrot.png
+.. figure:: image_style_green.png
     :width: 600
     :class: with-border
     :align: center
 
-    style carrot
+    Theme Style green
 
-style ``pumpkin``
+Style ``lightgreen``
 
-.. figure:: image_style_pumpkin.png
+.. figure:: image_style_lightgreen.png
     :width: 600
     :class: with-border
     :align: center
 
-    style pumpkin
+    Theme Style lightgreen
 
-style ``alizarin``
+Style ``greenyellow``
 
-.. figure:: image_style_alizarin.png
+.. figure:: image_style_greenyellow.png
     :width: 600
     :class: with-border
     :align: center
 
-    style alizarin
+    Theme Style greenyellow
 
-style ``pomegranate``
+Style ``teal``
 
-.. figure:: image_style_pomegranate.png
+.. figure:: image_style_teal.png
     :width: 600
     :class: with-border
     :align: center
 
-    style pomegranate
+    Theme Style teal
 
-style ``clouds``
+Style ``olive``
 
-.. figure:: image_style_clouds.png
+.. figure:: image_style_olive.png
     :width: 600
     :class: with-border
     :align: center
 
-    style clouds
+    Theme Style olive
 
-style ``silver``
+Style ``blue``
 
-.. figure:: image_style_silver.png
+.. figure:: image_style_blue.png
     :width: 600
     :class: with-border
     :align: center
 
-    style silver
+    Theme Style blue
 
-style ``concrete``
+Style ``lightblue``
 
-.. figure:: image_style_concrete.png
+.. figure:: image_style_lightblue.png
     :width: 600
     :class: with-border
     :align: center
 
-    style concrete
+    Theme Style lightblue
 
-style ``asbestos``
+Style ``aqua``
 
-.. figure:: image_style_asbestos.png
+.. figure:: image_style_aqua.png
     :width: 600
     :class: with-border
     :align: center
 
-    style asbestos
+    Theme Style aqua
 
-style ``black``
+Style ``navy``
+
+.. figure:: image_style_navy.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style navy
+
+Style ``steel``
+
+.. figure:: image_style_steel.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style steel
+
+Style ``yellow``
+
+.. figure:: image_style_yellow.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style yellow
+
+Style ``purple``
+
+.. figure:: image_style_purple.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style purple
+
+Style ``ivory``
+
+.. figure:: image_style_ivory.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style ivory
+
+Style ``black``
 
 .. figure:: image_style_black.png
     :width: 600
     :class: with-border
     :align: center
 
-    style black
+    Theme Style black
 
-style ``white``
+Style ``charcoal``
+
+.. figure:: image_style_charcoal.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style charcoal
+
+Style ``graphite``
+
+.. figure:: image_style_graphite.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style graphite
+
+Style ``gray``
+
+.. figure:: image_style_gray.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style gray
+
+Style ``silver``
+
+.. figure:: image_style_silver.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style silver
+
+Style ``snow``
+
+.. figure:: image_style_snow.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style snow
+
+Style ``white``
 
 .. figure:: image_style_white.png
     :width: 600
     :class: with-border
     :align: center
 
-    style white
+    Theme Style white

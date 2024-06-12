@@ -86,6 +86,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../official_default/doc.html">Official Theme: default</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../official_essentials/doc.html">Official Theme: essentials</a></li>
@@ -147,11 +148,13 @@ If you don’t know the style, please check it first.</p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: black (main)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gray1</span></code>: dark gray</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gray2</span></code>: gray</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gray3</span></code>: light gray</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: white</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: RGB(0, 0, 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">charcoal</span></code>: RGB(39, 39, 39)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">graphite</span></code>: RGB(63, 63, 63)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gray</span></code>: RGB(127, 127, 127)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">silver</span></code>: RGB(191, 191, 191)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snow</span></code>: RGB(239, 239, 239)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: RGB(255, 255, 255)</p></li>
 </ul>
 </section>
 <section id="style-names">
@@ -164,105 +167,129 @@ If you don’t know the style, please check it first.</p>
 <span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;monochrome&quot;</span><span class="p">)</span>
 <span class="linenos"> 4</span><span class="n">dtheme</span><span class="o">.</span><span class="n">print_style_table</span><span class="p">(</span><span class="n">max_columns</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="c1"># +----------------+---+------+-------+--------+</span>
-<span class="linenos"> 7</span><span class="c1"># | class \ name   |   | flat | solid | dashed |</span>
-<span class="linenos"> 8</span><span class="c1"># +----------------+---+------+-------+--------+</span>
-<span class="linenos"> 9</span><span class="c1"># | IconStyle      | x |      |       |        |</span>
-<span class="linenos">10</span><span class="c1"># | ImageStyle     | x | x    | x     | x      |</span>
-<span class="linenos">11</span><span class="c1"># | LineStyle      | x |      | x     | x      |</span>
-<span class="linenos">12</span><span class="c1"># | LineArrowStyle | x |      | x     | x      |</span>
-<span class="linenos">13</span><span class="c1"># | ShapeStyle     | x | x    | x     | x      |</span>
-<span class="linenos">14</span><span class="c1"># | ShapeTextStyle | x |      |       |        |</span>
-<span class="linenos">15</span><span class="c1"># | TextStyle      | x |      |       |        |</span>
-<span class="linenos">16</span><span class="c1"># +----------------+---+------+-------+--------+</span>
+<span class="linenos"> 6</span><span class="c1"># +----------------+---+------+------+------+-------+------------+------------+--------+-------------+-------------+</span>
+<span class="linenos"> 7</span><span class="c1"># | class \ name   |   | thin | bold | flat | solid | solid_thin | solid_bold | dashed | dashed_thin | dashed_bold |</span>
+<span class="linenos"> 8</span><span class="c1"># +----------------+---+------+------+------+-------+------------+------------+--------+-------------+-------------+</span>
+<span class="linenos"> 9</span><span class="c1"># | IconStyle      | x | x    | x    | x    |       |            |            |        |             |             |</span>
+<span class="linenos">10</span><span class="c1"># | ImageStyle     | x | x    | x    | x    | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">11</span><span class="c1"># | LineStyle      | x | x    | x    |      | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">12</span><span class="c1"># | LineArrowStyle | x | x    | x    |      | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">13</span><span class="c1"># | ShapeStyle     | x | x    | x    | x    | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">14</span><span class="c1"># | ShapeTextStyle | x | x    | x    |      |       |            |            |        |             |             |</span>
+<span class="linenos">15</span><span class="c1"># | TextStyle      | x | x    | x    |      |       |            |            |        |             |             |</span>
+<span class="linenos">16</span><span class="c1"># +----------------+---+------+------+------+-------+------------+------------+--------+-------------+-------------+</span>
 <span class="linenos">17</span>
-<span class="linenos">18</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">19</span><span class="c1"># | class \ name   | black | black_flat | black_solid | black_dashed |</span>
-<span class="linenos">20</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">21</span><span class="c1"># | IconStyle      | x     |            |             |              |</span>
-<span class="linenos">22</span><span class="c1"># | ImageStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">23</span><span class="c1"># | LineStyle      | x     |            | x           | x            |</span>
-<span class="linenos">24</span><span class="c1"># | LineArrowStyle | x     |            | x           | x            |</span>
-<span class="linenos">25</span><span class="c1"># | ShapeStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">26</span><span class="c1"># | ShapeTextStyle | x     |            |             |              |</span>
-<span class="linenos">27</span><span class="c1"># | TextStyle      | x     |            |             |              |</span>
-<span class="linenos">28</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
+<span class="linenos">18</span><span class="c1"># +----------------+-----+----------+----------+----------+-----------+----------------+----------------+------------+-----------------+-----------------+</span>
+<span class="linenos">19</span><span class="c1"># | class \ name   | red | red_thin | red_bold | red_flat | red_solid | red_solid_thin | red_solid_bold | red_dashed | red_dashed_thin | red_dashed_bold |</span>
+<span class="linenos">20</span><span class="c1"># +----------------+-----+----------+----------+----------+-----------+----------------+----------------+------------+-----------------+-----------------+</span>
+<span class="linenos">21</span><span class="c1"># | IconStyle      | x   | x        | x        | x        |           |                |                |            |                 |                 |</span>
+<span class="linenos">22</span><span class="c1"># | ImageStyle     | x   | x        | x        | x        | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">23</span><span class="c1"># | LineStyle      | x   | x        | x        |          | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">24</span><span class="c1"># | LineArrowStyle | x   | x        | x        |          | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">25</span><span class="c1"># | ShapeStyle     | x   | x        | x        | x        | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">26</span><span class="c1"># | ShapeTextStyle | x   | x        | x        |          |           |                |                |            |                 |                 |</span>
+<span class="linenos">27</span><span class="c1"># | TextStyle      | x   | x        | x        |          |           |                |                |            |                 |                 |</span>
+<span class="linenos">28</span><span class="c1"># +----------------+-----+----------+----------+----------+-----------+----------------+----------------+------------+-----------------+-----------------+</span>
 <span class="linenos">29</span>
-<span class="linenos">30</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">31</span><span class="c1"># | class \ name   | gray1 | gray1_flat | gray1_solid | gray1_dashed |</span>
-<span class="linenos">32</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">33</span><span class="c1"># | IconStyle      | x     |            |             |              |</span>
-<span class="linenos">34</span><span class="c1"># | ImageStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">35</span><span class="c1"># | LineStyle      | x     |            | x           | x            |</span>
-<span class="linenos">36</span><span class="c1"># | LineArrowStyle | x     |            | x           | x            |</span>
-<span class="linenos">37</span><span class="c1"># | ShapeStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">38</span><span class="c1"># | ShapeTextStyle | x     |            |             |              |</span>
-<span class="linenos">39</span><span class="c1"># | TextStyle      | x     |            |             |              |</span>
-<span class="linenos">40</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
+<span class="linenos">30</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">31</span><span class="c1"># | class \ name   | green | green_thin | green_bold | green_flat | green_solid | green_solid_thin | green_solid_bold | green_dashed | green_dashed_thin | green_dashed_bold |</span>
+<span class="linenos">32</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">33</span><span class="c1"># | IconStyle      | x     | x          | x          | x          |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">34</span><span class="c1"># | ImageStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">35</span><span class="c1"># | LineStyle      | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">36</span><span class="c1"># | LineArrowStyle | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">37</span><span class="c1"># | ShapeStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">38</span><span class="c1"># | ShapeTextStyle | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">39</span><span class="c1"># | TextStyle      | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">40</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
 <span class="linenos">41</span>
-<span class="linenos">42</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">43</span><span class="c1"># | class \ name   | gray2 | gray2_flat | gray2_solid | gray2_dashed |</span>
-<span class="linenos">44</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">45</span><span class="c1"># | IconStyle      | x     |            |             |              |</span>
-<span class="linenos">46</span><span class="c1"># | ImageStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">47</span><span class="c1"># | LineStyle      | x     |            | x           | x            |</span>
-<span class="linenos">48</span><span class="c1"># | LineArrowStyle | x     |            | x           | x            |</span>
-<span class="linenos">49</span><span class="c1"># | ShapeStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">50</span><span class="c1"># | ShapeTextStyle | x     |            |             |              |</span>
-<span class="linenos">51</span><span class="c1"># | TextStyle      | x     |            |             |              |</span>
-<span class="linenos">52</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
+<span class="linenos">42</span><span class="c1"># +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+</span>
+<span class="linenos">43</span><span class="c1"># | class \ name   | blue | blue_thin | blue_bold | blue_flat | blue_solid | blue_solid_thin | blue_solid_bold | blue_dashed | blue_dashed_thin | blue_dashed_bold |</span>
+<span class="linenos">44</span><span class="c1"># +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+</span>
+<span class="linenos">45</span><span class="c1"># | IconStyle      | x    | x         | x         | x         |            |                 |                 |             |                  |                  |</span>
+<span class="linenos">46</span><span class="c1"># | ImageStyle     | x    | x         | x         | x         | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">47</span><span class="c1"># | LineStyle      | x    | x         | x         |           | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">48</span><span class="c1"># | LineArrowStyle | x    | x         | x         |           | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">49</span><span class="c1"># | ShapeStyle     | x    | x         | x         | x         | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">50</span><span class="c1"># | ShapeTextStyle | x    | x         | x         |           |            |                 |                 |             |                  |                  |</span>
+<span class="linenos">51</span><span class="c1"># | TextStyle      | x    | x         | x         |           |            |                 |                 |             |                  |                  |</span>
+<span class="linenos">52</span><span class="c1"># +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+</span>
 <span class="linenos">53</span>
-<span class="linenos">54</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">55</span><span class="c1"># | class \ name   | gray3 | gray3_flat | gray3_solid | gray3_dashed |</span>
-<span class="linenos">56</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">57</span><span class="c1"># | IconStyle      | x     |            |             |              |</span>
-<span class="linenos">58</span><span class="c1"># | ImageStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">59</span><span class="c1"># | LineStyle      | x     |            | x           | x            |</span>
-<span class="linenos">60</span><span class="c1"># | LineArrowStyle | x     |            | x           | x            |</span>
-<span class="linenos">61</span><span class="c1"># | ShapeStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">62</span><span class="c1"># | ShapeTextStyle | x     |            |             |              |</span>
-<span class="linenos">63</span><span class="c1"># | TextStyle      | x     |            |             |              |</span>
-<span class="linenos">64</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
+<span class="linenos">54</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">55</span><span class="c1"># | class \ name   | black | black_thin | black_bold | black_flat | black_solid | black_solid_thin | black_solid_bold | black_dashed | black_dashed_thin | black_dashed_bold |</span>
+<span class="linenos">56</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">57</span><span class="c1"># | IconStyle      | x     | x          | x          | x          |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">58</span><span class="c1"># | ImageStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">59</span><span class="c1"># | LineStyle      | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">60</span><span class="c1"># | LineArrowStyle | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">61</span><span class="c1"># | ShapeStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">62</span><span class="c1"># | ShapeTextStyle | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">63</span><span class="c1"># | TextStyle      | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">64</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
 <span class="linenos">65</span>
-<span class="linenos">66</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">67</span><span class="c1"># | class \ name   | white | white_flat | white_solid | white_dashed |</span>
-<span class="linenos">68</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
-<span class="linenos">69</span><span class="c1"># | IconStyle      | x     |            |             |              |</span>
-<span class="linenos">70</span><span class="c1"># | ImageStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">71</span><span class="c1"># | LineStyle      | x     |            | x           | x            |</span>
-<span class="linenos">72</span><span class="c1"># | LineArrowStyle | x     |            | x           | x            |</span>
-<span class="linenos">73</span><span class="c1"># | ShapeStyle     | x     | x          | x           | x            |</span>
-<span class="linenos">74</span><span class="c1"># | ShapeTextStyle | x     |            |             |              |</span>
-<span class="linenos">75</span><span class="c1"># | TextStyle      | x     |            |             |              |</span>
-<span class="linenos">76</span><span class="c1"># +----------------+-------+------------+-------------+--------------+</span>
+<span class="linenos">66</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">67</span><span class="c1"># | class \ name   | white | white_thin | white_bold | white_flat | white_solid | white_solid_thin | white_solid_bold | white_dashed | white_dashed_thin | white_dashed_bold |</span>
+<span class="linenos">68</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">69</span><span class="c1"># | IconStyle      | x     | x          | x          | x          |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">70</span><span class="c1"># | ImageStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">71</span><span class="c1"># | LineStyle      | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">72</span><span class="c1"># | LineArrowStyle | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">73</span><span class="c1"># | ShapeStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">74</span><span class="c1"># | ShapeTextStyle | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">75</span><span class="c1"># | TextStyle      | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">76</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
 </pre></div>
 </div>
 </div>
 <p>And output of each styles.</p>
-<p>style default.</p>
-<figure class="align-center">
-<a class="with-border reference internal image-reference" href="../../../_images/image_style3.png"><img alt="../../../_images/image_style3.png" class="with-border" src="../../../_images/image_style3.png" style="width: 600px;" /></a>
-</figure>
-<p>style <code class="docutils literal notranslate"><span class="pre">black</span></code>.</p>
-<figure class="align-center">
+<p>Style <code class="docutils literal notranslate"><span class="pre">black</span></code></p>
+<figure class="align-center" id="id3">
 <a class="with-border reference internal image-reference" href="../../../_images/image_style_black2.png"><img alt="../../../_images/image_style_black2.png" class="with-border" src="../../../_images/image_style_black2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style black</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-<p>style <code class="docutils literal notranslate"><span class="pre">gray1</span></code>.</p>
-<figure class="align-center">
+<p>Style <code class="docutils literal notranslate"><span class="pre">charcoal</span></code></p>
+<figure class="align-center" id="id4">
+<a class="with-border reference internal image-reference" href="../../../_images/image_style_charcoal1.png"><img alt="../../../_images/image_style_charcoal1.png" class="with-border" src="../../../_images/image_style_charcoal1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style charcoal</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Style <code class="docutils literal notranslate"><span class="pre">graphite</span></code></p>
+<figure class="align-center" id="id5">
+<a class="with-border reference internal image-reference" href="../../../_images/image_style_graphite1.png"><img alt="../../../_images/image_style_graphite1.png" class="with-border" src="../../../_images/image_style_graphite1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style graphite</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Style <code class="docutils literal notranslate"><span class="pre">gray</span></code></p>
+<figure class="align-center" id="id6">
 <a class="with-border reference internal image-reference" href="../../../_images/image_style_gray1.png"><img alt="../../../_images/image_style_gray1.png" class="with-border" src="../../../_images/image_style_gray1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style gray</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-<p>style <code class="docutils literal notranslate"><span class="pre">gray2</span></code>.</p>
-<figure class="align-center">
-<a class="with-border reference internal image-reference" href="../../../_images/image_style_gray2.png"><img alt="../../../_images/image_style_gray2.png" class="with-border" src="../../../_images/image_style_gray2.png" style="width: 600px;" /></a>
+<p>Style <code class="docutils literal notranslate"><span class="pre">silver</span></code></p>
+<figure class="align-center" id="id7">
+<a class="with-border reference internal image-reference" href="../../../_images/image_style_silver1.png"><img alt="../../../_images/image_style_silver1.png" class="with-border" src="../../../_images/image_style_silver1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style silver</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-<p>style <code class="docutils literal notranslate"><span class="pre">gray3</span></code>.</p>
-<figure class="align-center">
-<a class="with-border reference internal image-reference" href="../../../_images/image_style_gray3.png"><img alt="../../../_images/image_style_gray3.png" class="with-border" src="../../../_images/image_style_gray3.png" style="width: 600px;" /></a>
+<p>Style <code class="docutils literal notranslate"><span class="pre">snow</span></code></p>
+<figure class="align-center" id="id8">
+<a class="with-border reference internal image-reference" href="../../../_images/image_style_snow1.png"><img alt="../../../_images/image_style_snow1.png" class="with-border" src="../../../_images/image_style_snow1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style snow</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-<p>black’s shape has line color white.</p>
-<p>style <code class="docutils literal notranslate"><span class="pre">white</span></code>.</p>
-<figure class="align-center">
+<p>Style <code class="docutils literal notranslate"><span class="pre">white</span></code></p>
+<figure class="align-center" id="id9">
 <a class="with-border reference internal image-reference" href="../../../_images/image_style_white2.png"><img alt="../../../_images/image_style_white2.png" class="with-border" src="../../../_images/image_style_white2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme Style white</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
 </figure>
 </section>
 </section>

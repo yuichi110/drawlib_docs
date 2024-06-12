@@ -4,10 +4,10 @@
    contain the root `toctree` directive.
 
 =======================================
-Welcome to the drawlib Documentation!
+Welcome to the Drawlib Documentation!
 =======================================
 
-drawlib is a pure Python drawing library crafted to facilitate **Illustration as Code** rather than focusing solely on creating polished illustrations. 
+Drawlib is a pure Python drawing library crafted to facilitate **Illustration as Code** rather than focusing solely on creating polished illustrations. 
 Witness Python code in action generating a circular image:
 
 .. figure:: manual/introductions/index/image1.png
@@ -23,14 +23,18 @@ Running this code generate the image.
 CSS like Styling
 ====================
 
-Regarding style, we introduce CSS like concept. 
+At last example, we define style at the derawing item.
+It is easy to understand, but repeating styling at items are burden and tending to loose consistency.
+We normaly use theme and its styling for changing drawing items style.
+
+Drawlib's style is similar to CSS.
 You define style at 1 location and reference it every where.
-Then, the style is applied automatically.
+Then, the style is applied to them automatically.
 You don't need to provide detail style for each drawing items.
 
 Here is an example of using style.
 
-.. figure:: manual/introductions/index/image2.png
+.. figure:: manual/introductions/index/image2_default2.png
     :width: 800
     :class: with-border
     :align: center
@@ -40,7 +44,19 @@ Here is an example of using style.
 This code has around 20+ drawing items which includes background gray area.
 You can see variety of drawing styles (default, flat, solid, dashed).
 But total code line is less than 100.
-You can customize pre-defined theme.
+
+Drawlib provides group of styles which is called **theme**.
+You can switch theme easily.
+For example, applying ``monochrome`` theme make image monochrome.
+
+.. figure:: manual/introductions/index/image2_monochrome.png
+    :width: 800
+    :class: with-border
+    :align: center
+
+You can customize drawlib's pre-defined theme if you wants.
+For example, we changed fonts from default "NotoSanserif CJK" to "Raleways".
+You don't need to touch content code (same to HTML file concept), but just change theme's styling (same to CSS file concept).
 If you wish, you are able to create your own theme.
 
 Good to build lots of images
@@ -59,6 +75,13 @@ Not only can textual documentation be version-controlled, but illustration code 
     :align: center
 
     Doc image/text build flow.
+
+There are no big difference from markdown document management even if drawlib is added.
+If you create your doc from markdown or related one, you can adopt drawlib easily.
+
+By the way, this image itself is created by drawlib.
+It might be good real world example of drawlib's illustration.
+We build hundreads of these kind of images from image codes with same style for writing books.
 
 Refer to the Quickstart guide for a comprehensive understanding of drawlib's underlying concepts. 
 All images within this documentation are generated using drawlib.
@@ -109,6 +132,7 @@ All images within this documentation are generated using drawlib.
    :maxdepth: 2
    :caption: Themes:
 
+   manual/themes/advanced_topics/doc
    manual/themes/official_default/doc
    manual/themes/official_default2/doc
    manual/themes/official_essentials/doc

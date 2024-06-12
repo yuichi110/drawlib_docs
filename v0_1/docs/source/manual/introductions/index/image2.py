@@ -4,8 +4,8 @@ from drawlib.apis import *
 def main():
     for theme, styles in [
         ("default2", ["", "blue_flat", "green_solid", "red_dashed", "white"]),
-        ("essentials", ["", "lightblue_flat", "green_solid", "red_dashed", "white"]),
-        ("monochrome", ["", "black_flat", "gray3_solid", "gray1_dashed", "white"]),
+        ("essentials", ["", "blue_flat", "green_solid", "lightred_dashed", "white"]),
+        ("monochrome", ["", "black_flat", "silver_solid", "graphite_dashed", "white"]),
     ]:
 
         draw(theme, styles)
@@ -22,23 +22,23 @@ def draw(theme: str, styles: list[str]):
         )
     )
 
-    config(width=100, height=50)
+    config(width=100, height=60)
     xs = [10, 30, 50, 70, 90]
-    y_text = 4
-    y_image = 15
-    y_shape = 35
-    y_line = 46
+    y_text = 8
+    y_image = 22
+    y_shape = 41
+    y_line = 54
 
     rectangle(
         (60, 0),
         width=20,
-        height=50,
+        height=60,
         style=ShapeStyle(halign="left", valign="bottom", fcolor=Colors140.LightGray, lwidth=0),
     )
     rectangle(
         (80, 0),
         width=20,
-        height=50,
+        height=60,
         style=ShapeStyle(halign="left", valign="bottom", fcolor=Colors140.DarkGray, lwidth=0),
     )
 
@@ -58,6 +58,8 @@ def draw(theme: str, styles: list[str]):
             s = s.replace("_solid", "")
             s = s.replace("_dashed", "")
             text((x, y_text), style, style=s)
+            if i == 1:
+                text((x, y_text - 3), "angle=30", style=s)
 
         # draw image
         if i == 1:
@@ -95,17 +97,14 @@ def draw(theme: str, styles: list[str]):
             )
             line_bezier1((x - 5, y_line + 2), (x + 5, y_line + 2), (x + 5, y_line - 2), style=style)
         else:
-            if style == "rich":
-                s = "midnight_blue"
-            else:
-                s = ""
+            s = ""
             arrow(
-                (x - 7, y_shape),
-                (x + 7, y_shape),
-                head_width=15,
+                (x - 9, y_shape),
+                (x + 9, y_shape),
+                head_width=10,
                 head_length=5,
                 head_style="<|-|>",
-                tail_width=3,
+                tail_width=5,
                 style=style,
                 text="barrow",
                 textstyle=s,

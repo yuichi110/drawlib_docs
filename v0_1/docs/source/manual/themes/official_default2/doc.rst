@@ -9,13 +9,13 @@ But theme ``default2`` posess 4 styler per color.
 Colors
 ==============
 
-Theme default posses 5 colors.
+Theme default2 posses 5 colors.
 
-- ``blue``: light blue (main)
-- ``green``: light green
-- ``pink``: light pink
-- ``black``: soft black
-- ``white``: white
+- ``red``: RGB(239, 95, 95)
+- ``green``: RGB(79, 191, 79)
+- ``blue``: RGB(111, 111, 239)
+- ``black``: RGB(0, 0, 0)
+- ``white``: RGB(255, 255, 255)
 
 .. figure:: image_colors.png
     :width: 600
@@ -27,62 +27,72 @@ Theme default posses 5 colors.
 Style Types
 ===============
 
-Each color posses these styles.
+Theme ``default2`` posses these style types for all colors.
+Original theme ``default`` posses only default style.
 
 - default: Having border and fill color
 - ``flat`` style: Having no border. (white color actually)
 - ``solid`` style: Shape has outline but no fill.
 - ``dashed`` style: Dashed line, Dashed outline.
 
-Let's take a look at blue example.
+Each style types has variation of line width except ``flat`` which doesn't have line.
 
-.. figure:: image_styles_blue.png
+- ``thin`` : half of default
+- default : equivalent to regular
+- ``bold`` : double of default
+
+Let's take a look at matrix with blue color example.
+
+.. figure:: image_matrix.png
     :width: 600
     :class: with-border
     :align: center
 
-Please be careful, drawlib try to avoid having overlapped style.
-For example LineStyle of ``blue_solid`` doesn't exist.
-Since it is covered on LineStyle ``blue``.
+    Style type and width
 
-Flat looks like no border.
-However it has white color (same to background) border.
-It is not visible normally, and useful when you stuck the shapes.
+As you can see, each style has these effects.
 
-Bottom side is default flat style.
-Top side updated flat style with deleteing white color border.
+- ``ShapeStyle``: both style and width works.
+- ``IconStyle``: line width can be controlled with width. flat style make it fill.
+- ``LineStyle``: width have effect. flat style doesn't support line.
+- ``TextStyle``: only type default is supported. width becomes font thin/regular/bold.
 
-.. figure:: image_flat.png
-    :width: 600
-    :class: with-border
-    :align: center
+We didn't show example, but other style has these effects.
 
-Here is how to change border.
-You can check details at customizing official style documentation.
+- ``ImageStyle``: Same to ShapeStyle
+- ``LineArrowStyle``: Same to LineStyle
+- ``ShapeTextStyle``: Same to TextStyle
 
-.. literalinclude:: image_flat.py
-   :language: python
-   :linenos:
-   :caption: style table
+You can check which style supports which style class via calling ``dtheme.print_style_table()``.
+It will generate matrix of style name and style class.
+If ``x`` is checked, it means supported.
+Lets take a look blue example.
 
-Change Line Width
-===================
+.. code-block:: none
 
-Changing line width might be popular modification for some of you.
-We recommend to add new style name for standadize line width between images.
-However you can modify it on the spot with ``<style-name>.<line-width-percentage>`` syntax.
-For example, ``blue_solid.50`` makes half width line and ``blue_solid.200`` makes double.
+    +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+
+    | class \ name   | blue | blue_thin | blue_bold | blue_flat | blue_solid | blue_solid_thin | blue_solid_bold | blue_dashed | blue_dashed_thin | blue_dashed_bold |
+    +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+
+    | IconStyle      | x    | x         | x         | x         |            |                 |                 |             |                  |                  |
+    | ImageStyle     | x    | x         | x         | x         | x          | x               | x               | x           | x                | x                |
+    | LineStyle      | x    | x         | x         |           | x          | x               | x               | x           | x                | x                |
+    | LineArrowStyle | x    | x         | x         |           | x          | x               | x               | x           | x                | x                |
+    | ShapeStyle     | x    | x         | x         | x         | x          | x               | x               | x           | x                | x                |
+    | ShapeTextStyle | x    | x         | x         |           |            |                 |                 |             |                  |                  |
+    | TextStyle      | x    | x         | x         |           |            |                 |                 |             |                  |                  |
+    +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+
 
-Here is a example.
+As you can see, ``flat`` doesn't have width. It can be used for only IconStyle, ImageStyle, ShapeStyle.
+Here is a cheat for remembering the rule. 
 
-.. figure:: image_linewidth.png
-    :width: 600
-    :class: with-border
-    :align: center
+- default type supports all classes.
+- flat supports styles which can be filled.
+- solid and dashed supports styles which has line.
 
-You can specify only int value after dot.
-``blue_solid`` and ``blue_solid.100`` are same since 100% is original width.
+Please remember this rule and naming for using official themes.
+Theme ``essentials`` and ``monochrome`` follows exactry same rule.
 
+If you let others use your theme, we recommend let your theme to follow this rule.
 
 Style Names
 ==============

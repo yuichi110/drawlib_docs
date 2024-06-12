@@ -5,7 +5,11 @@ Official Theme: default
 Theme ``default`` is default drawlib theme.
 It is traditional styling and requires less knowledge to use.
 
-Theme ``simple`` might be better if you want to use many style types such as flat(no-border) and outlined shapes.
+Theme ``default2`` might be better if you want to use many style types such as flat(no-border) and outlined shapes.
+Theme ``essentials`` is more colorful theme which posses many colors but style rule is exactry same to ``default2``.
+It is a super set of ``default2`` and ``monochrome``.
+
+
 The theme color is exactly same to default.
 
 Main Colors
@@ -13,13 +17,12 @@ Main Colors
 
 Theme default posses 5 colors.
 
-- ``blue``: light blue. RGB(109, 124, 197)
-- ``green``: light green. RGB(112, 194, 191) 
-- ``pink``: light pink. RGB(193, 102, 107)
-- ``black``: soft black. RGB(27, 38, 59)
-- ``white``: white. RGB(255, 255, 255)
+- ``red``: RGB(239, 95, 95)
+- ``green``: RGB(79, 191, 79)
+- ``blue``: RGB(111, 111, 239)
+- ``black``: RGB(0, 0, 0)
+- ``white``: RGB(255, 255, 255)
 
-Color ``black`` is not real RGB(0, 0, 0) black.
 Here is a color chart.
 
 .. figure:: image_colors.png
@@ -34,11 +37,11 @@ Style Names
 
 Theme default posses 6 style names which includes default(no-name).
 
-- default(no name): black for icon/line/text, blue for shape
-- ``blue``: black for shape line. blue for all others.
-- ``green``: black for shape line. greeb for all others.
-- ``pink``: black for shape line. pink for all others.
-- ``black``: white for shape line. black for all.
+- default(no name): black for icon/line/text, light blue for shape fill.
+- ``blue``: black for shape line. light blue for all others.
+- ``green``: black for shape line. light green for all others.
+- ``red``: black for shape line. light red for all others.
+- ``black``: black for all.
 - ``white``: black for shape line. white for others.
 
 Here is a example of theme styles.

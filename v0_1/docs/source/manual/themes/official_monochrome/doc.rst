@@ -21,11 +21,13 @@ Theme monochrome posses 5 colors between black and white.
 
     image_colors.png
 
-- ``black``: black (main)
-- ``gray1``: dark gray
-- ``gray2``: gray
-- ``gray3``: light gray
-- ``white``: white
+- ``black``: RGB(0, 0, 0)
+- ``charcoal``: RGB(39, 39, 39)
+- ``graphite``: RGB(63, 63, 63)
+- ``gray``: RGB(127, 127, 127)
+- ``silver``: RGB(191, 191, 191)
+- ``snow``: RGB(239, 239, 239)
+- ``white``: RGB(255, 255, 255)
 
 
 Style Names
@@ -40,46 +42,65 @@ Here is a list of style names.
 
 And output of each styles.
 
-style default.
-
-.. figure:: image_style.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-style ``black``.
+Style ``black``
 
 .. figure:: image_style_black.png
     :width: 600
     :class: with-border
     :align: center
 
-style ``gray1``.
+    Theme Style black
 
-.. figure:: image_style_gray1.png
+Style ``charcoal``
+
+.. figure:: image_style_charcoal.png
     :width: 600
     :class: with-border
     :align: center
 
-style ``gray2``.
+    Theme Style charcoal
 
-.. figure:: image_style_gray2.png
+Style ``graphite``
+
+.. figure:: image_style_graphite.png
     :width: 600
     :class: with-border
     :align: center
 
-style ``gray3``.
+    Theme Style graphite
 
-.. figure:: image_style_gray3.png
+Style ``gray``
+
+.. figure:: image_style_gray.png
     :width: 600
     :class: with-border
     :align: center
 
-black's shape has line color white.
+    Theme Style gray
 
-style ``white``.
+Style ``silver``
+
+.. figure:: image_style_silver.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style silver
+
+Style ``snow``
+
+.. figure:: image_style_snow.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style snow
+
+Style ``white``
 
 .. figure:: image_style_white.png
     :width: 600
     :class: with-border
     :align: center
+
+    Theme Style white

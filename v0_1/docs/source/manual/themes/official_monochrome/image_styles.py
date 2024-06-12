@@ -63,13 +63,4 @@ def draw_colors(colors: list[str]):
         save(f"image_style{color}.png")
 
 
-draw_colors(
-    [
-        "",
-        "black",
-        "gray1",
-        "gray2",
-        "gray3",
-        "white",
-    ]
-)
+draw_colors([""] + dtheme.colors.list())

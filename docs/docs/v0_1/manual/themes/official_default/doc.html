@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Official Theme: default2" href="../official_default2/doc.html" />
-    <link rel="prev" title="Example of Doc Build Flow" href="../../advanced_topics/example_flow/doc.html" /> 
+    <link rel="prev" title="Advanced Topics" href="../advanced_topics/doc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -86,6 +86,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Official Theme: default</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#main-colors">Main Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#style-names">Style Names</a></li>
@@ -134,20 +135,21 @@
 <h1>Official Theme: default<a class="headerlink" href="#official-theme-default" title="Link to this heading"></a></h1>
 <p>Theme <code class="docutils literal notranslate"><span class="pre">default</span></code> is default drawlib theme.
 It is traditional styling and requires less knowledge to use.</p>
-<p>Theme <code class="docutils literal notranslate"><span class="pre">simple</span></code> might be better if you want to use many style types such as flat(no-border) and outlined shapes.
-The theme color is exactly same to default.</p>
+<p>Theme <code class="docutils literal notranslate"><span class="pre">default2</span></code> might be better if you want to use many style types such as flat(no-border) and outlined shapes.
+Theme <code class="docutils literal notranslate"><span class="pre">essentials</span></code> is more colorful theme which posses many colors but style rule is exactry same to <code class="docutils literal notranslate"><span class="pre">default2</span></code>.
+It is a super set of <code class="docutils literal notranslate"><span class="pre">default2</span></code> and <code class="docutils literal notranslate"><span class="pre">monochrome</span></code>.</p>
+<p>The theme color is exactly same to default.</p>
 <section id="main-colors">
 <h2>Main Colors<a class="headerlink" href="#main-colors" title="Link to this heading"></a></h2>
 <p>Theme default posses 5 colors.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code>: light blue. RGB(109, 124, 197)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code>: light green. RGB(112, 194, 191)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pink</span></code>: light pink. RGB(193, 102, 107)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: soft black. RGB(27, 38, 59)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: white. RGB(255, 255, 255)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">red</span></code>: RGB(239, 95, 95)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code>: RGB(79, 191, 79)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code>: RGB(111, 111, 239)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: RGB(0, 0, 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: RGB(255, 255, 255)</p></li>
 </ul>
-<p>Color <code class="docutils literal notranslate"><span class="pre">black</span></code> is not real RGB(0, 0, 0) black.
-Here is a color chart.</p>
+<p>Here is a color chart.</p>
 <figure class="align-center" id="id1">
 <a class="with-border reference internal image-reference" href="../../../_images/image_colors.png"><img alt="../../../_images/image_colors.png" class="with-border" src="../../../_images/image_colors.png" style="width: 600px;" /></a>
 <figcaption>
@@ -159,11 +161,11 @@ Here is a color chart.</p>
 <h2>Style Names<a class="headerlink" href="#style-names" title="Link to this heading"></a></h2>
 <p>Theme default posses 6 style names which includes default(no-name).</p>
 <ul class="simple">
-<li><p>default(no name): black for icon/line/text, blue for shape</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code>: black for shape line. blue for all others.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code>: black for shape line. greeb for all others.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pink</span></code>: black for shape line. pink for all others.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: white for shape line. black for all.</p></li>
+<li><p>default(no name): black for icon/line/text, light blue for shape fill.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code>: black for shape line. light blue for all others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code>: black for shape line. light green for all others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">red</span></code>: black for shape line. light red for all others.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code>: black for all.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">white</span></code>: black for shape line. white for others.</p></li>
 </ul>
 <p>Here is a example of theme styles.
@@ -210,7 +212,7 @@ Each drawing items are applied the styles.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../../advanced_topics/example_flow/doc.html" class="btn btn-neutral float-left" title="Example of Doc Build Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../advanced_topics/doc.html" class="btn btn-neutral float-left" title="Advanced Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../official_default2/doc.html" class="btn btn-neutral float-right" title="Official Theme: default2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -32,3 +32,6 @@ sphinx-apidoc -f -o ./docs/merged/api ./source/drawlib \
 
 # build to html
 sphinx-build -a ./docs/merged ./docs/html
+
+# remove useless merged data
+rm -rf ./docs/merged

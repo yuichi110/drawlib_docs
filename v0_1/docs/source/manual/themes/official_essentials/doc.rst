@@ -1,6 +1,6 @@
-========================
+=============================
 Official Theme: essentials
-========================
+=============================
 
 Theme ``essentials`` has basic 25 colors.
 We recommend this theme for advanced users since it covers all of ``default``, ``default2``, ``monochrome`` themes.

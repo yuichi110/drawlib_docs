@@ -53,7 +53,7 @@ Each drawing items are applied the styles.
 - python logo: ``image()``
 - text: ``text()``
 
-.. figure:: image_style.png
+.. figure:: image_styles.png
     :width: 600
     :class: with-border
     :align: center

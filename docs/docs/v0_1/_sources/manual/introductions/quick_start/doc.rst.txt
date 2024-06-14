@@ -511,3 +511,45 @@ If drawlib doesn't include the font you wish to use, you can provide it to the s
 In the fourth and fifth examples, we've configured text parameters such as color, size, and background. 
 These settings may not be particularly complex, but it's important to note that the font size remains constant regardless of changes in canvas width and height. 
 Doubling the canvas size won't result in halving the font text size; it remains the same as the original size.
+
+Use Official Theme
+====================
+
+You can specify drawing item's style via style class objects such as ``ShapeStyle``, ``TextStyle``.
+However, providing style every time is burden and tend to lack consistency.
+Drawlib provides theme and style feature.
+You can choose theme which you like and able to apply its style easily with name.
+
+Here is an example. Please take care arg ``style`` takes text values.
+
+.. literalinclude:: image_theme1.py
+   :language: python
+   :linenos:
+   :caption: image_theme1.py
+
+The style has this syntax ``<color>_<type>_<thickness>``. If type and thickness are default, they are not shown in the style name.
+Executing this code yields the following image.
+
+.. figure:: image_theme1.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    image_theme1.png
+
+Drawlib posses these official themes.
+
+- ``default``
+- ``default2``
+- ``essentials``
+- ``monochrome``
+
+All style naming rules are same. However default theme ``default`` has only colors for simpliness for beginners.
+You can check what style name for each style class with ``dtheme.print_style_table()``.
+As you can see, many style name supports only few style classes.
+This is because "flat(no border fill)" style doesn't fit to line and text.
+
+.. literalinclude:: print_theme_styles.py
+   :language: python
+   :linenos:
+   :caption: print_theme_styles.py

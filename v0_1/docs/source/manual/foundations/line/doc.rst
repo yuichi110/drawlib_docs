@@ -217,7 +217,26 @@ If you requires precise control, please use this function.
 However, if you want to draw simple curve line, we recommend using ``lines_curved()`` instead.
 
 
-lines_curve()
+lines_curved()
 ===============
 
 Function ``lines_curve()`` is syntax sugar of ``lines_bezier()``.
+It will automatically add bezier1 curve effect to lines with length ``r``.
+
+.. literalinclude:: image8.py
+   :language: python
+   :linenos:
+   :caption: image8.py
+
+The function is almost same to ``lines()`` but having arg ``r`` which means length of curve.
+If you want to add related curves for all vertex, this function is very useful.
+Executing this code generate this output.
+
+.. figure:: image8.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    lines_curve()
+
+The red dashed line length is value of r. If you set large value, the curve becomes big.

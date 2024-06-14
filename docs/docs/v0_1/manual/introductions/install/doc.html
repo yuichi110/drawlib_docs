@@ -52,9 +52,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../about/doc.html">About drawlib</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#versioning">Versioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#release-policy">Release policy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#virtual-environment">Virtual Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installed-successed-but-unable-to-run">Installed successed but unable to run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#release-policy">Release policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-environment">Virtual Environment</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lib_design/doc.html">Drawlib Overview</a></li>
@@ -138,16 +141,41 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install drawlib
 </pre></div>
 </div>
-<p>After installation, you can check the version with this command.</p>
+<p>After installation, you can check whether drawlib installed successfully or not through these commands.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python -m drawlib --version
-software=0.1.1
-api=0.1.1
+software=0.1.24
+api=0.1.24
+
+$ drawlib --version
+software=0.1.24
+api=0.1.24
 </pre></div>
 </div>
-<p>Not only the software (library) version, but you can also see the API version too.
-This is because drawlib supports the old API (previously released library’s API) in the new version for backward compatibility.</p>
+<p>Drawlib package also install <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command which is useful for building many images.
+It is calling drawlib libraries script which is equivalent to <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span></code>.
+Please check details at that section at foundation chapter.</p>
+<p>By the way, not only the software (library) version, you can also see the API version too.
+This is because drawlib supports the old API (previously released library’s API) in the new version for backward compatibility.
+You can specify drawlib api version like this.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python -m drawlib.v0_1 --version
+software=0.1.24
+api=0.1.24
+</pre></div>
+</div>
+<section id="installed-successed-but-unable-to-run">
+<h2>Installed successed but unable to run<a class="headerlink" href="#installed-successed-but-unable-to-run" title="Link to this heading"></a></h2>
+<p>Drawlib depends on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and it requires <code class="docutils literal notranslate"><span class="pre">msvc-runtime</span></code> on Windows.
+If it is not automatically installed, you will see these kind of error when you draw.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ImportError: DLL load failed while importing _cext: The specified module could not be found
+</pre></div>
+</div>
+<p>On that situation, please manually install <code class="docutils literal notranslate"><span class="pre">msvc-runtime</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install msvc-runtime
+</pre></div>
+</div>
+<p>If you hit another error, please check python environment is too old or too latest.</p>
 <section id="versioning">
-<h2>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h2>
+<h3>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h3>
 <p>Drawlib follows the versioning rule <code class="docutils literal notranslate"><span class="pre">&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</span></code>.</p>
 <ul class="simple">
 <li><p>Major Version: Significant API change</p></li>
@@ -168,7 +196,7 @@ sphinx-rtd-theme == 2.0.*
 We recommend not only specifying drawlib but also the version of the documentation building tool (sphinx, etc.).</p>
 </section>
 <section id="release-policy">
-<h2>Release policy<a class="headerlink" href="#release-policy" title="Link to this heading"></a></h2>
+<h3>Release policy<a class="headerlink" href="#release-policy" title="Link to this heading"></a></h3>
 <p>Drawlib’s release is as follows</p>
 <ul class="simple">
 <li><p>0.1.* : private alpha release</p></li>
@@ -202,10 +230,11 @@ Here is a release plan image.</p>
 It means, after releasing version <code class="docutils literal notranslate"><span class="pre">0.n.0</span></code>, we will not provide new patch release <code class="docutils literal notranslate"><span class="pre">0.&lt;n-1&gt;.*</span></code>.</p>
 </section>
 <section id="virtual-environment">
-<h2>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h2>
+<h3>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h3>
 <p>If you have many documentation projects on your machine, we recommend installing drawlib in a Python virtual environment, such as venv or poetry.
 We use venv for pure documentation projects and poetry for development projects with documentation.</p>
 <p>By using them, you can use different drawlib versions for different projects and avoid underlying library version conflicts, such as matplotlib.</p>
+</section>
 </section>
 </section>
 

@@ -8,16 +8,49 @@ You can install drawlib with the following command. If your system uses ``python
 
    $ pip install drawlib
 
-After installation, you can check the version with this command.
+After installation, you can check whether drawlib installed successfully or not through these commands.
 
 .. code-block:: none
 
    $ python -m drawlib --version
-   software=0.1.1
-   api=0.1.1
+   software=0.1.24
+   api=0.1.24
 
-Not only the software (library) version, but you can also see the API version too.
+   $ drawlib --version 
+   software=0.1.24
+   api=0.1.24
+
+Drawlib package also install ``drawlib`` command which is useful for building many images.
+It is calling drawlib libraries script which is equivalent to ``python -m drawlib``.
+Please check details at that section at foundation chapter.
+
+By the way, not only the software (library) version, you can also see the API version too.
 This is because drawlib supports the old API (previously released library's API) in the new version for backward compatibility.
+You can specify drawlib api version like this.
+
+.. code-block:: none
+
+   $ python -m drawlib.v0_1 --version
+   software=0.1.24
+   api=0.1.24
+
+Installed successed but unable to run
+---------------------------------------
+
+Drawlib depends on ``matplotlib`` and it requires ``msvc-runtime`` on Windows.
+If it is not automatically installed, you will see these kind of error when you draw.
+
+.. code-block:: none
+
+   ImportError: DLL load failed while importing _cext: The specified module could not be found
+
+On that situation, please manually install ``msvc-runtime``.
+
+.. code-block:: none
+
+   pip install msvc-runtime
+
+If you hit another error, please check python environment is too old or too latest.
 
 Versioning 
 ===========

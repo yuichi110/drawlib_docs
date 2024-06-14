@@ -5,7 +5,7 @@ Building many images
 Drawlib is designed for creating lots of illust for ducumentation etc.
 Here is a typical build process.
 
-.. figure:: ../../introductions/index/image2.png
+.. figure:: ../../introductions/index/image3.png
     :width: 600
     :class: with-border
     :align: center

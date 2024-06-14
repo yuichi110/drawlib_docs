@@ -83,11 +83,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Example of Doc Build Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-github-repository">Example GitHub Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-tool-we-use">What tool we use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#documentation-creation-process">Documentation creation process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#directory-structure-of-workspace">Directory structure of workspace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sphinx-conf-py">sphinx conf.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-script">Build script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-environment">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-directory-source">Source Directory: source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-output-directory-staging">Build Output Directory: staging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-pages-directory-docs">GitHub Pages Directory: docs</a></li>
 </ul>
 </li>
 </ul>
@@ -136,130 +138,244 @@
              
   <section id="example-of-doc-build-flow">
 <h1>Example of Doc Build Flow<a class="headerlink" href="#example-of-doc-build-flow" title="Link to this heading"></a></h1>
-<p>Many documentation requires illustration images.
-Documentation text is managed by version control system especially Git normally.
-However illustration images aren’t since they are binary files.</p>
-<p>That is the reason why this library is developed.
-Drawlib draw illustration via python script easily.
-Git able to manage python code, it means Git can manage drawlib’s illustration code too.
-We achieve illustration as code for documentation in this logic.</p>
-<p>In this documentation, we will let you know how drawlib manage and build its own documetation which has lots of images.
-You might be able to get insight for how to achieve managing your documetation with images by reading this doc.
-Writing books are almost same to writing docs.</p>
+<p>Here is a high level documentation build frlow with drawlib.</p>
+<figure class="align-center" id="id1">
+<a class="with-border reference internal image-reference" href="../../../_images/image3.png"><img alt="../../../_images/image3.png" class="with-border" src="../../../_images/image3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Build many images</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In this document, we will explain real world example and its procedure step by step.
+The content is based on this documentation’s build flow itself.
+However, it is normalized to simlify the explanation.</p>
+<section id="example-github-repository">
+<h2>Example GitHub Repository<a class="headerlink" href="#example-github-repository" title="Link to this heading"></a></h2>
+<p>We created example GitHub Repository which build documentation and publish it through GitHub pages.</p>
+<p><a class="reference external" href="https://github.com/yuichi110/drawlib_docs_example">https://github.com/yuichi110/drawlib_docs_example</a></p>
+</section>
 <section id="what-tool-we-use">
 <h2>What tool we use<a class="headerlink" href="#what-tool-we-use" title="Link to this heading"></a></h2>
-<p>drawlib docs has 2 part.</p>
+<p>We will use these tools for writing and publishing doc.</p>
 <ul class="simple">
-<li><p>manual (hand writing documentation)</p></li>
-<li><p>apidoc (automatically generated from code)</p></li>
+<li><p>Drawlib: For building image</p></li>
+<li><p>Sphinx: For building docs with pre-build images</p></li>
+<li><p>GitHub Pages: Publish the document</p></li>
 </ul>
-<p>We use <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> and <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> for both of them.
-You can use markdown if size of documentation is small, but I recommend using reStructuredText for large documentation since it has many feature for organizing files as 1 documentation.</p>
-<p>However, Sphinx can take care making doc from text files only.
-It doesn’t handle image creation of course.
-Yes, <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> does it in our doc creation process.</p>
+<p>We will write python doc in our scenario.
+So, we choose <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> since it is popular.</p>
+<p>Sphinx requires understanding reStructuredText.
+In my opinion it is similar to markdown but less popular and more complex.
+However the complexity make you free for difficulty of structuring doc pages to one documentation.
+<code class="docutils literal notranslate"><span class="pre">Jekyll</span></code> might be alternative option of Sphinx. It create documentation from markdown files.</p>
 </section>
-<section id="documentation-creation-process">
-<h2>Documentation creation process<a class="headerlink" href="#documentation-creation-process" title="Link to this heading"></a></h2>
-<p>Our documentation has 2 part as we noted.
-Hand writing manual and automatically generated API docs.
-Manual contains lots of images.</p>
-<p>To create documentation which has image/manual/api-docs, we build our docs in this procedure.</p>
-<ol class="arabic simple">
-<li><p>build image first at documentation <code class="docutils literal notranslate"><span class="pre">source</span></code> directory which contains <code class="docutils literal notranslate"><span class="pre">source/index.rst</span></code> and <code class="docutils literal notranslate"><span class="pre">source/manual</span></code>.</p></li>
-<li><p>copy doc source to <code class="docutils literal notranslate"><span class="pre">merged/manual</span></code> directory after deleting old existing files</p></li>
-<li><p>run <code class="docutils literal notranslate"><span class="pre">sphinx-apidoc</span></code> and generate api docs to <code class="docutils literal notranslate"><span class="pre">merged/api</span></code></p></li>
-<li><p>run <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> at <code class="docutils literal notranslate"><span class="pre">merged</span></code> directory and export html to <code class="docutils literal notranslate"><span class="pre">html</span></code> directory.</p></li>
-</ol>
-<p>all of them exist under <code class="docutils literal notranslate"><span class="pre">docs_workspace</span></code>.
-After we confirm generated docs under <code class="docutils literal notranslate"><span class="pre">html</span></code> is OK, copy it to <code class="docutils literal notranslate"><span class="pre">docs/&lt;version&gt;</span></code> directory.
-The <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory is published to internet through GitHub Pages.
-Since we need to publish old version documentation, it has version hierarchy.</p>
-<p>We do these build procedure by bash script.
-But publication is handled manually. Since it is dangerous and easy (just copy paste and Git push).
-We will share build script later.</p>
-</section>
-<section id="directory-structure-of-workspace">
-<h2>Directory structure of workspace<a class="headerlink" href="#directory-structure-of-workspace" title="Link to this heading"></a></h2>
-<p>Workspace for creating documentation has this hierarchy</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docs_workspace ---+--- source ---+--- index.rst
-                  |              +--- &lt;images codes which index.rst uses&gt;
-                  |              +--- &lt;image files which are generated from codes&gt;
-                  |              |
-                  |              +--- .drawlib ---+--- docstyles.py
-                  |              |                +--- docimages.py
-                  |              |                +--- image icon files for cache
-                  |              |                +--- text fonts for cache
-                  |              |
-                  |              +--- manual ---+--- About -----+--- doc.rst
-                  |                             |               +--- &lt;image&#39;s codes&gt;
-                  |                             |               +--- &lt;image files&gt;
-                  |                             |
-                  |                             +--- Install ---+--- doc.rst
-                  |                             |               +--- &lt;images codes&gt;
-                  |                             |               +--- &lt;image files&gt;
-                  |                             .
-                  |                             .
-                  |
-                  +--- merged ---+--- index.rst
-                  |              +--- image files
-                  |              |
-                  |              +--- manual ---+--- About -----+--- doc.rst
-                  |              |              |               +--- &lt;image&#39;s codes&gt;
-                  |              |              |               +--- &lt;image files&gt;
-                  |              |              |
-                  |              |              +--- Install ---+--- doc.rst
-                  |              |              |               +--- &lt;image&#39;s codes&gt;
-                  |              |              .               +--- &lt;image files&gt;
-                  |              |              .
-                  |              |
-                  |              +--- api --- &lt;generated files&gt;
-                  |
-                  +--- html --- &lt;generated files&gt;
+<section id="repository-structure">
+<h2>Repository structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h2>
+<p>Here is repository structure.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>repository
+├── .gitignore
+├── .venv
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── docs
+|   └── ...
+├── scripts
+|   └── ...
+├── source
+│   ├── __init__.py
+│   ├── _static
+│   ├── _templates
+│   ├── chapter01
+│   ├── chapter0
+│   ├── commons
+│   ├── conf.py
+│   ├── index
+│   └── index.rst
+└── staging
+    └── ...
 </pre></div>
 </div>
-<p>We don’t touch <code class="docutils literal notranslate"><span class="pre">doc_workspace/merged</span></code> and <code class="docutils literal notranslate"><span class="pre">doc_workspace/html</span></code> since they are just export point of sphinx commands.
-We write manual at <code class="docutils literal notranslate"><span class="pre">doc_workspace/source</span></code> only.</p>
-<p>As you can see <code class="docutils literal notranslate"><span class="pre">source</span></code> contains <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>.
-It becomes top page of this document.
-Since we use <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> and <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code>, this index has <code class="docutils literal notranslate"><span class="pre">toctree</span></code>.
-Other file can have toctree of course. But we are avoiding it.
-On same directory, we put drawlib’s python scripts for creating images which <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> uses.</p>
-<p>In this directory, we have <code class="docutils literal notranslate"><span class="pre">.drawlib</span></code> directory too.
-We define common line/shape/text styles at here for achiving applying same styles to all images.
-Creating images at each file is not recommended since having diffuculty for change and keep governance.
-Also, we prepare common icons which are used in each images.</p>
-<p>Each documentation page has its own directory.
-Such as <code class="docutils literal notranslate"><span class="pre">About</span></code> and <code class="docutils literal notranslate"><span class="pre">Install</span></code>.
-They have documentation text(<code class="docutils literal notranslate"><span class="pre">doc.rst</span></code>) and its images and the codes which generate them.</p>
-<p>In summary, we are keeping this rule</p>
+<p>Documentation source is contained in <code class="docutils literal notranslate"><span class="pre">/source</span></code>.
+We build image first and then build docs at here.</p>
+<p>Builded docs(HTML) are stored in <code class="docutils literal notranslate"><span class="pre">/staging</span></code> first.
+As its name denotes, this is the directory for checking documentation.</p>
+<p>After finding new document has no problem, move its content to <code class="docutils literal notranslate"><span class="pre">/docs</span></code>.
+This is a directory for GitHub pages publication.
+Please be careful, GitHub page can publish its content at root level or <code class="docutils literal notranslate"><span class="pre">/docs</span></code> directory.</p>
+<p>Directory <code class="docutils literal notranslate"><span class="pre">/scripts</span></code> contains many script files for building/checking/publishing.</p>
+</section>
+<section id="python-environment">
+<h2>Python Environment<a class="headerlink" href="#python-environment" title="Link to this heading"></a></h2>
+<p>Building images and docs requires Python packages.
+We will use virtual environment for avoiding package conflict etc.
+Here is a bash script for creating environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># cd to repository root</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>../
+
+<span class="c1"># delete python venv</span>
+deactivate<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>.venv
+
+<span class="c1"># create venv and activate</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># install python packages</span>
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>At last, installing python packages from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>drawlib == 0.1.*
+sphinx == 7.2.*
+sphinx-rtd-theme == 2.0.*
+</pre></div>
+</div>
+<p>After issuing this script, python environment and its libraries are installed.
+If sphinx configs are not ready, prepare them with <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> commands.</p>
+</section>
+<section id="source-directory-source">
+<h2>Source Directory: source<a class="headerlink" href="#source-directory-source" title="Link to this heading"></a></h2>
+<p>Directory <code class="docutils literal notranslate"><span class="pre">source</span></code> contains sphinx project files and documentation source.
+From point of drawlib, <code class="docutils literal notranslate"><span class="pre">source</span></code> is a root of your package.
+Since it is python package, it has <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
+<p>This directory contains many python files for illustration.
+Such as</p>
 <ul class="simple">
-<li><p>1 directory contains all 1 page contents</p></li>
-<li><p>index.rst connects all pages</p></li>
-<li><p>.drawlib provides common style and icons to all image codes.</p></li>
+<li><p>source/chapter01/section01/image.py</p></li>
+<li><p>source/chapter01/section02/image.py</p></li>
 </ul>
+<p>Here is a code of <code class="docutils literal notranslate"><span class="pre">/source/chapter01/section01/image.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">source.commons.style</span>
+<span class="kn">import</span> <span class="nn">source.commons.util</span> <span class="k">as</span> <span class="nn">util</span>
+
+<span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">util</span><span class="o">.</span><span class="n">draw_3rectangle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">util</span><span class="o">.</span><span class="n">draw_logo</span><span class="p">()</span>
+<span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you can see, it imports <code class="docutils literal notranslate"><span class="pre">source.commons</span></code> package’s modules.
+They are style definition codes which we explain at previous document.</p>
+<p>For building images, we use script <code class="docutils literal notranslate"><span class="pre">/scripts/build_images.py</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># cd to project root directory</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>../
+
+<span class="c1"># activate</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># build</span>
+drawlib<span class="w"> </span>./source
+</pre></div>
+</div>
+<p>It builds all images in source directory.
+If the documentation project is large, we recommend creating build scripts per chapter or section.
+We have <code class="docutils literal notranslate"><span class="pre">scripts/build_images_chapter01.py</span></code> and <code class="docutils literal notranslate"><span class="pre">scripts/build_images_chapter02.py</span></code> in our case.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># cd to project root directory</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>../
+
+<span class="c1"># activate</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># build</span>
+drawlib<span class="w"> </span>./source/chapter01
+</pre></div>
+</div>
+<p>After confirming builded images are OK, we will build documentation with another script again.
+<code class="docutils literal notranslate"><span class="pre">script/build_docs.sh</span></code> do that.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># cd to project root directory</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>../
+
+<span class="c1"># activate</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># delete last build target contents</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>./staging
+
+<span class="c1"># build to html</span>
+sphinx-build<span class="w"> </span>-a<span class="w"> </span>./source<span class="w"> </span>./staging
+</pre></div>
+</div>
+<p>At the script, we delete old build file at first with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">./staging</span></code>.
+And then, build docs normally with <code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-a</span> <span class="pre">./source</span> <span class="pre">./staging</span></code>.</p>
 </section>
-<section id="sphinx-conf-py">
-<h2>sphinx conf.py<a class="headerlink" href="#sphinx-conf-py" title="Link to this heading"></a></h2>
+<section id="build-output-directory-staging">
+<h2>Build Output Directory: staging<a class="headerlink" href="#build-output-directory-staging" title="Link to this heading"></a></h2>
+<p>Directory <code class="docutils literal notranslate"><span class="pre">staging</span></code> is just an sphinx build’s output directory.
+However, you need to check it before publishing.
+Script <code class="docutils literal notranslate"><span class="pre">scripts/serv_staging.sh</span></code> start HTTP server which hosts this directory.
+And then open browser automatically.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+open_browser_1sec_later<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">   </span>sleep<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>open<span class="w"> </span>http://localhost
+<span class="o">}</span>
+
+<span class="c1"># cd to doc root</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>../
+
+<span class="c1"># activate</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># open browser later</span>
+open_browser_1sec_later<span class="w"> </span><span class="p">&amp;</span>
+
+<span class="c1"># cd to html directory and start http server</span>
+<span class="nb">cd</span><span class="w"> </span>./staging
+python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">80</span>
+</pre></div>
+</div>
 </section>
-<section id="build-script">
-<h2>Build script<a class="headerlink" href="#build-script" title="Link to this heading"></a></h2>
-<p>We put scripts under <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory.</p>
-<p>We can’t assure where the script is called.
-So, we first change directory to script directory via <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">&quot;$(dirname</span> <span class="pre">&quot;$0&quot;)&quot;</span></code> and then move to project root via <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../</span></code>.
-After that, script main part will start.</p>
-<p>As we told in procedure part, it does</p>
-<ol class="arabic simple">
-<li><p>build images via <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span> <span class="pre">./docs_workspace/source</span></code></p></li>
-<li><p>delete old files via <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">./docs_workspace/merged</span></code></p></li>
-<li><p>then copy image via <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command. We don’t use <code class="docutils literal notranslate"><span class="pre">cp</span></code> command since rsync can exclude python files easily.</p></li>
-<li><p>copy important but excluded file manually via <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">./docs_workspace/source/conf.py</span> <span class="pre">./docs_workspace/merged/</span></code></p></li>
-<li><p>generate api doc via <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">sphinx-apidoc</span> <span class="pre">-f</span> <span class="pre">-o</span> <span class="pre">./docs_workspace/merged/api</span> <span class="pre">./drawlib</span></code></p></li>
-<li><p>build to html via <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">sphinx-build</span> <span class="pre">-a</span> <span class="pre">./docs_workspace/merged</span> <span class="pre">./docs_workspace/html</span></code></p></li>
-</ol>
-<p>That’s all!!</p>
-<p>For checking html, we use this utility script too.
-Which run HTML server on the HTML directory and open browser.</p>
+<section id="github-pages-directory-docs">
+<h2>GitHub Pages Directory: docs<a class="headerlink" href="#github-pages-directory-docs" title="Link to this heading"></a></h2>
+<p>After you confirmed staging contents has no problem.
+It’s time to publish the content.</p>
+<p>If you haven’t configured Github pages on your repository, please configure it first.
+You can do it at settings/pages.</p>
+<figure class="align-center">
+<a class="with-border reference internal image-reference" href="../../../_images/image_github_pages.png"><img alt="../../../_images/image_github_pages.png" class="with-border" src="../../../_images/image_github_pages.png" style="width: 600px;" /></a>
+</figure>
+<p>For moving files from <code class="docutils literal notranslate"><span class="pre">staging</span></code> to <code class="docutils literal notranslate"><span class="pre">docs</span></code>, call script <code class="docutils literal notranslate"><span class="pre">/scripts/deploy_from_staging_to_docs.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># cd to doc root</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>../
+
+<span class="c1"># delete old docs</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>./docs
+
+<span class="c1"># copy latest staging to docs</span>
+cp<span class="w"> </span>-r<span class="w"> </span>./staging<span class="w"> </span>./docs
+
+<span class="c1"># create .nojekyll</span>
+<span class="nb">cd</span><span class="w"> </span>./docs
+touch<span class="w"> </span>.nojekyll
+</pre></div>
+</div>
+<p>After moving HTML content, do <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.
+After remote repository is updated, GitHub pages will be also updated.</p>
 </section>
 </section>
 

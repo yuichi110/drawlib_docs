@@ -2,158 +2,283 @@
 Example of Doc Build Flow
 ===========================
 
-Many documentation requires illustration images.
-Documentation text is managed by version control system especially Git normally.
-However illustration images aren't since they are binary files.
+Here is a high level documentation build frlow with drawlib.
 
-That is the reason why this library is developed.
-Drawlib draw illustration via python script easily.
-Git able to manage python code, it means Git can manage drawlib's illustration code too.
-We achieve illustration as code for documentation in this logic.
+.. figure:: ../../introductions/index/image3.png
+    :width: 600
+    :class: with-border
+    :align: center
 
-In this documentation, we will let you know how drawlib manage and build its own documetation which has lots of images.
-You might be able to get insight for how to achieve managing your documetation with images by reading this doc.
-Writing books are almost same to writing docs.
+    Build many images
+
+In this document, we will explain real world example and its procedure step by step.
+The content is based on this documentation's build flow itself.
+However, it is normalized to simlify the explanation.
+
+Example GitHub Repository
+==========================
+
+We created example GitHub Repository which build documentation and publish it through GitHub pages.
+
+https://github.com/yuichi110/drawlib_docs_example
+
 
 What tool we use
 ==================
 
-drawlib docs has 2 part.
+We will use these tools for writing and publishing doc.
 
-- manual (hand writing documentation)
-- apidoc (automatically generated from code)
+- Drawlib: For building image
+- Sphinx: For building docs with pre-build images
+- GitHub Pages: Publish the document
 
-We use ``Sphinx`` and ``reStructuredText`` for both of them.
-You can use markdown if size of documentation is small, but I recommend using reStructuredText for large documentation since it has many feature for organizing files as 1 documentation.
+We will write python doc in our scenario.
+So, we choose ``Sphinx`` since it is popular.
 
-However, Sphinx can take care making doc from text files only.
-It doesn't handle image creation of course.
-Yes, ``drawlib`` does it in our doc creation process. 
+Sphinx requires understanding reStructuredText.
+In my opinion it is similar to markdown but less popular and more complex.
+However the complexity make you free for difficulty of structuring doc pages to one documentation.
+``Jekyll`` might be alternative option of Sphinx. It create documentation from markdown files.
 
-Documentation creation process
-=================================
+Repository structure
+=======================
 
-Our documentation has 2 part as we noted.
-Hand writing manual and automatically generated API docs.
-Manual contains lots of images.
-
-To create documentation which has image/manual/api-docs, we build our docs in this procedure.
-
-1. build image first at documentation ``source`` directory which contains ``source/index.rst`` and ``source/manual``.
-2. copy doc source to ``merged/manual`` directory after deleting old existing files
-3. run ``sphinx-apidoc`` and generate api docs to ``merged/api``
-4. run ``sphinx-build`` at ``merged`` directory and export html to ``html`` directory.
-
-all of them exist under ``docs_workspace``.
-After we confirm generated docs under ``html`` is OK, copy it to ``docs/<version>`` directory.
-The ``docs`` directory is published to internet through GitHub Pages.
-Since we need to publish old version documentation, it has version hierarchy.
-
-We do these build procedure by bash script.
-But publication is handled manually. Since it is dangerous and easy (just copy paste and Git push).
-We will share build script later.
-
-Directory structure of workspace
-===================================
-
-Workspace for creating documentation has this hierarchy
+Here is repository structure.
 
 .. code-block:: none
 
-   docs_workspace ---+--- source ---+--- index.rst
-                     |              +--- <images codes which index.rst uses>
-                     |              +--- <image files which are generated from codes>
-                     |              |
-                     |              +--- .drawlib ---+--- docstyles.py
-                     |              |                +--- docimages.py
-                     |              |                +--- image icon files for cache
-                     |              |                +--- text fonts for cache
-                     |              |
-                     |              +--- manual ---+--- About -----+--- doc.rst
-                     |                             |               +--- <image's codes>
-                     |                             |               +--- <image files>
-                     |                             |
-                     |                             +--- Install ---+--- doc.rst
-                     |                             |               +--- <images codes>
-                     |                             |               +--- <image files>
-                     |                             .
-                     |                             .
-                     |
-                     +--- merged ---+--- index.rst
-                     |              +--- image files 
-                     |              |
-                     |              +--- manual ---+--- About -----+--- doc.rst
-                     |              |              |               +--- <image's codes>
-                     |              |              |               +--- <image files>
-                     |              |              |
-                     |              |              +--- Install ---+--- doc.rst
-                     |              |              |               +--- <image's codes>
-                     |              |              .               +--- <image files>
-                     |              |              .
-                     |              |
-                     |              +--- api --- <generated files>
-                     |
-                     +--- html --- <generated files>
+   repository
+   ├── .gitignore
+   ├── .venv
+   ├── LICENSE
+   ├── README.md
+   ├── requirements.txt
+   ├── docs
+   |   └── ...
+   ├── scripts
+   |   └── ...
+   ├── source
+   │   ├── __init__.py
+   │   ├── _static
+   │   ├── _templates
+   │   ├── chapter01
+   │   ├── chapter0
+   │   ├── commons
+   │   ├── conf.py
+   │   ├── index
+   │   └── index.rst
+   └── staging
+       └── ...
 
-We don't touch ``doc_workspace/merged`` and ``doc_workspace/html`` since they are just export point of sphinx commands.
-We write manual at ``doc_workspace/source`` only.
+Documentation source is contained in ``/source``.
+We build image first and then build docs at here.
 
-As you can see ``source`` contains ``index.rst``.
-It becomes top page of this document.
-Since we use ``Sphinx`` and ``reStructuredText``, this index has ``toctree``.
-Other file can have toctree of course. But we are avoiding it.
-On same directory, we put drawlib's python scripts for creating images which ``index.rst`` uses.
+Builded docs(HTML) are stored in ``/staging`` first.
+As its name denotes, this is the directory for checking documentation.
 
-In this directory, we have ``.drawlib`` directory too.
-We define common line/shape/text styles at here for achiving applying same styles to all images.
-Creating images at each file is not recommended since having diffuculty for change and keep governance.
-Also, we prepare common icons which are used in each images.
+After finding new document has no problem, move its content to ``/docs``.
+This is a directory for GitHub pages publication.
+Please be careful, GitHub page can publish its content at root level or ``/docs`` directory.
 
-Each documentation page has its own directory.
-Such as ``About`` and ``Install``.
-They have documentation text(``doc.rst``) and its images and the codes which generate them.
+Directory ``/scripts`` contains many script files for building/checking/publishing.
 
-In summary, we are keeping this rule
+Python Environment
+======================
 
-- 1 directory contains all 1 page contents
-- index.rst connects all pages
-- .drawlib provides common style and icons to all image codes.
+Building images and docs requires Python packages.
+We will use virtual environment for avoiding package conflict etc.
+Here is a bash script for creating environment.
 
-sphinx conf.py
-================
+.. code-block:: bash
 
-.. literalinclude:: ../../conf.py
-   :language: python
-   :caption: run_build_docs.sh
+   #!/bin/bash
+   set -e
+
+   # cd to repository root
+   cd "$(dirname "$0")"
+   cd ../
+
+   # delete python venv
+   deactivate || true
+   rm -rf .venv
+
+   # create venv and activate
+   python -m venv .venv
+   source .venv/bin/activate
+
+   # install python packages
+   pip install -U -r requirements.txt
+
+At last, installing python packages from ``requirements.txt``.
+
+.. code-block:: none
+
+   drawlib == 0.1.*
+   sphinx == 7.2.*
+   sphinx-rtd-theme == 2.0.*
+
+After issuing this script, python environment and its libraries are installed.
+If sphinx configs are not ready, prepare them with ``sphinx`` commands.
 
 
-Build script
-=================
+Source Directory: source
+=========================
 
-We put scripts under ``scripts`` directory.
+Directory ``source`` contains sphinx project files and documentation source.
+From point of drawlib, ``source`` is a root of your package.
+Since it is python package, it has ``__init__.py``.
 
-.. literalinclude:: ../../../../scripts/run_build_docs.sh
-   :language: bash
-   :caption: run_build_docs.sh
+This directory contains many python files for illustration.
+Such as 
 
-We can't assure where the script is called.
-So, we first change directory to script directory via ``cd "$(dirname "$0")"`` and then move to project root via ``cd ../``.
-After that, script main part will start.
+- source/chapter01/section01/image.py
+- source/chapter01/section02/image.py
 
-As we told in procedure part, it does
+Here is a code of ``/source/chapter01/section01/image.py``
 
-1. build images via ``poetry run python -m drawlib ./docs_workspace/source``
-2. delete old files via ``rm -rf ./docs_workspace/merged``
-3. then copy image via ``rsync`` command. We don't use ``cp`` command since rsync can exclude python files easily.
-4. copy important but excluded file manually via ``cp ./docs_workspace/source/conf.py ./docs_workspace/merged/``
-5. generate api doc via ``poetry run sphinx-apidoc -f -o ./docs_workspace/merged/api ./drawlib``
-6. build to html via ``run sphinx-build -a ./docs_workspace/merged ./docs_workspace/html``
+.. code-block:: python
 
-That's all!!
+   from drawlib.apis import *
 
-For checking html, we use this utility script too.
-Which run HTML server on the HTML directory and open browser.
+   import source.commons.style
+   import source.commons.util as util
 
-.. literalinclude:: ../../../../scripts/run_server_docs.sh
-   :language: bash
-   :caption: run_server_docs.sh
+   config(width=100, height=50)
+   util.draw_3rectangle(50, 25, 20, 15, 5)
+   util.draw_logo()
+   save()
+
+As you can see, it imports ``source.commons`` package's modules.
+They are style definition codes which we explain at previous document.
+
+For building images, we use script ``/scripts/build_images.py``
+
+.. code-block:: bash
+
+   #!/bin/bash
+   set -e
+
+   # cd to project root directory
+   cd "$(dirname "$0")"
+   cd ../
+
+   # activate
+   source .venv/bin/activate
+
+   # build
+   drawlib ./source
+
+It builds all images in source directory.
+If the documentation project is large, we recommend creating build scripts per chapter or section.
+We have ``scripts/build_images_chapter01.py`` and ``scripts/build_images_chapter02.py`` in our case.
+
+.. code-block:: bash
+
+   #!/bin/bash
+   set -e
+
+   # cd to project root directory
+   cd "$(dirname "$0")"
+   cd ../
+
+   # activate
+   source .venv/bin/activate
+
+   # build
+   drawlib ./source/chapter01
+
+After confirming builded images are OK, we will build documentation with another script again.
+``script/build_docs.sh`` do that.
+
+.. code-block:: bash
+
+   #!/bin/bash
+   set -e
+
+   # cd to project root directory
+   cd "$(dirname "$0")"
+   cd ../
+
+   # activate
+   source .venv/bin/activate
+
+   # delete last build target contents
+   rm -rf ./staging
+
+   # build to html
+   sphinx-build -a ./source ./staging
+
+At the script, we delete old build file at first with ``rm -rf ./staging``.
+And then, build docs normally with ``sphinx-build -a ./source ./staging``.
+
+Build Output Directory: staging
+=================================
+
+Directory ``staging`` is just an sphinx build's output directory.
+However, you need to check it before publishing.
+Script ``scripts/serv_staging.sh`` start HTTP server which hosts this directory.
+And then open browser automatically.
+
+.. code-block:: bash
+
+   #!/bin/bash
+   set -e
+
+   open_browser_1sec_later() {
+      sleep 1
+      open http://localhost
+   }
+
+   # cd to doc root
+   cd "$(dirname "$0")"
+   cd ../
+
+   # activate
+   source .venv/bin/activate
+
+   # open browser later
+   open_browser_1sec_later &
+
+   # cd to html directory and start http server
+   cd ./staging
+   python -m http.server 80
+
+GitHub Pages Directory: docs
+======================================
+
+After you confirmed staging contents has no problem.
+It's time to publish the content.
+
+If you haven't configured Github pages on your repository, please configure it first.
+You can do it at settings/pages.
+
+.. figure:: image_github_pages.png
+   :width: 600
+   :class: with-border
+   :align: center
+
+    Configure github pages
+
+For moving files from ``staging`` to ``docs``, call script ``/scripts/deploy_from_staging_to_docs.sh``.
+
+.. code-block:: bash
+
+   #!/bin/bash
+   set -e
+
+   # cd to doc root
+   cd "$(dirname "$0")"
+   cd ../
+
+   # delete old docs
+   rm -rf ./docs
+
+   # copy latest staging to docs
+   cp -r ./staging ./docs
+
+   # create .nojekyll
+   cd ./docs
+   touch .nojekyll
+
+After moving HTML content, do ``git commit`` and ``git push``.
+After remote repository is updated, GitHub pages will be also updated.

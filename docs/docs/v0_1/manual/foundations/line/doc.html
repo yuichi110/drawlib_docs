@@ -69,7 +69,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#line-bezier2">line_bezier2()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lines">lines()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lines-bezier">lines_bezier()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lines-curve">lines_curve()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lines-curved">lines_curved()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../line_style/doc.html">Line and Arrow Style</a></li>
@@ -376,9 +376,9 @@ It takes 3 type of tuple.</p>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="n">points</span> <span class="o">=</span> <span class="p">[</span>
-<span class="linenos"> 6</span>    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+<span class="linenos"> 6</span>    <span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">)),</span>
 <span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-<span class="linenos"> 8</span>    <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
 <span class="linenos"> 9</span><span class="p">]</span>
 <span class="linenos">10</span><span class="n">lines_bezier</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">path_points</span><span class="o">=</span><span class="n">points</span><span class="p">)</span>
 <span class="linenos">11</span>
@@ -423,7 +423,7 @@ Executing this code generate this output.</p>
 <span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
 <span class="linenos"> 8</span>    <span class="n">path_points</span><span class="o">=</span><span class="p">[</span>
 <span class="linenos"> 9</span>        <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
-<span class="linenos">10</span>        <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos">10</span>        <span class="p">((</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">25</span><span class="p">)),</span>
 <span class="linenos">11</span>        <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
 <span class="linenos">12</span>    <span class="p">],</span>
 <span class="linenos">13</span>    <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">),</span>
@@ -453,9 +453,41 @@ Executing this code generate this output.</p>
 <p>If you requires precise control, please use this function.
 However, if you want to draw simple curve line, we recommend using <code class="docutils literal notranslate"><span class="pre">lines_curved()</span></code> instead.</p>
 </section>
-<section id="lines-curve">
-<h2>lines_curve()<a class="headerlink" href="#lines-curve" title="Link to this heading"></a></h2>
-<p>Function <code class="docutils literal notranslate"><span class="pre">lines_curve()</span></code> is syntax sugar of <code class="docutils literal notranslate"><span class="pre">lines_bezier()</span></code>.</p>
+<section id="lines-curved">
+<h2>lines_curved()<a class="headerlink" href="#lines-curved" title="Link to this heading"></a></h2>
+<p>Function <code class="docutils literal notranslate"><span class="pre">lines_curve()</span></code> is syntax sugar of <code class="docutils literal notranslate"><span class="pre">lines_bezier()</span></code>.
+It will automatically add bezier1 curve effect to lines with length <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">image8.py</span><a class="headerlink" href="#id15" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">circle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">lines</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">22</span><span class="p">)],</span>
+<span class="linenos"> 8</span>    <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">),</span>
+<span class="linenos"> 9</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">lines_curved</span><span class="p">(</span>
+<span class="linenos">11</span>    <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">)],</span>
+<span class="linenos">12</span>    <span class="n">r</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="linenos">13</span>    <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span> <span class="n">lwidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">),</span>
+<span class="linenos">14</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">circle</span><span class="p">((</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The function is almost same to <code class="docutils literal notranslate"><span class="pre">lines()</span></code> but having arg <code class="docutils literal notranslate"><span class="pre">r</span></code> which means length of curve.
+If you want to add related curves for all vertex, this function is very useful.
+Executing this code generate this output.</p>
+<figure class="align-center" id="id16">
+<a class="with-border reference internal image-reference" href="../../../_images/image8.png"><img alt="../../../_images/image8.png" class="with-border" src="../../../_images/image8.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">lines_curve()</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The red dashed line length is value of r. If you set large value, the curve becomes big.</p>
 </section>
 </section>
 

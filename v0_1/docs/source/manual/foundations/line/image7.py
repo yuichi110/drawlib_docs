@@ -7,7 +7,7 @@ lines_bezier(
     (20, 40),
     path_points=[
         (75, 40),
-        (90, 40, 90, 25),
+        ((90, 40), (90, 25)),
         (90, 20),
     ],
     style=LineArrowStyle(hstyle="-|>"),

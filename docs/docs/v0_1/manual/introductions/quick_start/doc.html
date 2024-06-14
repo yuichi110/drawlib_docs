@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#drawing-line">Drawing line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#drawing-shapes">Drawing shapes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#drawing-texts">Drawing texts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-official-theme">Use Official Theme</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../other_version_docs/doc.html">Other version docs</a></li>
@@ -703,6 +704,169 @@ If drawlib doesn’t include the font you wish to use, you can provide it to the
 <p>In the fourth and fifth examples, we’ve configured text parameters such as color, size, and background.
 These settings may not be particularly complex, but it’s important to note that the font size remains constant regardless of changes in canvas width and height.
 Doubling the canvas size won’t result in halving the font text size; it remains the same as the original size.</p>
+</section>
+<section id="use-official-theme">
+<h2>Use Official Theme<a class="headerlink" href="#use-official-theme" title="Link to this heading"></a></h2>
+<p>You can specify drawing item’s style via style class objects such as <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code>.
+However, providing style every time is burden and tend to lack consistency.
+Drawlib provides theme and style feature.
+You can choose theme which you like and able to apply its style easily with name.</p>
+<p>Here is an example. Please take care arg <code class="docutils literal notranslate"><span class="pre">style</span></code> takes text values.</p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">image_theme1.py</span><a class="headerlink" href="#id25" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">x1</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="linenos"> 6</span><span class="n">x2</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="linenos"> 7</span><span class="n">x3</span> <span class="o">=</span> <span class="mi">62</span>
+<span class="linenos"> 8</span><span class="n">x4</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="linenos"> 9</span><span class="n">line_y</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="linenos">10</span><span class="n">line_length</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="linenos">11</span><span class="n">circle_y</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="linenos">12</span><span class="n">text_y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># blue style</span>
+<span class="linenos">16</span><span class="n">line</span><span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">circle</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">circle_y</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">text</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c1"># blue solid style</span>
+<span class="linenos">21</span><span class="n">line</span><span class="p">((</span><span class="n">x2</span> <span class="o">-</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="p">(</span><span class="n">x2</span> <span class="o">+</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue_solid&quot;</span><span class="p">)</span>
+<span class="linenos">22</span><span class="n">circle</span><span class="p">((</span><span class="n">x2</span><span class="p">,</span> <span class="n">circle_y</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue_solid&quot;</span><span class="p">)</span>
+<span class="linenos">23</span><span class="n">text</span><span class="p">((</span><span class="n">x2</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;blue_solid&quot;&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="c1"># green dashed style</span>
+<span class="linenos">26</span><span class="n">line</span><span class="p">((</span><span class="n">x3</span> <span class="o">-</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="p">(</span><span class="n">x3</span> <span class="o">+</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_dashed_bold&quot;</span><span class="p">)</span>
+<span class="linenos">27</span><span class="n">circle</span><span class="p">((</span><span class="n">x3</span><span class="p">,</span> <span class="n">circle_y</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_dashed_bold&quot;</span><span class="p">)</span>
+<span class="linenos">28</span><span class="n">text</span><span class="p">((</span><span class="n">x3</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;green_dashed_bold&quot;&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_bold&quot;</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># red flat style</span>
+<span class="linenos">31</span><span class="n">line</span><span class="p">((</span><span class="n">x4</span> <span class="o">-</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="p">(</span><span class="n">x4</span> <span class="o">+</span> <span class="n">line_length</span><span class="p">,</span> <span class="n">line_y</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">circle</span><span class="p">((</span><span class="n">x4</span><span class="p">,</span> <span class="n">circle_y</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_flat&quot;</span><span class="p">)</span>
+<span class="linenos">33</span><span class="n">text</span><span class="p">((</span><span class="n">x4</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;style=&quot;red_flat&quot;&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The style has this syntax <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;thickness&gt;</span></code>. If type and thickness are default, they are not shown in the style name.
+Executing this code yields the following image.</p>
+<figure class="align-center" id="id26">
+<a class="with-border reference internal image-reference" href="../../../_images/image_theme1.png"><img alt="../../../_images/image_theme1.png" class="with-border" src="../../../_images/image_theme1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">image_theme1.png</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Drawlib posses these official themes.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">essentials</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monochrome</span></code></p></li>
+</ul>
+<p>All style naming rules are same. However default theme <code class="docutils literal notranslate"><span class="pre">default</span></code> has only colors for simpliness for beginners.
+You can check what style name for each style class with <code class="docutils literal notranslate"><span class="pre">dtheme.print_style_table()</span></code>.
+As you can see, many style name supports only few style classes.
+This is because “flat(no border fill)” style doesn’t fit to line and text.</p>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-text">print_theme_styles.py</span><a class="headerlink" href="#id27" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">dtheme</span><span class="o">.</span><span class="n">print_style_table</span><span class="p">()</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># +----------------+---+-----+-------+------+-------+-------+</span>
+<span class="linenos"> 7</span><span class="c1"># | class \ name   |   | red | green | blue | black | white |</span>
+<span class="linenos"> 8</span><span class="c1"># +----------------+---+-----+-------+------+-------+-------+</span>
+<span class="linenos"> 9</span><span class="c1"># | IconStyle      | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">10</span><span class="c1"># | ImageStyle     | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">11</span><span class="c1"># | LineStyle      | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">12</span><span class="c1"># | LineArrowStyle | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">13</span><span class="c1"># | ShapeStyle     | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">14</span><span class="c1"># | ShapeTextStyle | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">15</span><span class="c1"># | TextStyle      | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">16</span><span class="c1"># +----------------+---+-----+-------+------+-------+-------+</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">dtheme</span><span class="o">.</span><span class="n">print_style_table</span><span class="p">()</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="c1"># +----------------+---+------+------+------+-------+------------+------------+--------+-------------+-------------+</span>
+<span class="linenos">22</span><span class="c1"># | class \ name   |   | thin | bold | flat | solid | solid_thin | solid_bold | dashed | dashed_thin | dashed_bold |</span>
+<span class="linenos">23</span><span class="c1"># +----------------+---+------+------+------+-------+------------+------------+--------+-------------+-------------+</span>
+<span class="linenos">24</span><span class="c1"># | IconStyle      | x | x    | x    | x    |       |            |            |        |             |             |</span>
+<span class="linenos">25</span><span class="c1"># | ImageStyle     | x | x    | x    | x    | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">26</span><span class="c1"># | LineStyle      | x | x    | x    |      | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">27</span><span class="c1"># | LineArrowStyle | x | x    | x    |      | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">28</span><span class="c1"># | ShapeStyle     | x | x    | x    | x    | x     | x          | x          | x      | x           | x           |</span>
+<span class="linenos">29</span><span class="c1"># | ShapeTextStyle | x | x    | x    |      |       |            |            |        |             |             |</span>
+<span class="linenos">30</span><span class="c1"># | TextStyle      | x | x    | x    |      |       |            |            |        |             |             |</span>
+<span class="linenos">31</span><span class="c1"># +----------------+---+------+------+------+-------+------------+------------+--------+-------------+-------------+</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="c1"># +----------------+-----+----------+----------+----------+-----------+----------------+----------------+------------+-----------------+-----------------+</span>
+<span class="linenos">34</span><span class="c1"># | class \ name   | red | red_thin | red_bold | red_flat | red_solid | red_solid_thin | red_solid_bold | red_dashed | red_dashed_thin | red_dashed_bold |</span>
+<span class="linenos">35</span><span class="c1"># +----------------+-----+----------+----------+----------+-----------+----------------+----------------+------------+-----------------+-----------------+</span>
+<span class="linenos">36</span><span class="c1"># | IconStyle      | x   | x        | x        | x        |           |                |                |            |                 |                 |</span>
+<span class="linenos">37</span><span class="c1"># | ImageStyle     | x   | x        | x        | x        | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">38</span><span class="c1"># | LineStyle      | x   | x        | x        |          | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">39</span><span class="c1"># | LineArrowStyle | x   | x        | x        |          | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">40</span><span class="c1"># | ShapeStyle     | x   | x        | x        | x        | x         | x              | x              | x          | x               | x               |</span>
+<span class="linenos">41</span><span class="c1"># | ShapeTextStyle | x   | x        | x        |          |           |                |                |            |                 |                 |</span>
+<span class="linenos">42</span><span class="c1"># | TextStyle      | x   | x        | x        |          |           |                |                |            |                 |                 |</span>
+<span class="linenos">43</span><span class="c1"># +----------------+-----+----------+----------+----------+-----------+----------------+----------------+------------+-----------------+-----------------+</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">46</span><span class="c1"># | class \ name   | green | green_thin | green_bold | green_flat | green_solid | green_solid_thin | green_solid_bold | green_dashed | green_dashed_thin | green_dashed_bold |</span>
+<span class="linenos">47</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">48</span><span class="c1"># | IconStyle      | x     | x          | x          | x          |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">49</span><span class="c1"># | ImageStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">50</span><span class="c1"># | LineStyle      | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">51</span><span class="c1"># | LineArrowStyle | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">52</span><span class="c1"># | ShapeStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">53</span><span class="c1"># | ShapeTextStyle | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">54</span><span class="c1"># | TextStyle      | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">55</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="c1"># +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+</span>
+<span class="linenos">58</span><span class="c1"># | class \ name   | blue | blue_thin | blue_bold | blue_flat | blue_solid | blue_solid_thin | blue_solid_bold | blue_dashed | blue_dashed_thin | blue_dashed_bold |</span>
+<span class="linenos">59</span><span class="c1"># +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+</span>
+<span class="linenos">60</span><span class="c1"># | IconStyle      | x    | x         | x         | x         |            |                 |                 |             |                  |                  |</span>
+<span class="linenos">61</span><span class="c1"># | ImageStyle     | x    | x         | x         | x         | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">62</span><span class="c1"># | LineStyle      | x    | x         | x         |           | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">63</span><span class="c1"># | LineArrowStyle | x    | x         | x         |           | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">64</span><span class="c1"># | ShapeStyle     | x    | x         | x         | x         | x          | x               | x               | x           | x                | x                |</span>
+<span class="linenos">65</span><span class="c1"># | ShapeTextStyle | x    | x         | x         |           |            |                 |                 |             |                  |                  |</span>
+<span class="linenos">66</span><span class="c1"># | TextStyle      | x    | x         | x         |           |            |                 |                 |             |                  |                  |</span>
+<span class="linenos">67</span><span class="c1"># +----------------+------+-----------+-----------+-----------+------------+-----------------+-----------------+-------------+------------------+------------------+</span>
+<span class="linenos">68</span>
+<span class="linenos">69</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">70</span><span class="c1"># | class \ name   | black | black_thin | black_bold | black_flat | black_solid | black_solid_thin | black_solid_bold | black_dashed | black_dashed_thin | black_dashed_bold |</span>
+<span class="linenos">71</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">72</span><span class="c1"># | IconStyle      | x     | x          | x          | x          |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">73</span><span class="c1"># | ImageStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">74</span><span class="c1"># | LineStyle      | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">75</span><span class="c1"># | LineArrowStyle | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">76</span><span class="c1"># | ShapeStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">77</span><span class="c1"># | ShapeTextStyle | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">78</span><span class="c1"># | TextStyle      | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">79</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">80</span>
+<span class="linenos">81</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">82</span><span class="c1"># | class \ name   | white | white_thin | white_bold | white_flat | white_solid | white_solid_thin | white_solid_bold | white_dashed | white_dashed_thin | white_dashed_bold |</span>
+<span class="linenos">83</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+<span class="linenos">84</span><span class="c1"># | IconStyle      | x     | x          | x          | x          |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">85</span><span class="c1"># | ImageStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">86</span><span class="c1"># | LineStyle      | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">87</span><span class="c1"># | LineArrowStyle | x     | x          | x          |            | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">88</span><span class="c1"># | ShapeStyle     | x     | x          | x          | x          | x           | x                | x                | x            | x                 | x                 |</span>
+<span class="linenos">89</span><span class="c1"># | ShapeTextStyle | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">90</span><span class="c1"># | TextStyle      | x     | x          | x          |            |             |                  |                  |              |                   |                   |</span>
+<span class="linenos">91</span><span class="c1"># +----------------+-------+------------+------------+------------+-------------+------------------+------------------+--------------+-------------------+-------------------+</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 

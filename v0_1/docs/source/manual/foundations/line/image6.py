@@ -3,9 +3,9 @@ from drawlib.apis import *
 config(width=100, height=50)
 
 points = [
-    (10, 20, 30, 20),
+    ((10, 20), (30, 20)),
     (60, 10),
-    (60, 40, 90, 40, 90, 10),
+    ((60, 40), (90, 40), (90, 10)),
 ]
 lines_bezier(xy=(10, 40), path_points=points)
 

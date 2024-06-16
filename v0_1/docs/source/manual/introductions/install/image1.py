@@ -44,21 +44,21 @@ text((7, 53), "matured\npublic\nreleases", style=ts)
 
 # v0.1
 draw_versions(15, 3, ["0.1.1", "...", "0.1.n"])
-line((32, 9), (32, 14), style=LineArrowStyle())
+line((32, 9), (32, 14), arrowhead="->")
 
 # v0.2
 draw_versions(29, 15, ["0.2.1", "...", "0.2.n"])
-line((46, 21), (46, 26), style=LineArrowStyle())
+line((46, 21), (46, 26), arrowhead="->")
 
 text((50, 34), "dev only", style=TextStyle(size=14, font=FontRoboto.ROBOTO_REGULAR))
 draw_versions(43, 27, ["0.3.0\ndev1", "...", "0.3.1", "...", "0.3.n"])
-line((74, 33), (74, 38), style=LineArrowStyle())
+line((74, 33), (74, 38), arrowhead="->")
 text((74, 39.5), 'keep "0.n.m" till library matures', style=TextStyle(font=FontRoboto.ROBOTO_REGULAR))
-line((74, 42), (74, 47), style=LineArrowStyle())
+line((74, 42), (74, 47), arrowhead="->")
 
 text((78, 55), "dev only", style=TextStyle(size=14, font=FontRoboto.ROBOTO_REGULAR))
 draw_versions(71, 48, ["1.0.0\ndev1", "...", "1.0.1", "...", "1.0.n"])
-line((102, 54), (102, 59), style=LineArrowStyle())
+line((102, 54), (102, 59), arrowhead="->")
 text((102, 62), "...")
 
 arrow(

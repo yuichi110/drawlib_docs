@@ -5,11 +5,11 @@ Example of Doc Build Flow
 Here is a high level documentation build frlow with drawlib.
 
 .. figure:: ../../introductions/index/image3.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    Build many images
+   Build many images
 
 In this document, we will explain real world example and its procedure step by step.
 The content is based on this documentation's build flow itself.

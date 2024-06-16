@@ -10,7 +10,8 @@ lines(
 lines_curved(
     [(20, 40), (30, 40), (30, 10), (90, 40), (90, 20)],
     r=8,
-    style=LineArrowStyle(hstyle="-|>", lwidth=2.5),
+    width=2.5,
+    arrowhead="->",
 )
 circle((90, 10), radius=5)
 save()

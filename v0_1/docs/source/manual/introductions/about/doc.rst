@@ -72,6 +72,14 @@ You will benefit from Python and its ecosystem with this library, such as:
 - when encountering an error in your code, you will receive familiar Python error messages
 
 You don't need to learn another programming language or DSL(Domain Specific Language) to achieve illustration as code. 
+Here is an example of VSCode help screenshot for function ``circle()``.
+
+.. figure:: image_vscode.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+As you can see, VSCode tell you details the function and it will provide auto completion etc too.
 
 If you are familiar with Python, you might be able to understand how to use drawlib with just a few hours of struggling. 
 The design of drawlib is consistent and Pythonic.

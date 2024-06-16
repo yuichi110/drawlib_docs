@@ -24,6 +24,7 @@ Options
 ``drawlib`` command has ``-h`` option which shows command help.
 
 .. code-block:: none
+    
     $ drawlib -h
     usage: drawlib [-h] [-v] [--purge_font_cache] [--disable_auto_clear] [--enable_auto_initialize] [--quiet] [--verbose] [--developer] ...
 

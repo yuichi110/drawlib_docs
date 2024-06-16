@@ -21,7 +21,7 @@ def left():
         width=rect_width,
         height=rect_height,
         r=2,
-        style="dashed.75",
+        style="dashed",
     )
 
     x = 8
@@ -66,7 +66,7 @@ def center():
         width=rect_width,
         height=rect_height,
         r=2,
-        style="dashed.75",
+        style="dashed",
     )
 
     x = 43
@@ -101,14 +101,14 @@ def right():
         width=rect_width,
         height=rect_height,
         r=2,
-        style="dashed.75",
+        style="dashed",
     )
 
     icon_phosphor.file_pdf((85, 43), width=6)
     icon_phosphor.file_html((85, 35), width=6)
     icon_phosphor.file_ppt((85, 27), width=6)
     icon_phosphor.book_bookmark((85, 19), width=6)
-    text((85, 14.5), text="eBook")
+    text((85, 14.5), text="eBook", style=tscenter16)
 
 
 def bottom():
@@ -117,7 +117,7 @@ def bottom():
         width=90,
         height=6,
         r=2,
-        style="solid.75",
+        style="solid",
     )
     icon_phosphor.github_logo((17, 5), width=5)
     text(
@@ -151,7 +151,7 @@ arrow(
     tail_width=3,
     head_width=6,
     head_length=3,
-    style="solid.75",
+    style="solid",
 )
 text((67, 25), "Build\nDocs", style=tscenter16)
 right()

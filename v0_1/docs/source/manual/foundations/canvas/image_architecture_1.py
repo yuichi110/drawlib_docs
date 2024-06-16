@@ -1,6 +1,7 @@
 from drawlib.apis import *
 from copy import deepcopy
 
+dtheme.apply_official_theme("default2")
 config(width=100, height=60, grid=True)
 
 outer_y = 10
@@ -80,7 +81,6 @@ def right():
 
 
 def center_to_right():
-    lstyle = LineArrowStyle(lstyle="dashed", lwidth=1.5)
     x1 = 45
     x2 = 68
     y = 37
@@ -90,7 +90,7 @@ def center_to_right():
             x1 = 23
             continue
 
-        line((x1, y - pad_y * i), (x2, y - pad_y * i), style=lstyle)
+        line((x1, y - pad_y * i), (x2, y - pad_y * i), arrowhead="->", width=1.5, style="dashed")
     text(((23 + 68) / 2, 10), "Publish private as API")
 
 

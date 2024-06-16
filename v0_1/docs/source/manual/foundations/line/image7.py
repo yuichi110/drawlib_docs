@@ -10,7 +10,7 @@ lines_bezier(
         ((90, 40), (90, 25)),
         (90, 20),
     ],
-    style=LineArrowStyle(hstyle="-|>"),
+    arrowhead="->",
 )
 circle((90, 10), radius=5)
 

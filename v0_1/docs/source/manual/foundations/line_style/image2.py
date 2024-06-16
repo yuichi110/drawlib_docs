@@ -1,9 +1,10 @@
 from drawlib.apis import *
 
+"""
 config(width=100, height=50)
 
 text((10, 5), "LineArrowStyle()", style=TextStyle(size=14))
-line((20, 5), (40, 5), style=LineArrowStyle())
+line((20, 5), (40, 5), )
 text((10, 13), "width: 5")
 line((20, 13), (40, 13), style=LineArrowStyle(lwidth=5))
 text((10, 21), "color: Red")
@@ -29,3 +30,4 @@ text((60, 45), "style: <|-|>")
 line((70, 45), (90, 45), style=LineArrowStyle(hstyle="<|-|>"))
 
 save()
+"""

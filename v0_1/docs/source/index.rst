@@ -1,8 +1,3 @@
-.. drawlib documentation master file, created by
-   sphinx-quickstart on Sun Mar 31 22:39:53 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 =======================================
 Welcome to the Drawlib Documentation!
 =======================================
@@ -11,20 +6,69 @@ Drawlib is a pure Python drawing library crafted to facilitate **Illustration as
 Witness Python code in action generating a circular image:
 
 .. figure:: manual/introductions/index/image1.png
-    :width: 800
-    :class: with-border
-    :align: center
+   :width: 800
+   :class: with-border
+   :align: center
 
-    Code makes Illustration
+   Code makes Illustration
 
-As you can see, we define circle location, size and styles.
-Running this code generate the image.
+As you can see, we define circle location, size and styles at left side code.
+Executing it generate right side circle image.
+You will get illustration as you code.
 
-CSS like Styling
-====================
+Concept: Apply Style to Content
+=================================
 
-At last example, we define style at the derawing item.
-It is easy to understand, but repeating styling at items are burden and tending to loose consistency.
+Parameter of circle are coordinate, size, color etc.
+Many drawing tools define them equally.
+However, we separate them to 2 part.
+
+- Content: Type of drawing items. Coordinate, Size, Angle etc.
+- Style: Color, Line Width, Font
+
+If you are familiar to HTML/CSS, the content is equivalent to HTML and style is equivalent to CSS.
+Styling to HTML is not recommended, but define style at CSS and reference it at HTML is recommended.
+Drawlib do same.
+Styling to content is not recommended, but define style at style code and reference it at illustration code is recommended.
+
+From point of art view, mix of content and style are important.
+However, illustrations which doesn't require artistic looking, contents are much important rather than styles.
+Color/Width of line is not important rather than where the line is drawn.
+
+Separating them makes you focusing on important content first.
+After content is created, you can modify its looking by changing styles which is outside of content.
+And also, you can apply 1 style to many content if content and styles are separated.
+Same style for many items are important if you want to achieve consitency of illustrations.
+
+Various Drawing Items
+=========================
+
+Drawlib posses various drawing items with various styles.
+Here is a sample image of major drawing items with changing styles.
+
+.. figure:: manual/introductions/index/image_items.png
+   :width: 800
+   :class: with-border
+   :align: center
+
+   Various drawing methods
+
+- icon: posses 1500+ patterns with 5 styles (thin/light/regular/bold/fill)
+- image: able to apply effects easily
+- line: supports many styles
+- shape: around 20 patterns
+- text: various size/fonts/weights(thin/regular/bold) etc. Supports major local languages
+
+Drawlib references Microsoft powerpoint's feature.
+We are trying to implement all popular features as possible as we can.
+Not only these basic drawing feature, drawlib posses fine grained feature such as Code Highligter etc.
+Those are implemented as smart art.
+
+CSS like Styling. Define Once Use Anywhere
+=============================================
+
+At first example code, we define style ``ShapeStyle`` at the derawing item ``circle()``.
+It is easy to understand, but repeating styling at each items are burden and tending to loose consistency.
 We normaly use theme and its styling for changing drawing items style.
 
 Drawlib's style is similar to CSS.
@@ -32,32 +76,39 @@ You define style at 1 location and reference it every where.
 Then, the style is applied to them automatically.
 You don't need to provide detail style for each drawing items.
 
-Here is an example of using style.
+Here is a style code which is similar to CSS.
+This code itself doesn't generate any illustraion.
+But having definition of stylings.
 
-.. figure:: manual/introductions/index/image2_default2.png
-    :width: 800
-    :class: with-border
-    :align: center
+.. literalinclude:: ../../samples/index/docs/style.py
+   :language: python
+   :linenos:
+   :caption: docs/style.py
 
-    CSS like styling feature
+And here is a illustration code which is similar to HTML.
+It imports the style you defined earlier.
+When importing it, style definition is automatically loaded.
 
-This code has around 20+ drawing items which includes background gray area.
-You can see variety of drawing styles (default, flat, solid, dashed).
-But total code line is less than 100.
+.. literalinclude:: ../../samples/index/docs/image.py
+   :language: python
+   :linenos:
+   :caption: docs/image.py
 
-Drawlib provides group of styles which is called **theme**.
-You can switch theme easily.
-For example, applying ``monochrome`` theme make image monochrome.
+Executing last illustration code generates this image.
+As you can see, pre-defined styles are applied correctly.
 
-.. figure:: manual/introductions/index/image2_monochrome.png
-    :width: 800
-    :class: with-border
-    :align: center
+.. figure:: ../../samples/index/docs/image.png
+   :width: 800
+   :class: with-border
+   :align: center
 
-You can customize drawlib's pre-defined theme if you wants.
-For example, we changed fonts from default "NotoSanserif CJK" to "Raleways".
-You don't need to touch content code (same to HTML file concept), but just change theme's styling (same to CSS file concept).
-If you wish, you are able to create your own theme.
+   Illustration code references style code
+
+You can define your style by yourself like this.
+However we recommend using ``theme`` rather than creating your own styles.
+Theme posses many colors with pre-defined popular styles.
+If you don't require very fancy style, theme's styles might be OK.
+Please take a look at quick-start doc first.
 
 Good to build lots of images
 ===============================
@@ -70,9 +121,9 @@ Enter drawlib, a solution meticulously developed to address this quandary.
 Not only can textual documentation be version-controlled, but illustration code can also be managed through Git, facilitating automation of build tasks via CI/CD pipelines.
 
 .. figure:: manual/introductions/index/image3.png
-    :width: 800
-    :class: with-border
-    :align: center
+   :width: 800
+   :class: with-border
+   :align: center
 
     Doc image/text build flow.
 
@@ -84,7 +135,9 @@ It might be good real world example of drawlib's illustration.
 We build hundreads of these kind of images from image codes with same style for writing books.
 
 Refer to the Quickstart guide for a comprehensive understanding of drawlib's underlying concepts. 
-All images within this documentation are generated using drawlib.
+Almost all images within this documentation are generated using drawlib.
+Excepts are only screenshots and original image files such as python logo.
+Even source code image at first example is generated by drawlib via smart art feature.
 
 .. toctree::
    :maxdepth: 2

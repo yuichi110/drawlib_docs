@@ -3,8 +3,8 @@ from drawlib.apis import *
 config(width=100, height=50)
 
 # get default style.
-lastyle = dtheme.linearrowstyles.get()
-line((10, 10), (40, 40), style=lastyle)
+default_style = dtheme.linestyles.get()
+line((10, 10), (40, 40), arrowhead="->", style=default_style)
 
 # get named style
 tstyle = dtheme.textstyles.get("blue")

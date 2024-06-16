@@ -4,7 +4,7 @@ from drawlib.apis import *
 def main():
     for theme, styles in [
         ("default2", ["", "blue_flat", "green_solid", "red_dashed", "white"]),
-        ("essentials", ["", "blue_flat", "green_solid", "lightred_dashed", "white"]),
+        ("essentials", ["", "purple_flat", "teal_solid", "navy_dashed", "yellow"]),
         ("monochrome", ["", "black_flat", "silver_solid", "graphite_dashed", "white"]),
     ]:
 
@@ -109,7 +109,7 @@ def draw(theme: str, styles: list[str]):
                 text="barrow",
                 textstyle=s,
             )
-            line((x - 5, y_line), (x + 5, y_line), style=dtheme.linearrowstyles.get(f"{style}.200"))
+            line((x - 5, y_line), (x + 5, y_line), arrowhead="->", width=3)
 
 
 main()

@@ -270,3 +270,31 @@ Next, take a look at theme ``flat`` code.
 
 We did this name modification at illustration code in these examples.
 But you should implement it on common style code which we explained at building many images topic.
+
+Predefined Rich Themes
+=========================
+
+You can define your themes by your self.
+However, if you are planning to use standard styles using our theme is recommended.
+Each theme posses pre-defined styles with following rules.
+
+.. figure:: manual/introductions/index/image_theme_matrix.png
+   :width: 800
+   :class: with-border
+   :align: center
+
+   Style name: ``<color>_<type>_<width>``
+
+The difference of theme is what color you can use.
+For example, theme ``essentials`` posses these colos.
+
+.. figure:: manual/introductions/index/image_theme_colors.png
+   :width: 800
+   :class: with-border
+   :align: center
+
+   Colors of theme essentials
+
+You can customize drawlib's pre-defined theme if you wants.
+For example, changing default fonts are popular customization.
+We don't mention detail at here, but we provides features for customizing styles easily.

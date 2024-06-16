@@ -22,4 +22,6 @@ source .venv/bin/activate
 cd ../
 
 # build
-drawlib ./v0_1/docs/source/docs
+drawlib ./v0_1/samples/build_many/docs
+echo
+drawlib ./v0_1/samples/index/docs

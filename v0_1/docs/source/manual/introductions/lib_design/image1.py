@@ -63,7 +63,7 @@ for i, t in enumerate(
     [
         ("icon", ["icon()", "icon_phosphor()"], ["IconStyle"]),
         ("image", ["image()"], ["ImageStyle"]),
-        ("line", ["line()", "line_curved()", "..."], ["LineStyle", "LineArrowStyle"]),
+        ("line", ["line()", "line_curved()", "..."], ["LineStyle"]),
         ("shape", ["circle()", "rectangle()", "..."], ["ShapeStyle", "ShapeTextStyle"]),
         ("text", ["text()"], ["TextStyle"]),
     ]

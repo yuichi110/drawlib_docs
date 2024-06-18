@@ -1,15 +1,15 @@
 from drawlib.apis import *
 
-config(width=100, height=60, grid=True)
+config(width=100, height=50, grid=True)
 
-line((20, 10), (80, 10))
+line((20, 7), (80, 7))
 line(
-    (20, 20),
-    (80, 20),
+    (20, 16),
+    (80, 16),
     style=LineStyle(style="dashed", width=5, color=Colors.Red),
 )
-line((20, 30), (80, 30), arrowhead="->")
-line((20, 40), (80, 40), arrowhead="<->")
-line((20, 50), (80, 50), arrowhead="<-", style=LineStyle(ahscale=50, style="dashdot", ahfill=True))
+line((20, 25), (80, 25), arrowhead="->")
+line((20, 34), (80, 34), arrowhead="<->")
+line((20, 43), (80, 43), arrowhead="<-", style=LineStyle(ahscale=50, style="dashdot", ahfill=True))
 
 save()

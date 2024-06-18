@@ -2,8 +2,11 @@
 Building many images
 ======================
 
-Drawlib is designed for creating lots of illust for ducumentation etc.
-Here is a typical build process.
+Drawlib is designed for creating numerous illustrations, such as those used in documentation. 
+It provides the ``drawlib`` command for bulk building images under a specified directory, allowing you to easily apply defined styles to many illustrations.
+
+Here is a typical build process for documentation. 
+As shown, we first build many images and then build the documentation using those images.
 
 .. figure:: ../../introductions/index/image3.png
     :width: 600
@@ -12,21 +15,50 @@ Here is a typical build process.
 
     Build many images
 
-As you can see you can achieve
+In this process, Drawlib achieves the following:
 
-- declare styling at common code files
-- declare functions at common code files
-- each image codes import them
-- execute all image codes under specified directory and generate images
+- Declare Styling at Common Code Files: Centralize style definitions for consistency.
+- Declare Functions at Common Code Files: Centralize function definitions for reuse.
+- Import Common Code in Each Image File: Each image script imports the common styles and functions.
+- Execute All Image Scripts in a Specified Directory: Generate all images by executing the scripts in the specified directory.
 
-For building many images, you should remember these 2 topics.
+The Most Important Things
+============================
 
-- Create normal python package architecture
-- don't forget create ``__init__.py`` on each directories.
-- Call drawlib module via python ``python -m drawlib <directory_name>``
+When building many images with Drawlib, keep these key points in mind:
 
-We will cover them one by one.
-Here is a sample project architecture.
+- Create a Normal Python Package Architecture: Ensure your project is structured as a standard Python package.
+- Include ``__init__.py`` in Each Directory: This file is essential for Python to recognize directories as packages.
+- Use the ``drawlib <target>`` Command: Instead of using ``python <code-file>``, utilize the drawlib command for building images in your package.
+
+We use the normal Python ``import`` statement to reference style code from the image code. 
+This requires a correct package structure for the image code to locate the style code. 
+If your package has issues, the image code will show an import error.
+
+The ``drawlib`` command simplifies complex tasks as long as the package structure is correct.
+
+Sample Package Architecture: Flat
+====================================
+
+We recommend a flat architecture for a single document.
+
+.. code-block:: none
+
+   docs
+   ├── __init__.py
+   ├── doc.md
+   ├── image1.py
+   ├── ...
+   └── image<n>.py
+
+
+Sample Package Architecture: Grouped
+=======================================
+
+If you are writing extensive documentation, such as a book, a single directory might not be sufficient. 
+In such cases, categorizing content into subdirectories is recommended.
+
+Here is a sample architecture:
 
 .. code-block:: none
 
@@ -50,63 +82,63 @@ Here is a sample project architecture.
       ├── style.py
       └── util.py
 
-``docs`` is root directory of documents.
-``commons`` contains codes which are used by image codes. And also it contains files (in this case font and image) which are used by common codes.
-``chap01`` contains image codes. Document text code such as Markdown might be put on this directory in real world.
-``chap02`` is almost same to chap01. Both chap01 and chap02 has same name code file ``image1.py``. It is OK since directory is different.
+
+- docs: Root directory for documents.
+- commons: Contains code shared by image scripts, as well as common files (e.g., fonts and images).
+- chap01: Contains image scripts. Document text files, such as Markdown, might also be placed in this directory.
+- chap02: Similar to chap01. Both directories have files named image1.py, which is acceptable because they are in different directories.
+
+You can create additional subdirectories for sections as needed.
+
 
 Create Drawing Project as Python Package
 ===========================================
 
-Image code's depends on common codes.
-Such as styling and utility.
-The word "depends" means ``import`` or ``from import`` at python.
-So, image codes import common codes.
+Image scripts depend on common code, such as styling and utility functions. 
+In Python, this dependency is managed using ``import`` statements. 
+To keep the project organized, especially when dealing with a large number of image scripts, structuring the project as a Python package is essential.
 
-In small project, you can adopt flat directory.
-It means all files are in one directory.
-However, putting few hundreads of image code in to one directory is not smart.
-You should separate directories fitch fit to document architecture.
+For small projects, a flat directory structure might be sufficient, with all files in one directory.
+However, for larger projects with hundreds of image scripts, it's smarter to organize the files into directories that reflect the documentation structure.
 
-On that time, python code need to import code which exsits on another directory.
-Which requires creating package architecture.
-And use it for import module name.
+When your project grows, you'll need to import code from different directories. 
+This requires setting up a package architecture and using module names for imports.
 
-Here is a sample code.
+Suppose we use last grouped package architecture.
+Here is a code snippet of illustration code:
 
 .. literalinclude:: ../../../../../samples/build_many/docs/chap01/image1.py
    :language: python
    :linenos:
    :caption: docs/chap01/image1.py
 
-As you can see, it imports ``style.py`` and ``util.py``.
-The module name has parent directories from the root.
+In this example, ``image1.py`` imports ``docs.commons.style`` and ``docs.commons.util``:
+The module nas has full package hierarchy.
 This style is called ``Absolute import``.
-We recommend usint this style.
-But you can use another import method ``Relative import`` too.
+We recommend using absolute imports, as shown in the example above. 
+However, you can also use relative imports.
 
-Please be careful all directories which has python code posses ``__init__.py``.
-``__init__.py`` is important for python's package system.
-If it exists, the directory becomes package.
-Newer python doesn't rely on it, but putting it is good for declaration.
-If you wants you can write code to it.
+All directories containing Python code should have an ``__init__.py`` file. 
+This file is crucial for Python's package system, as it designates a directory as a package. 
+While newer versions of Python can handle directories without ``__init__.py``, it is still good practice to include it for clarity and compatibility.
+But, drawlib does require it.
+There are no choice for having no ``__init__.py`` in your package with technical reason.
 
-Drawlib checks which directory posses ``__init__.py``.
-And all directory which posses python file of having child directory which posses python file requires to have ``__init__.py``.
-So, 
+Here is a summary of the directory requirements:
 
-- docs: ``__init__.py`` exist. Having no python files as its child, but child directory posses them.
-- docs.chap01 etc: ``__init__.py`` exist.
-- docs.commons.images: There are no ``__init__.py`` since it doesn't have python file. You can put ``__init__.py`` if you wants.
+- docs: Contains an ``__init__.py`` file. It doesn't have Python files directly, but its subdirectories do.
+- docs.chap01, docs.chap02, etc.: Each contains an ``__init__.py`` file.
+- docs.commons.images: Does not contain an ``__init__.py`` file since it has no Python files. You can add one if desired.
 
-In this case, ``docs`` is package root since its parent directory doesn't posses ``__init__.py``.
-If parent directory has ``__init__.py``, it becomes root package.
+In this setup, docs is the root package because its parent directory does not contain an ``__init__.py`` file.
+If the parent directory had an ``__init__.py`` file, it would be the root package instead.
+Please remember, parent directory of you package must not have ``__init__.py``.
 
-Python Path
-===============
+Background Knowledge: Python Path
+====================================
 
-Python path is a list of directories which python search modules.
-You can check it via ``sys.path``.
+The Python path is a list of directories where Python searches for modules. 
+You can view this list using ``sys.path``.
 
 .. code-block:: none
 
@@ -123,82 +155,82 @@ You can check it via ``sys.path``.
    '/Users/yuichi/.pyenv/versions/3.9.19/lib/python3.9/lib-dynload',
    '/Users/yuichi/.pyenv/versions/3.9.19/lib/python3.9/site-packages']
 
-When you try to import packages and modules in your code, python search them from these locations.
-Python path posses
+When you try to import packages and modules in your code, Python searches for them in the directories listed in the Python path. 
+The Python path includes:
 
-- Current working directory
-- Where python is installed
-- Directory which has external packages which you install via pip etc
+- The current working directory
+- The directory where Python is installed
+- The directory containing external packages installed via pip or other package managers
 
-When you call drawlib with special manner, drawlib add your package to Python Path.
-So, you can any code which is inside of your package
+When you run your code using the drawlib command, drawlib adds your package to the Python path. 
+This ensures that your image code can find the style code within your package.
 
-python -m drawlib <directory or code>
-=========================================
+Using the drawlib Command
+=============================
 
-Normmaly, you can call package entry point (``main.py`` or ``__main__.py``).
-But unable to call each inside packages which depends on package.
-Let's try calling ``docs.chap1.image1.py`` normally.
+Let's try running ``docs.chap01.image1.py`` normally:
 
 .. code-block:: none
 
-   $ python docs/source/docs/chap01/image1.py 
+   $ python docs/chap01/image1.py 
    Traceback (most recent call last):
-   File "/Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap01/image1.py", line 3, in <module>
+   File "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/image1.py", line 3, in <module>
       import docs.commons.style
    ModuleNotFoundError: No module named 'docs'
 
-It shows error as we told.
-The error message says python can't find package ``docs``.
+As mentioned earlier, this error occurs because Python cannot find the docs package.
 
-Drawlib can call any code in your package without complicated procedure.
-Just use ``python -m drawlib <target>``.
-Let's try.
-
-.. code-block:: none
-
-   $ python -m drawlib docs/source/docs/chap01/image1.py
-   Detect package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs".
-      - Add parent directory of package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source" to Python Path.
-
-   Execute python files
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap01/image1.py
-
-As the console shows, it detects package root and register it to python path first.
-After that, python can use your package anywhere since it is path.
-Then, calling inside code success.
-
-This command is able to call directory.
-When directory is specified, all python codes are executed onece.
-It is normal python behavior. 2nd time calling is not executed but getting module cache.
+Drawlib can execute any code in your package without complicated procedures. 
+Just use ``drawlib <target>`` or ``python -m drawlib <target>``.
+Let's try:
 
 .. code-block:: none
 
-   $ python -m drawlib docs/source/docs                 
-   Detect package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs".
-      - Add parent directory of package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source" to Python Path.
+   $ drawlib docs/chap01/image1.py
+   Detect package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs".
+      - Add parent directory of package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many" to Python Path.
 
    Execute python files
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/__init__.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap02/image1.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap02/__init__.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/commons/style.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/commons/util.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/commons/__init__.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap01/image1.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap01/__init__.py
-      - /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/docs/chap01/image2.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/image1.py
 
-In summary, you need to remember these simple rules for building many images.
+As shown in the console, Drawlib detects the package root and adds it to the Python path.
+This allows the Python illustration code to import style code from anywhere within the Python path.
+``__init__.py`` is used for detecting root of your package.
+This is the reason why you must need to put ``__init__.py`` in your package.
 
-- Create package structure
-- All directories in your package must have ``__init__.py``
-- Parent directory of your package must not have ``__init__.py``
-- Execute python codes via ``python -m drawlib <target>`` command
+The ``drawlib`` command can also execute all Python files in a directory:
 
-Sample Codes and Its Outputs
+.. code-block:: none
+
+   $ drawlib docs/                
+   Detect package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs".
+      - Add parent directory of package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many" to Python Path.
+
+   Execute python files
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/image1.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/image2.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap02/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap02/image1.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/commons/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/commons/style.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/commons/util.py
+
+The order of execution is not critical if each illustration code is independent. 
+However, the execution follows these rules:
+
+- Shallow directories are executed before deep directories.
+- If the directory levels are the same, files are executed in alphabetical order.
+
+By default, the clear() function, which resets the current canvas, is automatically invoked between each file execution. 
+You can customize this behavior using options.
+
+
+Sample Codes and Their Outputs
 ===============================
 
+Below, we present example codes alongside their corresponding output images.
 
 .. literalinclude:: ../../../../../samples/build_many/docs/commons/style.py
    :language: python

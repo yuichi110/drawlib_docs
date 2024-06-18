@@ -1,10 +1,10 @@
 from drawlib.apis import *
 
-config(width=100, height=60, grid=True)
+config(width=100, height=50, grid=True)
 
-line((20, 10), (80, 10))
-line_curved((20, 25), (80, 25), bend=0.2)
-line_curved((20, 35), (80, 35), bend=-0.2)
-lines([(20, 45), (30, 50), (70, 50), (80, 45)])
+line((20, 7), (80, 7))
+line_curved((20, 20), (80, 20), bend=0.2)
+line_curved((20, 30), (80, 30), bend=-0.2)
+lines([(20, 40), (30, 45), (70, 45), (80, 40)])
 
 save()

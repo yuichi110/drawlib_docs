@@ -495,23 +495,23 @@ In the fourth and fifth examples, we've configured text parameters such as color
 These settings may not be particularly complex, but it's important to note that the font size remains constant regardless of changes in canvas width and height. 
 Doubling the canvas size won't result in halving the font text size; it remains the same as the original size.
 
-Use Official Theme
+Using Official Theme
 ====================
 
-You can specify drawing item's style via style class objects such as ``ShapeStyle``, ``TextStyle``.
-However, providing style every time is burden and tend to lack consistency.
-Drawlib provides theme and style feature.
-You can choose theme which you like and able to apply its style easily with name.
+In Drawlib, you can define the style of drawing items using style class objects such as ``ShapeStyle`` and ``TextStyle``. 
+However, specifying styles for each item can be cumbersome and may lead to inconsistency. 
+To address this, Drawlib provides a theme and style feature, allowing you to choose a theme and easily apply its styles by name.
 
-Here is an example. Please take care arg ``style`` takes text values.
+Here is an example. Note that the ``style`` argument takes text values.
 
 .. literalinclude:: image_theme1.py
    :language: python
    :linenos:
    :caption: image_theme1.py
 
-The style has this syntax ``<color>_<type>_<thickness>``. If type and thickness are default, they are not shown in the style name.
-Executing this code yields the following image.
+The style has this syntax: ``<color>_<type>_<thickness>``. 
+If the type and thickness are default, they are not shown in the style name. 
+Executing this code yields the following image:
 
 .. figure:: image_theme1.png
     :width: 600
@@ -520,17 +520,19 @@ Executing this code yields the following image.
 
     image_theme1.png
 
-Drawlib posses these official themes.
+Drawlib offers several official themes:
 
 - ``default``
 - ``default2``
 - ``essentials``
 - ``monochrome``
 
-All style naming rules are same. However default theme ``default`` has only colors for simpliness for beginners.
-You can check what style name for each style class with ``dtheme.print_style_table()``.
-As you can see, many style name supports only few style classes.
-This is because "flat(no border fill)" style doesn't fit to line and text.
+The style naming rules are consistent across all themes. 
+However, the ``default`` theme default primarily focuses on colors to keep it simple for beginners.
+You can check the available style names for each style class using ``dtheme.print_style_table()``. 
+Note that many style names support only a few style classes because "flat (no border fill)" styles do not suit lines and text.
+
+Here's how you can print the available styles in a theme:
 
 .. literalinclude:: print_theme_styles.py
    :language: python

@@ -2,60 +2,58 @@
 Drawing Image
 ===============
 
-Drawlib uses function ``image()`` for drawing image.
-You can specify 
+Drawlib utilizes the ``image()`` function for drawing images.
+You can specify:
 
-* coordinate
-* size
-* what you draw
-* styling
+* Coordinate
+* Size
+* Image source (file path string, Dimage, PIL.Image.Image)
+* Angle
+* Styling options
 
-In this doc, we explain basics of function first.
-Then styling and types of original image datas.
+In this document, we'll begin with the basics of the image() function, followed by explanations of styling and different types of original image data.
 
 image()
 ==========
 
-We use function ``image()`` for drawing images.
-This function takes these arguments.
+The image() function accepts the following arguments:
 
-* xy
-* width
-* image: File path string, Dimage, PIL.Image.Image
-* angle
-* style: ImageStyle
+- xy: Coordinates specifying the position of the image.
+- width: Width of the image.
+- image: Source of the image, which can be a file path string, Dimage object, or PIL.Image.Image object.
+- angle: Rotation angle of the image (optional).
+- style: Styling information, either as a string name or an ImageStyle object.
 
-Coordinate and alignment is same to other drawing items.
-Let's start from example.
+Coordinates and alignment work similarly to other drawing elements. 
+Let's start with an example:
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-We draw 3 images which has different xy and width.
-Execute the code.
+Executing this code generates the following output:
 
 .. figure:: image1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
     image1.png
 
-As you can see, xy becomes center of image by default.
+By default, the xy coordinates position the center of the image.
 
 ImageStyle
 ==============
 
-Drawing image can be styled with data class ``ImageStyle``.
-ImageStyle has these attributes.
+Images can be styled using the ``ImageStyle`` data class, which includes:
 
 * halign: Horizontal Align
 * valign: Verteical Align
 * lwidth: Line width
 * lcolor: Line color
 * lstyle: Line style
+* fcolor: Fill color for transparent part
 
 Let's check image styling with example.
 Here is a code which specify stylings.
@@ -67,34 +65,33 @@ Here is a code which specify stylings.
 
 The first image changes alignment.
 Default alignment is center,center, but left,bottom might be useful sometimes.
-Changing image border line at 2nd example.
-Default is no border.
+
+Changing image border line and add color for transparent part at 2nd example.
+Default is no border, no fill.
+
 The 3rd example changes angle of image.
+With specifying theme's style ``"green_solid"``.
+
 Executing code generates this output.
 
 .. figure:: image2.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image2.png
+    image with styles
 
-ImageStyle is not so difficult.
+Styling an image with ImageStyle allows adjustments such as alignment changes, border customization, and rotation.
 
 Passing image objects
 =========================
 
-Function ``image()`` takes mandatory arg ``image``.
-We use file path at previous examples, but also able to use these image objects.
+While file paths are commonly used, image() also accepts the following image objects:
 
-* ``Dimage``
-* ``PIL.Image.Image``
+``Dimage``: Drawlib's image utility class.
+``PIL.Image.Image``: Images from the PIL (Pillow) library.
 
-Former is our image utility class and latter is famous PIL(Pillow) library.
-We mention detail of Dimage at the page, but we show example of how to use it on function image().
-Please check PIL by yourself if you want to use.
-
-Here is a example of how to use them.
+Here's an example demonstrating how to use these objects:
 
 .. literalinclude:: image3.py
    :language: python
@@ -104,10 +101,12 @@ Here is a example of how to use them.
 Both instances are passed to arg ``image``.
 Function ``image()`` will handle them correctly.
 
-We use ``dutil.get_script_relative_path()`` for just getting correct file path.
-Drawlib's function always use path **relative path from the script path**.
-However normal python code use path from entry point(where you start Python).
-This utility function changes the python native path rule to drawlib's path rule.
+Both instances are passed to the image argument, and image() handles them correctly.
+
+We utilize ``dutil_script.get_relative_path()`` to ensure correct file paths. 
+Drawlib functions always interpret paths relative to the script's location.
+But PIL function doesn't.
+This utility function adjusts the path rule to match drawlib's conventions.
 
 .. figure:: image3.png
     :width: 500
@@ -116,6 +115,5 @@ This utility function changes the python native path rule to drawlib's path rule
 
     image3.png
 
-As you can see all 3 arg makes same drawing output.
-If you don't modify image, there are no reason to use Dimage and PIL image.
-They are useful when you want to apply effect to images.
+As shown, all three approaches yield the same drawing output. 
+Dimage and PIL.Image.Image are particularly useful when applying effects to images or manipulating them programmatically.

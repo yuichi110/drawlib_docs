@@ -2,41 +2,38 @@
 Canvas
 ===============
 
-Drawlib manages the canvas. 
-You use it to draw lines and other elements onto the canvas. 
-Afterwards, you save your creation and receive an image.
+Drawlib manages the canvas, allowing you to draw various elements such as lines and shapes onto it. 
+Once your drawing is complete, you can save it as an image.
 
-The canvas is a crucial concept and implementation within drawlib. 
-It exists internally, but it isn't directly exposed to users. 
-Below is a concise overview of drawlib's canvas architecture:
+The canvas is a pivotal concept in drawlib, although it remains internal and isn't directly exposed to users. 
+Below is a succinct overview of drawlib's canvas architecture:
 
-.. figure:: image_architecture_1.png
-    :width: 500
+.. figure:: image_architecture1.png
+    :width: 600
     :class: with-border
     :align: center
 
-    image_architecture_1.png
+    Canvas architecture
 
-In this architecture, drawlib internally possesses core functions and methods. 
-These are made accessible to users through APIs defined in drawlib.apis. 
-When you invoke APIs like ``config()``, they internally call core functions/methods that manage the canvas state.
+In this architecture, drawlib internally incorporates core functions and methods that are accessible to users through APIs defined in ``drawlib.apis``. 
+When you invoke APIs like ``config()``, these functions internally interact with the canvas state.
 
-For instance, when you use the public API ``config(width=200, height=100)``, it invokes an internal canvas method, adjusting the canvas width to 200 and height to 100. 
-Similarly, calling the API ``circle(...)`` triggers an internal canvas method, adding a circle to the canvas state.
+For example, using the public API ``config(width=200, height=100)`` triggers an internal method that adjusts the canvas's dimensions to 200 pixels wide and 100 pixels high.
+Similarly, calling the ``circle(...)`` API invokes an internal method that adds a circle to the canvas.
 
-Technically, you could create your own Canvas instance and perform drawing operations. 
-However, it's not recommended because other features, such as file handling and theme settings, are not connected to your Canvas instance. 
-We've designed this architecture to ensure:
+While it's technically possible to create your own instance of the Canvas and perform drawing operations, this approach isn't recommended.
+This is because functionalities such as file handling and theme settings are integrated with drawlib's internal canvas management. 
+Our architecture is designed to ensure:
 
-* Accessibility for those unfamiliar with Python and object-oriented programming.
-* Ease of learning.
-* Script-like simplicity for drawing code.
+- Accessibility for users unfamiliar with Python and object-oriented programming.
+- Ease of learning and use.
+- Simplicity akin to scripting for drawing operations.
 
 
-Canvas related APIs.
+Canvas-related APIs
 =======================
 
-The canvas offers various types of public APIs:
+The canvas in drawlib provides several categories of public APIs:
 
 * APIs for managing the canvas itself.
 * APIs for drawing icons.
@@ -46,33 +43,29 @@ The canvas offers various types of public APIs:
 * APIs for drawing text.
 * Utility APIs that require canvas information.
 
-This page focuses on the first category, while the other topics are covered in separate pages.
+This page focuses specifically on the APIs for managing the canvas itself, while other categories are covered in separate documentation sections.
 
-The first category provides the following APIs:
+* ``config()``: Configures the canvas by adjusting parameters such as size and background color.
+* ``save()``: Exports the current canvas as an image file.
+* ``clear()``: Resets the canvas state by clearing all configurations and drawn objects.
 
-* ``config()``: Configures the canvas, allowing adjustments such as size and background color.
-* ``save()``: Exports the canvas to an image file.
-* ``clear()``: Resets the canvas state, wiping all configurations and drawn objects.
-
-Both config() and save() are essential functions introduced in the introductory pages. 
-They are necessary for creating illustrations. 
-clear() is used when you wish to refresh the canvas state. 
-It's particularly useful when drawing multiple illustrations within a single script file. 
-However, we recommend adhering to the guideline of one illustration per script file. 
-By following this recommendation, there's no need to call clear().
+Both ``config()`` and ``save()`` are essential functions discussed in the introductory pages, as they are fundamental for creating illustrations. 
+``clear()`` is useful when you need to refresh the canvas state, especially within scripts that create multiple illustrations sequentially. 
+However, it's recommended to adhere to the guideline of having one illustration per script file. 
+By following this recommendation, there's typically no need to explicitly call ``clear()``.
 
 config()
 ===========
 
-The ``config()`` API is responsible for managing various canvas configurations, including:
+The ``config()`` API in drawlib manages various canvas configurations, encompassing:
 
-* Size (width, height)
-* DPI (resolution)
-* Grid
-* Canvas color (background color)
-* Theme
+* Size (width, height): Specifies the dimensions of the canvas in coordinate units.
+* DPI (resolution): Sets the Dots Per Inch for the canvas, influencing image clarity.
+* Grid: Enables a grid overlay on the canvas for visual alignment assistance.
+* Canvas color (background color): Defines the background color of the canvas.
+* Theme: Applies predefined styles across drawings, including item colors and line thicknesses.
 
-We'll begin with the grid settings since they are foundational and utilized in other topics.
+We'll start with an exploration of grid settings, as they form the foundational basis and are used in conjunction with other configuration options.
 
 Configuring Canvas Grid
 -------------------------
@@ -83,88 +76,88 @@ As you iterate through this write/check/fix cycle, displaying a grid might prove
 Enabling the grid is straightforward; simply set the grid option to True. 
 By default, this option is set to ``False``. Below is an example code snippet:
 
-.. literalinclude:: image_grid_1.py
+.. literalinclude:: image_grid1.py
    :language: python
    :linenos:
-   :caption: image_grid_1.py
+   :caption: image_grid1.py
 
 Executing this code will generate two files:
 
-* ``image_grid_1.png``: The resulting image without the grid.
-* ``image_grid_1_grid.png``: The same image with the grid displayed.
+* ``image_grid1.png``: The resulting image without the grid.
+* ``image_grid1_grid.png``: The same image with the grid displayed.
 
 By default, the file name is the same as the script file name. 
 The grid version appends ``_grid`` to the file name.
 
 The former image without the grid:
 
-.. figure:: image_grid_1.png
-    :width: 300
+.. figure:: image_grid1.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_grid_1.png
+    image_grid1.png
 
 The latter image with the grid displayed:
 
-.. figure:: image_grid_1_grid.png
-    :width: 300
+.. figure:: image_grid1_grid.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_grid_1_grid.png
+    image_grid1_grid.png
 
 Normally, grid lines are removed after completing the creation of the drawing code. 
 However, if you need to modify the illustration later, having the grid displayed again might be useful. 
-To avoid repeatedly enabling/disabling the grid in your code, our option is to export both versions of the image files.
+To avoid repeatedly enabling/disabling the grid in your code, you can export both versions of the image files.
 
 If you only require the grid illustration, you can use the ``grid_only=True`` option instead:
 
-.. literalinclude:: image_grid_2.py
+.. literalinclude:: image_grid2.py
    :language: python
    :linenos:
-   :caption: image_grid_2.py
+   :caption: image_grid2.py
 
-This code will generate an image with grid lines but without the additional grid version file (image_grid_2_grid.png).
+This code will generate an image with grid lines but without the additional grid version file (image_grid2_grid.png).
 
-.. figure:: image_grid_2.png
-    :width: 300
+.. figure:: image_grid2.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_grid_2.png
+    Grid only option generate grid image only
 
-If you wish to apply a line style to the grid, simply provide a ``LineStyle`` object to the following options:
+To apply a specific line style to the grid, provide a ``LineStyle`` object to the following options:
 
-* ``grid_style``: The style for all grid lines except the center grid lines.
+* ``grid_style``: Sets the style for all grid lines.
 * ``grid_centerstyle``: Overrides the style for the center grid lines.
 
-Here's an example code snippet:
+Here's an example code snippet demonstrating the use of grid styles:
 
-.. literalinclude:: image_grid_3.py
+.. literalinclude:: image_grid3.py
    :language: python
    :linenos:
-   :caption: image_grid_3.py
+   :caption: image_grid3.py
 
 This code will generate an image with the grid displayed using the provided line style. 
 Note that providing a grid_style automatically sets the grid option to True, but you can override this by explicitly setting ``grid=False``.
 
-.. figure:: image_grid_3.png
-    :width: 300
+.. figure:: image_grid3.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_grid_3.png
+    Changing grid line
 
 
 Configuring Canvas Size
 -------------------------
 
-The canvas size and resolution are distinct concepts. 
+The canvas size and resolution are distinct concepts in Drawlib. 
 Size refers to the coordinate system's values (the range of xy), while resolution pertains to the output image's pixel dimensions.
 
-Normally, configuring the size doesn't alter the pixel dimensions. 
-For instance, setting ``width=10, height=10`` and ``width=100, height=100`` both generate images of the same pixel size. 
+When configuring the canvas size, note that it doesn't directly affect the pixel dimensions of the output image by default. 
+For example, setting ``width=10, height=10`` and ``width=100, height=100`` both generate images of the same pixel size.
 However, to maintain the aspect ratio, ``width=10, height=5`` would produce an image with half the pixel height.
 
 By default, Drawlib's canvas size is:
@@ -181,53 +174,53 @@ Conversely, excessively large values may become unwieldy.
 Let's explore how changing the size affects the output. 
 Below is a code snippet with ``config(width=100, height=100, ...)``:
 
-.. literalinclude:: image_size_1.py
+.. literalinclude:: image_size1.py
    :language: python
    :linenos:
-   :caption: image_size_1.py
+   :caption: image_size1.py
 
 Executing this code generates the following image:
 
-.. figure:: image_size_1.png
-    :width: 300
+.. figure:: image_size1.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_size_1.png
+    width=100, height=100
 
 Now, let's adjust the size to ``config(width=200, height=200, ...)``:
 
-.. literalinclude:: image_size_2.py
+.. literalinclude:: image_size2.py
    :language: python
    :linenos:
-   :caption: image_size_2.py
+   :caption: image_size2.py
 
 This change results in a new image:
 
-.. figure:: image_size_2.png
-    :width: 300
+.. figure:: image_size2.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_size_2.png
+    width=200, height=200
 
 For wider images, increase the width relative to the height. 
 You can either increase the width or decrease the height. 
-In the following example, we set the canvas size to full HD (1920x1080):
+In the following example, we set the canvas coordinate size to full HD (1920x1080):
 
-.. literalinclude:: image_size_3.py
+.. literalinclude:: image_size3.py
    :language: python
    :linenos:
-   :caption: image_size_3.py
+   :caption: image_size3.py
 
 This produces the image below:
 
-.. figure:: image_size_3.png
-    :width: 300
+.. figure:: image_size3.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_size_3.png
+    width=1920, height=1080
 
 When setting the size, using simple values such as 50, 100, 150, 200 makes mathematical calculations easier. 
 It's more challenging to compute half or quarter values of 1920 compared to 100.
@@ -245,14 +238,14 @@ However, let's check the actual image sizes:
 
 .. code-block:: none
 
-    $ file image_size_1.png 
-    image_size_1.png: PNG image data, 1000 x 1000, 8-bit/color RGBA, non-interlaced
+    $ file image_size1.png 
+    image_size1.png: PNG image data, 1000 x 1000, 8-bit/color RGBA, non-interlaced
 
-    $ file image_size_2.png
-    image_size_2.png: PNG image data, 1000 x 1000, 8-bit/color RGBA, non-interlaced
+    $ file image_size2.png
+    image_size2.png: PNG image data, 1000 x 1000, 8-bit/color RGBA, non-interlaced
 
-    $ file image_size_3.png
-    image_size_3.png: PNG image data, 1000 x 562, 8-bit/color RGBA, non-interlaced
+    $ file image_size3.png
+    image_size3.png: PNG image data, 1000 x 562, 8-bit/color RGBA, non-interlaced
 
 As observed, all images have a pixel width of 1000.
 
@@ -261,7 +254,7 @@ The default DPI value in drawlib is ``100``, and the canvas width is always cons
 Hence, the 1000-pixel width arises from 10 inches x 100 DPI.
 
 The first and second images have heights equal to their widths, resulting in a height of 1000 pixels. 
-However, the third image (``image_size_3.png``) has a width of 1920 and a height of 1080. 
+However, the third image (``image_size3.png``) has a coordinate width of 1920 and a height of 1080. 
 In this case, 1920 correspond to 10 inches, while 1080 equate to 5.625 inches.
 Then, 562 pixel height.
 
@@ -269,29 +262,33 @@ To export high-resolution images, you can adjust the DPI setting.
 For instance, 10 inches x 100 DPI equals 1000 pixels, whereas 10 inches x 200 DPI yields 2000 pixels. 
 Let's demonstrate this with an example:
 
-.. literalinclude:: image_dpi_1.py
+.. literalinclude:: image_dpi1.py
    :language: python
    :linenos:
-   :caption: image_dpi_1.py
+   :caption: image_dpi1.py
 
 Executing this code generates the following image:
 
-.. figure:: image_dpi_1.png
-    :width: 300
+.. figure:: image_dpi1.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_dpi_1.png
+    dpi=200
 
-It has this pixel size.
+It seems there are no big differences from previous outputs.
+However, it has different pixel width.
 
 .. code-block:: none
 
-    $ file image_dpi_1.png 
-    image_dpi_1.png: PNG image data, 2000 x 2000, 8-bit/color RGBA, non-interlaced
+    $ file image_dpi1.png 
+    image_dpi1.png: PNG image data, 2000 x 2000, 8-bit/color RGBA, non-interlaced
 
 Doubling the DPI results in a twofold increase in resolution. 
-However, it's important to note that higher DPI settings can slow down image generation and require more disk space. 
+If you want to 1920px output for previous image, you can set ``config(width=1920, height=1080, dpi=192)`` instead.
+10 inch width x 192 DPI generates 1920 pixel width image.
+
+It's important to note that higher DPI settings can slow down image generation and require more disk space. 
 Hence, setting excessively large values such as ``dpi=1000`` might not be advisable in typical scenarios.
 
 
@@ -307,20 +304,20 @@ However, it's much simpler and takes precedence to configure them directly using
 
 Let's look at an example:
 
-.. literalinclude:: image_background_1.py
+.. literalinclude:: image_background1.py
    :language: python
    :linenos:
-   :caption: image_background_1.py
+   :caption: image_background1.py
 
 In this example, we've configured the background color to orange with an alpha value of 0.2. 
 Executing this code generates the following output:
 
-.. figure:: image_background_1.png
-    :width: 300
+.. figure:: image_background1.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_background_1.png
+    Background color orange. Alpha 0.2
 
 If you wish to create a completely transparent background image, you can set the background color to ``Colors.Transparent`` or set the alpha value to ``0``.
 
@@ -346,19 +343,19 @@ The ``save()`` function offers optional arguments.
 If you wish to save the image with a specific name, you can use the ``file`` option. 
 Here's an example:
 
-.. literalinclude:: image_save_1.py
+.. literalinclude:: image_save1.py
    :language: python
    :linenos:
-   :caption: image_save_1.py
+   :caption: image_save1.py
 
 Executing this code generates the following image:
 
 .. figure:: myimage.webp
-    :width: 300
+    :width: 450
     :class: with-border
     :align: center
 
-    myimage.webp
+    File name: myimage.webp
 
 In this case, you didn't specify a file path. 
 In such situations, the image will be created in the same directory as the script file. 
@@ -379,21 +376,21 @@ If you want to save the image with the script file name but specify a file forma
 It behaves almost the same as save() without options, but you can specify the file format. 
 Here's an example:
 
-.. literalinclude:: image_save_2.py
+.. literalinclude:: image_save2.py
    :language: python
    :linenos:
-   :caption: image_save_2.py
+   :caption: image_save2.py
 
 This code generate this file.
 
-.. figure:: image_save_2.jpg
-    :width: 300
+.. figure:: image_save2.jpg
+    :width: 450
     :class: with-border
     :align: center
 
-    image_save_2.jpg
+    File name: image_save2.jpg
 
-Drawlib version 0.1 supports the following formats:
+Drawlib supports the following formats for now:
 
 * PNG
 * JPG

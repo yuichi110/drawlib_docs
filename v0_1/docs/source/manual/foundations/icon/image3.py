@@ -2,44 +2,13 @@ from drawlib.apis import *
 
 width = 100
 height = 50
+dtheme.apply_official_theme("default2")
 config(width=width, height=height)
-
-file_brand = "fontawesome-free/brands.ttf"
-file_regular = "fontawesome-free/regular.ttf"
-file_solid = "fontawesome-free/solid.ttf"
-
-google = "\uf1a0"
-gmail = "\uf0e0"
-google_map = "\uf3c5"
-google_drive = "\uf3aa"
-google_play = "\uf3ab"
-google_pay = "\ue079"
 
 x = width / 7
 y = height / 2
-icon(xy=(x, y), width=10, code=google, file=file_brand)
-icon(xy=(x * 2, y), width=10, code=gmail, file=file_regular)
-icon(xy=(x * 3, y), width=10, code=google_map, file=file_solid, angle=270)
-text(xy=(x * 3, y - 10), text="angle 270")
-icon(
-    xy=(x * 4, y),
-    width=10,
-    code=google_drive,
-    file=file_brand,
-    style=IconStyle(color=Colors.Red),
-)
-icon(
-    xy=(x * 5, y),
-    width=10,
-    code=google_play,
-    file=file_brand,
-    style=IconStyle(halign="left", valign="bottom"),
-)
-circle(
-    xy=(x * 5, y),
-    radius=0.5,
-    style=ShapeStyle(fcolor=Colors.Red, lcolor=Colors.Red),
-)
-text(xy=(x * 5 + 5, y - 10), text="align left,bottom")
-
+icon_phosphor.airplane_taxiing(xy=(x, y), width=10, style="green")
+icon_phosphor.airplane_takeoff(xy=(x * 2, y), width=10, style="red_thin")
+icon_phosphor.airplane_in_flight(xy=(x * 3, y), width=10, style="blue_bold")
+icon_phosphor.airplane_tilt(xy=(x * 4, y), width=10, style="green_flat")
 save()

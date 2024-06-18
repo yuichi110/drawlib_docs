@@ -14,27 +14,27 @@ Here, ``X`` represents the x-axis value, and ``Y`` represents the y-axis value.
 
 Let's delve into some code examples:
 
-.. literalinclude:: image_1.py
+.. literalinclude:: image1.py
    :language: python
    :linenos:
-   :caption: image_1.py
+   :caption: image1.py
 
 In this example, setting ``config(width=10, height=10, ...)`` implies:
 
 * x-axis: 0 to 10
 * y-axis: 0 to 10
 
-Both axes always commence from 0. In this scenario, the bottom-left is (0, 0), and the top-right is (10, 10). 
+Both axes always start from 0. In this scenario, the bottom-left is (0, 0), and the top-right is (10, 10). 
 Within the for loop, we plot small circles from coordinates (0, 0) to (10, 10).
 
 Executing this code generates the following image:
 
-.. figure:: image_1.png
-    :width: 500
+.. figure:: image1.png
+    :width: 600
     :class: with-border
     :align: center
 
-    image_1.png
+    Circles from (0, 0) to (10, 10)
 
 As you observe, (0, 0) represents the minimum value. 
 Therefore, the circle at (0, 0) is only partially displayed. 
@@ -72,45 +72,46 @@ If alignment isn't specified, ``"center"`` is applied to both halign and valign.
 
 Let's examine the alignment of rectangles with an example code:
 
-.. literalinclude:: image_2.py
+.. literalinclude:: image2.py
    :language: python
    :linenos:
-   :caption: image_2.py
+   :caption: image2.py
 
 In this code, we display nine variations of alignments. 
 The red dot represents "xy", and the inner text indicates the alignment.
 
-.. figure:: image_2.png
-    :width: 500
+.. figure:: image2.png
+    :width: 600
     :class: with-border
     :align: center
 
-    image_2.png
+    Alignment variations.
 
 We prefer using ``(center, center)`` and ``(left, bottom)``. 
 Occasionally, we employ ``(left, center)`` and ``(center, bottom)``. 
-``(left, bottom`` is beneficial for pinpointing the exact location of rectangle-like shape items. 
+
+``(left, bottom)`` is beneficial for pinpointing the exact location of rectangle-like shape items. 
 However, center alignment is much simpler for aligning different-sized multiple items horizontally or vertically. 
 That's why we've set ``(center, center)`` as the default for all items. 
 Consistency is key.
 
 Here's an example of aligning items horizontally and vertically:
 
-.. literalinclude:: image_3.py
+.. literalinclude:: image3.py
    :language: python
    :linenos:
-   :caption: image_3.py
+   :caption: image3.py
 
-Each item has an angle. 
+Each item have different size an angles. 
 If we use alignment like ``(left, bottom)``, aligning items becomes complex. 
 However, ``(center, center)`` is straightforward.
 
-.. figure:: image_3.png
-    :width: 500
+.. figure:: image3.png
+    :width: 600
     :class: with-border
     :align: center
 
-    image_3.png
+    Align center, center is recommended
 
 Please consider the best alignment for placing items.
 It depends on the situation.

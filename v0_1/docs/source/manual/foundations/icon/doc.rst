@@ -1,19 +1,19 @@
 ===============
-Drawing Icon
+Drawing Icons
 ===============
 
-If you're looking to enhance your illustrations with icons, there are several methods you can employ. 
+If you're looking to enhance your illustrations with icons, drawlib offers several methods to achieve this. 
 You can utilize the ``image()`` function by providing an icon image file of your choice. 
-Alternatively, another option is to utilize ``icon()`` along with ``Icon Modules`` for drawing icons.
+Alternatively, you can use ``icon()`` along with dedicated ``Icon Modules`` for drawing icons directly.
 
 Icon Modules
 ==============
 
-We've curated a selection of icons for your convenience, available in drawlib v0.1.
+We've curated a selection of icons for your convenience, available in drawlib now.
 
 * ``icon_phosphor``: Derived from Phosphor Icons (https://phosphoricons.com)
 
-Within these modules, each icon is defined as a function, allowing you to choose which icon to draw by calling the respective function. 
+Each icon within these modules is defined as a function, allowing you to draw specific icons by simply calling their respective function. 
 Let's explore with examples:
 
 .. literalinclude:: image1.py
@@ -21,19 +21,27 @@ Let's explore with examples:
    :linenos:
    :caption: image1.py
 
+All functions have these args.
+
+- ``xy`` : coordinate
+- ``width`` : icon width
+- ``angle`` : angle 0.0~360.0
+- ``style`` : Accepts string style name or ``IconStyle`` object.
+
 Executing this code yields the following image:
 
 .. figure:: image1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
     image1.png
 
-Similar to other drawing items, the style of icons can be managed using the ``IconStyle`` class.
-We use ``IconStyle`` for icon's style.
+You see lots of variation of only airplane.
+``icon_phosphor`` has around 1500 icons.
+Similar to other drawing elements, the appearance of icons can be customized using the ``IconStyle`` class, which allows you to control:
 
-IconStyle encompasses these attributes
+``IconStyle`` encompasses these attributes
 
 * ``halign``: Horizontal alignment
 * ``valign``: Vertical alignment
@@ -51,11 +59,35 @@ Let's illustrate this with an example:
 Executing this code generates the following image:
 
 .. figure:: image2.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image2.png
+    icon with IconStyle.
+
+You can use theme's pre-defined styles too.
+
+.. literalinclude:: image3.py
+   :language: python
+   :linenos:
+   :caption: image3.py
+
+Icon supports the following styles exclusively:
+
+- thickness of icon: ``thin`` and ``bold``
+- fill color: ``flat``
+- color of icon
+
+Line style solid and dashed are not supported.
+
+.. figure:: image3.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    icon with theme's style
+
+
 
 icon()
 =========
@@ -65,30 +97,29 @@ Internally, icon modules utilize icon().
 
 The function arguments are:
 
-* ``xy``
-* ``width``
-* ``code``: Font code
-* ``file``: Font file
-* ``angle``
-* ``style``
-
-The arguments xy to file are mandatory, while the latter are optional.
+* ``xy``: Coordinates for positioning the icon.
+* ``width``: Width of the icon.
+* ``code``: Font code representing the icon.
+* ``file``: Font file used for rendering the icon.
+* ``angle``: Angle for rotating the icon (optional).
+* ``style``: Additional style configurations (optional).
+.
 Let's explore its usage with FontAwesome Free:
 
-.. literalinclude:: image3.py
+.. literalinclude:: image4.py
    :language: python
    :linenos:
-   :caption: image3.py
+   :caption: image4.py
 
 Executing this code generates the following image:
 
-.. figure:: image3.png
-    :width: 500
+.. figure:: image4.png
+    :width: 600
     :class: with-border
     :align: center
 
-    image3.png
+    FontAwesome-Free icons
 
-While FontAwesome is widely recognized, full access necessitates a commercial license. 
+While FontAwesome is widely recognized, its full usage requires a commercial license. 
 The free version may lack variation and style consistency. 
-Therefore, we do not currently provide an icon module for it.
+Therefore, drawlib does not currently provide an icon module for it.

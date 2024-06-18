@@ -22,7 +22,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Drawing Icon" href="../icon/doc.html" />
+    <link rel="next" title="Drawing Icons" href="../icon/doc.html" />
     <link rel="prev" title="Canvas" href="../canvas/doc.html" /> 
 </head>
 
@@ -64,7 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#alignment">Alignment</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Drawing Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../line/doc.html">Drawing line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../line_style/doc.html">Line and Arrow Style</a></li>
@@ -142,7 +142,7 @@ These represent the tuple <code class="docutils literal notranslate"><span class
 Here, <code class="docutils literal notranslate"><span class="pre">X</span></code> represents the x-axis value, and <code class="docutils literal notranslate"><span class="pre">Y</span></code> represents the y-axis value.</p>
 <p>Let’s delve into some code examples:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">image_1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos">2</span>
 <span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -157,13 +157,13 @@ Here, <code class="docutils literal notranslate"><span class="pre">X</span></cod
 <li><p>x-axis: 0 to 10</p></li>
 <li><p>y-axis: 0 to 10</p></li>
 </ul>
-<p>Both axes always commence from 0. In this scenario, the bottom-left is (0, 0), and the top-right is (10, 10).
+<p>Both axes always start from 0. In this scenario, the bottom-left is (0, 0), and the top-right is (10, 10).
 Within the for loop, we plot small circles from coordinates (0, 0) to (10, 10).</p>
 <p>Executing this code generates the following image:</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image_1.png"><img alt="../../../_images/image_1.png" class="with-border" src="../../../_images/image_1.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image15.png"><img alt="../../../_images/image15.png" class="with-border" src="../../../_images/image15.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Circles from (0, 0) to (10, 10)</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>As you observe, (0, 0) represents the minimum value.
@@ -198,7 +198,7 @@ You can alter alignment using <code class="docutils literal notranslate"><span c
 If alignment isn’t specified, <code class="docutils literal notranslate"><span class="pre">&quot;center&quot;</span></code> is applied to both halign and valign.</p>
 <p>Let’s examine the alignment of rectangles with an example code:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">image_2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">image2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -226,20 +226,20 @@ If alignment isn’t specified, <code class="docutils literal notranslate"><span
 <p>In this code, we display nine variations of alignments.
 The red dot represents “xy”, and the inner text indicates the alignment.</p>
 <figure class="align-center" id="id4">
-<a class="with-border reference internal image-reference" href="../../../_images/image_2.png"><img alt="../../../_images/image_2.png" class="with-border" src="../../../_images/image_2.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image23.png"><img alt="../../../_images/image23.png" class="with-border" src="../../../_images/image23.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">Alignment variations.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>We prefer using <code class="docutils literal notranslate"><span class="pre">(center,</span> <span class="pre">center)</span></code> and <code class="docutils literal notranslate"><span class="pre">(left,</span> <span class="pre">bottom)</span></code>.
-Occasionally, we employ <code class="docutils literal notranslate"><span class="pre">(left,</span> <span class="pre">center)</span></code> and <code class="docutils literal notranslate"><span class="pre">(center,</span> <span class="pre">bottom)</span></code>.
-<code class="docutils literal notranslate"><span class="pre">(left,</span> <span class="pre">bottom</span></code> is beneficial for pinpointing the exact location of rectangle-like shape items.
+Occasionally, we employ <code class="docutils literal notranslate"><span class="pre">(left,</span> <span class="pre">center)</span></code> and <code class="docutils literal notranslate"><span class="pre">(center,</span> <span class="pre">bottom)</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(left,</span> <span class="pre">bottom)</span></code> is beneficial for pinpointing the exact location of rectangle-like shape items.
 However, center alignment is much simpler for aligning different-sized multiple items horizontally or vertically.
 That’s why we’ve set <code class="docutils literal notranslate"><span class="pre">(center,</span> <span class="pre">center)</span></code> as the default for all items.
 Consistency is key.</p>
 <p>Here’s an example of aligning items horizontally and vertically:</p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">image_3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">image3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -255,7 +255,7 @@ Consistency is key.</p>
 <span class="linenos">13</span><span class="n">rectangle</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="linenos">14</span><span class="n">star</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="linenos">15</span>
-<span class="linenos">16</span><span class="n">image</span><span class="p">((</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">315</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">image</span><span class="p">((</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">315</span><span class="p">)</span>
 <span class="linenos">17</span><span class="n">icon_phosphor</span><span class="o">.</span><span class="n">heart</span><span class="p">((</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">315</span><span class="p">)</span>
 <span class="linenos">18</span><span class="n">text</span><span class="p">((</span><span class="n">x2</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Drawlib&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">315</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">24</span><span class="p">))</span>
 <span class="linenos">19</span>
@@ -271,13 +271,13 @@ Consistency is key.</p>
 </pre></div>
 </div>
 </div>
-<p>Each item has an angle.
+<p>Each item have different size an angles.
 If we use alignment like <code class="docutils literal notranslate"><span class="pre">(left,</span> <span class="pre">bottom)</span></code>, aligning items becomes complex.
 However, <code class="docutils literal notranslate"><span class="pre">(center,</span> <span class="pre">center)</span></code> is straightforward.</p>
 <figure class="align-center" id="id6">
-<a class="with-border reference internal image-reference" href="../../../_images/image_3.png"><img alt="../../../_images/image_3.png" class="with-border" src="../../../_images/image_3.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image31.png"><img alt="../../../_images/image31.png" class="with-border" src="../../../_images/image31.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_3.png</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">Align center, center is recommended</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Please consider the best alignment for placing items.
@@ -290,7 +290,7 @@ It depends on the situation.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../canvas/doc.html" class="btn btn-neutral float-left" title="Canvas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../icon/doc.html" class="btn btn-neutral float-right" title="Drawing Icon" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../icon/doc.html" class="btn btn-neutral float-right" title="Drawing Icons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

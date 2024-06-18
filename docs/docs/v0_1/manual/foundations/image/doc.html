@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Drawing line" href="../line/doc.html" />
-    <link rel="prev" title="Drawing Icon" href="../icon/doc.html" /> 
+    <link rel="prev" title="Drawing Icons" href="../icon/doc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,7 +60,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../canvas/doc.html">Canvas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../coordinate_align/doc.html">Coordinate and Alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icons</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Drawing Image</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#image">image()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#imagestyle">ImageStyle</a></li>
@@ -134,63 +134,61 @@
              
   <section id="drawing-image">
 <h1>Drawing Image<a class="headerlink" href="#drawing-image" title="Link to this heading"></a></h1>
-<p>Drawlib uses function <code class="docutils literal notranslate"><span class="pre">image()</span></code> for drawing image.
-You can specify</p>
+<p>Drawlib utilizes the <code class="docutils literal notranslate"><span class="pre">image()</span></code> function for drawing images.
+You can specify:</p>
 <ul class="simple">
-<li><p>coordinate</p></li>
-<li><p>size</p></li>
-<li><p>what you draw</p></li>
-<li><p>styling</p></li>
+<li><p>Coordinate</p></li>
+<li><p>Size</p></li>
+<li><p>Image source (file path string, Dimage, PIL.Image.Image)</p></li>
+<li><p>Angle</p></li>
+<li><p>Styling options</p></li>
 </ul>
-<p>In this doc, we explain basics of function first.
-Then styling and types of original image datas.</p>
+<p>In this document, we’ll begin with the basics of the image() function, followed by explanations of styling and different types of original image data.</p>
 <section id="image">
 <h2>image()<a class="headerlink" href="#image" title="Link to this heading"></a></h2>
-<p>We use function <code class="docutils literal notranslate"><span class="pre">image()</span></code> for drawing images.
-This function takes these arguments.</p>
+<p>The image() function accepts the following arguments:</p>
 <ul class="simple">
-<li><p>xy</p></li>
-<li><p>width</p></li>
-<li><p>image: File path string, Dimage, PIL.Image.Image</p></li>
-<li><p>angle</p></li>
-<li><p>style: ImageStyle</p></li>
+<li><p>xy: Coordinates specifying the position of the image.</p></li>
+<li><p>width: Width of the image.</p></li>
+<li><p>image: Source of the image, which can be a file path string, Dimage object, or PIL.Image.Image object.</p></li>
+<li><p>angle: Rotation angle of the image (optional).</p></li>
+<li><p>style: Styling information, either as a string name or an ImageStyle object.</p></li>
 </ul>
-<p>Coordinate and alignment is same to other drawing items.
-Let’s start from example.</p>
+<p>Coordinates and alignment work similarly to other drawing elements.
+Let’s start with an example:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos">2</span>
 <span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos">4</span>
-<span class="linenos">5</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
-<span class="linenos">6</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
-<span class="linenos">7</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos">7</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
 <span class="linenos">8</span>
 <span class="linenos">9</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>We draw 3 images which has different xy and width.
-Execute the code.</p>
+<p>Executing this code generates the following output:</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image16.png"><img alt="../../../_images/image16.png" class="with-border" src="../../../_images/image16.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image17.png"><img alt="../../../_images/image17.png" class="with-border" src="../../../_images/image17.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see, xy becomes center of image by default.</p>
+<p>By default, the xy coordinates position the center of the image.</p>
 </section>
 <section id="imagestyle">
 <h2>ImageStyle<a class="headerlink" href="#imagestyle" title="Link to this heading"></a></h2>
-<p>Drawing image can be styled with data class <code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code>.
-ImageStyle has these attributes.</p>
+<p>Images can be styled using the <code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code> data class, which includes:</p>
 <ul class="simple">
 <li><p>halign: Horizontal Align</p></li>
 <li><p>valign: Verteical Align</p></li>
 <li><p>lwidth: Line width</p></li>
 <li><p>lcolor: Line color</p></li>
 <li><p>lstyle: Line style</p></li>
+<li><p>fcolor: Fill color for transparent part</p></li>
 </ul>
 <p>Let’s check image styling with example.
 Here is a code which specify stylings.</p>
@@ -198,93 +196,94 @@ Here is a code which specify stylings.</p>
 <div class="code-block-caption"><span class="caption-text">image2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">image</span><span class="p">(</span>
-<span class="linenos"> 6</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
-<span class="linenos"> 7</span>    <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="linenos"> 8</span>    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">,</span>
-<span class="linenos"> 9</span>    <span class="n">style</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">),</span>
-<span class="linenos">10</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">circle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">fcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">))</span>
-<span class="linenos">12</span><span class="n">text</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="s2">&quot;align: left,bottom&quot;</span><span class="p">)</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span><span class="n">image</span><span class="p">(</span>
-<span class="linenos">15</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
-<span class="linenos">16</span>    <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-<span class="linenos">17</span>    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">,</span>
-<span class="linenos">18</span>    <span class="n">style</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lstyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">),</span>
-<span class="linenos">19</span><span class="p">)</span>
-<span class="linenos">20</span><span class="n">text</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;border: red,dot,width2&quot;</span><span class="p">)</span>
-<span class="linenos">21</span>
-<span class="linenos">22</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="linenos">23</span><span class="n">text</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;angle: 45&quot;</span><span class="p">)</span>
-<span class="linenos">24</span>
-<span class="linenos">25</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">image</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">style</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">),</span>
+<span class="linenos">11</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">circle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">fcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">))</span>
+<span class="linenos">13</span><span class="n">text</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="s2">&quot;align: left,bottom&quot;</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">image</span><span class="p">(</span>
+<span class="linenos">16</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos">17</span>    <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="linenos">18</span>    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">,</span>
+<span class="linenos">19</span>    <span class="n">style</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lstyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Gray</span><span class="p">),</span>
+<span class="linenos">20</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">text</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;border: red,dot,width2&quot;</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_solid&quot;</span><span class="p">)</span>
+<span class="linenos">24</span><span class="n">text</span><span class="p">((</span><span class="mi">85</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;angle: 45&quot;</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <p>The first image changes alignment.
-Default alignment is center,center, but left,bottom might be useful sometimes.
-Changing image border line at 2nd example.
-Default is no border.
-The 3rd example changes angle of image.
-Executing code generates this output.</p>
+Default alignment is center,center, but left,bottom might be useful sometimes.</p>
+<p>Changing image border line and add color for transparent part at 2nd example.
+Default is no border, no fill.</p>
+<p>The 3rd example changes angle of image.
+With specifying theme’s style <code class="docutils literal notranslate"><span class="pre">&quot;green_solid&quot;</span></code>.</p>
+<p>Executing code generates this output.</p>
 <figure class="align-center" id="id4">
-<a class="with-border reference internal image-reference" href="../../../_images/image24.png"><img alt="../../../_images/image24.png" class="with-border" src="../../../_images/image24.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image25.png"><img alt="../../../_images/image25.png" class="with-border" src="../../../_images/image25.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">image with styles</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>ImageStyle is not so difficult.</p>
+<p>Styling an image with ImageStyle allows adjustments such as alignment changes, border customization, and rotation.</p>
 </section>
 <section id="passing-image-objects">
 <h2>Passing image objects<a class="headerlink" href="#passing-image-objects" title="Link to this heading"></a></h2>
-<p>Function <code class="docutils literal notranslate"><span class="pre">image()</span></code> takes mandatory arg <code class="docutils literal notranslate"><span class="pre">image</span></code>.
-We use file path at previous examples, but also able to use these image objects.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Dimage</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></p></li>
-</ul>
-<p>Former is our image utility class and latter is famous PIL(Pillow) library.
-We mention detail of Dimage at the page, but we show example of how to use it on function image().
-Please check PIL by yourself if you want to use.</p>
-<p>Here is a example of how to use them.</p>
+<p>While file paths are commonly used, image() also accepts the following image objects:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dimage</span></code>: Drawlib’s image utility class.
+<code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code>: Images from the PIL (Pillow) library.</p>
+<p>Here’s an example demonstrating how to use these objects:</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">image3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">PIL.Image</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">dutil_script</span><span class="o">.</span><span class="n">get_relative_path</span><span class="p">(</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="c1"># /Users/yuichi/GitHub/drawlib_docs/v0_1/docs/source/manual/foundations/image/python.png</span>
 <span class="linenos"> 7</span>
-<span class="linenos"> 8</span><span class="n">dimage</span> <span class="o">=</span> <span class="n">Dimage</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
-<span class="linenos"> 9</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dimage</span><span class="p">)</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">dutil_script</span><span class="o">.</span><span class="n">get_relative_path</span><span class="p">(</span><span class="s2">&quot;python-logo-notext.png&quot;</span><span class="p">)</span>
-<span class="linenos">12</span><span class="n">pil_image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="linenos">13</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">pil_image</span><span class="p">)</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos"> 8</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># specify file</span>
+<span class="linenos">11</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># specify Dimage</span>
+<span class="linenos">14</span><span class="n">dimage</span> <span class="o">=</span> <span class="n">Dimage</span><span class="p">(</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dimage</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># specify PIL Image</span>
+<span class="linenos">18</span><span class="n">pil_image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">pil_image</span><span class="p">)</span>
+<span class="linenos">20</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <p>Both instances are passed to arg <code class="docutils literal notranslate"><span class="pre">image</span></code>.
 Function <code class="docutils literal notranslate"><span class="pre">image()</span></code> will handle them correctly.</p>
-<p>We use <code class="docutils literal notranslate"><span class="pre">dutil.get_script_relative_path()</span></code> for just getting correct file path.
-Drawlib’s function always use path <strong>relative path from the script path</strong>.
-However normal python code use path from entry point(where you start Python).
-This utility function changes the python native path rule to drawlib’s path rule.</p>
+<p>Both instances are passed to the image argument, and image() handles them correctly.</p>
+<p>We utilize <code class="docutils literal notranslate"><span class="pre">dutil_script.get_relative_path()</span></code> to ensure correct file paths.
+Drawlib functions always interpret paths relative to the script’s location.
+But PIL function doesn’t.
+This utility function adjusts the path rule to match drawlib’s conventions.</p>
 <figure class="align-center" id="id6">
-<a class="with-border reference internal image-reference" href="../../../_images/image32.png"><img alt="../../../_images/image32.png" class="with-border" src="../../../_images/image32.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image33.png"><img alt="../../../_images/image33.png" class="with-border" src="../../../_images/image33.png" style="width: 500px;" /></a>
 <figcaption>
 <p><span class="caption-text">image3.png</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see all 3 arg makes same drawing output.
-If you don’t modify image, there are no reason to use Dimage and PIL image.
-They are useful when you want to apply effect to images.</p>
+<p>As shown, all three approaches yield the same drawing output.
+Dimage and PIL.Image.Image are particularly useful when applying effects to images or manipulating them programmatically.</p>
 </section>
 </section>
 
@@ -292,7 +291,7 @@ They are useful when you want to apply effect to images.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../icon/doc.html" class="btn btn-neutral float-left" title="Drawing Icon" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../icon/doc.html" class="btn btn-neutral float-left" title="Drawing Icons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../line/doc.html" class="btn btn-neutral float-right" title="Drawing line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

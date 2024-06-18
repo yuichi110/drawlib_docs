@@ -68,7 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#drawing-line">Drawing line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#drawing-shapes">Drawing shapes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#drawing-texts">Drawing texts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#use-official-theme">Use Official Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-official-theme">Using Official Theme</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../other_version_docs/doc.html">Other Version Documentation</a></li>
@@ -77,7 +77,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../foundations/canvas/doc.html">Canvas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../foundations/coordinate_align/doc.html">Coordinate and Alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../foundations/icon/doc.html">Drawing Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../foundations/icon/doc.html">Drawing Icons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../foundations/image/doc.html">Drawing Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../foundations/line/doc.html">Drawing line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../foundations/line_style/doc.html">Line and Arrow Style</a></li>
@@ -292,27 +292,27 @@ Common alignment options include:</p>
 <div class="code-block-caption"><span class="caption-text">image_coordinate1.py</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos"> 6</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos"> 6</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos"> 7</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 <span class="linenos"> 8</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">halign</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">),</span>
 <span class="linenos"> 9</span><span class="p">)</span>
 <span class="linenos">10</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos">11</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos">11</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos">12</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="linenos">13</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">fcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">),</span>
 <span class="linenos">14</span><span class="p">)</span>
 <span class="linenos">15</span><span class="n">text</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;Align center,center&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">))</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos">18</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos">18</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos">19</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 <span class="linenos">20</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">),</span>
 <span class="linenos">21</span><span class="p">)</span>
 <span class="linenos">22</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos">23</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos">23</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos">24</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="linenos">25</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">fcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">),</span>
 <span class="linenos">26</span><span class="p">)</span>
@@ -394,11 +394,11 @@ If you need to adjust the aspect ratio, you can utilize the <code class="docutil
 <div class="code-block-caption"><span class="caption-text">image_image1.py</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
 <span class="linenos"> 6</span><span class="n">image</span><span class="p">(</span>
-<span class="linenos"> 7</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos"> 8</span>    <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
 <span class="linenos"> 9</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
 <span class="linenos">10</span>    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">,</span>
@@ -423,13 +423,13 @@ Take a look at this example:</p>
 <div class="code-block-caption"><span class="caption-text">image_image2.py</span><a class="headerlink" href="#id12" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span>
 <span class="linenos"> 7</span>
 <span class="linenos"> 8</span><span class="n">dimg</span> <span class="o">=</span> <span class="n">Dimage</span><span class="p">(</span><span class="s2">&quot;python.png&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mirror</span><span class="p">()</span><span class="o">.</span><span class="n">sepia</span><span class="p">()</span>
-<span class="linenos"> 9</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dimg</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">image</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dimg</span><span class="p">)</span>
 <span class="linenos">10</span>
 <span class="linenos">11</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
@@ -466,12 +466,12 @@ Let’s explore some of these line types:</p>
 <div class="code-block-caption"><span class="caption-text">image_line1.py</span><a class="headerlink" href="#id14" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="linenos"> 6</span><span class="n">line_curved</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">bend</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="linenos"> 7</span><span class="n">line_curved</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">bend</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="linenos"> 8</span><span class="n">lines</span><span class="p">([(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">45</span><span class="p">)])</span>
+<span class="linenos"> 5</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="linenos"> 6</span><span class="n">line_curved</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">bend</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">line_curved</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">bend</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">lines</span><span class="p">([(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">)])</span>
 <span class="linenos"> 9</span>
 <span class="linenos">10</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
@@ -499,17 +499,17 @@ But visual style has less meaning (CSS equivalent), then we will specify it as s
 <div class="code-block-caption"><span class="caption-text">image_line2.py</span><a class="headerlink" href="#id16" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="linenos"> 5</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="linenos"> 6</span><span class="n">line</span><span class="p">(</span>
-<span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-<span class="linenos"> 8</span>    <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
 <span class="linenos"> 9</span>    <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">),</span>
 <span class="linenos">10</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">)</span>
-<span class="linenos">12</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;&lt;-&gt;&quot;</span><span class="p">)</span>
-<span class="linenos">13</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;&lt;-&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">ahscale</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashdot&quot;</span><span class="p">,</span> <span class="n">ahfill</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="linenos">11</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;&lt;-&gt;&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">line</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">43</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">43</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;&lt;-&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">LineStyle</span><span class="p">(</span><span class="n">ahscale</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashdot&quot;</span><span class="p">,</span> <span class="n">ahfill</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="linenos">14</span>
 <span class="linenos">15</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
@@ -560,10 +560,10 @@ When you use it, tasks like positioning your item at a specified xy coordinate a
 <div class="code-block-caption"><span class="caption-text">image_shape1.py</span><a class="headerlink" href="#id18" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos">4</span>
-<span class="linenos">5</span><span class="n">star</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">num_vertex</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">radius_ext</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">radius_int</span><span class="o">=</span><span class="mf">7.5</span><span class="p">)</span>
-<span class="linenos">6</span><span class="n">rectangle</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">star</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">num_vertex</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">radius_ext</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">radius_int</span><span class="o">=</span><span class="mf">7.5</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">rectangle</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="linenos">7</span>
 <span class="linenos">8</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
@@ -593,10 +593,10 @@ Keep in mind that the angle parameter in ShapeTextStyle overrides the shape’s 
 <div class="code-block-caption"><span class="caption-text">image_shape2.py</span><a class="headerlink" href="#id20" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="n">rectangle</span><span class="p">(</span>
-<span class="linenos"> 6</span>    <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos"> 6</span>    <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos"> 7</span>    <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
 <span class="linenos"> 8</span>    <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
 <span class="linenos"> 9</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
@@ -604,7 +604,7 @@ Keep in mind that the angle parameter in ShapeTextStyle overrides the shape’s 
 <span class="linenos">11</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">lstyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">lwidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Transparent</span><span class="p">),</span>
 <span class="linenos">12</span><span class="p">)</span>
 <span class="linenos">13</span><span class="n">rectangle</span><span class="p">(</span>
-<span class="linenos">14</span>    <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos">14</span>    <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos">15</span>    <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
 <span class="linenos">16</span>    <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
 <span class="linenos">17</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
@@ -653,27 +653,27 @@ However, TextStyle includes an option that ShapeTextStyle doesn’t: text backgr
 <div class="code-block-caption"><span class="caption-text">image_text_1.py</span><a class="headerlink" href="#id22" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">text</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;Hello drawlib. こんにちは。&quot;</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">text</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s2">&quot;Hello drawlib. こんにちは。&quot;</span><span class="p">)</span>
 <span class="linenos"> 6</span><span class="n">text</span><span class="p">(</span>
-<span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
 <span class="linenos"> 8</span>    <span class="s2">&quot;Hello drawlib. こんにちは。&quot;</span><span class="p">,</span>
 <span class="linenos"> 9</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 <span class="linenos">10</span>    <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">FontRoboto</span><span class="o">.</span><span class="n">ROBOTO_REGULAR</span><span class="p">),</span>
 <span class="linenos">11</span><span class="p">)</span>
 <span class="linenos">12</span><span class="n">text</span><span class="p">(</span>
-<span class="linenos">13</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="linenos">13</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos">14</span>    <span class="s2">&quot;Hello drawlib.&quot;</span><span class="p">,</span>
 <span class="linenos">15</span>    <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">FontFile</span><span class="p">(</span><span class="s2">&quot;avenger/regular.ttf&quot;</span><span class="p">)),</span>
 <span class="linenos">16</span><span class="p">)</span>
 <span class="linenos">17</span><span class="n">text</span><span class="p">(</span>
-<span class="linenos">18</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+<span class="linenos">18</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span>
 <span class="linenos">19</span>    <span class="s2">&quot;Hello drawlib. こんにちは。&quot;</span><span class="p">,</span>
 <span class="linenos">20</span>    <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">24</span><span class="p">),</span>
 <span class="linenos">21</span><span class="p">)</span>
 <span class="linenos">22</span><span class="n">text</span><span class="p">(</span>
-<span class="linenos">23</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+<span class="linenos">23</span>    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">43</span><span class="p">),</span>
 <span class="linenos">24</span>    <span class="s2">&quot;Hello drawlib. こんにちは。&quot;</span><span class="p">,</span>
 <span class="linenos">25</span>    <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">White</span><span class="p">,</span> <span class="n">bgfcolor</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Black</span><span class="p">),</span>
 <span class="linenos">26</span><span class="p">)</span>
@@ -706,13 +706,12 @@ If drawlib doesn’t include the font you wish to use, you can provide it to the
 These settings may not be particularly complex, but it’s important to note that the font size remains constant regardless of changes in canvas width and height.
 Doubling the canvas size won’t result in halving the font text size; it remains the same as the original size.</p>
 </section>
-<section id="use-official-theme">
-<h2>Use Official Theme<a class="headerlink" href="#use-official-theme" title="Link to this heading"></a></h2>
-<p>You can specify drawing item’s style via style class objects such as <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code>.
-However, providing style every time is burden and tend to lack consistency.
-Drawlib provides theme and style feature.
-You can choose theme which you like and able to apply its style easily with name.</p>
-<p>Here is an example. Please take care arg <code class="docutils literal notranslate"><span class="pre">style</span></code> takes text values.</p>
+<section id="using-official-theme">
+<h2>Using Official Theme<a class="headerlink" href="#using-official-theme" title="Link to this heading"></a></h2>
+<p>In Drawlib, you can define the style of drawing items using style class objects such as <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> and <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code>.
+However, specifying styles for each item can be cumbersome and may lead to inconsistency.
+To address this, Drawlib provides a theme and style feature, allowing you to choose a theme and easily apply its styles by name.</p>
+<p>Here is an example. Note that the <code class="docutils literal notranslate"><span class="pre">style</span></code> argument takes text values.</p>
 <div class="literal-block-wrapper docutils container" id="id24">
 <div class="code-block-caption"><span class="caption-text">image_theme1.py</span><a class="headerlink" href="#id24" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -753,25 +752,27 @@ You can choose theme which you like and able to apply its style easily with name
 </pre></div>
 </div>
 </div>
-<p>The style has this syntax <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;thickness&gt;</span></code>. If type and thickness are default, they are not shown in the style name.
-Executing this code yields the following image.</p>
+<p>The style has this syntax: <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;thickness&gt;</span></code>.
+If the type and thickness are default, they are not shown in the style name.
+Executing this code yields the following image:</p>
 <figure class="align-center" id="id25">
 <a class="with-border reference internal image-reference" href="../../../_images/image_theme1.png"><img alt="../../../_images/image_theme1.png" class="with-border" src="../../../_images/image_theme1.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">image_theme1.png</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Drawlib posses these official themes.</p>
+<p>Drawlib offers several official themes:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">default</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">default2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">essentials</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">monochrome</span></code></p></li>
 </ul>
-<p>All style naming rules are same. However default theme <code class="docutils literal notranslate"><span class="pre">default</span></code> has only colors for simpliness for beginners.
-You can check what style name for each style class with <code class="docutils literal notranslate"><span class="pre">dtheme.print_style_table()</span></code>.
-As you can see, many style name supports only few style classes.
-This is because “flat(no border fill)” style doesn’t fit to line and text.</p>
+<p>The style naming rules are consistent across all themes.
+However, the <code class="docutils literal notranslate"><span class="pre">default</span></code> theme default primarily focuses on colors to keep it simple for beginners.
+You can check the available style names for each style class using <code class="docutils literal notranslate"><span class="pre">dtheme.print_style_table()</span></code>.
+Note that many style names support only a few style classes because “flat (no border fill)” styles do not suit lines and text.</p>
+<p>Here’s how you can print the available styles in a theme:</p>
 <div class="literal-block-wrapper docutils container" id="id26">
 <div class="code-block-caption"><span class="caption-text">print_theme_styles.py</span><a class="headerlink" href="#id26" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>

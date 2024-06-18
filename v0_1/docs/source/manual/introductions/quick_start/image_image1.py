@@ -1,10 +1,10 @@
 from drawlib.apis import *
 
-config(width=100, height=60, grid=True)
+config(width=100, height=50, grid=True)
 
-image(xy=(25, 30), width=20, image="python.png")
+image(xy=(25, 25), width=20, image="python.png")
 image(
-    xy=(75, 30),
+    xy=(75, 25),
     width=20,
     angle=45,
     image="python.png",

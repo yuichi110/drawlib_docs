@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drawing Icon &mdash; drawlib 0.1 documentation</title>
+  <title>Drawing Icons &mdash; drawlib 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
@@ -60,7 +60,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../canvas/doc.html">Canvas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../coordinate_align/doc.html">Coordinate and Alignment</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Drawing Icon</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Drawing Icons</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#icon-modules">Icon Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#icon">icon()</a></li>
 </ul>
@@ -121,7 +121,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Drawing Icon</li>
+      <li class="breadcrumb-item active">Drawing Icons</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/manual/foundations/icon/doc.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -131,18 +131,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="drawing-icon">
-<h1>Drawing Icon<a class="headerlink" href="#drawing-icon" title="Link to this heading"></a></h1>
-<p>If you’re looking to enhance your illustrations with icons, there are several methods you can employ.
+  <section id="drawing-icons">
+<h1>Drawing Icons<a class="headerlink" href="#drawing-icons" title="Link to this heading"></a></h1>
+<p>If you’re looking to enhance your illustrations with icons, drawlib offers several methods to achieve this.
 You can utilize the <code class="docutils literal notranslate"><span class="pre">image()</span></code> function by providing an icon image file of your choice.
-Alternatively, another option is to utilize <code class="docutils literal notranslate"><span class="pre">icon()</span></code> along with <code class="docutils literal notranslate"><span class="pre">Icon</span> <span class="pre">Modules</span></code> for drawing icons.</p>
+Alternatively, you can use <code class="docutils literal notranslate"><span class="pre">icon()</span></code> along with dedicated <code class="docutils literal notranslate"><span class="pre">Icon</span> <span class="pre">Modules</span></code> for drawing icons directly.</p>
 <section id="icon-modules">
 <h2>Icon Modules<a class="headerlink" href="#icon-modules" title="Link to this heading"></a></h2>
-<p>We’ve curated a selection of icons for your convenience, available in drawlib v0.1.</p>
+<p>We’ve curated a selection of icons for your convenience, available in drawlib now.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">icon_phosphor</span></code>: Derived from Phosphor Icons (<a class="reference external" href="https://phosphoricons.com">https://phosphoricons.com</a>)</p></li>
 </ul>
-<p>Within these modules, each icon is defined as a function, allowing you to choose which icon to draw by calling the respective function.
+<p>Each icon within these modules is defined as a function, allowing you to draw specific icons by simply calling their respective function.
 Let’s explore with examples:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
@@ -166,16 +166,24 @@ Let’s explore with examples:</p>
 </pre></div>
 </div>
 </div>
+<p>All functions have these args.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xy</span></code> : coordinate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code> : icon width</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">angle</span></code> : angle 0.0~360.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code> : Accepts string style name or <code class="docutils literal notranslate"><span class="pre">IconStyle</span></code> object.</p></li>
+</ul>
 <p>Executing this code yields the following image:</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image15.png"><img alt="../../../_images/image15.png" class="with-border" src="../../../_images/image15.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image16.png"><img alt="../../../_images/image16.png" class="with-border" src="../../../_images/image16.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Similar to other drawing items, the style of icons can be managed using the <code class="docutils literal notranslate"><span class="pre">IconStyle</span></code> class.
-We use <code class="docutils literal notranslate"><span class="pre">IconStyle</span></code> for icon’s style.</p>
-<p>IconStyle encompasses these attributes</p>
+<p>You see lots of variation of only airplane.
+<code class="docutils literal notranslate"><span class="pre">icon_phosphor</span></code> has around 1500 icons.
+Similar to other drawing elements, the appearance of icons can be customized using the <code class="docutils literal notranslate"><span class="pre">IconStyle</span></code> class, which allows you to control:</p>
+<p><code class="docutils literal notranslate"><span class="pre">IconStyle</span></code> encompasses these attributes</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">halign</span></code>: Horizontal alignment</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">valign</span></code>: Vertical alignment</p></li>
@@ -208,9 +216,42 @@ We use <code class="docutils literal notranslate"><span class="pre">IconStyle</s
 </div>
 <p>Executing this code generates the following image:</p>
 <figure class="align-center" id="id4">
-<a class="with-border reference internal image-reference" href="../../../_images/image23.png"><img alt="../../../_images/image23.png" class="with-border" src="../../../_images/image23.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image24.png"><img alt="../../../_images/image24.png" class="with-border" src="../../../_images/image24.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">icon with IconStyle.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can use theme’s pre-defined styles too.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="linenos"> 4</span><span class="n">height</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="linenos"> 5</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">x</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">7</span>
+<span class="linenos"> 9</span><span class="n">y</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="linenos">10</span><span class="n">icon_phosphor</span><span class="o">.</span><span class="n">airplane_taxiing</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">icon_phosphor</span><span class="o">.</span><span class="n">airplane_takeoff</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_thin&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">icon_phosphor</span><span class="o">.</span><span class="n">airplane_in_flight</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue_bold&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">icon_phosphor</span><span class="o">.</span><span class="n">airplane_tilt</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_flat&quot;</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Icon supports the following styles exclusively:</p>
+<ul class="simple">
+<li><p>thickness of icon: <code class="docutils literal notranslate"><span class="pre">thin</span></code> and <code class="docutils literal notranslate"><span class="pre">bold</span></code></p></li>
+<li><p>fill color: <code class="docutils literal notranslate"><span class="pre">flat</span></code></p></li>
+<li><p>color of icon</p></li>
+</ul>
+<p>Line style solid and dashed are not supported.</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image32.png"><img alt="../../../_images/image32.png" class="with-border" src="../../../_images/image32.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">icon with theme’s style</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -220,17 +261,17 @@ We use <code class="docutils literal notranslate"><span class="pre">IconStyle</s
 Internally, icon modules utilize icon().</p>
 <p>The function arguments are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">xy</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: Font code</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code>: Font file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xy</span></code>: Coordinates for positioning the icon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Width of the icon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: Font code representing the icon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code>: Font file used for rendering the icon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">angle</span></code>: Angle for rotating the icon (optional).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code>: Additional style configurations (optional).</p></li>
 </ul>
-<p>The arguments xy to file are mandatory, while the latter are optional.
+<p>.
 Let’s explore its usage with FontAwesome Free:</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">image3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">image4.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
@@ -280,15 +321,15 @@ Let’s explore its usage with FontAwesome Free:</p>
 </div>
 </div>
 <p>Executing this code generates the following image:</p>
-<figure class="align-center" id="id6">
-<a class="with-border reference internal image-reference" href="../../../_images/image31.png"><img alt="../../../_images/image31.png" class="with-border" src="../../../_images/image31.png" style="width: 500px;" /></a>
+<figure class="align-center" id="id8">
+<a class="with-border reference internal image-reference" href="../../../_images/image4.png"><img alt="../../../_images/image4.png" class="with-border" src="../../../_images/image4.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image3.png</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">FontAwesome-Free icons</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>While FontAwesome is widely recognized, full access necessitates a commercial license.
+<p>While FontAwesome is widely recognized, its full usage requires a commercial license.
 The free version may lack variation and style consistency.
-Therefore, we do not currently provide an icon module for it.</p>
+Therefore, drawlib does not currently provide an icon module for it.</p>
 </section>
 </section>
 

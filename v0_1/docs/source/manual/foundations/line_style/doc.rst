@@ -1,89 +1,148 @@
 ======================
-Line and Arrow Style
+Line Style
 ======================
 
-All functions which draw line takes style option as argument.
-We supports these 2 style class.
+Drawlib provides six functions for drawing lines and lines with arrowheads:
 
-* LineStyle
-* LineArrowStyle
+* ``line()``
+* ``line_curve()``
+* ``line_bezier1()``
+* ``line_bezier2()``
+* ``lines()``
+* ``lines_bezier()``
 
-As there name shows, LineStyle is used for drawing line.
-And LineArowStyle is used for drawing line which has arrow head.
+They all share the following optional arguments:
 
-We have function ``arrow()`` too.
-But it is thick and bold arrow shape. Not an arrow line.
+- ``arrowhead``: Specifies the type of arrowhead. Options are ``["", "->", "<-", "<->"]``.
+- ``width``: Specifies the line width. This should typically be configured within the style, but it is also available as an optional argument.
+- ``style``: Defines the line style. Accepts a LineStyle object or a string (style name).
+
+These optional arguments control the line's style. 
+Regarding line width, you can control it using both the ``width`` argument and the ``style`` attribute. 
+We recommend using the style attribute, as it is a visual parameter. 
+If you configure it in the style, you can change the line width by modifying the shared style. 
+However, since many users might want to change the line width easily, the width argument is provided as a shortcut.
+
+Additionally, we have a function called ``arrow()``. 
+You might think it is similar to a line with an arrowhead, but it actually draws a thick and bold arrow shape, not an arrow line.
 
 LineStyle
 ===========
 
-LineStyle has these attributes.
+The ``LineStyle`` object has the following attributes:
 
-* width: Line width. float value
-* color: Line color. RGB (0~255, 0~255, 0~255) or RGBA (0~255, 0~255, 0~255, 0~1.0). You can use Color class
-* alpha: Line alpha. 0.0 ~ 1.0. 0 is totally transparent
-* style: Line style, such as solid, dash etc
+* width: Line width, represented as a float value.
+* color: Line color, specified in RGB (0~255, 0~255, 0~255) or RGBA (0~255, 0~255, 0~255, 0~1.0). You can use the Color classes for convenience.
+* alpha: Line transparency, ranging from 0.0 (totally transparent) to 1.0 (fully opaque).
+* style: Line style, which can be one of ``["solid", "dashed", "dotted", "dashdot"]``. The default style is solid.
+* ahfill: Arrowhead fill, indicating whether the arrowhead is filled (``True``) or not (``False``). The default is ``False``.
+* ahscale: Arrowhead scale, determining the size of the arrowhead. A larger value results in a larger arrowhead. The default scale is ``20.0``.
 
-Let's check by examples.
+The first four attributes (``width``, ``color``, ``alpha``, ``style``) affect both lines and lines with arrowheads. 
+The last two attributes (``ahfill``, ``ahscale``) specifically affect lines with arrowheads.
+This structure allows for precise control over the appearance of lines and their associated arrowheads within Drawlib.
+
+It's important to note that whether the arrowhead is present or not carries logical meaning, so it is considered a function argument rather than a style attribute.
+
+
+Drawing line with style
+==========================
+
+Let's explore different line styles through examples.
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-We change style 1 by 1.
-But you can change style at same time such as ``LineStyle(color=Colors.Red, width=5, style="dashed")``.
+Running this code produces the following output:
 
 .. figure:: image1.png
     :width: 500
     :class: with-border
     :align: center
 
-    image1.png
+    lines with styles
 
-You can see line styles
+This example demonstrates various line styles applied to lines using Drawlib.
 
 
-LineArrowStyle
-=================
+Drawing line arrow with style
+================================
 
-``LineArrowStyle`` is almost similar to ``LineStyle``.
-But it has few additional attributed and having change of original attribute.
-It has these attributes.
+All line functions in Drawlib support the ``arrowhead`` argument, which allows you to add arrowheads to lines.
 
-* lwidth: Line width
-* lstyle: Line style
-* hstyle: Arrow head style
-* hscale: Arrow head scale (size)
-* color: Arrow line color
-* alpha: Arrow line alpha
+The ``arrowhead`` argument accepts one of the following parameters:
 
-To distinguish whether line and arrow head parameter, few attribute starts from ``l(line)`` and others starts from ``h(head)``.
-``hstyle`` can have these values.
+- ``""``: No arrowhead (default).
+- ``"->"``: Right arrowhead.
+- ``"<-"``: Left arrowhead.
+- ``"<->"``: Both right and left arrowheads.
 
-* ``"->:``: Arrow at end point. 
-* ``"<-:``: Arrow at start point. 
-* ``"<->:``: Arrow at both start and end point. 
-* ``"-|>:``: Filled arrow at end point. 
-* ``"<|-:``: Filled arrow at start point. 
-* ``"<|-|>:``: Filled arrow at both start and end point. 
+You can customize the visual appearance of arrowheads using the following ``LineStyle`` attributes:
 
-Let's check by example.
+* ``ahfill``: Arrowhead fill. Determines whether the arrowhead is filled (``True``) or not (``False``). Default is ``False``.
+* ``ahscale``: Arrowhead scale. Controls the size of the arrowhead. Larger values result in larger arrowheads. Default is ``20.0``.
+
+Let's see an example:
 
 .. literalinclude:: image2.py
    :language: python
    :linenos:
    :caption: image2.py
 
-We change style 1 by 1.
-But you can change style at same time such as ``LineArrowStyle(color=Colors.Red, lwidth=5, lstyle="dashed", hstyle="<->")``.
+Executing this code generates the following output:
 
 .. figure:: image2.png
     :width: 500
     :class: with-border
     :align: center
 
-    image2.png
+    arrow lines with styles
 
-To draw default arrow line, please pass ``LineArrowStyle()`` to line.
-If you don't specify style, normal line will be drawn.
+This example demonstrates lines with different arrowhead styles and visual configurations using Drawlib.
+
+
+Theme's Pre-Defined Line Styles
+=================================
+
+Drawlib provides pre-defined line styles.
+You can provide style via name easily.
+What name you can use depends on theme you choose.
+
+The style has this syntax: ``<color>_<type>_<thickness>``. 
+
+- ``<color>``: Specifies the color of the line.
+
+``<type>`` is one of thme.
+
+- (default): solid line
+- ``solid``: solid line
+- ``dashed``: dashed line
+
+``<thickness>`` is one of them
+
+- (default): regular line width
+- ``thin``: half of the default width
+- ``bold``: double the default width
+
+If the type and thickness are default, they may not be explicitly shown in the style name.
+
+Let's look at an example:
+
+.. literalinclude:: image3.py
+   :language: python
+   :linenos:
+   :caption: image3.py
+
+In our case, we use theme ``"default2"``.
+Executing this code generates the following output:
+
+.. figure:: image3.png
+    :width: 500
+    :class: with-border
+    :align: center
+
+    lines with pre-defined style names
+
+This example demonstrates lines drawn using pre-defined style names in Drawlib, showcasing different colors, line types, and thicknesses based on the specified styles.

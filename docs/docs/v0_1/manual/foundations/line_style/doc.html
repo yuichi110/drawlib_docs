@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Line and Arrow Style &mdash; drawlib 0.1 documentation</title>
+  <title>Line Style &mdash; drawlib 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
@@ -63,9 +63,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Drawing Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../line/doc.html">Drawing line</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Line and Arrow Style</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Line Style</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#linestyle">LineStyle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linearrowstyle">LineArrowStyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-line-with-style">Drawing line with style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-line-arrow-with-style">Drawing line arrow with style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theme-s-pre-defined-line-styles">Theme’s Pre-Defined Line Styles</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../shape/doc.html">Drawing Shape</a></li>
@@ -121,7 +123,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Line and Arrow Style</li>
+      <li class="breadcrumb-item active">Line Style</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/manual/foundations/line_style/doc.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -131,28 +133,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="line-and-arrow-style">
-<h1>Line and Arrow Style<a class="headerlink" href="#line-and-arrow-style" title="Link to this heading"></a></h1>
-<p>All functions which draw line takes style option as argument.
-We supports these 2 style class.</p>
+  <section id="line-style">
+<h1>Line Style<a class="headerlink" href="#line-style" title="Link to this heading"></a></h1>
+<p>Drawlib provides six functions for drawing lines and lines with arrowheads:</p>
 <ul class="simple">
-<li><p>LineStyle</p></li>
-<li><p>LineArrowStyle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_curve()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_bezier1()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_bezier2()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lines()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lines_bezier()</span></code></p></li>
 </ul>
-<p>As there name shows, LineStyle is used for drawing line.
-And LineArowStyle is used for drawing line which has arrow head.</p>
-<p>We have function <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> too.
-But it is thick and bold arrow shape. Not an arrow line.</p>
+<p>They all share the following optional arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arrowhead</span></code>: Specifies the type of arrowhead. Options are <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;,</span> <span class="pre">&quot;-&gt;&quot;,</span> <span class="pre">&quot;&lt;-&quot;,</span> <span class="pre">&quot;&lt;-&gt;&quot;]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Specifies the line width. This should typically be configured within the style, but it is also available as an optional argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code>: Defines the line style. Accepts a LineStyle object or a string (style name).</p></li>
+</ul>
+<p>These optional arguments control the line’s style.
+Regarding line width, you can control it using both the <code class="docutils literal notranslate"><span class="pre">width</span></code> argument and the <code class="docutils literal notranslate"><span class="pre">style</span></code> attribute.
+We recommend using the style attribute, as it is a visual parameter.
+If you configure it in the style, you can change the line width by modifying the shared style.
+However, since many users might want to change the line width easily, the width argument is provided as a shortcut.</p>
+<p>Additionally, we have a function called <code class="docutils literal notranslate"><span class="pre">arrow()</span></code>.
+You might think it is similar to a line with an arrowhead, but it actually draws a thick and bold arrow shape, not an arrow line.</p>
 <section id="linestyle">
 <h2>LineStyle<a class="headerlink" href="#linestyle" title="Link to this heading"></a></h2>
-<p>LineStyle has these attributes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code> object has the following attributes:</p>
 <ul class="simple">
-<li><p>width: Line width. float value</p></li>
-<li><p>color: Line color. RGB (0~255, 0~255, 0~255) or RGBA (0~255, 0~255, 0~255, 0~1.0). You can use Color class</p></li>
-<li><p>alpha: Line alpha. 0.0 ~ 1.0. 0 is totally transparent</p></li>
-<li><p>style: Line style, such as solid, dash etc</p></li>
+<li><p>width: Line width, represented as a float value.</p></li>
+<li><p>color: Line color, specified in RGB (0~255, 0~255, 0~255) or RGBA (0~255, 0~255, 0~255, 0~1.0). You can use the Color classes for convenience.</p></li>
+<li><p>alpha: Line transparency, ranging from 0.0 (totally transparent) to 1.0 (fully opaque).</p></li>
+<li><p>style: Line style, which can be one of <code class="docutils literal notranslate"><span class="pre">[&quot;solid&quot;,</span> <span class="pre">&quot;dashed&quot;,</span> <span class="pre">&quot;dotted&quot;,</span> <span class="pre">&quot;dashdot&quot;]</span></code>. The default style is solid.</p></li>
+<li><p>ahfill: Arrowhead fill, indicating whether the arrowhead is filled (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>ahscale: Arrowhead scale, determining the size of the arrowhead. A larger value results in a larger arrowhead. The default scale is <code class="docutils literal notranslate"><span class="pre">20.0</span></code>.</p></li>
 </ul>
-<p>Let’s check by examples.</p>
+<p>The first four attributes (<code class="docutils literal notranslate"><span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">style</span></code>) affect both lines and lines with arrowheads.
+The last two attributes (<code class="docutils literal notranslate"><span class="pre">ahfill</span></code>, <code class="docutils literal notranslate"><span class="pre">ahscale</span></code>) specifically affect lines with arrowheads.
+This structure allows for precise control over the appearance of lines and their associated arrowheads within Drawlib.</p>
+<p>It’s important to note that whether the arrowhead is present or not carries logical meaning, so it is considered a function argument rather than a style attribute.</p>
+</section>
+<section id="drawing-line-with-style">
+<h2>Drawing line with style<a class="headerlink" href="#drawing-line-with-style" title="Link to this heading"></a></h2>
+<p>Let’s explore different line styles through examples.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -181,40 +204,31 @@ But it is thick and bold arrow shape. Not an arrow line.</p>
 </pre></div>
 </div>
 </div>
-<p>We change style 1 by 1.
-But you can change style at same time such as <code class="docutils literal notranslate"><span class="pre">LineStyle(color=Colors.Red,</span> <span class="pre">width=5,</span> <span class="pre">style=&quot;dashed&quot;)</span></code>.</p>
+<p>Running this code produces the following output:</p>
 <figure class="align-center" id="id2">
 <a class="with-border reference internal image-reference" href="../../../_images/image19.png"><img alt="../../../_images/image19.png" class="with-border" src="../../../_images/image19.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">lines with styles</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>You can see line styles</p>
+<p>This example demonstrates various line styles applied to lines using Drawlib.</p>
 </section>
-<section id="linearrowstyle">
-<h2>LineArrowStyle<a class="headerlink" href="#linearrowstyle" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">LineArrowStyle</span></code> is almost similar to <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>.
-But it has few additional attributed and having change of original attribute.
-It has these attributes.</p>
+<section id="drawing-line-arrow-with-style">
+<h2>Drawing line arrow with style<a class="headerlink" href="#drawing-line-arrow-with-style" title="Link to this heading"></a></h2>
+<p>All line functions in Drawlib support the <code class="docutils literal notranslate"><span class="pre">arrowhead</span></code> argument, which allows you to add arrowheads to lines.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arrowhead</span></code> argument accepts one of the following parameters:</p>
 <ul class="simple">
-<li><p>lwidth: Line width</p></li>
-<li><p>lstyle: Line style</p></li>
-<li><p>hstyle: Arrow head style</p></li>
-<li><p>hscale: Arrow head scale (size)</p></li>
-<li><p>color: Arrow line color</p></li>
-<li><p>alpha: Arrow line alpha</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>: No arrowhead (default).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-&gt;&quot;</span></code>: Right arrowhead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;-&quot;</span></code>: Left arrowhead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;-&gt;&quot;</span></code>: Both right and left arrowheads.</p></li>
 </ul>
-<p>To distinguish whether line and arrow head parameter, few attribute starts from <code class="docutils literal notranslate"><span class="pre">l(line)</span></code> and others starts from <code class="docutils literal notranslate"><span class="pre">h(head)</span></code>.
-<code class="docutils literal notranslate"><span class="pre">hstyle</span></code> can have these values.</p>
+<p>You can customize the visual appearance of arrowheads using the following <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code> attributes:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-&gt;:</span></code>: Arrow at end point.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;-:</span></code>: Arrow at start point.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;-&gt;:</span></code>: Arrow at both start and end point.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-|&gt;:</span></code>: Filled arrow at end point.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;|-:</span></code>: Filled arrow at start point.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;|-|&gt;:</span></code>: Filled arrow at both start and end point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ahfill</span></code>: Arrowhead fill. Determines whether the arrowhead is filled (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ahscale</span></code>: Arrowhead scale. Controls the size of the arrowhead. Larger values result in larger arrowheads. Default is <code class="docutils literal notranslate"><span class="pre">20.0</span></code>.</p></li>
 </ul>
-<p>Let’s check by example.</p>
+<p>Let’s see an example:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">image2.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -253,16 +267,76 @@ It has these attributes.</p>
 </pre></div>
 </div>
 </div>
-<p>We change style 1 by 1.
-But you can change style at same time such as <code class="docutils literal notranslate"><span class="pre">LineArrowStyle(color=Colors.Red,</span> <span class="pre">lwidth=5,</span> <span class="pre">lstyle=&quot;dashed&quot;,</span> <span class="pre">hstyle=&quot;&lt;-&gt;&quot;)</span></code>.</p>
+<p>Executing this code generates the following output:</p>
 <figure class="align-center" id="id4">
 <a class="with-border reference internal image-reference" href="../../../_images/image27.png"><img alt="../../../_images/image27.png" class="with-border" src="../../../_images/image27.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">image2.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">arrow lines with styles</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>To draw default arrow line, please pass <code class="docutils literal notranslate"><span class="pre">LineArrowStyle()</span></code> to line.
-If you don’t specify style, normal line will be drawn.</p>
+<p>This example demonstrates lines with different arrowhead styles and visual configurations using Drawlib.</p>
+</section>
+<section id="theme-s-pre-defined-line-styles">
+<h2>Theme’s Pre-Defined Line Styles<a class="headerlink" href="#theme-s-pre-defined-line-styles" title="Link to this heading"></a></h2>
+<p>Drawlib provides pre-defined line styles.
+You can provide style via name easily.
+What name you can use depends on theme you choose.</p>
+<p>The style has this syntax: <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;thickness&gt;</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;color&gt;</span></code>: Specifies the color of the line.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> is one of thme.</p>
+<ul class="simple">
+<li><p>(default): solid line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">solid</span></code>: solid line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dashed</span></code>: dashed line</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;thickness&gt;</span></code> is one of them</p>
+<ul class="simple">
+<li><p>(default): regular line width</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thin</span></code>: half of the default width</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: double the default width</p></li>
+</ul>
+<p>If the type and thickness are default, they may not be explicitly shown in the style name.</p>
+<p>Let’s look at an example:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image3.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">text</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;no style&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">line</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="linenos"> 8</span><span class="n">text</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="s1">&#39;style=&quot;red&quot;&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">line</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">text</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="s1">&#39;style=&quot;red_solid&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">line</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_solid&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">text</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="s1">&#39;style=&quot;red_dashed&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">line</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_dashed&quot;</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;style=&quot;red_solid_thin&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">line</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_solid_thin&quot;</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="s1">&#39;style=&quot;red_solid_bold&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">line</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_solid_bold&quot;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="s1">&#39;style=&quot;dashed&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">20</span><span class="n">line</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">text</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="s1">&#39;style=&quot;bold&quot;&#39;</span><span class="p">)</span>
+<span class="linenos">22</span><span class="n">line</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>In our case, we use theme <code class="docutils literal notranslate"><span class="pre">&quot;default2&quot;</span></code>.
+Executing this code generates the following output:</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image35.png"><img alt="../../../_images/image35.png" class="with-border" src="../../../_images/image35.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">lines with pre-defined style names</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>This example demonstrates lines drawn using pre-defined style names in Drawlib, showcasing different colors, line types, and thicknesses based on the specified styles.</p>
 </section>
 </section>
 

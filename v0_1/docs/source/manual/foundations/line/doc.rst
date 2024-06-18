@@ -2,7 +2,7 @@
 Drawing line
 ==================
 
-Drawlib has 5 line functions.
+Drawlib provides six functions for drawing lines:
 
 * ``line()``
 * ``line_curve()``
@@ -11,232 +11,268 @@ Drawlib has 5 line functions.
 * ``lines()``
 * ``lines_bezier()``
 
-We will explain them one by one.
-All of them takes these style classes optionally.
+We will explain each of these functions in detail. 
+They all share the following optional arguments:
 
-* ``LineStyle``
-* ``LineArrowStyle``
+- ``arrowhead``: Specifies the type of arrowhead. Options are ``["", "->", "<-", "<->"]``.
+- ``width``: Specifies the line width. This should typically be configured within the style, but it is also available as an optional argument.
+- ``style``: Defines the line style. Accepts a LineStyle object or a string (style name).
 
-As these name explains, LineStyle is for line and LineArrowStyle is for arrow line.
-If style is not provided, default line style is applied.
-We explain these styles on other page.
+Details on these options will be covered in the next section on line styles (see the following page).
 
 line()
 =======
 
-Function ``line()`` is a most basic function which draw line.
-It takes 3 arguments.
+The ``line()`` function is the most basic function for drawing lines. 
+It requires two mandatory arguments and accepts three optional arguments.
 
-* xy1: start point
-* xy2: end point
-* style
+* xy1: The start point of the line
+* xy2: The end point of the line
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
 
-Lets's check by example.
+Let's look at an example:
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-We draw line from (10, 10) to (90, 40) without specifying style.
-It generate this output.
+In this example, we draw a line from (10, 10) to (90, 40) without specifying a style. 
+This generates the following output:
 
 .. figure:: image1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image1.png
+    straight line from xy1 to xy2
 
-line_curve()
+
+line_curved()
 ==============
 
-Function ``line_curve()`` is easy to draw curved line.
-Functions ``line_bezier1()`` and ``line_bezier2()`` are also able draw curved lines.
-However they requires complex curve controlling rather than this function.
+The ``line_curved()`` function makes it easy to draw curved lines. 
+While ``line_bezier1()`` and ``line_bezier2()`` can also draw curved lines, they require more complex curve control compared to ``line_curved()``.
 
-This function takes 4 arguments.
+It requires three mandatory arguments and accepts three optional arguments.
 
-* xy1
-* xy2
-* bend: additional length rather than direct connection
-* style
+* xy1: The start point of the line
+* xy2: The end point of the line
+* bend: The additional length beyond a direct connection, controlling the curvature.
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
 
-For example, suppose xy1 is (10, 10) and xy2 is (10, 20).
-The distance of them is 10.
-When we set bend 0.2, draw line from (10, 10) to (10, 20) with length 12(10 x 1.2).
-When we set bend 0.4, length is 14(10 x 1.4).
+For example, suppose xy1 is (10, 10) and xy2 is (10, 20). 
+The distance between these points is 10 units.
 
-We can also set minus value to bend.
-The length is same to plus value, but bending side becomes reverse.
-Let's check examples.
+- When ``bend`` is set to 0.2, the line is drawn from (10, 10) to (10, 20) with a length of 12 units (10 x 1.2).
+- When ``bend`` is set to 0.4, the length is 14 units (10 x 1.4).
+
+Negative values can also be used for bend, which maintains the length but reverses the bending direction. 
+Let's check some examples:
 
 .. literalinclude:: image2.py
    :language: python
    :linenos:
    :caption: image2.py
 
-We set 
+This code generates the following output:
 
 .. figure:: image2.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image2.png
+    curved line from xy1 to xy2
+
 
 line_bezier1()
 ===============
 
-Function ``line_bezier1()`` draws bezier line with 1 control point.
-It takes these arguments.
+The ``line_bezier1()`` function draws a Bézier curve with one control point. 
+It requires three mandatory arguments and accepts three optional arguments.
 
-* xy1
-* cp: bezier control point
-* xy2
-* style
+* xy1: The start point of the line
+* cp: The Bézier control point.
+* xy2: The end point of the line
+* bend: The additional length beyond a direct connection, controlling the curvature.
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
+
+Bézier curves are a popular method for drawing smooth, curved lines. 
+If you are not familiar with Bézier curves, it is recommended to research and understand the concept first. 
+
+This code generates the following output:
 
 .. literalinclude:: image3.py
    :language: python
    :linenos:
    :caption: image3.py
 
-We set 
+It generate this output.
 
 .. figure:: image3.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image3.png
+    Bézier curves from xy1 to xy2
 
 line_bezier2()
 ===============
 
-Function ``line_bezier2()`` draws bezier line with 2 control point.
-It takes these arguments.
+The ``line_bezier2()`` function draws a Bézier curve with two control points. 
+It requires four mandatory arguments and accepts three optional arguments.
 
-* xy1
-* cp1: bezier control point 1
-* cp2: bezier control point 2
-* xy2
-* style
+* xy1: The start point of the line
+* cp1: The first Bézier control point.
+* cp2: The seconde Bézier control point.
+* xy2: The end point of the line
+* bend: The additional length beyond a direct connection, controlling the curvature.
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
+
+Drawing a Bézier curve with two control points is a popular method for creating smooth, curved lines. 
+If you are not familiar with Bézier curves, it is recommended to research and understand the concept first.
+
+Here is an example code:
 
 .. literalinclude:: image4.py
    :language: python
    :linenos:
    :caption: image4.py
 
-We set 
+Executing this code generates the following output:
 
 .. figure:: image4.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image4.png
+    Bézier curves from xy1 to xy2
 
 lines()
 ==========
 
-Function ``lines()`` draw line which pass provided points.
-It takes these arguments.
+The ``lines()`` function draws a line that passes through a series of provided points
+It requires one mandatory arguments and accepts three optional arguments.
 
-* xys
-* style
+* xys: A list of (x, y) tuples representing the points the line should pass through.
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
+
+The ``xys`` argument differs from the previous functions, but it is simply a list of (x, y) coordinates, such as ``[(10, 10), (20, 40), (30, 10), (40, 40)]``.
+
+Here is an example code:
 
 .. literalinclude:: image5.py
    :language: python
    :linenos:
    :caption: image5.py
 
-We set 
+It generate this output.
 
 .. figure:: image5.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image5.png
+    lines which passes list of xy
 
 lines_bezier()
 ===============
 
-Function ``lines_bezier()`` is similar to ``lines()``.
-But it can draw bezier lines from points to points.
-It takes these arguments.
+The ``lines_bezier()`` function is similar to ``lines()``, but it can draw multiple straight lines, 
+Bézier curves with one control point (bezier1), or Bézier curves with two control points (bezier2) from point to point. 
 
-* xy: start point
-* path_points: list of "tuple of bezier line"
-* style
+It takes two mandatory arguments and three optional arguments.
 
-Difficult part is path_points.
-It takes 3 type of tuple.
+* xy: The starting point.
+* path_points: A list of tuples defining the path.
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
 
-* (x, y): draw last point to (x, y)
-* (cp_x, cp_y, x, y): draw bezier1 line from last point to (x, y) with 1 control point
-* (cp1_x, cp1_y, cp2_x, cp2_y, x, y): draw bezier2 line from last point to (x, y) with 2 control points
+The ``path_points`` argument can be complex, as it accepts three types of tuples:
 
-Let's check the how it works with example.
+* (x, y): Draws a straight line from the last point to (x, y).
+* ((cp_x, cp_y), (x, y)): Draws a bezier1 line from the last point to (x, y) with one control point (cp_x, cp_y).
+* ((cp1_x, cp1_y), (cp2_x, cp2_y), (x, y)): Draws a bezier2 line from the last point to (x, y) with two control points (cp1_x, cp1_y) and (cp2_x, cp2_y).
+
+Element of ``path_points`` are very similar to the previous functions line(), line_bezier1(), and line_bezier2(). 
+We set almost the same arguments for elements of the path_points.
+
+Let's see how it works with an example:
 
 .. literalinclude:: image6.py
    :language: python
    :linenos:
    :caption: image6.py
 
-We use 3 type of tuple as element of ``path_points``.
-They becomes line, bezier1 line, bezier2 line.
-Executing this code generate this output.
+In this example, we use all three types of tuples as elements of path_points. 
+They will create a straight line, a bezier1 line, and a bezier2 line. 
+
+Executing this code generates the following output:
 
 .. figure:: image6.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
     image6.png
 
-This function might be useful when you want to draw curved line from shape to shape.
-
-.. literalinclude:: image7.py
-   :language: python
-   :linenos:
-   :caption: image7.py
-
-We use 3 type of tuple as element of ``path_points``.
-They becomes line, bezier1 line, bezier2 line.
-Executing this code generate this output.
+This function can be used to draw curved lines from shape to shape like this:
 
 .. figure:: image7.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
     image7.png
 
-If you requires precise control, please use this function.
-However, if you want to draw simple curve line, we recommend using ``lines_curved()`` instead.
+For precise control, use this function. 
+However, if you want to draw a simple curved line, we recommend using ``lines_curved()`` instead.
 
 
 lines_curved()
 ===============
 
-Function ``lines_curve()`` is syntax sugar of ``lines_bezier()``.
-It will automatically add bezier1 curve effect to lines with length ``r``.
+The ``lines_curved()`` function is a simplified syntax for ``lines_bezier()``.
+
+From an argument perspective, this function is almost the same as ``lines()``, but it includes an additional argument ``r`` which specifies the length of the curve.
+This automatically applies a bezier1 curve effect to lines with the specified length ``r``. 
+If you want to add related curves to all vertices, this function is very useful.
+
+It takes two mandatory arguments and three optional arguments.
+
+* xys: A list of (x, y) tuples representing the points the line should pass through.
+* r: The length of the curve.
+* (optional) arrowhead: Specifies the type of arrow head
+* (optional) width: The width of the line
+* (optional) style: The style of the line
+
+Here is an example code:
 
 .. literalinclude:: image8.py
    :language: python
    :linenos:
    :caption: image8.py
 
-The function is almost same to ``lines()`` but having arg ``r`` which means length of curve.
-If you want to add related curves for all vertex, this function is very useful.
-Executing this code generate this output.
+Executing this code generates the following output:
 
 .. figure:: image8.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
     lines_curve()
 
-The red dashed line length is value of r. If you set large value, the curve becomes big.
+The red dashed support line length is the value of ``r``. 
+If you set a large value, the curve becomes bigger. 
+However, be careful: ``r`` should be smaller than the distance between points.

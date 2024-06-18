@@ -51,9 +51,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/about/doc.html">About drawlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/install/doc.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/introductions/lib_design/doc.html">Drawlib from a High Perspective</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/quick_start/doc.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual/introductions/other_version_docs/doc.html">Other version docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/introductions/other_version_docs/doc.html">Other Version Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul>
@@ -136,58 +136,145 @@ Witness Python code in action generating a circular image:</p>
 <p><span class="caption-text">Code makes Illustration</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see, we define circle location, size and styles.
-Running this code generate the image.</p>
-<section id="css-like-styling">
-<h2>CSS like Styling<a class="headerlink" href="#css-like-styling" title="Link to this heading"></a></h2>
-<p>At last example, we define style at the derawing item.
-It is easy to understand, but repeating styling at items are burden and tending to loose consistency.
-We normaly use theme and its styling for changing drawing items style.</p>
-<p>Drawlib’s style is similar to CSS.
-You define style at 1 location and reference it every where.
-Then, the style is applied to them automatically.
-You don’t need to provide detail style for each drawing items.</p>
-<p>Here is an example of using style.</p>
+<p>As you can see, we define circle location, size and styles at left side code.
+Executing it generate right side circle image.
+You will get illustration as you code.</p>
+<section id="various-drawing-items">
+<h2>Various Drawing Items<a class="headerlink" href="#various-drawing-items" title="Link to this heading"></a></h2>
+<p>Drawlib offers a variety of drawing items with different styles.
+Below is a sample image showcasing the major drawing items with varying styles.</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="_images/image2_default2.png"><img alt="_images/image2_default2.png" class="with-border" src="_images/image2_default2.png" style="width: 800px;" /></a>
+<a class="with-border reference internal image-reference" href="_images/image_items.png"><img alt="_images/image_items.png" class="with-border" src="_images/image_items.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-text">CSS like styling feature</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Various drawing methods</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>This code has around 20+ drawing items which includes background gray area.
-You can see variety of drawing styles (default, flat, solid, dashed).
-But total code line is less than 100.</p>
-<p>Drawlib provides group of styles which is called <strong>theme</strong>.
-You can switch theme easily.
-For example, applying <code class="docutils literal notranslate"><span class="pre">monochrome</span></code> theme make image monochrome.</p>
-<figure class="align-center">
-<a class="with-border reference internal image-reference" href="_images/image2_monochrome.png"><img alt="_images/image2_monochrome.png" class="with-border" src="_images/image2_monochrome.png" style="width: 800px;" /></a>
+<ul class="simple">
+<li><p>Icon: Over 1500 patterns available in 5 styles (thin, light, regular, bold, fill)</p></li>
+<li><p>Image: Easily apply effects</p></li>
+<li><p>Line: Supports many styles</p></li>
+<li><p>Shape: Around 20 patterns</p></li>
+<li><p>Text: Various sizes, fonts, and weights (thin, regular, bold), supporting major local languages</p></li>
+</ul>
+<p>Drawlib is inspired by the features of Microsoft PowerPoint.
+We aim to implement as many popular features as possible.
+In addition to basic drawing features, Drawlib includes advanced features such as a code highlighter, implemented as smart art.</p>
+</section>
+<section id="concept-apply-style-to-content">
+<h2>Concept: Apply Style to Content<a class="headerlink" href="#concept-apply-style-to-content" title="Link to this heading"></a></h2>
+<p>The parameters of a circle include coordinates, size, color, etc.
+Many drawing tools treat these parameters uniformly.
+However, we divide them into two parts:</p>
+<ul class="simple">
+<li><p>Content: The type of drawing items, such as coordinates, size, angle, etc.</p></li>
+<li><p>Style: Elements like color, line width, and font.</p></li>
+</ul>
+<p>If you are familiar with HTML/CSS, content is analogous to HTML, and style is analogous to CSS.
+Just as it’s recommended to define styles in CSS and reference them in HTML,
+Drawlib encourages defining styles separately and referencing them in the illustration code.</p>
+<p>From an artistic perspective, the mix of content and style is essential.
+However, for illustrations that do not require an artistic look, the content is more critical than the styles.
+The color or width of a line is less important than where the line is drawn.</p>
+<p>Separating content and style allows you to focus on the essential content first.
+Once the content is created, you can modify its appearance by changing styles outside of the content.
+Additionally, you can apply one style to many content items if they are separated.
+Using the same style for many items is crucial for achieving consistency in illustrations.</p>
+</section>
+<section id="how-style-works">
+<h2>How Style Works<a class="headerlink" href="#how-style-works" title="Link to this heading"></a></h2>
+<p>In the first example code, we define the style <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> for the drawing item <code class="docutils literal notranslate"><span class="pre">circle()</span></code>.
+This approach is straightforward, but repeating styling for each item can be burdensome and may lead to inconsistencies.
+Instead, we typically use themes and their styles to change the drawing item styles consistently.</p>
+<p>Drawlib’s style system is similar to CSS.
+You define the style in one location and reference it everywhere.
+The style is then automatically applied to the items.
+This means you don’t need to provide detailed styles for each drawing item.</p>
+<p>Here is a style code similar to CSS.
+This code itself doesn’t generate any illustration but contains the style definitions.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">docs/style.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># Define ShapeStyle with name &quot;mystyle&quot;</span>
+<span class="linenos"> 4</span><span class="n">dtheme</span><span class="o">.</span><span class="n">shapestyles</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+<span class="linenos"> 5</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span>
+<span class="linenos"> 6</span>        <span class="n">lstyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span>
+<span class="linenos"> 7</span>        <span class="n">lcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">BlueViolet</span><span class="p">,</span>
+<span class="linenos"> 8</span>        <span class="n">lwidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="linenos"> 9</span>        <span class="n">fcolor</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">Turquoise</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="p">),</span>
+<span class="linenos">11</span>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mystyle&quot;</span><span class="p">,</span>
+<span class="linenos">12</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># Define TextStyle with name &quot;mystyle&quot;</span>
+<span class="linenos">15</span><span class="n">dtheme</span><span class="o">.</span><span class="n">textstyles</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+<span class="linenos">16</span>    <span class="n">style</span><span class="o">=</span><span class="n">TextStyle</span><span class="p">(</span>
+<span class="linenos">17</span>        <span class="n">color</span><span class="o">=</span><span class="n">Colors140</span><span class="o">.</span><span class="n">BlueViolet</span><span class="p">,</span>
+<span class="linenos">18</span>        <span class="n">font</span><span class="o">=</span><span class="n">FontSansSerif</span><span class="o">.</span><span class="n">RALEWAYS_REGULAR</span><span class="p">,</span>
+<span class="linenos">19</span>        <span class="n">size</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span>
+<span class="linenos">20</span>    <span class="p">),</span>
+<span class="linenos">21</span>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mystyle&quot;</span><span class="p">,</span>
+<span class="linenos">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>And here is an illustration code similar to HTML.
+It imports the style you defined earlier.
+When importing it, the style definitions are automatically loaded.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">docs/image.py</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># Import styles like HTML reference CSS</span>
+<span class="linenos"> 4</span><span class="kn">import</span> <span class="nn">docs.style</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># Configure drawing canvas size</span>
+<span class="linenos"> 7</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># Use predefined styles</span>
+<span class="linenos">10</span><span class="n">circle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;mystyle&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">text</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Circle&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;mystyle&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">rectangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;mystyle&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">text</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Rectangle&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;mystyle&quot;</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Save canvas</span>
+<span class="linenos">16</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Executing the illustration code generates this image.
+As you can see, the pre-defined styles are applied correctly.</p>
+<figure class="align-center" id="id5">
+<a class="with-border reference internal image-reference" href="_images/image.png"><img alt="_images/image.png" class="with-border" src="_images/image.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-text">Illustration code references style code</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-<p>You can customize drawlib’s pre-defined theme if you wants.
-For example, we changed fonts from default “NotoSanserif CJK” to “Raleways”.
-You don’t need to touch content code (same to HTML file concept), but just change theme’s styling (same to CSS file concept).
-If you wish, you are able to create your own theme.</p>
+<p>You can define your own styles like this.
+However, we recommend using themes rather than creating your own styles.
+Themes come with many colors and predefined popular styles.
+If you don’t require very fancy styles, the theme styles might be sufficient.
+Please take a look at the quick-start documentation first.</p>
 </section>
 <section id="good-to-build-lots-of-images">
 <h2>Good to build lots of images<a class="headerlink" href="#good-to-build-lots-of-images" title="Link to this heading"></a></h2>
 <p>In contemporary software development, version control extends beyond code to encompass documentation, all managed seamlessly through Git.
-While I compose technical documents and literature using VSCode and Markdown, hitherto, I relied on PowerPoint for illustration.
+While I compose technical documents and literature using VSCode and Markdown, I previously relied on PowerPoint for illustrations.
 However, this approach lacks compatibility with versioning documentation images.</p>
-<p>Enter drawlib, a solution meticulously developed to address this quandary.
-Not only can textual documentation be version-controlled, but illustration code can also be managed through Git, facilitating automation of build tasks via CI/CD pipelines.</p>
-<figure class="align-center" id="id3">
+<p>Enter Drawlib, a solution meticulously developed to address this issue.
+With Drawlib, not only can textual documentation be version-controlled, but illustration code can also be managed through Git.
+This facilitates the automation of build tasks via scripting or CI/CD pipelines.</p>
+<figure class="align-center">
 <a class="with-border reference internal image-reference" href="_images/image3.png"><img alt="_images/image3.png" class="with-border" src="_images/image3.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-text">Doc image/text build flow.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
-</figcaption>
 </figure>
-<p>There are no big difference from markdown document management even if drawlib is added.
-If you create your doc from markdown or related one, you can adopt drawlib easily.</p>
-<p>By the way, this image itself is created by drawlib.
-It might be good real world example of drawlib’s illustration.
-We build hundreads of these kind of images from image codes with same style for writing books.</p>
-<p>Refer to the Quickstart guide for a comprehensive understanding of drawlib’s underlying concepts.
-All images within this documentation are generated using drawlib.</p>
+<p>Integrating Drawlib into your workflow is straightforward and doesn’t significantly differ from managing markdown documents.
+If you create your documentation using markdown or a similar format, you can easily adopt drawlib.</p>
+<p>Incidentally, the image above is created using Drawlib, serving as a practical example of Drawlib’s capabilities.
+We generate hundreds of such images from image codes with consistent styles for writing books.</p>
+<p>Refer to the Quickstart guide for a comprehensive understanding of Drawlib’s underlying concepts.
+Almost all images within this documentation are generated using Drawlib.
+Exceptions include only screenshots and original image files such as the Python logo.
+Even the source code image in the first example is generated by Drawlib using its smart art feature.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
 <ul>
@@ -197,16 +284,18 @@ All images within this documentation are generated using drawlib.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/install/doc.html">Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manual/introductions/install/doc.html#installed-successed-but-unable-to-run">Installed successed but unable to run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/introductions/install/doc.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="manual/introductions/lib_design/doc.html">Drawlib Overview</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="manual/introductions/lib_design/doc.html">Drawlib from a High Perspective</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="manual/introductions/lib_design/doc.html#abstract-api-structure">Abstract API Structure</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/introductions/quick_start/doc.html">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#import-drawlib">Import drawlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#configure-canvas">Configure canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#standard-procedure-for-drawing-with-drawlib">Standard Procedure for Drawing with Drawlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#importing-drawlib">Importing Drawlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#configuring-the-canvas-size-and-dpi">Configuring the Canvas Size and DPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#configuring-the-canvas-grid">Configuring the Canvas Grid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#coordinate-and-alignment">Coordinate and alignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#drawing-icon">Drawing icon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#drawing-image">Drawing image</a></li>
@@ -216,7 +305,7 @@ All images within this documentation are generated using drawlib.</p>
 <li class="toctree-l2"><a class="reference internal" href="manual/introductions/quick_start/doc.html#use-official-theme">Use Official Theme</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="manual/introductions/other_version_docs/doc.html">Other version docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/introductions/other_version_docs/doc.html">Other Version Documentation</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -283,6 +372,7 @@ All images within this documentation are generated using drawlib.</p>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#accessing-theme-styles">Accessing Theme Styles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#accessing-theme-colors">Accessing Theme Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#rename-style-name">Rename Style Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/foundations/theme/doc.html#predefined-rich-themes">Predefined Rich Themes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual/foundations/build_many/doc.html">Building many images</a><ul>

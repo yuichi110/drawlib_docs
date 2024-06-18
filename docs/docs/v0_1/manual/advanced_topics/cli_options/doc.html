@@ -52,9 +52,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib from a High Perspective</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other version docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other Version Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul>
@@ -148,6 +148,27 @@ However, <code class="docutils literal notranslate"><span class="pre">drawlib</s
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command has <code class="docutils literal notranslate"><span class="pre">-h</span></code> option which shows command help.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ drawlib -h
+usage: drawlib [-h] [-v] [--purge_font_cache] [--disable_auto_clear] [--enable_auto_initialize] [--quiet] [--verbose] [--developer] ...
+
+Ilustration as code by python
+
+positional arguments:
+file_or_directory     Target python file or directory which contains python codes
+
+optional arguments:
+-h, --help            show this help message and exit
+-v, --version         Show version.
+--purge_font_cache    Purge cached font files.
+--disable_auto_clear  Disable clearing canvas per executing drawing code files.
+--enable_auto_initialize
+                        Enable initializing theme/canvas/image_cache per executing drawing code files.
+--quiet               Enable quiet logging. show only error messages
+--verbose             Enable verbose logging.
+--debug               Enable verbose logging. Equivalent to option &quot;--verbose&quot;.
+--developer           Enable verbose logging. Disable error handling for library users.
+</pre></div>
+</div>
 <p>Auto <code class="docutils literal notranslate"><span class="pre">clear()</span></code> is enabled by default.
 You can disable it via <code class="docutils literal notranslate"><span class="pre">--disable_auto_clear</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">clear()</span></code> doesn’t wipe theme settings and image cache.

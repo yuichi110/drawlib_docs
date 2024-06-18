@@ -74,10 +74,10 @@ And use it for import module name.
 
 Here is a sample code.
 
-.. literalinclude:: ../../../docs/chap01/image1.py
+.. literalinclude:: ../../../../../samples/build_many/docs/chap01/image1.py
    :language: python
    :linenos:
-   :caption: docs.chap01.image1.py
+   :caption: docs/chap01/image1.py
 
 As you can see, it imports ``style.py`` and ``util.py``.
 The module name has parent directories from the root.
@@ -200,48 +200,48 @@ Sample Codes and Its Outputs
 ===============================
 
 
-.. literalinclude:: ../../../docs/commons/style.py
+.. literalinclude:: ../../../../../samples/build_many/docs/commons/style.py
    :language: python
    :linenos:
-   :caption: docs.commons.style.py
+   :caption: docs/commons/style.py
 
-.. literalinclude:: ../../../docs/commons/util.py
+.. literalinclude:: ../../../../../samples/build_many/docs/commons/util.py
    :language: python
    :linenos:
-   :caption: docs.commons.util.py
+   :caption: docs/commons/util.py
 
-.. literalinclude:: ../../../docs/chap01/image1.py
+.. literalinclude:: ../../../../../samples/build_many/docs/chap01/image1.py
    :language: python
    :linenos:
-   :caption: docs.chap01.image1.py
+   :caption: docs/chap01/image1.py
 
-.. figure:: ../../../docs/chap01/image1.png
+.. figure:: ../../../../../samples/build_many/docs/chap01/image1.png
     :width: 600
     :class: with-border
     :align: center
 
-    output image of docs.chap01.image1.py
+    output image of docs/chap01/image1.py
 
-.. literalinclude:: ../../../docs/chap01/image2.py
+.. literalinclude:: ../../../../../samples/build_many/docs/chap01/image2.py
    :language: python
    :linenos:
-   :caption: docs.chap01.image2.py
+   :caption: docs/chap01/image2.py
 
-.. figure:: ../../../docs/chap01/image2.png
+.. figure:: ../../../../../samples/build_many/docs/chap01/image2.png
     :width: 600
     :class: with-border
     :align: center
 
-    output image of docs.chap01.image2.py
+    output image of docs/chap01/image2.py
 
-.. literalinclude:: ../../../docs/chap02/image1.py
+.. literalinclude:: ../../../../../samples/build_many/docs/chap02/image1.py
    :language: python
    :linenos:
-   :caption: docs.chap02.image1.py
+   :caption: docs/chap02/image1.py
 
-.. figure:: ../../../docs/chap02/image1.png
+.. figure:: ../../../../../samples/build_many/docs/chap02/image1.png
     :width: 600
     :class: with-border
     :align: center
 
-    output image of docs.chap02.image1.py
+    output image of doc/schap02/image1.py

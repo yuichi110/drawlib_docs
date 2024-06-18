@@ -52,9 +52,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib from a High Perspective</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other version docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other Version Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul class="current">
@@ -426,7 +426,7 @@ Executing this code generate this output.</p>
 <span class="linenos">10</span>        <span class="p">((</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">25</span><span class="p">)),</span>
 <span class="linenos">11</span>        <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
 <span class="linenos">12</span>    <span class="p">],</span>
-<span class="linenos">13</span>    <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">),</span>
+<span class="linenos">13</span>    <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span>
 <span class="linenos">14</span><span class="p">)</span>
 <span class="linenos">15</span><span class="n">circle</span><span class="p">((</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="linenos">16</span>
@@ -471,10 +471,11 @@ It will automatically add bezier1 curve effect to lines with length <code class=
 <span class="linenos">10</span><span class="n">lines_curved</span><span class="p">(</span>
 <span class="linenos">11</span>    <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">)],</span>
 <span class="linenos">12</span>    <span class="n">r</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-<span class="linenos">13</span>    <span class="n">style</span><span class="o">=</span><span class="n">LineArrowStyle</span><span class="p">(</span><span class="n">hstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span> <span class="n">lwidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">),</span>
-<span class="linenos">14</span><span class="p">)</span>
-<span class="linenos">15</span><span class="n">circle</span><span class="p">((</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">16</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos">13</span>    <span class="n">width</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+<span class="linenos">14</span>    <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">15</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">circle</span><span class="p">((</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

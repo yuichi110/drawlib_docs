@@ -22,7 +22,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Drawlib Overview" href="../lib_design/doc.html" />
+    <link rel="next" title="Drawlib from a High Perspective" href="../lib_design/doc.html" />
     <link rel="prev" title="About drawlib" href="../about/doc.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../about/doc.html">About drawlib</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installed-successed-but-unable-to-run">Installed successed but unable to run</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#release-policy">Release policy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#virtual-environment">Virtual Environment</a></li>
@@ -60,9 +60,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lib_design/doc.html">Drawlib from a High Perspective</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start/doc.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other_version_docs/doc.html">Other version docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_version_docs/doc.html">Other Version Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul>
@@ -141,7 +141,7 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install drawlib
 </pre></div>
 </div>
-<p>After installation, you can check whether drawlib installed successfully or not through these commands.</p>
+<p>After installation, you can check whether Drawlib was installed successfully with these commands:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python -m drawlib --version
 software=0.1.24
 api=0.1.24
@@ -151,29 +151,29 @@ software=0.1.24
 api=0.1.24
 </pre></div>
 </div>
-<p>Drawlib package also install <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command which is useful for building many images.
-It is calling drawlib libraries script which is equivalent to <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span></code>.
-Please check details at that section at foundation chapter.</p>
-<p>By the way, not only the software (library) version, you can also see the API version too.
-This is because drawlib supports the old API (previously released library’s API) in the new version for backward compatibility.
-You can specify drawlib api version like this.</p>
+<p>The Drawlib package also installs the <code class="docutils literal notranslate"><span class="pre">drawlib</span></code> command, which is useful for building many images.
+This command calls the Drawlib libraries’ script, equivalent to <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span></code>.
+For more details, refer to the relevant section in the foundation chapter.</p>
+<p>In addition to the software (library) version, you can also see the API version.
+This is because Drawlib supports old APIs (previously released library APIs) in new versions for backward compatibility.
+You can specify the Drawlib API version like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python -m drawlib.v0_1 --version
 software=0.1.24
 api=0.1.24
 </pre></div>
 </div>
-<section id="installed-successed-but-unable-to-run">
-<h2>Installed successed but unable to run<a class="headerlink" href="#installed-successed-but-unable-to-run" title="Link to this heading"></a></h2>
-<p>Drawlib depends on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and it requires <code class="docutils literal notranslate"><span class="pre">msvc-runtime</span></code> on Windows.
-If it is not automatically installed, you will see these kind of error when you draw.</p>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p>Drawlib depends on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, which requires <code class="docutils literal notranslate"><span class="pre">msvc-runtime</span></code> on Windows.
+If it is not automatically installed, you may encounter the following error when you try to draw:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ImportError: DLL load failed while importing _cext: The specified module could not be found
 </pre></div>
 </div>
-<p>On that situation, please manually install <code class="docutils literal notranslate"><span class="pre">msvc-runtime</span></code>.</p>
+<p>In this situation, please manually install <code class="docutils literal notranslate"><span class="pre">msvc-runtime</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install msvc-runtime
 </pre></div>
 </div>
-<p>If you hit another error, please check python environment is too old or too latest.</p>
+<p>If you encounter another error, please check if your Python environment is either too old or too new.</p>
 <section id="versioning">
 <h3>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h3>
 <p>Drawlib follows the versioning rule <code class="docutils literal notranslate"><span class="pre">&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</span></code>.</p>
@@ -182,58 +182,57 @@ If it is not automatically installed, you will see these kind of error when you 
 <li><p>Minor Version: Minor API change</p></li>
 <li><p>Patch Version: Bug fixes, etc. No API change</p></li>
 </ul>
-<p>If you intend to use drawlib with a long-term project, we recommend installing a specific version with requirements.txt.</p>
+<p>If you intend to use drawlib with a long-term project, we recommend installing a specific version with <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>drawlib == 0.1.*
 sphinx == 7.2.*
 sphinx-rtd-theme == 2.0.*
 </pre></div>
 </div>
-<p>And install/update them using it.</p>
+<p>You can install or update these packages with the following command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install -U -r requirements.txt
 </pre></div>
 </div>
-<p>As you can see, the patch version is not specified. So bug fixes will be updated, but there will be no API change.
-We recommend not only specifying drawlib but also the version of the documentation building tool (sphinx, etc.).</p>
+<p>As you can see, the patch version is not specified, allowing bug fixes to be updated without any API changes.
+We recommend specifying not only the version of Drawlib but also the versions of the documentation building tools (like Sphinx) to ensure compatibility and stability.</p>
 </section>
 <section id="release-policy">
 <h3>Release policy<a class="headerlink" href="#release-policy" title="Link to this heading"></a></h3>
-<p>Drawlib’s release is as follows</p>
+<p>Drawlib’s release process is as follows:</p>
 <ul class="simple">
 <li><p>0.1.* : private alpha release</p></li>
 <li><p>0.2.* : public beta release</p></li>
 <li><p>0.n.* : public releases</p></li>
 <li><p>n.m.* : matured public releases</p></li>
 </ul>
-<p>After public release 0.3, each version have devepment releases. such as</p>
+<p>After the public release of 0.3, each version will have development releases, such as:</p>
 <ul class="simple">
 <li><p>0.3.0.dev1</p></li>
 <li><p>0.3.0.dev2</p></li>
 <li><p>0.3.0.dev&lt;n&gt;</p></li>
 </ul>
-<p>As you can see, patch version is 0 and having <code class="docutils literal notranslate"><span class="pre">dev&lt;n&gt;</span></code> after that.
-It is under-development testing releases for library developer and power users.
-You can’t install them via pip normally.
-But able to install with specifying exact version. Like this.</p>
+<p>As you can see, the patch version is 0, followed by <code class="docutils literal notranslate"><span class="pre">dev&lt;n&gt;</span></code>.
+These are under-development testing releases for library developers and power users.
+You can’t install them via pip normally, but you can install them by specifying the exact version:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install drawlib == 0.3.0.dev1
 </pre></div>
 </div>
-<p>After this under-development phase ends, release official version such as “0.3.1”.</p>
-<p>After drawlib matured, we move to version “1.0.*” and later.
-Here is a release plan image.</p>
+<p>After the under-development phase ends, an official version like “0.3.1” will be released.</p>
+<p>Once Drawlib matures, we will move to version “1.0.*” and later.
+Here is a release plan image:</p>
 <figure class="align-center" id="id1">
 <a class="with-border reference internal image-reference" href="../../../_images/image112.png"><img alt="../../../_images/image112.png" class="with-border" src="../../../_images/image112.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">image1.png</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Unfortunately, we are not planning to publish older new fix version.
-It means, after releasing version <code class="docutils literal notranslate"><span class="pre">0.n.0</span></code>, we will not provide new patch release <code class="docutils literal notranslate"><span class="pre">0.&lt;n-1&gt;.*</span></code>.</p>
+<p>Unfortunately, we do not plan to publish new fixes for older versions.
+This means that after releasing version 0.n.0, we will not provide new patch releases for <code class="docutils literal notranslate"><span class="pre">0.&lt;n-1&gt;.*</span></code>.</p>
 </section>
 <section id="virtual-environment">
 <h3>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h3>
-<p>If you have many documentation projects on your machine, we recommend installing drawlib in a Python virtual environment, such as venv or poetry.
-We use venv for pure documentation projects and poetry for development projects with documentation.</p>
-<p>By using them, you can use different drawlib versions for different projects and avoid underlying library version conflicts, such as matplotlib.</p>
+<p>If you have multiple documentation projects on your machine, we recommend installing Drawlib in a Python virtual environment, such as <code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">poetry</span></code>.
+We typically use <code class="docutils literal notranslate"><span class="pre">venv</span></code> for pure documentation projects and <code class="docutils literal notranslate"><span class="pre">poetry</span></code> for development projects that involve documentation.</p>
+<p>Using virtual environments allows you to isolate Drawlib installations for different projects, which helps avoid conflicts with underlying library versions like matplotlib.</p>
 </section>
 </section>
 </section>
@@ -243,7 +242,7 @@ We use venv for pure documentation projects and poetry for development projects 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../about/doc.html" class="btn btn-neutral float-left" title="About drawlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../lib_design/doc.html" class="btn btn-neutral float-right" title="Drawlib Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../lib_design/doc.html" class="btn btn-neutral float-right" title="Drawlib from a High Perspective" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

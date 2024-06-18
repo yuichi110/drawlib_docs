@@ -21,7 +21,7 @@ circle(
 image(
     (70, 30),
     width=30,
-    image=Dimage("python-logo-notext.png").sepia(),
+    image=Dimage("python.png").sepia(),
     angle=45,
     style=ImageStyle(lwidth=2, lcolor=Colors.Green),
 )

@@ -1,6 +1,6 @@
-=====================
-Other version docs
-=====================
+==============================
+Other Version Documentation
+==============================
 
-- `Latest version </>`_
-- `Index of all versions </versions/>`_
+- `Latest Version </>`_
+- `Index of All Versions </versions/>`_

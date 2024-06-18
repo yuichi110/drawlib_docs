@@ -52,9 +52,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib from a High Perspective</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other version docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other Version Documentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
 <ul class="current">
@@ -74,6 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#accessing-theme-styles">Accessing Theme Styles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-theme-colors">Accessing Theme Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rename-style-name">Rename Style Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#predefined-rich-themes">Predefined Rich Themes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../build_many/doc.html">Building many images</a></li>
@@ -299,11 +300,10 @@ On the other hand, theme <code class="docutils literal notranslate"><span class=
 <span class="linenos"> 7</span><span class="c1"># | IconStyle      | x | x   | x     | x    | x     | x     |</span>
 <span class="linenos"> 8</span><span class="c1"># | ImageStyle     | x | x   | x     | x    | x     | x     |</span>
 <span class="linenos"> 9</span><span class="c1"># | LineStyle      | x | x   | x     | x    | x     | x     |</span>
-<span class="linenos">10</span><span class="c1"># | LineArrowStyle | x | x   | x     | x    | x     | x     |</span>
-<span class="linenos">11</span><span class="c1"># | ShapeStyle     | x | x   | x     | x    | x     | x     |</span>
-<span class="linenos">12</span><span class="c1"># | ShapeTextStyle | x | x   | x     | x    | x     | x     |</span>
-<span class="linenos">13</span><span class="c1"># | TextStyle      | x | x   | x     | x    | x     | x     |</span>
-<span class="linenos">14</span><span class="c1"># +----------------+---+-----+-------+------+-------+-------+</span>
+<span class="linenos">10</span><span class="c1"># | ShapeStyle     | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">11</span><span class="c1"># | ShapeTextStyle | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">12</span><span class="c1"># | TextStyle      | x | x   | x     | x    | x     | x     |</span>
+<span class="linenos">13</span><span class="c1"># +----------------+---+-----+-------+------+-------+-------+</span>
 </pre></div>
 </div>
 </div>
@@ -396,8 +396,8 @@ No worry to modify style object after get/set.</p>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="c1"># get default style.</span>
-<span class="linenos"> 6</span><span class="n">lastyle</span> <span class="o">=</span> <span class="n">dtheme</span><span class="o">.</span><span class="n">linearrowstyles</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-<span class="linenos"> 7</span><span class="n">line</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">lastyle</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">default_style</span> <span class="o">=</span> <span class="n">dtheme</span><span class="o">.</span><span class="n">linestyles</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="n">line</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">default_style</span><span class="p">)</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span><span class="c1"># get named style</span>
 <span class="linenos">10</span><span class="n">tstyle</span> <span class="o">=</span> <span class="n">dtheme</span><span class="o">.</span><span class="n">textstyles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
@@ -522,6 +522,29 @@ Here are the list of methods.</p>
 </figure>
 <p>We did this name modification at illustration code in these examples.
 But you should implement it on common style code which we explained at building many images topic.</p>
+</section>
+<section id="predefined-rich-themes">
+<h2>Predefined Rich Themes<a class="headerlink" href="#predefined-rich-themes" title="Link to this heading"></a></h2>
+<p>You can define your themes by your self.
+However, if you are planning to use standard styles using our theme is recommended.
+Each theme posses pre-defined styles with following rules.</p>
+<figure class="align-center" id="id16">
+<a class="with-border reference internal image-reference" href="manual/foundations/theme/manual/introductions/index/image_theme_matrix.png"><img alt="manual/foundations/theme/manual/introductions/index/image_theme_matrix.png" class="with-border" src="manual/foundations/theme/manual/introductions/index/image_theme_matrix.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-text">Style name: <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;width&gt;</span></code></span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The difference of theme is what color you can use.
+For example, theme <code class="docutils literal notranslate"><span class="pre">essentials</span></code> posses these colos.</p>
+<figure class="align-center" id="id17">
+<a class="with-border reference internal image-reference" href="manual/foundations/theme/manual/introductions/index/image_theme_colors.png"><img alt="manual/foundations/theme/manual/introductions/index/image_theme_colors.png" class="with-border" src="manual/foundations/theme/manual/introductions/index/image_theme_colors.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-text">Colors of theme essentials</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can customize drawlib’s pre-defined theme if you wants.
+For example, changing default fonts are popular customization.
+We don’t mention detail at here, but we provides features for customizing styles easily.</p>
 </section>
 </section>
 

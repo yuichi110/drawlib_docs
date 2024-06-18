@@ -2,45 +2,47 @@
 Quick Start
 =============
 
-Below is the standard procedure for drawing with drawlib:
+Standard Procedure for Drawing with Drawlib
+==============================================
 
-1. Import the necessary library.
-2. Configure the canvas, including its size and resolution.
-3. Draw icons, images, lines, shapes, or text repeatedly.
-4. Save the canvas.
+Below is the standard procedure for drawing using Drawlib:
 
-While we'll delve into the specifics in other documents, we'll provide a brief overview of each step in this one.
+1. Import Drawlib library: Begin by importing the Drawlib library into your Python environment.
+2. (Optional) Import Your Style Code and Utilities: Optionally, import any custom style definitions or utility functions you may have.
+3. (Optional) Configure the Canvas: Set up the canvas by specifying its size and resolution.
+4. Draw Elements: Use Drawlib's APIs to draw icons, images, lines, shapes, or text on the canvas as needed.
+5. Save the Canvas: Once your drawing is complete, save the canvas to an image file.
 
-Let's begin by examining the first example. Below is the code:
+While detailed explanations will be provided in subsequent documents, let's briefly overview each step with an example.
 
-.. literalinclude:: image_abstract_1.py
+.. literalinclude:: image_abstract1.py
    :language: python
    :linenos:
-   :caption: image_abstract_1.py
+   :caption: image_abstract1.py
 
 Execute this code using the Python command:
 
 .. code-block:: bash
 
-    $ python image_abstract_1.py
+    $ python image_abstract1.py
 
-Once executed, an image file named "image_abstract_1.png," matching the code's name, will be generated.
+After execution, an image file named "image_abstract1.png," corresponding to the code's content, will be generated.
 
-.. figure:: image_abstract_1.png
-    :width: 600
-    :class: with-border
-    :align: center
+.. figure:: image_abstract1.png
+   :width: 450
+   :class: with-border
+   :align: center
 
-    image_abstract_1.png
+   image_abstract1.png (corresponding to code file name)
 
-Now, let's explore the functionality of drawlib step by step.
+Now, let's proceed to explore the functionality of Drawlib step by step.
 
 
-Import drawlib 
-===============
+Importing Drawlib
+===================
 
-Drawlib is a pure Python library, allowing you to import and use it just like any other library after installation. 
-While typical libraries often possess APIs across multiple packages, drawlib consolidates all of its public APIs within the ``drawlib.apis`` package.
+Drawlib is a pure Python library that you can import and use like any other library after installation. 
+While many libraries spread their APIs across multiple packages, drawlib consolidates all its public APIs within the ``drawlib.apis`` package.
 
 We recommend importing all APIs using the wildcard ``*``, as shown below:
 
@@ -48,171 +50,151 @@ We recommend importing all APIs using the wildcard ``*``, as shown below:
 
     from drawlib.apis import *
 
-Although conventional Python programming guidelines (PEP) discourage wildcard imports, in the context of illustrating typical scenarios, simplicity takes precedence over clarity regarding API origins.
+Although conventional Python programming guidelines (PEP) discourage wildcard imports for clarity and maintenance reasons, in the context of illustrating typical scenarios, simplicity in accessing APIs takes precedence.
 
-This import style ensures that you have access to the latest APIs available in your drawlib installation. 
+This import style ensures that you have immediate access to all the latest APIs available in your drawlib installation. 
+You can then proceed to import your custom styles and utilities as needed, akin to importing CSS and utility JavaScript code in an HTML header. 
+We will provide detailed explanations on this aspect later.
+
 If you need to use older APIs, you can achieve this by importing them using the following style:
 
 .. code-block:: python
 
     from drawlib.v0_1.apis import *
 
-Here, ``v0_1`` denotes version ``0.1.*``.
+Here, ``v0_1`` corresponds to version ``0.1.*``.
 
 
+Configuring the Canvas Size and DPI
+=======================================
 
-Configure canvas
-==================
-
-After importing the library, you can commence drawing. 
-However, we recommend configuring the canvas to define parameters such as size. 
-The ``configure()`` function facilitates this feature. 
-For instance, consider the following code snippet:
+After importing the Drawlib library, you can start drawing. 
+However, it's recommended to configure the canvas to define parameters such as size using the ``config()`` function. 
+For example:
 
 .. code-block:: python
 
     config(width=100, height=100)
 
-This sets the canvas width to 100 and the height to 100. 
-It's important to note that these values represent coordinates within the canvas, rather than pixel values. 
-With both width and height set to 100, the range for both x and y coordinates is from 0 to 100. 
-If, for instance, you set both width and height to 10, specifying x=20 would be out of range. 
-While Drawlib does not raise an error in this case, your item may not render as expected. 
-By default, both width and height are set to 100.
+This snippet sets the canvas width to 100 units and height to 100 units. 
+These units represent coordinates within the canvas, not pixel values. 
+With both dimensions set to 100, the coordinate range for both x and y axes is from 0 to 100. 
+If you set both dimensions to 10, specifying x=20 would be out of range. 
+Drawlib does not raise an error in this case, but your item may not render as expected. 
+By default, both width and height are set to 100 units.
 
-In the event you configure the canvas with ``config(width=200, height=100)``, it will produce a wider image, while retaining the coordinates of each item.
-Please check the output image.
+If you configure the canvas with ``config(width=200, height=100)``, it will produce a wider canvas while maintaining the coordinate system for each item. 
+See the output image below:
 
-.. figure:: image_config_1.png
+.. figure:: image_config1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_config_1.png
+    image_config1.png
 
-If you desire a higher resolution image, adjusting the DPI is necessary. 
-The DPI, or Dots Per Inch, can be configured as follows
+For higher resolution images, adjusting the DPI (Dots Per Inch) is necessary:
 
 .. code-block:: python
 
-    config(dpi=100)
+    config(dpi=200)
 
-It's worth noting that Drawlib's canvas width is consistently set to 10 inches. 
-Thus, the specified width in the coordinate system from the previous example does not affect the outcome.
+Drawlib maintains a consistent canvas width of 10 inches. 
+Therefore, changes in the coordinate-based width from the previous example do not affect the output.
 
-In the example provided, a canvas size of "10 inches x 100 dots per inch" results in a 1000-pixel width image. 
-Adjusting the DPI to 200 would double the pixel width to 2000.
-However, generating high-resolution images requires additional time and disk space. 
-While no maximum value has been set, a DPI of 1000 may be excessive.
+In the given example, a canvas size of "10 inches x 200 DPI" results in an image width of 2000 pixels.
+Increasing the DPI to 400 would double the image width to 4000 pixels. 
+However, generating high-resolution images consumes more time and disk space. 
+While there is no maximum set value, a DPI of 1000 may be excessive.
+Default DPI value is 100.
 
-The ``config()`` function offers a multitude of options, among which is the grid option. 
-When creating your image, you may find it helpful to have a grid to quickly ascertain the location of your items.
+Configuring the Canvas Grid
+=======================================
+
+The ``config()`` function in Drawlib offers several advanced options, including the grid feature, 
+which can be particularly useful for positioning items on your canvas quickly:
 
 .. code-block:: python
 
     config(width=100, height=100, grid=True)
 
-Enabling this option adds a grid to your image. 
-Importantly, both the grid and a normal image are generated simultaneously. 
-Consequently, there's no need to remove the ``grid=True`` option to obtain an image without a grid. 
-If you solely require a grid image, you can use the ``grid_only=True`` option instead. 
-By default, both the grid and grid_only are set to False.
+Enabling ``grid=True`` adds a grid to your image without affecting the normal image generation. 
+Therefore, there's no need to remove the ``grid=True`` option to obtain an image without a grid. 
+If you specifically require only a grid image, you can use ``grid_only=True`` instead. 
+By default, both grid and grid_only are set to False.
 
-The resulting changes from the above adjustments are evident in the two files generated by the code snippet in the file named ``image_config_2.py``:
+The effects of these adjustments are demonstrated in the following files:
 
-.. figure:: image_config_2.png
-    :width: 600
+.. figure:: image_config2.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_config_2.png
+    Image without grid
 
-.. figure:: image_config_2_grid.png
-    :width: 600
+.. figure:: image_config2_grid.png
+    :width: 450
     :class: with-border
     :align: center
 
-    image_config_2_grid.png
+    Image with grid
 
-These changes yield two files: ``image_config_2.png`` and ``image_config_2_grid.png``.
-
-Lastly, it's advisable to consider the ``theme`` option. 
-This feature predetermines drawlib's default drawing styles, such as item color, line width, and text font. 
-You can configure it as follows:
-
-.. code-block:: python
-
-    config(width=100, height=100, theme="gray")
-
-This setting results in an output image with gray-colored shapes and lines.
-
-.. figure:: image_config_3.png
-    :width: 600
-    :class: with-border
-    :align: center
-
-    image_config_3.png  
-
-It's essential to note that changing the theme persists across multiple drawings. 
-Additionally, the ``clear()`` function does not reset the theme.
-
+Code file ``image_config2.py`` yield two files: ``image_config2.png`` and ``image_config2_grid.png``.
+Image file without grid is normal file name.
+Image file with grid has ``_grid`` on its last.
 
 Coordinate and alignment
 ==========================
 
-Drawlib encompasses five major drawing categories: Icon, Image, Line, Shape, and Text. 
-We will explore each of these categories in detail. 
-However, before delving into them, it's crucial to grasp drawlib's coordinate system, as all drawing objects rely on it.
+Drawlib organizes its drawing functionalities into five main categories: Icon, Image, Line, Shape, and Text. 
+Before delving into these categories, understanding Drawlib's coordinate system is essential, as all drawing objects rely on it.
 
+Each drawing object in Drawlib is positioned using xy coordinates. 
+The placement of these xy coordinates depends on horizontal (``halign``) and vertical (``valign``) alignment settings. 
+Common alignment options include:
 
-
-Each drawing object specifies where the item is placed via xy coordinates. 
-The position of the specified xy coordinates depends on horizontal and vertical alignment. 
-Typically, horizontal and vertical alignment can be one of "left, bottom" or "center, center". 
-Occasionally, "left, center" and "center, bottom" are also utilized. 
-Let's examine the differences in alignment through an example:
-
-.. literalinclude:: image_coordinate_1.py
-   :language: python
-   :linenos:
-   :caption: image_coordinate_1.py
-
-As illustrated, horizontal and vertical alignment are specified within the style object, with the default values being ``halign="center"`` and ``valign="center"``.
-
-Horizontal alignment can be specified as ``halign``, with options including:
+Horizontal alignment ``halign``
+-----------------------------------
 
 * left
 * center
 * right
 
-Vertical alignment, on the other hand, can be specified as ``valign``, with options including:
+Vertical alignment ``valign`` 
+-------------------------------
 
 * bottom
 * center
 * top
 
-Specifying any other value immediately raises a ``ValueError``. 
-Now, let's observe the resulting image:
+Let's examine these alignment options through an example:
 
-.. figure:: image_coordinate_1.png
+.. literalinclude:: image_coordinate1.py
+   :language: python
+   :linenos:
+   :caption: image_coordinate1.py
+
+In this example, horizontal and vertical alignment are specified within the style object, with defaults set to ``halign="center"`` and ``valign="center"``.
+
+The resulting image demonstrates the effects of different alignments:
+
+.. figure:: image_coordinate1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_coordinate_1.png
+    Horizontal/Vertical alignments
 
-In the image, the xy coordinates of the left circle are set to "center, center" as specified. 
-Similarly, the xy coordinates of the right circle are set to "left, bottom" as specified.
+In the image, the left circle's xy coordinates are aligned "center, center" as specified, 
+while the right circle's xy coordinates are aligned "left, bottom".
 
-It's important to note that, by default, the alignment for shapes like rectangles is "center, center". 
-While many drawing systems adopt a default alignment of "left, bottom" for rectangle-related shapes, drawlib opts for "center, center" for almost all items. 
-This choice is made because aligning items at the center is much easier for vertically and horizontally aligning items of different sizes. 
-If the alignment were set to "left, bottom", calculating xy coordinates from width and height to correctly align items would be necessary.
+By default, Drawlib sets the alignment for shapes like rectangles to "center, center". 
+This differs from many other drawing systems, which often default to "left, bottom" for rectangle-related shapes. 
+Drawlib's choice of "center, center" simplifies the process of aligning items of varying sizes both vertically and horizontally.
 
-However, there may be situations where you prefer "left, bottom" alignment over "center, center". 
-In such cases, it's advisable to define a "left, bottom" style object and pass it to all items where this alignment is desired. 
-Any style parameters that are not specified are automatically applied using the default theme values. 
-Therefore, specifying only the alignment does not affect other attributes such as color.
+Despite the default setting, there may be cases where "left, bottom" alignment is preferred over "center, center". 
+In such situations, it's recommended to define a custom style object with the desired alignment settings and apply it selectively to specific items.
+You can overrides primary style with secondary style easily. Please take a look foundation chapter for details.
 
 Drawing icon
 ===============
@@ -234,19 +216,19 @@ It leverages Phosphor (https://phosphoricons.com), which offers icons that are e
 
 Here's an example using icon_phosphor:
 
-.. literalinclude:: image_icon_1.py
+.. literalinclude:: image_icon1.py
    :language: python
    :linenos:
    :caption: image_icon_1.py
 
 This code generates the following output image:
 
-.. figure:: image_icon_1.png
+.. figure:: image_icon1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_icon_1.png
+    icon() and icon_phosphor draw icons
 
 As demonstrated, the function name determines the icon to be drawn, while the ``IconStyle`` can be adjusted to modify color, style, and other attributes.
 
@@ -263,40 +245,40 @@ If you need to adjust the aspect ratio, you can utilize the ``Dimage`` class, wh
 
 Here's an example using the ``image()`` function:
 
-.. literalinclude:: image_image_1.py
+.. literalinclude:: image_image1.py
    :language: python
    :linenos:
-   :caption: image_image_1.py
+   :caption: image_image1.py
 
 Execute this code using the Python command to get image.
 
-.. figure:: image_image_1.png
+.. figure:: image_image1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_image_1.png
+    image() draws image
 
 As you can observe, you can specify the angle and use the ``ImageStyle`` to manage alignment and border lines.
 
 If you wish to modify the image itself, consider utilizing the ``Dimage`` class, which provides numerous methods for image manipulation. 
 Take a look at this example:
 
-.. literalinclude:: image_image_2.py
+.. literalinclude:: image_image2.py
    :language: python
    :linenos:
-   :caption: image_image_2.py
+   :caption: image_image2.py
 
 The ``Dimage`` class is a string-like object. 
 Methods for applying effects do not modify the image itself but create a new image object. 
 Therefore, we use method chaining to apply operations such as mirroring (horizontal reverse) and sepia (changing color).
 
-.. figure:: image_image_2.png
+.. figure:: image_image2.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_image_2.png
+    Dimage applies effects to the image
 
 Both the ``image()`` function and the ``Dimage`` class accept images from the popular Pillow library. 
 If you wish to perform advanced image processing, it's advisable to do so using Pillow and then utilize image() and Dimage for handling the processed images.
@@ -313,53 +295,54 @@ Drawlib features the ``line()`` function for drawing lines, but it offers variou
 * line_bezier1
 * line_bezier2
 * lines
+* lines_curved
 * lines_bezier
 
-Functions starting with "line" are designed to draw lines from xy1 to xy2, while those starting with "lines" are designed for lines passing through multiple points. 
+Functions starting with "line" are designed to draw lines from point xy1 to point xy2, while those starting with "lines" are designed for lines passing through multiple points. 
 Let's explore some of these line types:
 
-.. literalinclude:: image_line_1.py
+.. literalinclude:: image_line1.py
    :language: python
    :linenos:
-   :caption: image_line_1.py
+   :caption: image_line1.py
 
 The ``line_curved()`` function draws a line from xy1 to xy2, but the bend parameter allows you to create curved lines. 
 A bend value of 0.2 indicates a curved line 1.2 times longer than a straight line, while a value of -0.2 creates a curve in the opposite direction.
 
-.. figure:: image_line_1.png
+.. figure:: image_line1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_line_1.png
+    image_line1.png
 
 Bezier line functions are a bit more complex. 
 Please refer to the line documentation for details. However, they are incredibly useful for controlling complex curves.
 
-Line functions support styling with two main types:
+From point of line styling, we have these 2 categories.
 
-* ``LineStyle``: for drawing simple lines
-* ``LineArrowStyle``: for drawing lines with arrowheads
+* Arrow head
+* Visual styles: Color, width, line style(solid, dashed etc) etc.
+
+Arrow head has logical meaning (HTML equivalent), so we will specify it at function arg ``arrowhead``.
+But visual style has less meaning (CSS equivalent), then we will specify it as styling class ``LineStyle``.
 
 Consider this example showcasing styling:
 
-.. literalinclude:: image_line_2.py
+.. literalinclude:: image_line2.py
    :language: python
    :linenos:
-   :caption: image_line_2.py
+   :caption: image_line2.py
 
 With LineStyle, you can configure line width, color, style, and more. 
-LineArrowStyle introduces additional parameters for drawing arrowheads.
+Arrow head style is specified in function directry.
 
-.. figure:: image_line_2.png
+.. figure:: image_line2.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_line_2.png
-
-To draw an arrow line from xy1 to xy2, simply pass ``LineArrowStyle()`` to the style option. 
-Default line parameters will automatically be applied to your blank style.
+    line() draws line
 
 While the ``arrow()`` function also draws arrows, it is not a line but rather a shape. 
 Keep in mind that if you wish to draw an arrow line, utilize line() and related functions with LineArrowStyle.
@@ -398,19 +381,19 @@ When you use it, tasks like positioning your item at a specified xy coordinate a
 
 Let's explore two examples: a circle-like shape, ``star()``, and a rectangle-like shape, ``rectangle()``.
 
-.. literalinclude:: image_shape_1.py
+.. literalinclude:: image_shape1.py
    :language: python
    :linenos:
-   :caption: image_shape_1.py
+   :caption: image_shape1.py
 
 This code generates the following image:
 
-.. figure:: image_shape_1.png
+.. figure:: image_shape1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_shape_1.png
+    image_shape1.png
 
 Circle-type shapes are defined by their radius, while rectangle-type shapes are defined by their width and height. 
 By default, the xy coordinate marks the center of the shape. 
@@ -428,19 +411,19 @@ Keep in mind that the angle parameter in ShapeTextStyle overrides the shape's an
 
 Let's examine a styling example:
 
-.. literalinclude:: image_shape_2.py
+.. literalinclude:: image_shape2.py
    :language: python
    :linenos:
-   :caption: image_shape_2.py
+   :caption: image_shape2.py
 
 This code generates the following output:
 
-.. figure:: image_shape_2.png
+.. figure:: image_shape2.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_shape_2.png
+    image_shape2.png
 
 In the left example, we configure ShapeStyle to add style to the rectangle. 
 Parameters like l-something represent line-something, and fcolor stands for fill-color. 
@@ -476,14 +459,14 @@ However, TextStyle includes an option that ShapeTextStyle doesn't: text backgrou
 
 Let's examine some code examples:
 
-.. literalinclude:: image_text_1.py
+.. literalinclude:: image_text1.py
    :language: python
    :linenos:
    :caption: image_text_1.py
 
 Executing this code yields the following image:
 
-.. figure:: image_text_1.png
+.. figure:: image_text1.png
     :width: 600
     :class: with-border
     :align: center

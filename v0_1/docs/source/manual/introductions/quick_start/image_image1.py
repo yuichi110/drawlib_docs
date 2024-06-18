@@ -1,0 +1,14 @@
+from drawlib.apis import *
+
+config(width=100, height=60, grid=True)
+
+image(xy=(25, 30), width=20, image="python.png")
+image(
+    xy=(75, 30),
+    width=20,
+    angle=45,
+    image="python.png",
+    style=ImageStyle(lwidth=1),
+)
+
+save()

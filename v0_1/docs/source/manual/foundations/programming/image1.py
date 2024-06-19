@@ -2,7 +2,7 @@ from drawlib.apis import *
 
 config(width=100, height=100, grid_only=True)
 
-# left bottom align
+# alignment: horizontally left, vertically bottom
 text(
     (19, 73),
     "Drawlib",
@@ -19,7 +19,7 @@ circle(
     style=ShapeStyle(halign="left", valign="bottom"),
 )
 
-# center center align
+# alignment: horizontally center, vertically center
 text(
     (25, 25),
     "Drawlib",

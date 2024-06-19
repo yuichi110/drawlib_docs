@@ -2,123 +2,140 @@
 Coding Best Practices
 =======================
 
-If your illustration is comple, drawlib's code will be also complex.
-On that situation, coding practice is important.
+Illustration code is used to generate images. 
+If the illustration is simple, code quality may not be a major concern. 
+However, for more complex outputs, maintaining high code quality is essential.
 
-First of all, you need to notice that arranging coordinate and size will happen many times.
-Actions for easing changing them are drawlib's coding best practices!!
+Following Drawlib's best practices can significantly improve the quality of your illustration code. 
+These best practices align with common Python coding standards and also include specific guidelines for handling illustrations effectively.
 
-Consider Which Alignment is the best
+Let's go through these practices one by one.
+
+Consider Which Alignment is the Best
 ======================================
 
-Many drawing items are aligned vertically and horizontally.
-Using horizontal vertical center is best for aligning different type and size objects.
+Many drawing items are aligned vertically and horizontally. 
+Using horizontal and vertical alignment with "center" is often the best approach for aligning different types and sizes of objects.
 
-Let's compare codes.
-They are almost same but difference in alignment.
+Let's compare some example code with different alignments.
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-Upperside drawing uses ``Style(halign="left", valign="bottom")``.
-The ``(x,y)`` value is not a simple values since I calculate/test positions.
-
-However, bottomside ``(x,y)`` values are very easy to understand.
-They are just pointing center of each items.
-No calculation and test are required.
+Before diving into the code, let's examine the output image.
 
 .. figure:: image1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    theme "default"
+    Align left,bottom vs center,center
 
-Align "center, center" is nice work when you change item size.
-You don't need to change coordinate if center of the new size item doesn't change.
-You need to change (x,y) position if you use left, bottom alignment.
+Both types of alignment produce a similar output.
 
-Use Variable When Having Same Values
+Now, let's review the code. 
+The upper drawings, starting from line 5, use horizontal left and vertical bottom alignment.
+As you can see, the coordinates ``(x, y)`` are not straightforward, such as ``(19, 73)``, ``(45, 70),`` and ``(70, 70),``. 
+These values were calculated, tested, and adjusted repeatedly to find good positions.
+
+In contrast, the lower drawings, starting from line 22, use center alignment for both horizontal and vertical positions.
+The coordinates are simple and easy to understand, such as ``(25, 25)``, ``(50, 25)``, and ``(75, 25)``. 
+This simplicity is because each item's center is aligned with the coordinates, making the width and angle of each item irrelevant for vertical and horizontal alignment.
+
+If you need to change the size and angle of each item, aligning left and bottom requires recalculation and position testing. 
+However, center alignment does not require such adjustments.
+
+We recommend using center alignment for typical situations. 
+However, the best alignment depends on the context. 
+Consider which alignment is best for your specific needs. 
+You can also mix multiple alignments within one illustration.
+
+
+Use Variables When Having Same Values
 =======================================
 
-At last example, we need to change all y values when we want to change y position of all items.
-With align center, typically having same y when aligning items horizontally.
-And also, same x when aligning items vertically.
-Let's use variable for coordinations.
+In the previous example, changing the y position of all items required modifying each y coordinate individually. 
+When aligning items horizontally, it's common for them to share the same y value, just as vertically aligned items often share the same x value.
 
-In this example, we use coordination variable for holrizontally aligning items.
+To simplify this process, use variables for coordinates instead of hardcoding values. 
+In this example, we use variables to align items horizontally.
 
 .. literalinclude:: image2_1.py
    :language: python
    :linenos:
    :caption: image2_1.py
 
-Var y is simple. It is a half of height.
-Var x is little bit complex, but it provides same x margin for items.
+The variable ``y`` is straightforward, representing half the height. 
+The variable ``x`` is a bit more complex but ensures equal x margins for the items.
+
+Executing this code generate below image.
 
 .. figure:: image2_1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    theme "default"
+    Avoiding hard coding values
 
-You can easily change canvas height and add new items in this code.
-We will change height 50 and add rectangle.
+
+This approach makes it easy to change the canvas height and add new items. 
+Let's change the canvas height to ``50`` and add a rectangle at last.
 
 .. literalinclude:: image2_2.py
    :language: python
    :linenos:
    :caption: image2_2.py
 
-As you can see, there are only few point of change.
-In my opinion, you should follow example of y.
-But exmaple of x makes code complex.
-If you are not planning to add items, **Not using variable and calculation** is one choice.
-We will hard code 25, 50, 75 to x coodinate at first example normally.
+As you can see, only a few points need modification. 
+Using a variable for y simplifies the code. However, the x variable makes the code slightly more complex. 
 
 .. figure:: image2_2.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    theme "default"
+    Easy to change positions with variables
 
 New image align the items correctly.
 
-Grouping by Function
+If you do not plan to add many items, not using variables and calculations can be a valid choice. 
+Initially, hardcoding 25, 50, and 75 for the x coordinates, as shown in the first example, is often simpler.
+You can refactor your illustration code later of course.
+
+Grouping by Functions
 =======================
 
-Function is useful for calling same operation repeatedly.
-You can get same benefit at drawlib of course.
-However, using function for just grouping items is also recommended coding style.
+Using functions to group drawing operations is a highly recommended coding style in Drawlib. 
+Functions are not only useful for repeated operations but also for organizing and abstracting your drawing logic. 
 
-When you group items via function, you will get these benefits.
+Here are some benefits of grouping items using functions:
 
-- Able to understand abstract image design
-- Able to localize variable such as x,y which doesn't affects outside of function.
-- Draw same group of items at many places
+- Abstract Design Understanding: Functions help to understand the high-level design of the image.
+- Variable Localization: You can localize variables (like x, y) within the function, preventing them from affecting the global scope.
+- Reusability: You can easily draw the same group of items in different locations by calling the function multiple times.
 
-Normally, we tend to create these functions
+A common approach is to create functions for different alignment scenarios:
 
 - ``left()``, ``center()``, ``right()``
 - ``bottom()``, ``center()``, ``top()``
+- group name of items
 
-At each functions define x and y at first.
-All items are relative position from the base x, y position.
-When you want to move group, changing the x, y vars moves all items position.
+Within each function, you define base x and y coordinates at the start. 
+All items in the function are positioned relative to these base coordinates. 
+To move the entire group, you simply adjust the base x and y values.
 
 Create Your Package
 =====================
 
-When you need to create many images, consistency is important.
-You can create independent image codes.
-But we recommend creating package with these reasons.
+When creating multiple images, maintaining consistency across your illustrations is crucial. 
+While it's possible to create independent image codes, packaging your code offers significant advantages. 
 
-- Same style for all images. Changing style code effects all images quickly.
-- Create utility functions on utility code file. It makes your image code simple.
-- Grouping images by chapters and sections 
+Here are some reasons why creating a package is beneficial:
 
-Please check previous document page for details.
+- Consistent Style: By defining styles in one place, any changes to the style code will automatically affect all images, ensuring a uniform appearance.
+- Utility Functions: You can create utility functions in a separate utility code file, simplifying your image code.
+- Organization: Group images by chapters and sections for better organization and easier navigation.
+
+Please take a look documents for building many images.

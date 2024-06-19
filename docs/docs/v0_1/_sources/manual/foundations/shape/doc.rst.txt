@@ -2,17 +2,17 @@
 Drawing Shape
 ===============
 
-Drawlib posses lots of drawing shape functions.
-The most basic ones are drawing circle, rectangles etc.
-The most minor shapes are bubblespeech, chevron etc.
+Drawlib provides a variety of functions for drawing shapes, from basic circles and rectangles to more specialized shapes like bubblespeech and chevrons. 
+These functions are categorized into three types based on the shapes they draw:
 
-All of functions are categorized to these 3 types.
+* Circle-like shape: Specify ``xy`` and ``radius``
+* Rectangle-like shape: Specify ``xy`` and ``width``, ``height``
+* Other shapes: Arrow(from ``xy1`` to ``xy2``), Polygon(connects ``xys`` and filling) etc.
 
-* Circle like shape: Specify xy and radius
-* Rectangle like shape: Specify xy and width/height
-* Other shapes: Arrow(from xy1 to xy2), Polygon(connects xys and fill) etc.
+Circle-like Shapes
+--------------------
 
-Functions which draw circle like shapes are
+Functions that draw circle-like shapes include:
 
 * ``circle()``
 * ``donuts()``
@@ -21,10 +21,12 @@ Functions which draw circle like shapes are
 * ``star()``
 * ``wedge()``
 
-Functions which draw rectangle like shapes are
+Rectangle-like Shapes
+-----------------------
+
+Functions that draw rectangle-like shapes include:
 
 * ``arc()``
-* ``bubblespeech()``
 * ``chevron()``
 * ``ellipse()``
 * ``parallelogram()``
@@ -33,39 +35,59 @@ Functions which draw rectangle like shapes are
 * ``trapezoid()``
 * ``triangle``
 
-And last functions which draw other type shapes are
+Other Shapes
+--------------
+
+Functions that draw other types of shapes include:
 
 * ``arrow()``
 * ``polygon()``
 * ``shape()``
 
-Let's take a look all of them except ``shape()`` which we mention at another page by categories.
-``shape()`` is useful for drawing shape which is your original.
+Let's explore all of these functions, except ``shape()`` which is covered on another page. 
+The ``shape()`` function is useful for drawing custom shapes.
 
-All of their alignment is horizontally center and vertically center by default.
-Which can be changed via style ``ShapeStyle()``.
-However ``arrow()`` and ``polygon()`` don't have alignment.
-They will ignore alignment attributes.
-We will mention styling ``ShapeStyle`` and ``ShapeTextStyle`` in another page.
+By default, all shapes are horizontally and vertically centered. 
+This can be changed using the ``ShapeStyle()`` object. 
+However, ``arrow()`` and ``polygon()`` do not have alignment attributes and will ignore these settings.
+
+We'll discuss styling with ``ShapeStyle`` and ``ShapeTextStyle`` on another page.
 
 
-Draw Circle Like Shapes
+Text of Shapes
+=================
+
+All shapes can have text at their center. 
+Before diving into each shape, let's explain this common feature.
+
+Shape functions can take these three optional arguments:
+
+* ``text``: The text to display at the center of the shape.
+* ``textsize``: The font size of the text.
+* ``textstyle``: The style of the center text. You can configure the size and other properties here as well.
+
+All of these arguments are optional. 
+If you do not provide any value for text, no text will be shown.
+We recommend setting font size at textstyle rather than textsize.
+
+
+Draw Circle-like Shapes
 =========================
 
-Circle like object specifies xy and radius and other shape specific args.
+Circle-like shapes specify ``xy``, ``radius``, and other shape-specific arguments.
 
 circle()
 ---------
 
-Function ``circle()`` draws circle.
-Which takes these arguments.
+The ``circle()`` function draws a circle and takes the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* radius (float): radius
-* angle (float): angle which effects to text
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+* xy : X, Y coordinates.
+* radius: Radius of the circle.
+* angle: Angle which affects the text inside the circle.
+* style: Style of the circle.
+* text: Text displayed at the center of the circle.
+* textsize: The font size of the text.
+* textstyle: The style of the center text
 
 Let's explore two examples.
 
@@ -74,32 +96,33 @@ Let's explore two examples.
    :linenos:
    :caption: image_circle1.py
 
-Circle shape doesn't have effect of angle.
-However, text has effect.
+The circle shape itself does not have an angle effect, but the text inside does.
+
+Executing the above script generates the following output:
 
 .. figure:: image_circle1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_circle1.png
+    circle()
 
 donuts()
 ---------
 
-Function ``donuts()`` draws donuts like shape.
-We specify external radius and width of fill area from external radius.
-In another word, internal radius becomes "external radius - width".
+The ``donuts()`` function draws a donut-like shape. 
+This shape is defined by an external radius and the width of the filled area, meaning the internal radius is calculated as ``external radius - width``.
 
 This function takes these arguments.
 
-* xy (tuple[float, float]): X, Y coordinate
-* radius (float): external radius
-* width (float): width of donuts fill area
-* angle (float): angle which effects to text
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+* xy : X, Y coordinates.
+* radius: Radius of the donuts.
+* width: Width of donuts fill area
+* angle: Angle which affects the text inside the donuts.
+* style: Style of the donuts.
+* text: Text displayed at the center of the donuts.
+* textsize: The font size of the text.
+* textstyle: The style of the center text
 
 Let's explore two examples.
 
@@ -108,38 +131,39 @@ Let's explore two examples.
    :linenos:
    :caption: image_donuts1.py
 
-Donuts shape doesn't have effect of angle.
-However, text has effect.
+By adjusting the ``radius`` and ``width`` arguments, you can control the size and thickness of the donut shape.
+Executing the above script generates donut shapes with centered text, showing the usage of various arguments.
 
 .. figure:: image_donuts1.png
-    :width: 500
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    image_donuts1.png
+   donuts()
 
-Technically, ``donuts()`` is a syntax sugar function of ``wedge()``.
+The ``donuts()`` function is essentially a simplified wrapper around the ``wedge()`` function, providing an easy way to draw donut shapes without needing to handle the internal radius calculations manually.
+
 
 fan()
 -------
 
-Function fan() draws fan which is part of circle.
-In other words, drawing circle from angle-A to angle-B is a fan.
+The ``fan()`` function draws a fan shape, which is a sector of a circle. In other words, it creates a part of a circle from one angle to another.
 
-This function takes these arguments.
+* xy : X, Y coordinates.
+* radius: Radius of the fan.
+* from_angle: The starting angle of the fan.
+* to_angle: The ending angle of the fan.
+* angle: Angle of the fan.
+* style: Style of the fan.
+* text: Text displayed at the center of the fan.
+* textsize: The font size of the text.
+* textstyle: The style of the center text
 
-* xy (tuple[float, float]): X, Y coordinate
-* radius (float): radius
-* from_angle (float): shape starts
-* to_angle (float): shape ends
-* angle (float): rotate shape
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+There are three angle-related arguments:
 
-As you can see we have 3 angles in arguments.
-Please remember, use create shape via ``from_angle`` and ``to_angle``.
-After creation, rotate it via ``angle``.
+* ``from_angle``: Defines where the fan shape starts.
+* ``to_angle``: Defines where the fan shape ends.
+* ``angle``: Rotates the entire fan shape after it is created.
 
 Let's explore two examples.
 
@@ -148,155 +172,154 @@ Let's explore two examples.
    :linenos:
    :caption: image_fan1.py
 
+By adjusting the from_angle, to_angle, and angle arguments, you can create and position the fan shape as desired.
+
 First example draws fan from angle(``from_angle``) 0 to angle(``to_angle``) 135.
 Second example is same, but it rotate fan via specifying ``angle``. 
 
+Executing the above script generates fan shapes with centered text, showing the usage of various arguments.
+
 .. figure:: image_fan1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_fan1.png
+    fan()
 
-Technically, ``fan()`` is a syntax sugar function of ``wedge()``.
+The ``fan()`` function is essentially a simplified wrapper around the ``wedge()`` function, making it easy to draw fan shapes by specifying start and end angles, and then optionally rotating the shape.
 
 regularpolygon()
 ------------------
 
-Function ``regularpolygon()`` draws regular polygon.
-You can specify number of vertex from 3 to many.
+The ``regularpolygon()`` function draws a regular polygon with a specified number of vertices.
 
 This function takes these arguments.
 
-* xy (tuple[float, float]): X, Y coordinate
-* radius (float): radius of vertices
-* num_vertices (int): number of vertices
-* angle (float): rotate shape
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+* xy : X, Y coordinates.
+* radius: Radius of the regularpolygon.
+* num_vertices: Number of vertices of the polygon (must be 3 or more).
+* angle: Angle of the regularpolygon.
+* style: Style of the regularpolygon.
+* text: Text displayed at the center of the regularpolygon.
+* textsize: The font size of the text.
+* textstyle: The style of the center text
 
-Let's explore two examples.
+Here are two examples demonstrating the use of ``regularpolygon()``:
 
 .. literalinclude:: image_regularpolygon1.py
    :language: python
    :linenos:
    :caption: image_regularpolygon1.py
 
-We draw pentagon(5 vertices) and hexagon(6 vertices).
+Executing the above script generates regular polygons with centered text, demonstrating the usage of various arguments.
 
 .. figure:: image_regularpolygon1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_regularpolygon1.png
+    regularpolygon()
 
-Providing vertices 2 draws line and huge number such as ``1000,000,000`` draws circle.
-But there are no reason to use them.
+The ``regularpolygon()`` function allows you to specify the number of vertices from 3 upwards to create polygons of various shapes.
+
 
 star()
 --------
 
-Function ``regularpolygon()`` draws star.
-You need to specify how many external vertices it has.
-And also, radius for external vertices and internal vertices.
+The ``star()`` function draws a star shape with a specified number of external vertices.
 
-* xy (tuple[float, float]): X, Y coordinate
-* radius_ext (float): external radius
-* radius_int (float): internal radius
-* num_vertices (int): number of vertices
-* angle (float): rotate shape
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+This function takes these arguments.
 
-Let's explore two examples.
+* xy : X, Y coordinates.
+* radius_ext: Radius of the circle circumscribing the outermost vertices of the star.
+* radius_int: Radius of the circle circumscribing the innermost vertices of the star.
+* num_vertices: Number of external vertices of the star (must be 3 or more).
+* angle: Angle of the star.
+* style: Style of the star.
+* text: Text displayed at the center of the star.
+* textsize: The font size of the text.
+* textstyle: The style of the center text
+
+Here are two examples demonstrating the use of ``star()``:
 
 .. literalinclude:: image_star1.py
    :language: python
    :linenos:
    :caption: image_star1.py
 
-Via changing ``num_vertices``, you can draw many type of stars.
+The ``star()`` function allows you to specify the number of external vertices to create stars of different shapes and sizes.
+Executing the above script generates stars with centered text, demonstrating the usage of various arguments.
 
 .. figure:: image_star1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_star1.png
+    star()
 
 wedge()
 --------
 
-Function ``wedge()`` draws wedge.
-It is a mix of ``donuts()`` and ``fan()``.
-You can specify external radius and shape area width.
-And also, where drawing start and end.
+The ``wedge()`` function draws a wedge shape, which is a combination of a donut (ring) and a fan (sector of a circle).
 
 This function takes these arguments.
 
-* xy (tuple[float, float]): X, Y coordinate
-* radius (float): radius
-* width (float): width of donuts fill area
-* from_angle (float): shape starts
-* to_angle (float): shape ends
-* angle (float): rotate shape
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+* xy : X, Y coordinates.
+* radius: Radius of the wedge.
+* width : width of donuts fill area
+* from_angle: Starting angle of the wedge.
+* to_angle: Ending angle of the wedge.
+* angle: Angle of the wedge.
+* style: Style of the wedge.
+* text: Text displayed at the center of the wedge.
+* textsize: The font size of the text.
+* textstyle: The style of the center text
 
-Let's explore two examples.
+Here is an example demonstrating the use of ``wedge()``:
 
 .. literalinclude:: image_wedge1.py
    :language: python
    :linenos:
    :caption: image_wedge1.py
 
-You can specify both ``donts()`` and ``fan()`` arguments for function ``wedge()``.
+Executing the above script generates a wedge shape with centered text, demonstrating the usage of various arguments.
 
 .. figure:: image_wedge1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_wedge1.png
+    wedge()
 
-You can draw both donuts and fan shape via ``wedge()``.
-But functions ``donuts()`` and ``fan()`` are more simple and having easy function name.
-We recommend using them for their shapes.
+The ``wedge()`` function allows you to specify the radius, width, starting angle, and ending angle to create wedge shapes, which are useful for visualizing segments of circles with customizable styles and text.
+
 
 Draw Rectangle Like Shapes
 ============================
 
-Rectangle like object specifies xy and width/height and other shape specific args.
-Both ``arc()`` and ``ellipse()`` are looking similar to circle by shape.
-However, there parameters are similar to rectangle.
-So, we categorize them to rectangle like shape.
+Rectangle-like shapes in Drawlib are defined using X, Y coordinates along with width and height parameters. 
+These shapes, such as ``arc()`` and ``ellipse()``, resemble rectangles in their parameterization despite their curved appearances, hence they are categorized as rectangle-like shapes.
 
 arc()
 -------
 
-Function ``arc()`` draws arc.
-Arc is looks like line, but it is drawn as shape.
-So, you can't specify arrow style.
-But you can specify line style via attribute of ``ShapeStyle``.
+The ``arc()`` function is used to draw arcs.
 
-It takes width and height for underlying transparent ellipse.
-And draw visible line over it between specified angles.
+An arc resembles a line but is drawn as a shape, thus arrow styles cannot be specified. 
+However, you can define the line style using attributes of ``ShapeStyle``.
 
-This function takes these arguments.
+This function requires the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width underlying ellipse
-* height (float): height underlying ellipse
-* from_angle (float): arc starts
-* to_angle (float): arc ends
-* angle (float): rotate arc
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the underlying ellipse
+- height: Height of the underlying ellipse
+- from_angle: Starting angle of the arc
+- to_angle: Ending angle of the arc
+- angle: Rotation angle of the arc
+- style: Style of the arc
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
 Let's explore two examples.
 
@@ -305,108 +328,107 @@ Let's explore two examples.
    :linenos:
    :caption: image_arc1.py
 
-How to handle angle is almost same to ``donuts()`` etc.
-Please check its explanation for details.
-Here is an output.
+Handling angles is similar to functions like ``donuts()``. 
+Please refer to its explanation for more details. 
+Here's an example output:
 
 .. figure:: image_arc1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_arc1.png
-
-bubblespeech()
------------------
+    arc()
 
 chevron()
 -------------
 
-Function ``chevron()`` draws chevron.
-Not only specifying width and height, it specify left bottom corner angle by ``corner_angle``.
-The shape of chevron depends on this value.
+The ``chevron()`` function draws a chevron shape. 
+In addition to specifying width and height, it allows you to define the angle of the bottom-left corner using corner_angle. 
+The shape of the chevron varies based on this parameter.
 
-This function takes these arguments.
+This function takes the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width underlying ellipse
-* height (float): height underlying ellipse
-* corner_angle (float): Left bottom corner angle.
-* mirror (bool): make chevron reverse horizontally
-* angle (float): rotate arc
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the chevron
+- height: Height of the chevron
+- corner_angle: Angle of the bottom-left corner
+- mirror: Optionally reverses the chevron horizontally (default is False)
+- angle: Rotation angle of the chevron
+- style: Style of the chevron
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
-Let's explore two examples.
+Let's explore two examples:
 
 .. literalinclude:: image_chevron1.py
    :language: python
    :linenos:
    :caption: image_chevron1.py
 
-Chevron's shape depends on ``corner_angle``.
-Right side chevron uses ``mirror`` option.
-If it is True, the chevron becomes horizontally reverse.
-Default is False.
+The shape of the chevron is influenced by ``corner_angle``. 
+When ``mirror`` is set to True, the chevron is horizontally reversed. 
+Here is an example output:
 
 .. figure:: image_chevron1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_chevron1.png
+    chevron()
 
 ellipse()
 -----------
 
-Function ``ellipse()`` draws ellipse.
-If width and height are same, it is almost same to ``circle()``.
+The ``ellipse()`` function draws an ellipse. 
+If the width and height are identical, it behaves similarly to the ``circle()`` function.
 
-This function takes these arguments.
+This function accepts the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width of ellipse
-* height (float): height of ellipse
-* angle (float): rotate ellipse
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the ellipse
+- height: Height of the ellipse
+- angle: Rotation angle of the ellipse
+- style: Style of the ellipse
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
-Let's explore two examples.
+Let's explore two examples:
 
 .. literalinclude:: image_ellipse1.py
    :language: python
    :linenos:
    :caption: image_ellipse1.py
 
-This code makes this output.
+Here is an example output:
 
 .. figure:: image_ellipse1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_ellipse1.png
+    ellipse()
 
 parallelogram()
 ------------------
 
-Function ``parallelogram()`` draw parallelogram.
-It takes arguments ``corner_angle`` and it decide left bottom corner angle.
-Another option ``mirror`` reverse the shape horizontally.
+The ``parallelogram()`` function draws a parallelogram shape. 
+It allows you to specify the angle of the bottom-left corner using ``corner_angle``. 
+Additionally, you can mirror the shape horizontally by setting the ``mirror`` parameter to True.
 
-This function takes these arguments.
+This function accepts the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width of ellipse
-* height (float): height of ellipse
-* corner_angle (float): left bottom corner angle.
-* mirror (optional bool): reverse horizontally.
-* angle (float): rotate ellipse
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the parallelogram
+- height: Height of the parallelogram
+- corner_angle: Angle of the bottom-left corner
+- mirror: Optionally reverses the parallelogram horizontally (default is False)
+- angle: Rotation angle of the parallelogram
+- style: Style of the parallelogram
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
 Let's explore two examples.
 
@@ -415,166 +437,157 @@ Let's explore two examples.
    :linenos:
    :caption: image_parallelogram1.py
 
-This code makes this output.
+Here is an example output:
 
 .. figure:: image_parallelogram1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_parallelogram1.png
+    parallelogram()
 
 
 rectangle()
 -------------
 
-Function ``rectangle()`` draws rectangle.
-Not only specifying width and height, it can specify corner R.
+The ``rectangle()`` function draws a rectangle shape. 
+It allows you to specify the radius of the rounded corners using the ``r`` parameter.
 
-This function takes these arguments.
+This function accepts the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width underlying ellipse
-* height (float): height underlying ellipse
-* r (float): corner R.
-* angle (float): rotate arc
-* style (ShapeStyle)
-* text (str): center text
-* textstyle (ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the rectangle
+- height: Height of the rectangle
+- r: Radius of the rounded corners (default is 0, resulting in sharp corners)
+- angle: Rotation angle of the rectangle
+- style: Style of the rectangle
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
-Let's explore two examples.
+Let's explore two examples:
 
 .. literalinclude:: image_rectangle1.py
    :language: python
    :linenos:
    :caption: image_rectangle1.py
 
-Default R is 0.
-So, left side rectangle which doesn't specify ``r`` has no R.
+Here is an example output:
 
 .. figure:: image_rectangle1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_rectangle1.png
+    rectangle()
 
 rhombus()
 -----------
 
-Function ``rhombus()`` draws rhombus.
+The ``rhombus()`` function draws a rhombus shape, which is a diamond-like figure with equal sides.
 
-This function takes these arguments.
+This function accepts the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width 
-* height (float): height
-* angle (optional float): rotate arc
-* style (optional ShapeStyle)
-* text (optional str): center text
-* textstyle (optional ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the rhombus
+- height: Height of the rhombus
+- angle: Rotation angle of the rhombus
+- style: Style of the rhombus
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
-Let's explore two examples.
+Let's explore two examples:
 
 .. literalinclude:: image_rhombus1.py
    :language: python
    :linenos:
    :caption: image_rhombus1.py
 
-It generate this output.
+Here is an example output:
 
 .. figure:: image_rhombus1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_rectangle1.png
+    rhombus()
 
 trapezoid()
 -------------
 
-Function ``trapezoid()`` draws rhombus.
-As you know trapezoid has 2 different "bottom width" and "top width".
-And also, positioning of "top side (or bottom side)" has variations.
-So, this function takes 3 special arguments ``bottom_width``, ``top_width`` and ``top_start``.
+The ``trapezoid()`` function draws a trapezoid shape, which has two different widths at its top and bottom edges. 
+The positioning of the top side relative to the bottom side can be adjusted using the ``top_width``, ``bottom_width``, and optionally ``top_start`` parameters.
 
 This function takes these arguments.
 
-* xy (tuple[float, float]): X, Y coordinate
-* height (float): height
-* bottom_width (float): width of bottom side 
-* top_width (float): width of top side 
-* top_start (optional float): where top side start. default makes top side center.
-* angle (optional float): rotate arc
-* style (optional ShapeStyle)
-* text (optional str): center text
-* textstyle (optional ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the trapezoid
+- height: Height of the trapezoid
+- bottom_width: Width of the bottom side of the trapezoid
+- top_width: Width of the top side of the trapezoid
+- top_start: Optional parameter to specify where the top side starts (default places the top side centered). If set to 0, the top side starts at the same position as the bottom side.
+- angle: Rotation angle of the trapezoid
+- style: Style of the trapezoid
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
-Let's explore two examples.
+Let's explore two examples:
 
 .. literalinclude:: image_trapezoid1.py
    :language: python
    :linenos:
    :caption: image_trapezoid1.py
 
-First example doesn't specify argument ``top_start``.
-So, top side becomes center.
-When top side is bigger rather than bottom side, bottom side becomes center.
-
-You can specify where top side starts.
-The second example set 0 to ``top_start``. So, top side starts from x where bottom side start.
+Here is an example output:
 
 .. figure:: image_trapezoid1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_trapezoid1.png
+    trapezoid()
 
 triangle()
 ------------
 
-Function ``triangle()`` draws triangle.
-It has optional argument ``topvertex_xpos``.
-It defines where top vertex is pointed.
-If you didn't specify it, isosceles triangle is drawn.
-It means x of top vertex becomes center of width.
+The ``triangle()`` function draws a triangle shape. 
+It has an optional parameter ``topvertex_xpos`` to specify where the top vertex is positioned horizontally.
+If not specified, the triangle is drawn as an isosceles triangle with the top vertex aligned at the center of its width.
 
-This function takes these arguments.
+This function accepts the following arguments:
 
-* xy (tuple[float, float]): X, Y coordinate
-* width (float): width of bottom side.
-* height (float): height 
-* topvertex_xpos (optional float): where top side vertex is pointed horizontally.
-* angle (optional float): rotate arc
-* style (optional ShapeStyle)
-* text (optional str): center text
-* textstyle (optional ShapeTextStyle)
+- xy: X, Y coordinates
+- width: Width of the triangle
+- height: Height of the triangle
+- topvertex_xpos: Optional parameter to specify the horizontal position where the top vertex is pointed
+- angle: Rotation angle of the triangle
+- style: Style of the triangle
+- text: Centered text
+- textsize: Font size of the text
+- textstyle: Style of the centered text
 
-Let's explore two examples.
+Let's explore two examples:
 
 .. literalinclude:: image_triangle1.py
    :language: python
    :linenos:
    :caption: image_triangle1.py
 
-First example doesn't specify argument ``topvertex_xpos``.
-So, top vertex becomes center. And it makes triangle isosceles.
-
-You can specify where top vertex is pointed.
-The second example set 0 to ``topvertex_xpos``. So, top vertex's x is set to where bottom side start.
+Here is an example output:
 
 .. figure:: image_triangle1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_triangle1.png
+    triangle()
 
-In this example, inner text is drawn on center of right triangle.
-And it is out of shape.
-In these situation you can move where text is drawn by specifying attribute ``xy_shift`` of ``ShapeTextStyle``.
-We will explain it at shape style document.
+In this example, inner text is drawn at the center of the right triangle shape. 
+However, the text extends beyond the shape's boundaries. 
+In such situations, you can adjust the position where the text is drawn by specifying the ``xy_shift`` attribute of ``ShapeTextStyle``. 
+For further details, refer to the shape style documentation.
 
 Draw Other Type of Shapes
 ============================
@@ -582,79 +595,68 @@ Draw Other Type of Shapes
 arrow()
 ---------
 
-Function ``arrow()`` draws arrow shape.
-If you want to draw arrow line, please use function ``line()`` and related ones with style ``LineArrowStyle``.
+The ``arrow()`` function draws an arrow shape between two points defined by ``xy1`` (start point) and ``xy2`` (end point). 
+You can customize the arrow's tail and head sizes and styles.
 
-Arrow has its original positioning method which specify starting point ``xy1`` and end point ``xy2`` which is similar to line.
-And also, you can specify arrow tail and head size.
+This function accepts the following arguments:
 
-This function takes these arguments.
+- xy1: Start point coordinates (x1, y1)
+- xy2: End point coordinates (x2, y2)
+- tail_width: Width of the arrow's tail (not the head)
+- head_width: Width of the arrow's head
+- head_length: Length of the arrow's head
+- head_style (optional): Style of the arrow's head (``"->"``, ``"<-"``, ``"<->"`` for different configurations)
+- style (optional): Style of the arrow
+- text (optional): Centered text
+- textstyle (optional): Style of the centered text
 
-* xy1 (tuple[float, float]): Start point
-* xy2 (tuple[float, float]): End point
-* tail_width (float): Tail (not arrow head) width
-* head_width (float): Arrow head width
-* head_length (float): Arrow head length
-* head_style (optional str): Arrow head style
-* style (optional ShapeStyle)
-* text (optional str): center text
-* textstyle (optional ShapeTextStyle)
-
-Argument ``head_style`` can specify arrow types.
-
-* ``"-|>"``: having head on end point
-* ``"<|-"``: having head on start point
-* ``"<|-|>"``: having head on both start and end points
-
-If you doesn't specify head style, end point is applied.
-Let's explore two examples.
+Let's explore an example:
 
 .. literalinclude:: image_arrow1.py
    :language: python
    :linenos:
    :caption: image_arrow1.py
 
-There are no argument angle on ``arrow()``.
-But you decide it by start and end points.
+Here is an example output:
 
 .. figure:: image_arrow1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_arrow1.png
+    arrow()
 
-``arrow()`` ignores alignment attributes ``halign`` and ``valign`` on ``ShapeStyle``.
+In the ``arrow()`` function, the angle of the arrow is determined automatically by its start and end points. 
+The function does not use the alignment attributes (``halign`` and ``valign``) from ``ShapeStyle``.
 
 polygon()
 -----------
 
-Function ``polygon()`` draws shape which connects specified points.
-Start point and end point are connected automatically.
+The ``polygon()`` function draws a shape that connects specified points to form a polygon. 
+The start point and end point are automatically connected.
 
-This function takes these arguments.
+This function accepts the following arguments:
 
-* xys (list[tuple[float, float]]): Polygon points
-* style (optional ShapeStyle)
-* text (optional str): center text
-* textstyle (optional ShapeTextStyle)
+- xys: List of tuples specifying the points of the polygon [(x1, y1), (x2, y2), ..., (xn, yn)]
+- style (optional): Style of the polygon
+- text (optional): Centered text
+- textstyle (optional): Style of the centered text
 
-Let's explore two examples.
+Let's explore an example:
 
 .. literalinclude:: image_polygon1.py
    :language: python
    :linenos:
    :caption: image_polygon1.py
 
-Since ``polygon()`` draw shapes which connects points, there are no argument ``angle``.
-This example draws same shapes.
-However, that is achived by calculating points location by ourselves.
+Here is an example output:
 
 .. figure:: image_polygon1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_polygon1.png
+    polygon()
 
-If you prefer drawing your shape which has normal coordinate system and angle feature, please consider using function ``shape()``.
+The ``polygon()`` function does not use an angle argument because the shape's orientation is determined by the order of the specified points. 
+If you prefer to draw shapes with a standard coordinate system and angle features, consider using the ``shape()`` function.

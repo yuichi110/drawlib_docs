@@ -72,6 +72,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#shapetextstyle">ShapeTextStyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theme-s-pre-defined-styles">Theme’s Pre-defined Styles</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../text/doc.html">Drawing Text</a></li>
@@ -137,12 +138,12 @@
              
   <section id="shape-style">
 <h1>Shape Style<a class="headerlink" href="#shape-style" title="Link to this heading"></a></h1>
-<p>Drawlib uses <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> for styling shape.
-Regarding shape’s text, it uses <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code> which is similar to <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code> but differnt one.</p>
+<p>Drawlib uses <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> for styling shapes.
+For a shape’s text, it uses <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code>, which is similar to <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code> but is a different type.</p>
 <section id="shapestyle">
 <h2>ShapeStyle<a class="headerlink" href="#shapestyle" title="Link to this heading"></a></h2>
-<p>ShapeStyle is used for styling shape.
-But shape alignment is also configured at ShapeStyle.</p>
+<p>ShapeStyle is used for styling shapes.
+Additionally, shape alignment is configured within ShapeStyle.</p>
 <p>Here are attributes of ShapeSyel.</p>
 <ul class="simple">
 <li><p>haligh</p></li>
@@ -153,33 +154,28 @@ But shape alignment is also configured at ShapeStyle.</p>
 <li><p>fcolor</p></li>
 <li><p>alpha</p></li>
 </ul>
-<p>All of them are optional.
-When you don’t specify values to them, default theme value is applied.</p>
+<p>All of these attributes are optional.
+If you don’t specify values for them, the default theme values are applied.</p>
 <section id="alignment">
 <h3>Alignment<a class="headerlink" href="#alignment" title="Link to this heading"></a></h3>
-<p>You can configure alignment of shape except <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> and <code class="docutils literal notranslate"><span class="pre">polygon()</span></code>.
-They specify drawing points specifically, so alignment doesn’t exist.</p>
-<p>Default alighment is center on both horizontal and vertical.
-You can specify <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">center</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code> for horizontal alignment <code class="docutils literal notranslate"><span class="pre">halign</span></code>.
-And also, you can specify <code class="docutils literal notranslate"><span class="pre">bottom</span></code>, <code class="docutils literal notranslate"><span class="pre">center</span></code> and <code class="docutils literal notranslate"><span class="pre">top</span></code> for vertical alignment <code class="docutils literal notranslate"><span class="pre">valign</span></code>.
-We explain details in coodinate and alignment page.
-Please check it for details and examples.</p>
+<p>You can configure the alignment of shapes, except for <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> and <code class="docutils literal notranslate"><span class="pre">polygon()</span></code>, which specify drawing points explicitly and therefore do not have alignment options.</p>
+<p>The default alignment is centered both horizontally and vertically. Y
+ou can specify <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;center&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code> for horizontal alignment (<code class="docutils literal notranslate"><span class="pre">halign</span></code>).
+Similarly, you can specify <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;center&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code> for vertical alignment (<code class="docutils literal notranslate"><span class="pre">valign</span></code>).
+For more details and examples, please refer to the Coordinate and Alignment page.</p>
 </section>
 <section id="style">
 <h3>Style<a class="headerlink" href="#style" title="Link to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> posses styling attributes.
-They are categorized to below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> possesses styling attributes, categorized as follows:</p>
 <ul class="simple">
-<li><p>line style</p></li>
-<li><p>fill style</p></li>
-<li><p>line and fill style</p></li>
+<li><p>Line style</p></li>
+<li><p>Line style</p></li>
+<li><p>Line and fill style</p></li>
 </ul>
-<p>Currently, fill style is only color <code class="docutils literal notranslate"><span class="pre">fcolor</span></code>.
-<code class="docutils literal notranslate"><span class="pre">f</span></code> means fill.
-And also, style which is applied on both line and fill is only <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.
-Other attributes are for shape line.
-They starts from <code class="docutils literal notranslate"><span class="pre">l</span></code> which implies line.</p>
-<p>Here are 3 examples.</p>
+<p>Currently, the fill style includes only the color attribute (<code class="docutils literal notranslate"><span class="pre">fcolor</span></code>), where f stands for fill.
+The only attribute that applies to both line and fill is <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.
+Other attributes are for the shape’s line and start with l, which implies line.</p>
+<p>Here are three examples:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image_shapestyle1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -231,35 +227,35 @@ They starts from <code class="docutils literal notranslate"><span class="pre">l<
 Center has fcolor transparent.
 Right has alpha value.</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image_shapestyle1.png"><img alt="../../../_images/image_shapestyle1.png" class="with-border" src="../../../_images/image_shapestyle1.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image_shapestyle1.png"><img alt="../../../_images/image_shapestyle1.png" class="with-border" src="../../../_images/image_shapestyle1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_shapestyle1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">ShapeStyle</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>If you don’t need shape border line, please set <code class="docutils literal notranslate"><span class="pre">lwidth=0</span></code>.
-If you don’t need shape fill color, please set <code class="docutils literal notranslate"><span class="pre">fcolor=Colors.Transparent</span></code>.
-They are typical shape styling.</p>
+<p>If you don’t need a shape border line, set <code class="docutils literal notranslate"><span class="pre">lwidth=0</span></code>.
+If you don’t need a shape fill color, set <code class="docutils literal notranslate"><span class="pre">fcolor=Colors.Transparent</span></code> or <code class="docutils literal notranslate"><span class="pre">fcolor=Colors.White</span></code>.
+These are typical shape styling configurations.</p>
 </section>
 </section>
 <section id="shapetextstyle">
 <h2>ShapeTextStyle<a class="headerlink" href="#shapetextstyle" title="Link to this heading"></a></h2>
-<p>ShapeTextStyle is similar to <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code> which is used for drawing text function <code class="docutils literal notranslate"><span class="pre">text()</span></code>.
-Difference of them are</p>
+<p>ShapeTextStyle is similar to <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code>, which is used for drawing text with the <code class="docutils literal notranslate"><span class="pre">text()</span></code> function.
+The differences between them are:</p>
 <ul class="simple">
-<li><p>ShapeTextSyle: able to shift xy coordinate from center of shape. able to change angle</p></li>
-<li><p>TextStyle: able to configure text background</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code>: Allows shifting the x and y coordinates of the text from the center of the shape and changing the angle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TextStyle</span></code>: Allows configuring the text background.</p></li>
 </ul>
 <p>ShapeTextStyle has these attributes.</p>
 <ul class="simple">
-<li><p>halign: ignored. For future implementation</p></li>
-<li><p>valign: ignored. For future implementation</p></li>
-<li><p>color: text color</p></li>
-<li><p>size: text size</p></li>
-<li><p>font: text font</p></li>
-<li><p>xy_shift: shifting from original drawing point</p></li>
-<li><p>angle: text angle. default is same to shape angle</p></li>
+<li><p>halign: Ignored (for future implementation)</p></li>
+<li><p>valign: Ignored (for future implementation)</p></li>
+<li><p>color: Text color</p></li>
+<li><p>size: Text size</p></li>
+<li><p>font: Text font</p></li>
+<li><p>xy_shift: Shifting from the original drawing point</p></li>
+<li><p>angle: Text angle (default is the same as the shape angle)</p></li>
 </ul>
-<p>Here are 3 examples.</p>
+<p>Here are three examples:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">image_textstyle1.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -315,17 +311,84 @@ Difference of them are</p>
 </div>
 <p>You can configure text styles.
 But also, you can configure text positioning which you can see right example.</p>
+<p>Below is a figure illustrating these styles:</p>
 <figure class="align-center" id="id4">
-<a class="with-border reference internal image-reference" href="../../../_images/image_textstyle1.png"><img alt="../../../_images/image_textstyle1.png" class="with-border" src="../../../_images/image_textstyle1.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image_textstyle1.png"><img alt="../../../_images/image_textstyle1.png" class="with-border" src="../../../_images/image_textstyle1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image_textstyle1.png</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">ShapeTextStyle</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see from center text example, text follows shape angle normally.
-However you can override it as right example.
-In that one, we also move text positioning via <code class="docutils literal notranslate"><span class="pre">xy_shift</span></code>.
-X and Y are not absolute coordinate value.
-But inside of shape value.</p>
+<p>As you can see from the center text example, text normally follows the shape’s angle.
+However, you can override it, as shown in the right example.
+In that example, we also move the text positioning via <code class="docutils literal notranslate"><span class="pre">xy_shift</span></code>.
+The x and y values are not absolute coordinates but are relative to the shape’s dimensions.</p>
+</section>
+<section id="theme-s-pre-defined-styles">
+<h2>Theme’s Pre-defined Styles<a class="headerlink" href="#theme-s-pre-defined-styles" title="Link to this heading"></a></h2>
+<p>Shapes can use pre-defined styles from the theme you choose.</p>
+<p>The style syntax is: <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;thickness&gt;</span></code>.
+If the color, type, and thickness are default, they are not shown in the style name.</p>
+<p>Each style type has variations for line and fill styles with <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>.
+<code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code> cannot use these styles.</p>
+<ul class="simple">
+<li><p>default: Has border and fill color</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flat</span></code>: Has no border</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">solid</span></code>: Shape has an outline but no fill</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dashed</span></code>: Dashed outline, no fill</p></li>
+</ul>
+<p>Each thickness types has variation of line width except <code class="docutils literal notranslate"><span class="pre">flat</span></code> which doesn’t have line.
+On <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code>, it means tyep of fonts.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">thin</span></code>: Half of the default line width; font is thin</p></li>
+<li><p>default: Regular line width; font is regular</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: Double the default line width; font is bold</p></li>
+</ul>
+<p>Here are three examples:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image_theme1.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># left</span>
+<span class="linenos"> 7</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos"> 8</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos"> 9</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_flat&quot;</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<span class="linenos">12</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<span class="linenos">13</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># center</span>
+<span class="linenos">16</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos">17</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos">18</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">19</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue_solid&quot;</span><span class="p">,</span>
+<span class="linenos">20</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<span class="linenos">21</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;blue_bold&quot;</span><span class="p">,</span>
+<span class="linenos">22</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># right</span>
+<span class="linenos">25</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos">26</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos">27</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">28</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_dashed_thin&quot;</span><span class="p">,</span>
+<span class="linenos">29</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<span class="linenos">30</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;green_thin&quot;</span><span class="p">,</span>
+<span class="linenos">31</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, we use theme <code class="docutils literal notranslate"><span class="pre">&quot;default2&quot;</span></code>.
+Below is a figure illustrating these styles:</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image_theme1.png"><img alt="../../../_images/image_theme1.png" class="with-border" src="../../../_images/image_theme1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Theme’s styles</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

@@ -70,9 +70,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../theme/doc.html">Theme feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../build_many/doc.html">Building many images</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Coding Best Practices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#consider-which-alignment-is-the-best">Consider Which Alignment is the best</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#use-variable-when-having-same-values">Use Variable When Having Same Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#grouping-by-function">Grouping by Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consider-which-alignment-is-the-best">Consider Which Alignment is the Best</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-variables-when-having-same-values">Use Variables When Having Same Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grouping-by-functions">Grouping by Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-your-package">Create Your Package</a></li>
 </ul>
 </li>
@@ -135,23 +135,24 @@
              
   <section id="coding-best-practices">
 <h1>Coding Best Practices<a class="headerlink" href="#coding-best-practices" title="Link to this heading"></a></h1>
-<p>If your illustration is comple, drawlib’s code will be also complex.
-On that situation, coding practice is important.</p>
-<p>First of all, you need to notice that arranging coordinate and size will happen many times.
-Actions for easing changing them are drawlib’s coding best practices!!</p>
+<p>Illustration code is used to generate images.
+If the illustration is simple, code quality may not be a major concern.
+However, for more complex outputs, maintaining high code quality is essential.</p>
+<p>Following Drawlib’s best practices can significantly improve the quality of your illustration code.
+These best practices align with common Python coding standards and also include specific guidelines for handling illustrations effectively.</p>
+<p>Let’s go through these practices one by one.</p>
 <section id="consider-which-alignment-is-the-best">
-<h2>Consider Which Alignment is the best<a class="headerlink" href="#consider-which-alignment-is-the-best" title="Link to this heading"></a></h2>
+<h2>Consider Which Alignment is the Best<a class="headerlink" href="#consider-which-alignment-is-the-best" title="Link to this heading"></a></h2>
 <p>Many drawing items are aligned vertically and horizontally.
-Using horizontal vertical center is best for aligning different type and size objects.</p>
-<p>Let’s compare codes.
-They are almost same but difference in alignment.</p>
+Using horizontal and vertical alignment with “center” is often the best approach for aligning different types and sizes of objects.</p>
+<p>Let’s compare some example code with different alignments.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="c1"># left bottom align</span>
+<span class="linenos"> 5</span><span class="c1"># alignment: horizontally left, vertically bottom</span>
 <span class="linenos"> 6</span><span class="n">text</span><span class="p">(</span>
 <span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">73</span><span class="p">),</span>
 <span class="linenos"> 8</span>    <span class="s2">&quot;Drawlib&quot;</span><span class="p">,</span>
@@ -168,7 +169,7 @@ They are almost same but difference in alignment.</p>
 <span class="linenos">19</span>    <span class="n">style</span><span class="o">=</span><span class="n">ShapeStyle</span><span class="p">(</span><span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">),</span>
 <span class="linenos">20</span><span class="p">)</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span><span class="c1"># center center align</span>
+<span class="linenos">22</span><span class="c1"># alignment: horizontally center, vertically center</span>
 <span class="linenos">23</span><span class="n">text</span><span class="p">(</span>
 <span class="linenos">24</span>    <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
 <span class="linenos">25</span>    <span class="s2">&quot;Drawlib&quot;</span><span class="p">,</span>
@@ -189,28 +190,34 @@ They are almost same but difference in alignment.</p>
 </pre></div>
 </div>
 </div>
-<p>Upperside drawing uses <code class="docutils literal notranslate"><span class="pre">Style(halign=&quot;left&quot;,</span> <span class="pre">valign=&quot;bottom&quot;)</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code> value is not a simple values since I calculate/test positions.</p>
-<p>However, bottomside <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code> values are very easy to understand.
-They are just pointing center of each items.
-No calculation and test are required.</p>
+<p>Before diving into the code, let’s examine the output image.</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image110.png"><img alt="../../../_images/image110.png" class="with-border" src="../../../_images/image110.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image19.png"><img alt="../../../_images/image19.png" class="with-border" src="../../../_images/image19.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">theme “default”</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Align left,bottom vs center,center</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Align “center, center” is nice work when you change item size.
-You don’t need to change coordinate if center of the new size item doesn’t change.
-You need to change (x,y) position if you use left, bottom alignment.</p>
+<p>Both types of alignment produce a similar output.</p>
+<p>Now, let’s review the code.
+The upper drawings, starting from line 5, use horizontal left and vertical bottom alignment.
+As you can see, the coordinates <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> are not straightforward, such as <code class="docutils literal notranslate"><span class="pre">(19,</span> <span class="pre">73)</span></code>, <code class="docutils literal notranslate"><span class="pre">(45,</span> <span class="pre">70),</span></code> and <code class="docutils literal notranslate"><span class="pre">(70,</span> <span class="pre">70),</span></code>.
+These values were calculated, tested, and adjusted repeatedly to find good positions.</p>
+<p>In contrast, the lower drawings, starting from line 22, use center alignment for both horizontal and vertical positions.
+The coordinates are simple and easy to understand, such as <code class="docutils literal notranslate"><span class="pre">(25,</span> <span class="pre">25)</span></code>, <code class="docutils literal notranslate"><span class="pre">(50,</span> <span class="pre">25)</span></code>, and <code class="docutils literal notranslate"><span class="pre">(75,</span> <span class="pre">25)</span></code>.
+This simplicity is because each item’s center is aligned with the coordinates, making the width and angle of each item irrelevant for vertical and horizontal alignment.</p>
+<p>If you need to change the size and angle of each item, aligning left and bottom requires recalculation and position testing.
+However, center alignment does not require such adjustments.</p>
+<p>We recommend using center alignment for typical situations.
+However, the best alignment depends on the context.
+Consider which alignment is best for your specific needs.
+You can also mix multiple alignments within one illustration.</p>
 </section>
-<section id="use-variable-when-having-same-values">
-<h2>Use Variable When Having Same Values<a class="headerlink" href="#use-variable-when-having-same-values" title="Link to this heading"></a></h2>
-<p>At last example, we need to change all y values when we want to change y position of all items.
-With align center, typically having same y when aligning items horizontally.
-And also, same x when aligning items vertically.
-Let’s use variable for coordinations.</p>
-<p>In this example, we use coordination variable for holrizontally aligning items.</p>
+<section id="use-variables-when-having-same-values">
+<h2>Use Variables When Having Same Values<a class="headerlink" href="#use-variables-when-having-same-values" title="Link to this heading"></a></h2>
+<p>In the previous example, changing the y position of all items required modifying each y coordinate individually.
+When aligning items horizontally, it’s common for them to share the same y value, just as vertically aligned items often share the same x value.</p>
+<p>To simplify this process, use variables for coordinates instead of hardcoding values.
+In this example, we use variables to align items horizontally.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">image2_1.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -232,25 +239,26 @@ Let’s use variable for coordinations.</p>
 </pre></div>
 </div>
 </div>
-<p>Var y is simple. It is a half of height.
-Var x is little bit complex, but it provides same x margin for items.</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">y</span></code> is straightforward, representing half the height.
+The variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is a bit more complex but ensures equal x margins for the items.</p>
+<p>Executing this code generate below image.</p>
 <figure class="align-center" id="id4">
-<a class="with-border reference internal image-reference" href="../../../_images/image2_1.png"><img alt="../../../_images/image2_1.png" class="with-border" src="../../../_images/image2_1.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image2_1.png"><img alt="../../../_images/image2_1.png" class="with-border" src="../../../_images/image2_1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">theme “default”</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">Avoiding hard coding values</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>You can easily change canvas height and add new items in this code.
-We will change height 50 and add rectangle.</p>
+<p>This approach makes it easy to change the canvas height and add new items.
+Let’s change the canvas height to <code class="docutils literal notranslate"><span class="pre">50</span></code> and add a rectangle at last.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">image2_2.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="linenos"> 4</span><span class="n">height</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># &lt;= CHANGE!!</span>
+<span class="linenos"> 4</span><span class="n">height</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># &lt;= CHANGED FROM 100 !!</span>
 <span class="linenos"> 5</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="n">num_items</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># &lt;= CHANGE!!</span>
+<span class="linenos"> 7</span><span class="n">num_items</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># &lt;= CHANGED FROM 3!!</span>
 <span class="linenos"> 8</span><span class="n">margin_x</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_items</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos"> 9</span><span class="n">y</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="linenos">10</span>
@@ -264,50 +272,50 @@ We will change height 50 and add rectangle.</p>
 </pre></div>
 </div>
 </div>
-<p>As you can see, there are only few point of change.
-In my opinion, you should follow example of y.
-But exmaple of x makes code complex.
-If you are not planning to add items, <strong>Not using variable and calculation</strong> is one choice.
-We will hard code 25, 50, 75 to x coodinate at first example normally.</p>
+<p>As you can see, only a few points need modification.
+Using a variable for y simplifies the code. However, the x variable makes the code slightly more complex.</p>
 <figure class="align-center" id="id6">
-<a class="with-border reference internal image-reference" href="../../../_images/image2_2.png"><img alt="../../../_images/image2_2.png" class="with-border" src="../../../_images/image2_2.png" style="width: 500px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image2_2.png"><img alt="../../../_images/image2_2.png" class="with-border" src="../../../_images/image2_2.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">theme “default”</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">Easy to change positions with variables</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>New image align the items correctly.</p>
+<p>If you do not plan to add many items, not using variables and calculations can be a valid choice.
+Initially, hardcoding 25, 50, and 75 for the x coordinates, as shown in the first example, is often simpler.
+You can refactor your illustration code later of course.</p>
 </section>
-<section id="grouping-by-function">
-<h2>Grouping by Function<a class="headerlink" href="#grouping-by-function" title="Link to this heading"></a></h2>
-<p>Function is useful for calling same operation repeatedly.
-You can get same benefit at drawlib of course.
-However, using function for just grouping items is also recommended coding style.</p>
-<p>When you group items via function, you will get these benefits.</p>
+<section id="grouping-by-functions">
+<h2>Grouping by Functions<a class="headerlink" href="#grouping-by-functions" title="Link to this heading"></a></h2>
+<p>Using functions to group drawing operations is a highly recommended coding style in Drawlib.
+Functions are not only useful for repeated operations but also for organizing and abstracting your drawing logic.</p>
+<p>Here are some benefits of grouping items using functions:</p>
 <ul class="simple">
-<li><p>Able to understand abstract image design</p></li>
-<li><p>Able to localize variable such as x,y which doesn’t affects outside of function.</p></li>
-<li><p>Draw same group of items at many places</p></li>
+<li><p>Abstract Design Understanding: Functions help to understand the high-level design of the image.</p></li>
+<li><p>Variable Localization: You can localize variables (like x, y) within the function, preventing them from affecting the global scope.</p></li>
+<li><p>Reusability: You can easily draw the same group of items in different locations by calling the function multiple times.</p></li>
 </ul>
-<p>Normally, we tend to create these functions</p>
+<p>A common approach is to create functions for different alignment scenarios:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">left()</span></code>, <code class="docutils literal notranslate"><span class="pre">center()</span></code>, <code class="docutils literal notranslate"><span class="pre">right()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bottom()</span></code>, <code class="docutils literal notranslate"><span class="pre">center()</span></code>, <code class="docutils literal notranslate"><span class="pre">top()</span></code></p></li>
+<li><p>group name of items</p></li>
 </ul>
-<p>At each functions define x and y at first.
-All items are relative position from the base x, y position.
-When you want to move group, changing the x, y vars moves all items position.</p>
+<p>Within each function, you define base x and y coordinates at the start.
+All items in the function are positioned relative to these base coordinates.
+To move the entire group, you simply adjust the base x and y values.</p>
 </section>
 <section id="create-your-package">
 <h2>Create Your Package<a class="headerlink" href="#create-your-package" title="Link to this heading"></a></h2>
-<p>When you need to create many images, consistency is important.
-You can create independent image codes.
-But we recommend creating package with these reasons.</p>
+<p>When creating multiple images, maintaining consistency across your illustrations is crucial.
+While it’s possible to create independent image codes, packaging your code offers significant advantages.</p>
+<p>Here are some reasons why creating a package is beneficial:</p>
 <ul class="simple">
-<li><p>Same style for all images. Changing style code effects all images quickly.</p></li>
-<li><p>Create utility functions on utility code file. It makes your image code simple.</p></li>
-<li><p>Grouping images by chapters and sections</p></li>
+<li><p>Consistent Style: By defining styles in one place, any changes to the style code will automatically affect all images, ensuring a uniform appearance.</p></li>
+<li><p>Utility Functions: You can create utility functions in a separate utility code file, simplifying your image code.</p></li>
+<li><p>Organization: Group images by chapters and sections for better organization and easier navigation.</p></li>
 </ul>
-<p>Please check previous document page for details.</p>
+<p>Please take a look documents for building many images.</p>
 </section>
 </section>
 

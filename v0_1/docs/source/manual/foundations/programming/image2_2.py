@@ -1,10 +1,10 @@
 from drawlib.apis import *
 
 width = 100
-height = 50  # <= CHANGE!!
+height = 50  # <= CHANGED FROM 100 !!
 config(width=width, height=height, grid_only=True)
 
-num_items = 4  # <= CHANGE!!
+num_items = 4  # <= CHANGED FROM 3!!
 margin_x = width / (num_items + 1)
 y = height / 2
 

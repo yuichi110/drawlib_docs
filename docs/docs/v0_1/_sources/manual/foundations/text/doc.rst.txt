@@ -2,68 +2,109 @@
 Drawing Text
 ===============
 
-Drawing text requires undersnding of them
+Drawing text requires understanding the following concepts:
 
 * text(): Function for drawing text
-* TextStyle: Style class of text
+* TextStyle: Style class for text
 * font: How to specify fonts
+* Theme's pre-defined styles
 
-We explain them in this page one by one.
+We will explain each of these concepts in this section.
 
 text()
 =========
 
-drawlib use ``text()`` for drawing text.
-It takes these arguments.
+Drawlib uses the ``text()`` function for drawing text. 
+It takes the following arguments:
 
-* xy (tuple[float, float]): coordinate of drawing point
-* text (str): text value
-* angle (optional float): angle of text
-* style (optional TextStyle): text style
+* xy: coordinate of drawing point
+* text: text value
+* size(optional): size of text font
+* angle(optional): angle of text
+* style(optional): text style
 
-Without style, ``text()`` is very simple.
-Here are 2 examples.
+Font size can be changed with ``size``, but it can also be changed by the ``style`` attribute. 
+We recommend using the style attribute rather than size.
+ Similar to how you shouldn't configure text size in HTML but should do it in CSS, it's best to handle text styling via the style attribute for better consistency and flexibility.
+
+We will explain style later, so for now, we will focus on the other arguments. 
+Here are three examples:
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-Right side uses Japanese and specifying angle.
+Below is a figure illustrating these examples:
 
 .. figure:: image1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image1.png
+    text()
 
-Drawlib's default theme uses multi language font ``Noto SanSerif CJK Japanese``.
-It is popular SanSerif which supports Chinese Korean Japanese.
-As the font name denote it prioritize Japanese, but might not have conflict with Chinese and Korean normally.
+Drawlib's default theme uses the multilingual font "Noto Sans CJK Japanese". 
+This is a popular sans-serif font that supports CJK (Chinese, Japanese, Korean) in addition to the alphabet. 
+As the font name suggests, it prioritizes Japanese but typically does not conflict with Chinese and Korean.
 
+Fonts that prioritize Chinese and Korean are also provided. 
+Additionally, other local language fonts are available for languages not supported by the default font.
+
+text_vertical()
+==================
+
+While it is not common in alphabetic languages, vertically aligned text is popular in a few languages, such as Japanese. 
+We provide the ``text_vertical()`` function to achieve this. 
+The arguments are exactly the same as those for ``text()``.
+
+* xy: coordinate of drawing point
+* text: text value
+* size(optional): size of text font
+* angle(optional): angle of text
+* style(optional): text style
+
+Here are three examples:
+
+.. literalinclude:: image_vertical1.py
+   :language: python
+   :linenos:
+   :caption: image_vertical1.py
+
+Below is a figure illustrating these examples:
+
+.. figure:: image_vertical1.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    text_vertical()
+
+Please use ``halign="center"`` in TextStyle. 
+It is the default value. 
+Horizontal align left/right will work, but it does not look nice except with monospaced fonts.
 
 TextStyle
 ===========
 
-TextStyle is style of text.
-It posses many attributes, but almost all of them are categorized to "alignment", "text style" and "text background style".
+``TextStyle`` is style class for ``text()`` and ``text_vertical()``.
+It encompasses many attributes, categorized into "alignment", "text style", and "text background style".
 
-ShapeTextStyle has these attributes.
+``TextStyle`` has these attributes.
 
-* halign: Text horizontal alignment. "left", "center", "right"
-* valign: Text vertical alignment. "bottom", "center", "top"
-* color: text color
-* size: text size
-* font: text font
-* bgalpha: background alpha
-* bglwidth: background line width
-* bglcolor: background line color
-* bglstyle: background line style. "solid", "dashed", "dotted", "dashdot"
-* bgfcolor: background fill color
+* halign: Horizontal alignment of text. Options are "left", "center", "right".
+* valign: Vertical alignment of text. Options are "bottom", "center", "top".
+* color: Text color.
+* size: Text size.
+* font: Text font.
+* bgalpha: Background alpha.
+* bglwidth: Background line width.
+* bglcolor: Background line color.
+* bglstyle: Background line style. Options are "solid", "dashed", "dotted", "dashdot".
+* bgfcolor: Background fill color.
 
-Default alignment is center, center.
-And background is not drawn by default.
+The default alignment is "center" horizontally and "center" vertically. 
+By default, no background is drawn.
 
 Here are 2 examples.
 
@@ -72,28 +113,26 @@ Here are 2 examples.
    :linenos:
    :caption: image_style1.py
 
-Left side example configure alignment and text style.
-Right side example configure text background style.
+The left-side example configures alignment and text style, while the right-side example configures text background style.
+Below is a figure illustrating these examples:
 
 .. figure:: image_style1.png
-    :width: 500
+    :width: 600
     :class: with-border
     :align: center
 
-    image_style1.png
+    TextStyle
 
-In our opinion there are few chance for using text background.
-However setting white(or other canvas background color) no-border background is useful for drawing texts over shapes and lines.
+In our opinion, there are few chances to use text background. 
+Setting a white (or another canvas background color) background without a border can be useful for drawing text over shapes and lines in some situations.
 
 Font
 ======
 
-Drawlib specify font from drawlib's font or your font file.
-Drawlib can't use system font which your PC.
-Technically drawlib can use system font, but using system font is not good for achieving same result anywhere.
-So we don't provide feature for using them.
+Drawlib specifies fonts from Drawlib's font library or from your own font files. 
+Drawlib does not use system fonts installed on your PC because using system fonts may result in inconsistent rendering across different environments.
 
-Drawlib posses these Font classes.
+Drawlib includes these basic Font classes:
 
 * Font
 * FontSanSerif
@@ -102,18 +141,52 @@ Drawlib posses these Font classes.
 * FontSourceCode
 * FontRoboto
 
-They contains popular fonts or fonts we like.
-And also, these local language fonts are supported too.
+These classes contain popular fonts or fonts preferred by the Drawlib team.
+
+Additionally, Drawlib supports local language fonts:
 
 * FontArabic
+* FontBrahmic
 * FontChinese
 * FontJapanese
 * FontKorean
 * FontThai
 
-If your prefered language is not supported, please request us.
-But we can support only OSS free fonts.
-Currently we use Google fonts.
+If your preferred language is not supported, please let us know. 
+However, we can only support open-source free fonts at the moment.
+And currently, we use Google fonts.
 
-If you want to use your font, please provide it via ``FontFile`` class.
-We will explain details of font at font doc.
+If you want to use your own font, please provide it via the ``FontFile`` class. 
+
+We will provide details about using fonts in the font documentation.
+
+Theme's pre-defined styles
+==============================
+
+Text in Drawlib can utilize pre-defined styles from the theme you select.
+
+The style syntax is: ``<color>_<type>_<thickness>``.
+If the color and thickness are default, they are not explicitly shown in the style name.
+However, text styles do not use the type variations that are used for lines and shapes.
+
+Each thickness type variation includes different font weights:
+
+- ``thin``: Font weight thin
+- default: Font weight regular
+- ``bold``: Font weight bold
+
+Here is an example script that demonstrates the use of theme-defined text styles:
+
+.. literalinclude:: image_theme1.py
+   :language: python
+   :linenos:
+   :caption: image_theme1.py
+
+Below is a figure illustrating these examples:
+
+.. figure:: image_theme1.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme's pre-defined styles

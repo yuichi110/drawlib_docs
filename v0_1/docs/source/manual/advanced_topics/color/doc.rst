@@ -2,55 +2,58 @@
 Color Classes
 ===============
 
-Drawlib's color format are RGB(Red Green Blue) or RGBA(RGB and Alpha).
-RGB format is ``tuple(0~255, 0~255, 0~255)`` and RGBA format is ``tuple(0~255, 0~255, 0~255, 0.0~1.0)``.
-Drawlib doesn't support string color coode (``"red"`` etc.) and Hex style (``"#00FF00"`` etc.) for simplicity.
+Drawlib's color format is either RGB (Red, Green, Blue) or RGBA (RGB with Alpha). 
+The RGB format is represented as tuple(0-255, 0-255, 0-255), and the RGBA format is tuple(0-255, 0-255, 0-255, 0.0-1.0).
+For simplicity, Drawlib does not support string color codes (e.g., "red") or hex style codes (e.g., "#00FF00").
 
-However RGB is inconvinient for just using basic colors.
-So, we provide Color classes.
-Currently, we have these classes.
+However, using RGB can be inconvenient for basic colors.
+Therefore, we provide Color classes. Currently, we offer the following classes:
 
-- Color: basic web 16 colors + Transparent
-- Color140: basic web 140 colors + Transparent
+- Colors: basic web 16 colors + Transparent
+- Colors140: basic web 140 colors + Transparent
+- ColorsThemeDefault: Colors which are used in theme ``default`` and ``default2``
+- ColorsThemeEssentials: Colors which are used in theme ``essentials``
+- ColorsThemeMonochrome: Colors which are used in theme ``monochrome``
 - ColorBase: Base class for creating your own Color class
 
-Here is an image for showing their relations.
+Here is an image showing their relationships:
 
 .. figure:: image_architecture.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    Structure of color classes
+   Structure of color classes
 
-As you can see, ``ColorBase`` implements color ``TransParent`` and utility functions.
-Each child classes inherit them and implement each colors.
-You can create your color class too.
-We will take a look example of creating Google color class.
+As you can see, ``ColorsBase`` class implements the ``Transparent`` color and utility functions. 
+Each child class inherits these and implements its own colors. 
 
-Utility functions
+You can create your own color class as well. 
+Let's look at an example of creating a Google color class at end of this page.
+
+Utility Functions
 ====================
 
-Drawlib's color format is only RGB and RGBA.
-However, there are many color format such as hex.
+Drawlib's color format is only RGB and RGBA. 
+However, there are many color formats such as hex.
 
-``ColorsBase`` posses utility functions (static method).
-They will be able to be used for converting color style.
-Since color classes inherit ``ColorsBase``, all color classes can use utility functions of course.
-Let's take a look functions.
+``ColorsBase`` possesses utility functions that can be used for converting color styles. 
+Since all color classes inherit from ``ColorsBase``, they can all use these utility functions.
+
+Here is an example:
 
 .. literalinclude:: color_util.py
    :language: python
    :linenos:
    :caption: color_util.py
 
-Default alpha values are ``1.0``.
+The default alpha value is ``1.0``.
 
 
 Colors
 ========
 
-Class ``Colors`` posses these members.
+The ``Colors`` class contains the following members:
 
 - Transparent: (0, 0, 0, 0.0)
 - Aqua: (0, 255, 255)
@@ -73,7 +76,7 @@ Class ``Colors`` posses these members.
 Colors140
 ===========
 
-Class ``Colors140`` posses these members.
+The ``Colors140`` class contains the following members:
 
 - Transparent: (0, 0, 0, 0.0)
 - AliceBlue: (240, 248, 255)
@@ -218,17 +221,77 @@ Class ``Colors140`` posses these members.
 - Yellow: (255, 255, 0)
 - YellowGreen: (154, 205, 50)
 
+
+ColorsThemeDefault
+======================
+
+The ``ColorsThemeDefault`` class contains the following members:
+
+- Red: (239, 95, 95)
+- Green: (79, 191, 79)
+- Blue: (111, 111, 239)
+- Black: (0, 0, 0)
+- White: (255, 255, 255)
+
+
+
+ColorsThemeEssentials
+======================
+
+The ``ColorsThemeEssentials`` class contains the following members:
+
+- Red:  (255, 23, 23)
+- LightRed: (239, 95, 95)
+- Green: (15, 127, 15)
+- LightGreen: (79, 191, 79)
+- Blue: (31, 31, 255)
+- LightBlue: (111, 111, 239)
+- Yellow: (239, 239, 31)
+- Purple: (127, 31, 127)
+- Orange: (255, 95, 31)
+- Navy: (15, 15, 127)
+- Pink: (239, 63, 239)
+- Charcoal: (39, 39, 39)
+- Graphite: (63, 63, 63)
+- Gray: (127, 127, 127)
+- Silver: (191, 191, 191)
+- Snow: (239, 239, 239)
+- Teal: (15, 127, 127)
+- Olive: (127, 127, 31)
+- Brown: (159, 31, 31)
+- Black: (0, 0, 0)
+- White: (255, 255, 255)
+- Aqua: (47, 239, 239)
+- GreenYellow: (127, 207, 31)
+- Ivory: (239, 239, 207)
+- Steel: (96, 96, 143)
+
+
+ColorsThemeMonochrome
+======================
+
+The ``ColorsThemeMonochrome`` class contains the following members:
+
+- Black: (0, 0, 0)
+- Charcoal: (39, 39, 39)
+- Graphite: (63, 63, 63)
+- Gray: (127, 127, 127)
+- Silver: (191, 191, 191)
+- Snow: (239, 239, 239)
+- White: (255, 255, 255)
+
+
+
 Implement Your Own Colors
 ===========================
 
-We provide base class of colors ``ColorsBase``.
-You can define your color palette class via extend the base class.
+We provide a base class for colors called ``ColorsBase``. 
+You can define your own color palette class by extending this base class.
 
-Suppose you are Google's official partner who eligible to use corporate color.
-Let's try define colors and use it.
+Suppose you are an official partner of Google, eligible to use their corporate colors. 
+Let's define these colors and use them.
 
 Partner Marketing Hub: Google News Color Palette.
-
 https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/
 
 .. literalinclude:: image_mycolor.py
@@ -236,15 +299,14 @@ https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/co
    :linenos:
    :caption: image_mycolor.py
 
-In this example, we define color class and using it at image drawing code.
-But normally, you should define your color class at styling code and import it at image code.
+In this example, we define a color class and use it in image drawing code. 
+Typically, you should define your color class in a styling module and import it into your image code.
 
-Here is an output.
+Here is the output:
 
 .. figure:: image_mycolor.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
 
-    

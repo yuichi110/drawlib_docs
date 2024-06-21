@@ -2,26 +2,57 @@
 CLI and Options
 =================
 
-After you install drawlib via pip, you can use ``drawlib`` command.
-The command is equivalent to calling drawlib module via ``python -m drawlib``.
+drawlib Command
+===================
 
-There are big difference between ``python <your drawlib code>`` and ``drawlib <your drawlib code or directory>``.
-Former one just call python program normally.
-However, the latter call drawlib's special function first. And then it calls your codes.
+Once drawlib is installed, you gain access to the ``drawlib`` command. 
+This command is equivalent to invoking the drawlib module using ``python -m drawlib``.
 
-When you call single file which doesn't import any of your another file, there are no big difference.
-However, ``drawlib`` command do these thing before executing your code.
+You can develop your illustration code using either ``python <your_drawlib_code>`` or ``drawlib <your_drawlib_code_or_directory>``. 
+If you are working with a single file that doesn't import any other files, there is minimal difference between using these commands.
 
-- Detect your package architecture and register path
-- Call all python files which exsits under the target directory
-- Able to enable auto apply ``clear()`` and ``dutil_canvas.initialize()`` before executing each files.
+However, significant differences arise when managing multiple illustration codes or referencing style code:
 
-If you want to draw many illustrations, we strongly recommend using ``drawlib`` command rather than calling file via ``python``.
+- The python command executes a single file.
+- The ``drawlib`` command performs several tasks before executing your code:
 
-Options
+  - It detects your package architecture and registers paths.
+  - It executes all Python files found under the specified directory.
+  - It can automatically apply ``clear()`` before executing each file.
+
+
+For projects involving numerous illustrations, we strongly recommend using the ``drawlib`` command over ``python`` for its added convenience and automation features.
+
+
+Sample
 =========
 
-``drawlib`` command has ``-h`` option which shows command help.
+We will cover how to build multiple illustrations in detail in the foundational chapter. 
+Please refer to that section for comprehensive guidance. 
+However, as demonstrated here, the ``drawlib`` command is capable of building multiple Python illustration codes after registering your package path.
+
+.. code-block:: none
+
+   $ drawlib docs/                
+   Detect package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs".
+      - Add parent directory of package root "/Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many" to Python Path.
+
+   Execute python files
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/image1.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap01/image2.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap02/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/chap02/image1.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/commons/__init__.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/commons/style.py
+      - /Users/yuichi/GitHub/drawlib_docs/v0_1/samples/build_many/docs/commons/util.py
+
+
+Command Options
+==================
+
+The ``drawlib`` command includes the ``-h`` and ``--help`` options, which display command help.
 
 .. code-block:: none
     
@@ -45,21 +76,40 @@ Options
     --debug               Enable verbose logging. Equivalent to option "--verbose".
     --developer           Enable verbose logging. Disable error handling for library users.
 
-Auto ``clear()`` is enabled by default.
-You can disable it via ``--disable_auto_clear``.
+Controlling Auto Clear and Initialize Feature
+-----------------------------------------------
 
-``clear()`` doesn't wipe theme settings and image cache.
-They should be keep normally since many user want to apply same theme to many illustration codes.
-However, if you want to completely initialize drawlib per illustration code, you can use option ``--enable_auto_initialize``.
-It will make drawlib call ``dutil_canvas.initialize()`` every time when drawlib execute your code files.
+By default, auto ``clear()`` is enabled, meaning your previous drawing actions are erased before executing the next illustration code. 
+This behavior is generally suitable for normal use cases.
 
-``--purge_font_cache`` option remove drawlib's font file cache from your local machine.
-Font file is downloaded when you use the font first time and it is cached.
-This purge option delete them and release disk space.
-Normally, sum of font file size is less than 100MB.
-Using Chinese Japanese font tends to use more space since they posses lots of characters.
-Uninstalling drawlib will also delete fonts too since drawlib make font file caches in its library directory.
+However, if you intend to create a single illustration using multiple Python files, this auto clear feature may not be desirable. 
+In such cases, you can disable it using ``--disable_auto_clear``.
 
-Option ``--quiet``, ``--verbose``, ``--debug``, ``--developer`` will change log level.
-If you hit trouble and want to investigate detail error, please use ``--verbose`` and ``--debug``.
-If you good at Python, ``--developer`` option might give you more detail error.
+The ``clear()`` function does not reset theme settings and image cache, as many users prefer to maintain consistent themes across multiple illustrations. 
+If you need to completely initialize drawlib per illustration code execution, you can use ``--enable_auto_initialize``. 
+This option ensures that drawlib calls ``dutil_canvas.initialize()`` every time your code files are executed.
+
+Typically, you won't need to specify both options.
+
+
+Purging Font Cache
+--------------------
+
+The ``--purge_font_cache`` option removes drawlib's cached font files from your local machine. 
+
+Font files are downloaded and cached the first time you use a particular font, and this option deletes those cached files to reclaim disk space. 
+The combined size of font files is usually under 100MB. 
+Note that using Chinese or Japanese fonts may consume more space due to the large number of characters they include. 
+
+Uninstalling drawlib also removes cached fonts, as drawlib stores font caches in its library directory.
+
+Setting Log Level
+--------------------
+
+Options like ``--quiet``, ``--verbose``, ``--debug``, and ``--developer`` adjust the log level:
+
+- ``--quiet``: Suppresses all output except errors.
+- ``--verbose`` / ``--debug``: Provides verbose logging and includes stack traces for errors.
+- ``--developer``: Provides verbose logging and offering detailed error dumps without error handling, suitable for advanced Python users troubleshooting issues.
+
+Choose the appropriate log level based on your need for error visibility and troubleshooting depth.

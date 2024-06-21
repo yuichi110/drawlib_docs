@@ -2,27 +2,26 @@
 Debugging errors
 ===================
 
-Drawlib hide detail error when user code makes trouble.
-On that time drawlib shows only
+Drawlib hides detailed errors when user code encounters issues. 
+At such times, Drawlib only displays:
 
-- Which file and line has problem
-- What error happens
+- The file and line where the problem occurred
+- The type of error that happened
 
-It means drawlib doesn't show stucktrace and where library code makes error from user input.
-It is because we believe showing detail error and inside of drawlib is not good for ordinary users.
+This means Drawlib does not show the stack trace or where the library code encountered an error due to user input. 
+We believe that showing detailed errors and the internal workings of Drawlib is not beneficial for ordinary users.
 
-However, some times you want to check details.
-On that situation you need to enable debug mode.
+However, sometimes you may want to check the details. In such situations, you need to enable debug mode.
 
-How to enable debug mode
+How to Enable Debug Mode
 ============================
 
-Drawlib controlls which output is shown on cosole via logging level.
-Detail of error log is shown only on debug level logging.
+Drawlib controls which output is shown on the console via logging levels. 
+Detailed error logs are shown only at the debug logging level.
 
-To set logging level debug, you have 2 options.
+To set the logging level to debug, you have two options:
 
-- Set logging level via calling function: ``dsettings.set_logging_mode("debug")``
-- Set logging level via CLI Option ``python -m drawlib --quiet/--verbose/--developer``
+- Set the logging level by calling a function: ``dutil_settings.set_logging_mode("debug")``
+- Set the logging level via CLI options: ``drawlib --verbose`` or ``drawlib --debug``
 
-Please check details on settings doc and CLI options docs for details.
+Please check the settings documentation and CLI options documentation for more details.

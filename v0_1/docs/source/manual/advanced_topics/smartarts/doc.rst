@@ -2,14 +2,12 @@
 Smart Arts
 ==============
 
-Smart Art is advanced drawing feature.
-It is inspired by PowerPoint's Smart Art.
+Smart Arts are an advanced drawing feature in Drawlib, inspired by PowerPoint's Smart Art. 
+These features are implemented within the ``dsart`` module. 
 
-Smart Arts are implemented on ``dsart`` module.
-We will explain each items on each doc.
-Here is an index of smart arts.
+Below is an index of available Smart Arts with brief descriptions:
 
-- bubblespeech
-- sourcecode
+- bubblespeech: Represents bubble speech graphics.
+- sourcecode: Renders source code or programming-related graphics.
 
-
+Each Smart Art item provides specialized drawing capabilities tailored for different graphical needs.

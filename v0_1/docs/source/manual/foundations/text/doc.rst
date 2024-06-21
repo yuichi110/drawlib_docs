@@ -38,11 +38,11 @@ Here are three examples:
 Below is a figure illustrating these examples:
 
 .. figure:: image1.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    text()
+   text()
 
 Drawlib's default theme uses the multilingual font "Noto Sans CJK Japanese". 
 This is a popular sans-serif font that supports CJK (Chinese, Japanese, Korean) in addition to the alphabet. 
@@ -74,11 +74,11 @@ Here are three examples:
 Below is a figure illustrating these examples:
 
 .. figure:: image_vertical1.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    text_vertical()
+   text_vertical()
 
 Please use ``halign="center"`` in TextStyle. 
 It is the default value. 
@@ -117,11 +117,11 @@ The left-side example configures alignment and text style, while the right-side 
 Below is a figure illustrating these examples:
 
 .. figure:: image_style1.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    TextStyle
+   TextStyle
 
 In our opinion, there are few chances to use text background. 
 Setting a white (or another canvas background color) background without a border can be useful for drawing text over shapes and lines in some situations.
@@ -131,6 +131,9 @@ Font
 
 Drawlib specifies fonts from Drawlib's font library or from your own font files. 
 Drawlib does not use system fonts installed on your PC because using system fonts may result in inconsistent rendering across different environments.
+
+Basic Font Classes
+--------------------
 
 Drawlib includes these basic Font classes:
 
@@ -142,6 +145,9 @@ Drawlib includes these basic Font classes:
 * FontRoboto
 
 These classes contain popular fonts or fonts preferred by the Drawlib team.
+
+Local Language Fonts
+----------------------
 
 Additionally, Drawlib supports local language fonts:
 
@@ -156,9 +162,50 @@ If your preferred language is not supported, please let us know.
 However, we can only support open-source free fonts at the moment.
 And currently, we use Google fonts.
 
-If you want to use your own font, please provide it via the ``FontFile`` class. 
+Here are font examples.
 
-We will provide details about using fonts in the font documentation.
+.. literalinclude:: image_font1.py
+   :language: python
+   :linenos:
+   :caption: image_font1.py
+
+Below is a figure illustrating these examples:
+
+.. figure:: image_font1.png
+   :width: 600
+   :class: with-border
+   :align: center
+
+   Fonts
+
+To change the default font, refer to the theme documentation. 
+The ``dtheme.allstyles.merge()`` function allows you to partially override pre-defined styles. 
+If you provide a TextStyle with fonts, the pre-defined fonts will be overridden with your specified font.
+
+Custom Font
+-------------
+
+Drawlib offers a wide range of fonts. 
+However, if you want to use fonts that are not supported, use the ``FontFile`` class. 
+This class can be used in place of the basic font classes and accepts a font file as an argument.
+
+Here is an examples which uses font avenger.
+
+.. literalinclude:: image_file1.py
+   :language: python
+   :linenos:
+   :caption: image_file1.py
+
+Below is a figure illustrating these examples:
+
+.. figure:: image_file1.png
+   :width: 600
+   :class: with-border
+   :align: center
+
+   FontFile
+
+You can check the list of fonts supported by Drawlib in the Font documentation.
 
 Theme's pre-defined styles
 ==============================
@@ -185,8 +232,8 @@ Here is an example script that demonstrates the use of theme-defined text styles
 Below is a figure illustrating these examples:
 
 .. figure:: image_theme1.png
-    :width: 600
-    :class: with-border
-    :align: center
+   :width: 600
+   :class: with-border
+   :align: center
 
-    Theme's pre-defined styles
+   Theme's pre-defined styles

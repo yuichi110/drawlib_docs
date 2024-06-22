@@ -76,14 +76,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../color/doc.html">Color Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../font/doc.html">Font Classes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Dimage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#things-controlled-by-image">Things Controlled by image()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#save">Save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#image-cache-feature">Image Cache Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#things-controlled-by-image">Things Controlled by <code class="docutils literal notranslate"><span class="pre">image()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-dimage-to-file">Save Dimage to File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-image-pixel-size">Get Image Pixel Size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resizing-and-changing-aspect">Resizing and Changing Aspect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#trimming">Trimming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crop">Crop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flip-horizontally-and-vertically">Flip Horizontally and Vertically</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#change-color">Change color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apply-effects">Apply Effects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts/doc.html">Smart Arts</a></li>
@@ -92,16 +93,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -139,26 +138,34 @@
              
   <section id="dimage">
 <h1>Dimage<a class="headerlink" href="#dimage" title="Link to this heading"></a></h1>
-<p>Dimage is a image data class of drawlib.
-It provides 2 features.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">image()</span></code> function draws an image from a file.
+If you want to specify a file path and show it as is, providing a relative path is acceptable.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dimage</span></code> is an image data class in Drawlib.
+It is useful in the following situations:</p>
 <ul class="simple">
-<li><p>Effecting images</p></li>
-<li><p>Cache (load data one place, use it many places)</p></li>
+<li><p>Applying effects to images</p></li>
+<li><p>Caching (loading data in one place and using it in many places)</p></li>
 </ul>
-<section id="cache">
-<h2>Cache<a class="headerlink" href="#cache" title="Link to this heading"></a></h2>
-<p>Dimage posses class attribute <code class="docutils literal notranslate"><span class="pre">cache</span></code>.
-The cache posses instance of <code class="docutils literal notranslate"><span class="pre">DimageCache</span></code> and it provides these methods.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">image()</span></code> function can take a Dimage object and draw the image.</p>
+<section id="image-cache-feature">
+<h2>Image Cache Feature<a class="headerlink" href="#image-cache-feature" title="Link to this heading"></a></h2>
+<p>Each illustration code can refer to image files for drawing the image.
+If the image is used only in the code, this is fine.</p>
+<p>However, if many of your illustration codes refer to the same image file, pointing to the same file is not ideal.
+In such cases, changing the file name and location becomes difficult.
+Dimage’s cache feature is useful in this situation.
+You can cache the image in the style code, and all illustration codes can access it through the cache name.</p>
+<p>Dimage possesses a class attribute <code class="docutils literal notranslate"><span class="pre">cache</span></code>.
+This means you can access it like <code class="docutils literal notranslate"><span class="pre">Dimage.cache</span></code>.
+It is an image cache management object with the following methods:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">has(name:str)</span></code>: Whether posses cache or not</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">set(name:str,</span> <span class="pre">image:str|Dimage|PIL.Image)</span></code>: Cache image data with specified name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code>: get all cache names</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">get(name:str)</span></code>: get cache data from name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">delete(name:str)</span></code>: delete cache</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">has(name:str)</span></code>: Checks if the cache exists</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set(name:str,</span> <span class="pre">image:str|Dimage|PIL.Image)</span></code>: Caches image data with the specified name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code>: Gets all cache names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get(name:str)</span></code>: Retrieves cache data by name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delete(name:str)</span></code>: Deletes cache data</p></li>
 </ul>
-<p>You will not create <code class="docutils literal notranslate"><span class="pre">DimageCache</span></code> instance by yourself.
-Just understanding accessing cache through <code class="docutils literal notranslate"><span class="pre">Dimage.cache</span></code> and the provided methods are same to style cache feature of <code class="docutils literal notranslate"><span class="pre">dtheme</span></code>.
-Here is an example.</p>
+<p>Here is an example:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image_cache.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -171,54 +178,51 @@ Here is an example.</p>
 </pre></div>
 </div>
 </div>
-<p>In this example, we make cache first with <code class="docutils literal notranslate"><span class="pre">set()</span></code>.
-It takes image arg and all of its types are converted to Dimage internally.</p>
-<p>And then, get the cache data by specifying name.
-Return data is copied one.
-So, changing data doesn’t effects cache content.
-But in the first place, you can’t change dimage data like str.
-Here is an output.</p>
+<p>In this example, we first cache an image using the <code class="docutils literal notranslate"><span class="pre">set()</span></code> function.
+The function has an <code class="docutils literal notranslate"><span class="pre">image</span></code> argument, which can handle a string (file name), Dimage object, or PIL.Image object.
+When you cache an image with a name, the object is automatically copied or converted to a Dimage internally.</p>
+<p>You can retrieve the image using the <code class="docutils literal notranslate"><span class="pre">get()</span></code> function.
+It will return the copied image data that matches the key name.</p>
+<p>Here is the output:</p>
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_cache.png"><img alt="../../../_images/image_cache.png" class="with-border" src="../../../_images/image_cache.png" style="width: 600px;" /></a>
 </figure>
-<p>The most popular usage is loading to cache at common file and use it at every where.
-If you specify file name at each illustration code file, changing image path and name are burden.
-However, if you use cache, only changing location is common code.</p>
+<p>Not only can you cache images loaded from files, but you can also cache images you have modified.
+If you repeatedly use some images, we recommend using this feature as well.</p>
 </section>
 <section id="things-controlled-by-image">
-<h2>Things Controlled by image()<a class="headerlink" href="#things-controlled-by-image" title="Link to this heading"></a></h2>
-<p>Dimage is helper for function <code class="docutils literal notranslate"><span class="pre">image()</span></code>.
-So, Dimage doesn’t have features which <code class="docutils literal notranslate"><span class="pre">image()</span></code> has.
-These features are not implemented.</p>
+<h2>Things Controlled by <code class="docutils literal notranslate"><span class="pre">image()</span></code><a class="headerlink" href="#things-controlled-by-image" title="Link to this heading"></a></h2>
+<p>Dimage is a helper for the <code class="docutils literal notranslate"><span class="pre">image()</span></code> function.
+Therefore, Dimage does not include features that are implemented in <code class="docutils literal notranslate"><span class="pre">image()</span></code>.
+These features are not included:</p>
 <ul class="simple">
-<li><p>rotate: Option <code class="docutils literal notranslate"><span class="pre">angle</span></code></p></li>
-<li><p>add border: Attribute <code class="docutils literal notranslate"><span class="pre">lwidth</span></code> and <code class="docutils literal notranslate"><span class="pre">lcolor</span></code> of <code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code>.</p></li>
+<li><p>Rotate: Controlled by the <code class="docutils literal notranslate"><span class="pre">angle</span></code> option</p></li>
+<li><p>Add Border: Controlled by the <code class="docutils literal notranslate"><span class="pre">lwidth</span></code> and <code class="docutils literal notranslate"><span class="pre">lcolor</span></code> attributes of <code class="docutils literal notranslate"><span class="pre">ImageStyle</span></code></p></li>
 </ul>
 </section>
-<section id="save">
-<h2>Save<a class="headerlink" href="#save" title="Link to this heading"></a></h2>
-<p>Dimage can save its data to file without using drawlib’s canvas.
-<code class="docutils literal notranslate"><span class="pre">save()</span></code> method does this.
-It takes mandatory arg <code class="docutils literal notranslate"><span class="pre">file</span></code>.
-Arg <code class="docutils literal notranslate"><span class="pre">file</span></code> of Canvas’s <code class="docutils literal notranslate"><span class="pre">save()</span></code> is optional, but Dimage’s <code class="docutils literal notranslate"><span class="pre">save()</span></code> requires it.</p>
-<p>If you provide relative path, image file is save to relative to script path.
-Absolute path will work also.</p>
+<section id="save-dimage-to-file">
+<h2>Save Dimage to File<a class="headerlink" href="#save-dimage-to-file" title="Link to this heading"></a></h2>
+<p>Dimage can save its data to a file without using Drawlib’s canvas.
+The <code class="docutils literal notranslate"><span class="pre">save()</span></code> method performs this function.
+It requires a mandatory argument, <code class="docutils literal notranslate"><span class="pre">file</span></code>.
+While the file argument in Canvas’s <code class="docutils literal notranslate"><span class="pre">save()</span></code> is optional, it is required for Dimage’s <code class="docutils literal notranslate"><span class="pre">save()</span></code>.</p>
+<p>If you provide a relative path, the image file will be saved relative to the script’s path.
+An absolute path will also work.</p>
 </section>
 <section id="get-image-pixel-size">
 <h2>Get Image Pixel Size<a class="headerlink" href="#get-image-pixel-size" title="Link to this heading"></a></h2>
-<p>You can get original image size through method <code class="docutils literal notranslate"><span class="pre">get_image_size()</span></code>.
-It returns tuple of width and height.
-This function might be used with <code class="docutils literal notranslate"><span class="pre">resize()</span></code> and <code class="docutils literal notranslate"><span class="pre">trim()</span></code>.</p>
+<p>You can get the original image size using the <code class="docutils literal notranslate"><span class="pre">get_image_size()</span></code> method.
+It returns a tuple of width and height.</p>
+<p>This method is helpful for determining the dimensions of the image before performing operations like <code class="docutils literal notranslate"><span class="pre">resize()</span></code> or <code class="docutils literal notranslate"><span class="pre">trim()</span></code></p>
 </section>
 <section id="resizing-and-changing-aspect">
 <h2>Resizing and Changing Aspect<a class="headerlink" href="#resizing-and-changing-aspect" title="Link to this heading"></a></h2>
-<p>Method <code class="docutils literal notranslate"><span class="pre">resize()</span></code> takes 2 arguments <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.
-They are not size on drawlib’s canvas but original data pixel size.</p>
-<p>Before resizing, you can check original width and height with method <code class="docutils literal notranslate"><span class="pre">resize()</span></code>.
-If you keep ratio between width and height, the original image size becomes big and small with keeping original aspect.
-If you want to change aspect, calculate new width or height.</p>
-<p>Here is a example of changing aspect.
-We will make image height half.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">resize()</span></code> method in Dimage takes two arguments: <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.
+These dimensions refer to the original pixel size of the image data, not the size on Drawlib’s canvas.</p>
+<p>Before resizing, you can check the original width and height using the <code class="docutils literal notranslate"><span class="pre">get_image_size()</span></code> method.
+If you want to maintain the aspect ratio of the original image, you should calculate either the new width or the new height while keeping the ratio between them.
+If you want to change the aspect ratio, you need to calculate both the new width and height accordingly.</p>
+<p>Here’s an example of changing the aspect ratio where we halve the image height:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">image_getsize_resize.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -243,7 +247,11 @@ We will make image height half.</p>
 </pre></div>
 </div>
 </div>
-<p>Here is an output.</p>
+<p>In this example, we retrieve the original image dimensions using <code class="docutils literal notranslate"><span class="pre">get_image_size()</span></code>.
+And then resize the image using <code class="docutils literal notranslate"><span class="pre">resize()</span></code>.
+We keep original width, but new height is half of original.
+Finally, the resized image is drawn with <code class="docutils literal notranslate"><span class="pre">image()</span></code> function.</p>
+<p>Here is the output:</p>
 <figure class="align-center" id="id3">
 <a class="with-border reference internal image-reference" href="../../../_images/image_getsize_resize.png"><img alt="../../../_images/image_getsize_resize.png" class="with-border" src="../../../_images/image_getsize_resize.png" style="width: 600px;" /></a>
 <figcaption>
@@ -251,18 +259,63 @@ We will make image height half.</p>
 </figcaption>
 </figure>
 </section>
-<section id="trimming">
-<h2>Trimming<a class="headerlink" href="#trimming" title="Link to this heading"></a></h2>
-<p>If the image contains useless part, you can trim/crop it with method <code class="docutils literal notranslate"><span class="pre">trim()</span></code>.</p>
-<p>Implementing this for next release.</p>
+<section id="crop">
+<h2>Crop<a class="headerlink" href="#crop" title="Link to this heading"></a></h2>
+<p>If an image contains unnecessary parts, you can trim or crop it using the <code class="docutils literal notranslate"><span class="pre">crop()</span></code> method.
+This method accepts the following arguments:</p>
+<ul class="simple">
+<li><p>x: Specifies the starting point from the left (0 to x pixels will be cropped).</p></li>
+<li><p>y: Specifies the starting point from the bottom (0 to y pixels will be cropped).</p></li>
+<li><p>width: Specifies the width of the cropped area starting from x.</p></li>
+<li><p>height: Specifies the height of the cropped area starting from y.</p></li>
+</ul>
+<p>Here’s an example that keeps the center 50% of the image:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">image_crop.py</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># original</span>
+<span class="linenos"> 6</span><span class="n">original_image</span> <span class="o">=</span> <span class="n">Dimage</span><span class="p">(</span><span class="s2">&quot;linux.png&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">image</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="n">original_image</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos"> 8</span><span class="n">text</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;original&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">original_image</span><span class="o">.</span><span class="n">get_image_size</span><span class="p">()</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># trimming</span>
+<span class="linenos">12</span><span class="n">x_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">crop_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">y_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">crop_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">cropped_image</span> <span class="o">=</span> <span class="n">original_image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">x_start</span><span class="p">,</span> <span class="n">y_start</span><span class="p">,</span> <span class="n">crop_width</span><span class="p">,</span> <span class="n">crop_height</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">image</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cropped_image</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">ImageStyle</span><span class="p">(</span><span class="n">lwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">18</span><span class="n">text</span><span class="p">((</span><span class="mi">75</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;crop()&quot;</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, we calculate the cropping parameters to keep the center 50% of the image.
+We then use the <code class="docutils literal notranslate"><span class="pre">crop()</span></code> method to apply the cropping operation to the Dimage object.
+Finally, the cropped image can be used in drawing operations with <code class="docutils literal notranslate"><span class="pre">image()</span></code>.</p>
+<p>Here is the output:</p>
+<figure class="align-center" id="id5">
+<a class="with-border reference internal image-reference" href="../../../_images/image_crop.png"><img alt="../../../_images/image_crop.png" class="with-border" src="../../../_images/image_crop.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">crop()</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="flip-horizontally-and-vertically">
 <h2>Flip Horizontally and Vertically<a class="headerlink" href="#flip-horizontally-and-vertically" title="Link to this heading"></a></h2>
-<p>You can flip image easily.
-<code class="docutils literal notranslate"><span class="pre">mirror()</span></code> is used for horizontal flip.
-And <code class="docutils literal notranslate"><span class="pre">flip()</span></code> is used for vertical flip.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">image_mirror_flip.py</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<p>You can easily flip an image using Dimage:</p>
+<ul class="simple">
+<li><p>Horizontal Flip: Use the <code class="docutils literal notranslate"><span class="pre">mirror()</span></code> method.</p></li>
+<li><p>Vertical Flip: Use the <code class="docutils literal notranslate"><span class="pre">flip()</span></code> method.</p></li>
+</ul>
+<p>Here’s an example:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">image_mirror_flip.py</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -284,18 +337,21 @@ And <code class="docutils literal notranslate"><span class="pre">flip()</span></
 </pre></div>
 </div>
 </div>
-<p>Here is an output.</p>
+<p>Here is the output:</p>
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_mirror_flip.png"><img alt="../../../_images/image_mirror_flip.png" class="with-border" src="../../../_images/image_mirror_flip.png" style="width: 600px;" /></a>
 </figure>
 </section>
 <section id="change-color">
 <h2>Change color<a class="headerlink" href="#change-color" title="Link to this heading"></a></h2>
-<p>Drawlib provides lots of changing color function.
-<code class="docutils literal notranslate"><span class="pre">grayscale()</span></code> makes the image gray scale.
-And <code class="docutils literal notranslate"><span class="pre">sepia()</span></code> makes the image sepia color.</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">image_grayscale_sepia.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<p>Drawlib provides several functions to modify the color of images:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grayscale()</span></code>: Converts the image to grayscale</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sepia()</span></code>: Applies a sepia tone effect to the image</p></li>
+</ul>
+<p>Here’s an example:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">image_grayscale_sepia.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -317,14 +373,17 @@ And <code class="docutils literal notranslate"><span class="pre">sepia()</span><
 </pre></div>
 </div>
 </div>
-<p>Here is an output.</p>
+<p>Here is the output.</p>
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_grayscale_sepia.png"><img alt="../../../_images/image_grayscale_sepia.png" class="with-border" src="../../../_images/image_grayscale_sepia.png" style="width: 600px;" /></a>
 </figure>
-<p><code class="docutils literal notranslate"><span class="pre">brightness()</span></code> change brightness.
-0.0 is complete dark and 1.0 is original. You can set values bigger than 1.0. It makes more light on the image.</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">image_brightness.py</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">brightness()</span></code>:  Adjusts the brightness of the image</p></li>
+</ul>
+<p>A value of <code class="docutils literal notranslate"><span class="pre">0.0</span></code> makes the image completely dark, <code class="docutils literal notranslate"><span class="pre">1.0</span></code> keeps the original brightness, and values greater than <code class="docutils literal notranslate"><span class="pre">1.0</span></code> increase the brightness.</p>
+<p>Here’s an example:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">image_brightness.py</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -346,9 +405,12 @@ And <code class="docutils literal notranslate"><span class="pre">sepia()</span><
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_brightness.png"><img alt="../../../_images/image_brightness.png" class="with-border" src="../../../_images/image_brightness.png" style="width: 600px;" /></a>
 </figure>
-<p><code class="docutils literal notranslate"><span class="pre">invert()</span></code> reverse RGB and <code class="docutils literal notranslate"><span class="pre">colorize()</span></code> put colors to grayscaled image.</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">image_invert_colorize.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">invert()</span></code>: Reverses the RGB values of the image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colorize()</span></code>: Applies colors to a grayscale image. If the image is not grayscaled, it will be automatically grayscaled before colorize.</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">image_invert_colorize.py</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">Gray</span><span class="p">)</span>
@@ -385,15 +447,21 @@ And <code class="docutils literal notranslate"><span class="pre">sepia()</span><
 </pre></div>
 </div>
 </div>
-<p>Here is an output.</p>
+<p>Here is the output.</p>
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_invert_colorize.png"><img alt="../../../_images/image_invert_colorize.png" class="with-border" src="../../../_images/image_invert_colorize.png" style="width: 600px;" /></a>
 </figure>
-<p><code class="docutils literal notranslate"><span class="pre">mosaic()</span></code> apply mosaic effect.
-It takes optional argument <code class="docutils literal notranslate"><span class="pre">block_size</span></code>. It is a mosaic pixel size. Default is 8.
-<code class="docutils literal notranslate"><span class="pre">blur()</span></code> apply blur effect.</p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">image_mosaic_blur.py</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+</section>
+<section id="apply-effects">
+<h2>Apply Effects<a class="headerlink" href="#apply-effects" title="Link to this heading"></a></h2>
+<p>You can apply various effects to images using Drawlib:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mosaic()</span></code>: Applies a mosaic effect to the image. You can specify the size of mosaic blocks with the optional <code class="docutils literal notranslate"><span class="pre">block_size</span></code> argument. Default is 8.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blur()</span></code>: Applies a blur effect to the image</p></li>
+</ul>
+<p>Here’s an example:</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">image_mosaic_blur.py</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -411,7 +479,7 @@ It takes optional argument <code class="docutils literal notranslate"><span clas
 </pre></div>
 </div>
 </div>
-<p>Here is an output.</p>
+<p>Here is the output.</p>
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_mosaic_blur.png"><img alt="../../../_images/image_mosaic_blur.png" class="with-border" src="../../../_images/image_mosaic_blur.png" style="width: 600px;" /></a>
 </figure>

@@ -117,8 +117,8 @@ Theme's Pre-defined Styles
 
 Shapes can use pre-defined styles from the theme you choose.
 
-The style syntax is: ``<color>_<type>_<thickness>``. 
-If the color, type, and thickness are default, they are not shown in the style name.
+The style syntax is: ``<color>_<type>_<weight>``. 
+If the color, type, and weight are default, they are not shown in the style name.
 
 Each style type has variations for line and fill styles with ``ShapeStyle``. 
 ``ShapeTextStyle`` cannot use these styles.
@@ -128,10 +128,10 @@ Each style type has variations for line and fill styles with ``ShapeStyle``.
 - ``solid``: Shape has an outline but no fill
 - ``dashed``: Dashed outline, no fill
 
-Each thickness types has variation of line width except ``flat`` which doesn't have line.
+Each weight types has variation of line width except ``flat`` which doesn't have line.
 On ``ShapeTextStyle``, it means tyep of fonts.
 
-- ``thin``: Half of the default line width; font is thin
+- ``light``: Half of the default line width; font is light
 - default: Regular line width; font is regular
 - ``bold``: Double the default line width; font is bold
 
@@ -142,7 +142,6 @@ Here are three examples:
    :linenos:
    :caption: image_theme1.py
 
-In this example, we use theme ``"default2"``.
 Below is a figure illustrating these styles:
 
 .. figure:: image_theme1.png

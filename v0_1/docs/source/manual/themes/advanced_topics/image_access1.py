@@ -2,19 +2,22 @@ from drawlib.apis import *
 
 config(width=100, height=50)
 
-# get default style.
-default_style = dtheme.linestyles.get()
-line((10, 10), (40, 40), arrowhead="->", style=default_style)
+# get style.
+green_style = dtheme.textstyles.get("green")
+text((15, 25), "Get Style", size=24, style=green_style)
 
-# get named style
-tstyle = dtheme.textstyles.get("blue")
-tstyle.size = 24
-tstyle.font = FontSansSerif.RALEWAYS_REGULAR
-text((75, 15), "Hello Drawlib!!", style=tstyle)
+# set style
+dtheme.textstyles.set(
+    style=TextStyle(color=Colors.White, bgfcolor=Colors.Black, bglwidth=0, size=24),
+    name="bgblack",
+)
+text((40, 25), "Set Style", style="bgblack")
 
-# update theme style
-dtheme.textstyles.set(style=tstyle, name="blue")
-text((75, 35), "Theme Style Updated!!", style=dtheme.textstyles.get("blue"))
+# update(get -> modify -> set) style
+s = dtheme.textstyles.get("red")
+s.size = 36
+s.font = FontSerif.COURIER_REGULAR
+dtheme.textstyles.set(s, "red")
+text((75, 25), "Update Style", style="red")
 
 save()
-dtheme.apply_official_theme("default")

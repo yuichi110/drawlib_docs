@@ -121,7 +121,7 @@ Here is an examples.
 
 Icon supports the following styles exclusively:
 
-- thickness of icon: ``thin`` and ``bold``
+- weight of icon: ``light`` and ``bold``
 - fill color: ``flat``
 - color of icon
 

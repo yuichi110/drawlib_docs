@@ -1,7 +1,6 @@
 from drawlib.apis import *
 from copy import deepcopy
 
-dtheme.apply_official_theme("default2")
 config(width=100, height=60, grid=True)
 
 outer_y = 10
@@ -107,7 +106,7 @@ arrow(
     tail_width=1.5,
     head_width=4,
     head_length=2,
-    head_style="<|-|>",
+    head="<->",
     style=outer_style,
 )
 center()

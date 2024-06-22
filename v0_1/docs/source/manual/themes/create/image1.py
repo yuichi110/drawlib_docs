@@ -49,10 +49,12 @@ y1 = 10
 y2 = 25
 y3 = 40
 
+# apply default style
 line((x1 - 10, y1), (x1 + 10, y1))
 circle((x1, y2), radius=10)
 text((x1, y3), "Hello Drawlib!")
 
+# apply named style
 for x, name in [(x2, "gold"), (x3, "silver")]:
     line((x - 10, y1), (x + 10, y1), style=name)
     circle((x, y2), radius=10, style=name)

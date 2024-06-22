@@ -46,7 +46,7 @@ Drawlib is optimized for drawing a large number of illustrations with a consiste
 This can be easily achieved by creating a theme file (which is simply Python code) and importing it into your illustration codes. 
 Here is a typical use case of Drawlib:
 
-.. figure:: ../index/image3.png
+.. figure:: ../../index/image_buildmany.png
     :width: 600
     :class: with-border
     :align: center

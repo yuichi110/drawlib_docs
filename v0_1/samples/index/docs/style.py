@@ -5,7 +5,7 @@ dtheme.shapestyles.set(
     style=ShapeStyle(
         lstyle="dashed",
         lcolor=Colors140.BlueViolet,
-        lwidth=5,
+        lwidth=3,
         fcolor=Colors140.Turquoise,
     ),
     name="mystyle",
@@ -16,7 +16,7 @@ dtheme.textstyles.set(
     style=TextStyle(
         color=Colors140.BlueViolet,
         font=FontSansSerif.RALEWAYS_REGULAR,
-        size=48,
+        size=32,
     ),
     name="mystyle",
 )

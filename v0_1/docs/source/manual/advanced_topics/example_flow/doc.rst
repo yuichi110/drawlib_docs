@@ -4,7 +4,7 @@ Example of Documentation Build Flow
 
 Here is a high-level documentation build flow using Drawlib:
 
-.. figure:: ../../introductions/index/image3.png
+.. figure:: ../../index/image_buildmany.png
    :width: 600
    :class: with-border
    :align: center

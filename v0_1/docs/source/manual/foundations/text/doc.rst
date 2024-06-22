@@ -212,13 +212,13 @@ Theme's pre-defined styles
 
 Text in Drawlib can utilize pre-defined styles from the theme you select.
 
-The style syntax is: ``<color>_<type>_<thickness>``.
-If the color and thickness are default, they are not explicitly shown in the style name.
+The style syntax is: ``<color>_<type>_<weight>``.
+If the color and weight are default, they are not explicitly shown in the style name.
 However, text styles do not use the type variations that are used for lines and shapes.
 
-Each thickness type variation includes different font weights:
+Each weight type variation includes different font weights:
 
-- ``thin``: Font weight thin
+- ``light``: Font weight light
 - default: Font weight regular
 - ``bold``: Font weight bold
 

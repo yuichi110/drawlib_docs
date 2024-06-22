@@ -2,16 +2,17 @@
 Smart Arts: Bubblespeech
 ==========================
 
-Bubble Speech is not regular shape but it is used on illustrations some times.
-It is implemented in smart art function ``dsart.``.
-You can consider bubble speech as oee of complex shape functions.
+The Bubblespeech feature in Drawlib allows you to create irregular bubble-shaped speech graphics, often used in illustrations. 
+It's implemented within the ``dsart`` module as part of the Smart Art functions, offering advanced shape drawing capabilities.
+
+Here's an example of using Bubblespeech in Drawlib:
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-We can draw source code like this.
+This function call draws a bubble speech shape with a tail starting from the right edge, beginning at 30% from the bottom, extending to 70% along its path.
 
 .. figure:: image1.png
     :width: 600
@@ -20,16 +21,15 @@ We can draw source code like this.
 
     image1.png
 
-Options are little bit complex, but the key point is how to draw tail.
-Except tail, bubble speech is almost rectangle which can use only align left, bottom.
+In the example above, the options for drawing Bubblespeech are specified. The key parameters include:
 
-- xy: always left, bottom.
-- tail_edge: which edge tail exist. one of ``left``, ``right``, ``bottom``, ``top``
-- tail_from_ratio: where tail start. 0.0 ~ 1.0. start point is bottom(edge is left or right) and left(edge is bottom or top)
-- tail_vertex_xy: tail vertex location
-- tail_to_ratio: where tail end. 0.0 ~ 1.0. It must be bigger than ``tail_from_ratio``.
+- xy: Coordinates specifying the position of the bottom-left corner.
+- tail_edge: Specifies the edge from which the tail extends (``left``, ``right``, ``bottom``, ``top``).
+- tail_from_ratio: Determines where the tail starts along the specified edge (0.0 to 1.0).
+- tail_vertex_xy: Specifies the exact vertex location of the tail.
+- tail_to_ratio: Specifies where the tail ends along its path (must be greater than tail_from_ratio).
 
-OK, let's check those options at image picture.
+Please refer the below picture for understanding the parameters.
 
 .. figure:: image2.png
     :width: 600
@@ -37,3 +37,5 @@ OK, let's check those options at image picture.
     :align: center
 
     image2.png
+
+Ellipse like bubblespeech is not supported yet.

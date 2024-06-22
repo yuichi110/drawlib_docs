@@ -2,29 +2,27 @@
 Official Theme: essentials
 =============================
 
-Theme ``essentials`` has basic 25 colors.
-We recommend this theme for advanced users since it covers all of ``default``, ``default2``, ``monochrome`` themes.
-If you want to customize our theme, this theme might be good too.
+The ``essentials`` theme comprises 25 basic colors. 
+We recommend this theme for advanced users as it includes all aspects of the ``default`` and ``monochrome`` themes. 
+If you are looking to customize our themes extensively, essentials serves as an excellent base.
 
-The style rule is same to simple theme ``default2``.
-If you don't know it, please check it first.
-This documentation doesn't mention details.
+The styling rules are the same as those for the ``default`` theme. 
+If you are unfamiliar with these rules, please refer to the documentation for the default theme first, as this document does not provide detailed styling information.
 
 Colors
 ==============
 
-Theme essentials posses 25 colors.
-It covers all other theme's color.
+The ``essentials`` theme includes 25 colors, encompassing all other themes' colors.
 
 .. figure:: image_colors.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_colors.png
+    Theme ``essentials`` color chart
 
-Here is a list of colors.
-You can use ``ColorsThemeEssentials`` for getting RGB codes by its names.
+Here is a list of the colors. 
+You can use ``ColorsThemeEssentials`` to retrieve RGB codes by their names.
 
 - ``red``: RGB(255, 23, 23)
 - ``lightred``: RGB(239, 95, 95). Same to ``red`` of default theme.
@@ -64,7 +62,8 @@ Here is a list of style names.
 
 And output of each styles.
 
-style default.
+Color: default
+------------------
 
 .. figure:: image_style.png
     :width: 600
@@ -73,7 +72,8 @@ style default.
 
     default style
 
-Style ``red``
+Color: ``red``
+------------------
 
 .. figure:: image_style_red.png
     :width: 600
@@ -82,7 +82,8 @@ Style ``red``
 
     Theme Style red
 
-Style ``lightred``
+Color: ``lightred``
+---------------------------
 
 .. figure:: image_style_lightred.png
     :width: 600
@@ -91,7 +92,8 @@ Style ``lightred``
 
     Theme Style lightred
 
-Style ``pink``
+Color: ``pink``
+---------------------------
 
 .. figure:: image_style_pink.png
     :width: 600
@@ -100,7 +102,8 @@ Style ``pink``
 
     Theme Style pink
 
-Style ``brown``
+Color: ``brown``
+---------------------------
 
 .. figure:: image_style_brown.png
     :width: 600
@@ -109,7 +112,8 @@ Style ``brown``
 
     Theme Style brown
 
-Style ``orange``
+Color: ``orange``
+---------------------------
 
 .. figure:: image_style_orange.png
     :width: 600
@@ -118,7 +122,8 @@ Style ``orange``
 
     Theme Style orange
 
-Style ``green``
+Color: ``green``
+---------------------------
 
 .. figure:: image_style_green.png
     :width: 600
@@ -127,7 +132,8 @@ Style ``green``
 
     Theme Style green
 
-Style ``lightgreen``
+Color: ``lightgreen``
+---------------------------
 
 .. figure:: image_style_lightgreen.png
     :width: 600
@@ -136,7 +142,8 @@ Style ``lightgreen``
 
     Theme Style lightgreen
 
-Style ``greenyellow``
+Color: ``greenyellow``
+---------------------------
 
 .. figure:: image_style_greenyellow.png
     :width: 600
@@ -145,7 +152,8 @@ Style ``greenyellow``
 
     Theme Style greenyellow
 
-Style ``teal``
+Color: ``teal``
+---------------------------
 
 .. figure:: image_style_teal.png
     :width: 600
@@ -154,7 +162,8 @@ Style ``teal``
 
     Theme Style teal
 
-Style ``olive``
+Color: ``olive``
+---------------------------
 
 .. figure:: image_style_olive.png
     :width: 600
@@ -163,7 +172,8 @@ Style ``olive``
 
     Theme Style olive
 
-Style ``blue``
+Color: ``blue``
+---------------------------
 
 .. figure:: image_style_blue.png
     :width: 600
@@ -172,7 +182,8 @@ Style ``blue``
 
     Theme Style blue
 
-Style ``lightblue``
+Color: ``lightblue``
+---------------------------
 
 .. figure:: image_style_lightblue.png
     :width: 600
@@ -181,7 +192,8 @@ Style ``lightblue``
 
     Theme Style lightblue
 
-Style ``aqua``
+Color: ``aqua``
+---------------------------
 
 .. figure:: image_style_aqua.png
     :width: 600
@@ -190,7 +202,8 @@ Style ``aqua``
 
     Theme Style aqua
 
-Style ``navy``
+Color: ``navy``
+---------------------------
 
 .. figure:: image_style_navy.png
     :width: 600
@@ -199,7 +212,8 @@ Style ``navy``
 
     Theme Style navy
 
-Style ``steel``
+Color: ``steel``
+---------------------------
 
 .. figure:: image_style_steel.png
     :width: 600
@@ -208,7 +222,8 @@ Style ``steel``
 
     Theme Style steel
 
-Style ``yellow``
+Color: ``yellow``
+---------------------------
 
 .. figure:: image_style_yellow.png
     :width: 600
@@ -217,7 +232,8 @@ Style ``yellow``
 
     Theme Style yellow
 
-Style ``purple``
+Color: ``purple``
+---------------------------
 
 .. figure:: image_style_purple.png
     :width: 600
@@ -226,7 +242,8 @@ Style ``purple``
 
     Theme Style purple
 
-Style ``ivory``
+Color: ``ivory``
+---------------------------
 
 .. figure:: image_style_ivory.png
     :width: 600
@@ -235,7 +252,8 @@ Style ``ivory``
 
     Theme Style ivory
 
-Style ``black``
+Color: ``black``
+---------------------------
 
 .. figure:: image_style_black.png
     :width: 600
@@ -244,7 +262,8 @@ Style ``black``
 
     Theme Style black
 
-Style ``charcoal``
+Color: ``charcoal``
+---------------------------
 
 .. figure:: image_style_charcoal.png
     :width: 600
@@ -253,7 +272,8 @@ Style ``charcoal``
 
     Theme Style charcoal
 
-Style ``graphite``
+Color: ``graphite``
+---------------------------
 
 .. figure:: image_style_graphite.png
     :width: 600
@@ -262,7 +282,8 @@ Style ``graphite``
 
     Theme Style graphite
 
-Style ``gray``
+Color: ``gray``
+---------------------------
 
 .. figure:: image_style_gray.png
     :width: 600
@@ -271,7 +292,8 @@ Style ``gray``
 
     Theme Style gray
 
-Style ``silver``
+Color: ``silver``
+---------------------------
 
 .. figure:: image_style_silver.png
     :width: 600
@@ -280,7 +302,8 @@ Style ``silver``
 
     Theme Style silver
 
-Style ``snow``
+Color: ``snow``
+---------------------------
 
 .. figure:: image_style_snow.png
     :width: 600
@@ -289,7 +312,8 @@ Style ``snow``
 
     Theme Style snow
 
-Style ``white``
+Color: ``white``
+---------------------------
 
 .. figure:: image_style_white.png
     :width: 600

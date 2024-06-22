@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example of Doc Build Flow &mdash; drawlib 0.1 documentation</title>
+  <title>Example of Documentation Build Flow &mdash; drawlib 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
@@ -82,14 +82,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example of Doc Build Flow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#example-github-repository">Example GitHub Repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-tool-we-use">What tool we use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#python-environment">Python Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-directory-source">Source Directory: source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-output-directory-staging">Build Output Directory: staging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#github-pages-directory-docs">GitHub Pages Directory: docs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example of Documentation Build Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-github-repository">Example GitHub Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tools-used">Tools Used</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repository-structure">Repository Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#description-of-each-files">Description of each files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-workflow">Abstract Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripts">Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-environment-setup">Python Environment Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-python-sh">setup_python.sh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements-txt">requirements.txt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-images">Building Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-documentation">Building Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-build-content-of-directory-staging">Check Build Content of Directory staging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github-pages-settings">GitHub Pages Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#move-html-to-github-pages-directory-docs">Move HTML to GitHub Pages Directory docs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publishing-your-documentation">Publishing Your Documentation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -97,10 +113,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -126,7 +140,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Example of Doc Build Flow</li>
+      <li class="breadcrumb-item active">Example of Documentation Build Flow</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/manual/advanced_topics/example_flow/doc.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -136,41 +150,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="example-of-doc-build-flow">
-<h1>Example of Doc Build Flow<a class="headerlink" href="#example-of-doc-build-flow" title="Link to this heading"></a></h1>
-<p>Here is a high level documentation build frlow with drawlib.</p>
+  <section id="example-of-documentation-build-flow">
+<h1>Example of Documentation Build Flow<a class="headerlink" href="#example-of-documentation-build-flow" title="Link to this heading"></a></h1>
+<p>Here is a high-level documentation build flow using Drawlib:</p>
 <figure class="align-center" id="id1">
-<a class="with-border reference internal image-reference" href="../../../_images/image3.png"><img alt="../../../_images/image3.png" class="with-border" src="../../../_images/image3.png" style="width: 600px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image_buildmany.png"><img alt="../../../_images/image_buildmany.png" class="with-border" src="../../../_images/image_buildmany.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">Build many images</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>In this document, we will explain real world example and its procedure step by step.
-The content is based on this documentation’s build flow itself.
-However, it is normalized to simlify the explanation.</p>
+<p>In this document, we will explain our example documentation project and the step-by-step procedure for building it.</p>
 <section id="example-github-repository">
 <h2>Example GitHub Repository<a class="headerlink" href="#example-github-repository" title="Link to this heading"></a></h2>
-<p>We created example GitHub Repository which build documentation and publish it through GitHub pages.</p>
+<p>We have created an example GitHub repository that contains the source images and documentation for this demonstration.
+This repository will serve as the basis for building and creating documentation, which will then be published to the internet using GitHub Pages.</p>
 <p><a class="reference external" href="https://github.com/yuichi110/drawlib_docs_example">https://github.com/yuichi110/drawlib_docs_example</a></p>
-</section>
-<section id="what-tool-we-use">
-<h2>What tool we use<a class="headerlink" href="#what-tool-we-use" title="Link to this heading"></a></h2>
-<p>We will use these tools for writing and publishing doc.</p>
+<section id="tools-used">
+<h3>Tools Used<a class="headerlink" href="#tools-used" title="Link to this heading"></a></h3>
+<p>We will use the following tools for writing and publishing our documentation:</p>
 <ul class="simple">
-<li><p>Drawlib: For building image</p></li>
-<li><p>Sphinx: For building docs with pre-build images</p></li>
-<li><p>GitHub Pages: Publish the document</p></li>
+<li><p>Drawlib: For building images programmatically.</p></li>
+<li><p>Sphinx: For generating documentation with pre-built images.</p></li>
+<li><p>GitHub Pages: To publish the documentation online.</p></li>
 </ul>
-<p>We will write python doc in our scenario.
-So, we choose <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> since it is popular.</p>
-<p>Sphinx requires understanding reStructuredText.
-In my opinion it is similar to markdown but less popular and more complex.
-However the complexity make you free for difficulty of structuring doc pages to one documentation.
-<code class="docutils literal notranslate"><span class="pre">Jekyll</span></code> might be alternative option of Sphinx. It create documentation from markdown files.</p>
+<p>In our scenario of writing Python documentation, we have chosen <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> due to its popularity and suitability for structured documentation.
+It requires understanding of reStructuredText (reST), which is similar to markdown but offers more complexity and flexibility for structuring comprehensive documentation pages.
+This complexity allows for detailed and organized documentation creation.</p>
+<p>An alternative to Sphinx could be <code class="docutils literal notranslate"><span class="pre">MkDocs</span></code> and <code class="docutils literal notranslate"><span class="pre">Jekyll</span></code>, which generates documentation from markdown files.
+Both MkDocs and Jekyll are popular for creating static websites, including documentation sites.</p>
 </section>
 <section id="repository-structure">
-<h2>Repository structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h2>
-<p>Here is repository structure.</p>
+<h3>Repository Structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h3>
+<p>Here is the structure of the repository:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>repository
 ├── .gitignore
 ├── .venv
@@ -178,9 +189,9 @@ However the complexity make you free for difficulty of structuring doc pages to 
 ├── README.md
 ├── requirements.txt
 ├── docs
-|   └── ...
+|   └── ... # Generated documentation files (HTML)
 ├── scripts
-|   └── ...
+|   └── ... # Scripts for building, checking, and publishing
 ├── source
 │   ├── __init__.py
 │   ├── _static
@@ -190,25 +201,63 @@ However the complexity make you free for difficulty of structuring doc pages to 
 │   ├── commons
 │   ├── conf.py
 │   ├── index
-│   └── index.rst
+│   └── index.rst # Main entry point for documentation
 └── staging
-    └── ...
+    └── ... # Intermediate directory for checking generated documentation
 </pre></div>
 </div>
-<p>Documentation source is contained in <code class="docutils literal notranslate"><span class="pre">/source</span></code>.
-We build image first and then build docs at here.</p>
-<p>Builded docs(HTML) are stored in <code class="docutils literal notranslate"><span class="pre">/staging</span></code> first.
-As its name denotes, this is the directory for checking documentation.</p>
-<p>After finding new document has no problem, move its content to <code class="docutils literal notranslate"><span class="pre">/docs</span></code>.
-This is a directory for GitHub pages publication.
-Please be careful, GitHub page can publish its content at root level or <code class="docutils literal notranslate"><span class="pre">/docs</span></code> directory.</p>
-<p>Directory <code class="docutils literal notranslate"><span class="pre">/scripts</span></code> contains many script files for building/checking/publishing.</p>
 </section>
-<section id="python-environment">
-<h2>Python Environment<a class="headerlink" href="#python-environment" title="Link to this heading"></a></h2>
-<p>Building images and docs requires Python packages.
-We will use virtual environment for avoiding package conflict etc.
-Here is a bash script for creating environment.</p>
+</section>
+<section id="description-of-each-files">
+<h2>Description of each files<a class="headerlink" href="#description-of-each-files" title="Link to this heading"></a></h2>
+<ul>
+<li><p>.gitignore: Specifies files and directories to ignore in version control.</p></li>
+<li><p>.venv: Virtual environment directory for Python dependencies.</p></li>
+<li><p>LICENSE: License file for the repository.</p></li>
+<li><p>README.md: Markdown file providing an overview of the repository.</p></li>
+<li><p>requirements.txt: File listing Python dependencies.</p></li>
+<li><p>docs/: Directory where generated HTML documentation files are stored.</p></li>
+<li><p>scripts/: Directory containing scripts for various tasks related to documentation.</p></li>
+<li><p>source/: Directory containing the source files for documentation.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>__init__.py: Initialization file (typically for Python modules).</p></li>
+<li><p>_static/: Static files directory for the documentation.</p></li>
+<li><p>_templates/: Templates directory for custom Sphinx templates.</p></li>
+<li><p>chapter01/, chapter02/: Directories for organizing documentation chapters.</p></li>
+<li><p>commons/: Directory for common resources used across documentation.</p></li>
+<li><p>conf.py: Configuration file for Sphinx.</p></li>
+<li><p>index.rst: Main entry point for the documentation, typically starting with index.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>staging/: Temporary directory for checking generated documentation before moving to docs/.</p></li>
+</ul>
+<section id="abstract-workflow">
+<h3>Abstract Workflow<a class="headerlink" href="#abstract-workflow" title="Link to this heading"></a></h3>
+<p>Here’s the workflow for managing and publishing documentation:</p>
+<ol class="arabic simple">
+<li><p>Image Build Process: Images are built first</p></li>
+<li><p>Documentation Build Process: Documentation is generated in the staging/ directory.</p></li>
+<li><p>Review: Newly generated documentation in staging/ is reviewed for any issues.</p></li>
+<li><p>Deployment: Once validated, the content from staging/ is moved to docs/, which is used for GitHub Pages publication.</p></li>
+<li><p>Publication: GitHub Pages can publish its new content after Git commit and push</p></li>
+</ol>
+</section>
+</section>
+<section id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory contains script files for each step of the workflow.
+Whether adopting CI/CD or not, having these scripts helps facilitate local operations such as image and documentation generation.</p>
+<section id="python-environment-setup">
+<h3>Python Environment Setup<a class="headerlink" href="#python-environment-setup" title="Link to this heading"></a></h3>
+<p>To build images and documentation, you need specific Python packages installed in a virtual environment to avoid conflicts.
+Here’s a bash script that sets up the environment:</p>
+</section>
+</section>
+<section id="setup-python-sh">
+<h2>setup_python.sh<a class="headerlink" href="#setup-python-sh" title="Link to this heading"></a></h2>
+<p>We created a bash script named setup_python.sh with the following content:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
@@ -228,41 +277,25 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
-<p>At last, installing python packages from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>drawlib == 0.1.*
-sphinx == 7.2.*
-sphinx-rtd-theme == 2.0.*
-</pre></div>
-</div>
-<p>After issuing this script, python environment and its libraries are installed.
-If sphinx configs are not ready, prepare them with <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> commands.</p>
+<p>At last of the script, installing python packages from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
 </section>
-<section id="source-directory-source">
-<h2>Source Directory: source<a class="headerlink" href="#source-directory-source" title="Link to this heading"></a></h2>
-<p>Directory <code class="docutils literal notranslate"><span class="pre">source</span></code> contains sphinx project files and documentation source.
-From point of drawlib, <code class="docutils literal notranslate"><span class="pre">source</span></code> is a root of your package.
-Since it is python package, it has <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
-<p>This directory contains many python files for illustration.
-Such as</p>
-<ul class="simple">
-<li><p>source/chapter01/section01/image.py</p></li>
-<li><p>source/chapter01/section02/image.py</p></li>
-</ul>
-<p>Here is a code of <code class="docutils literal notranslate"><span class="pre">/source/chapter01/section01/image.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="kn">import</span> <span class="nn">source.commons.style</span>
-<span class="kn">import</span> <span class="nn">source.commons.util</span> <span class="k">as</span> <span class="nn">util</span>
-
-<span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">util</span><span class="o">.</span><span class="n">draw_3rectangle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">util</span><span class="o">.</span><span class="n">draw_logo</span><span class="p">()</span>
-<span class="n">save</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>As you can see, it imports <code class="docutils literal notranslate"><span class="pre">source.commons</span></code> package’s modules.
-They are style definition codes which we explain at previous document.</p>
-<p>For building images, we use script <code class="docutils literal notranslate"><span class="pre">/scripts/build_images.py</span></code></p>
+<section id="requirements-txt">
+<h2>requirements.txt<a class="headerlink" href="#requirements-txt" title="Link to this heading"></a></h2>
+<p>We created requirements.txt file with the following content:
+.. code-block:: none</p>
+<blockquote>
+<div><p>drawlib == 0.1.*
+sphinx == 7.2.*
+sphinx-rtd-theme == 2.0.*</p>
+</div></blockquote>
+<p>After running the setup script, if your Sphinx configuration (conf.py) is not ready, you need to prepare it using Sphinx commands.
+Please refere to sphinx documentation for details.</p>
+<section id="building-images">
+<h3>Building Images<a class="headerlink" href="#building-images" title="Link to this heading"></a></h3>
+<p>The source directory serves as the root of your Sphinx project and contains both the Sphinx configuration files and the source files for your documentation.
+If you are not familiar to how to build many images with common style, please check foundation document first.
+We will skip Python code explanation at here.</p>
+<p>For building images, we use script <code class="docutils literal notranslate"><span class="pre">/scripts/build_images.sh</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
@@ -277,9 +310,8 @@ They are style definition codes which we explain at previous document.</p>
 drawlib<span class="w"> </span>./source
 </pre></div>
 </div>
-<p>It builds all images in source directory.
-If the documentation project is large, we recommend creating build scripts per chapter or section.
-We have <code class="docutils literal notranslate"><span class="pre">scripts/build_images_chapter01.py</span></code> and <code class="docutils literal notranslate"><span class="pre">scripts/build_images_chapter02.py</span></code> in our case.</p>
+<p>For larger documentation projects, consider creating separate build scripts for specific chapters or sections.
+For example, you can create scripts like <code class="docutils literal notranslate"><span class="pre">scripts/build_images_chapter01.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">scripts/build_images_chapter02.sh</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
@@ -290,12 +322,17 @@ We have <code class="docutils literal notranslate"><span class="pre">scripts/bui
 <span class="c1"># activate</span>
 <span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 
-<span class="c1"># build</span>
+<span class="c1"># build only chapter01</span>
 drawlib<span class="w"> </span>./source/chapter01
 </pre></div>
 </div>
-<p>After confirming builded images are OK, we will build documentation with another script again.
-<code class="docutils literal notranslate"><span class="pre">script/build_docs.sh</span></code> do that.</p>
+<p>After building the images, verify their correctness and quality before proceeding to build the documentation.
+This ensures that all images are correctly generated and meet your project’s requirements.</p>
+</section>
+<section id="building-documentation">
+<h3>Building Documentation<a class="headerlink" href="#building-documentation" title="Link to this heading"></a></h3>
+<p>To compile your documentation using Sphinx, you can utilize the script <code class="docutils literal notranslate"><span class="pre">script/build_docs.sh</span></code>.
+This script manages the compilation process, creating HTML files in the <code class="docutils literal notranslate"><span class="pre">staging</span></code> directory from <code class="docutils literal notranslate"><span class="pre">source</span></code> directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
@@ -313,15 +350,13 @@ rm<span class="w"> </span>-rf<span class="w"> </span>./staging
 sphinx-build<span class="w"> </span>-a<span class="w"> </span>./source<span class="w"> </span>./staging
 </pre></div>
 </div>
-<p>At the script, we delete old build file at first with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">./staging</span></code>.
-And then, build docs normally with <code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-a</span> <span class="pre">./source</span> <span class="pre">./staging</span></code>.</p>
+<p>At the script, deletes the contents of the <code class="docutils literal notranslate"><span class="pre">staging</span></code> directory to remove any remnants from previous builds.
+And then, executes <code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-a</span> <span class="pre">./source</span> <span class="pre">./staging</span></code> to generate HTML files from the source files in the source directory and store them in the staging directory.</p>
 </section>
-<section id="build-output-directory-staging">
-<h2>Build Output Directory: staging<a class="headerlink" href="#build-output-directory-staging" title="Link to this heading"></a></h2>
-<p>Directory <code class="docutils literal notranslate"><span class="pre">staging</span></code> is just an sphinx build’s output directory.
-However, you need to check it before publishing.
-Script <code class="docutils literal notranslate"><span class="pre">scripts/serv_staging.sh</span></code> start HTTP server which hosts this directory.
-And then open browser automatically.</p>
+<section id="check-build-content-of-directory-staging">
+<h3>Check Build Content of Directory staging<a class="headerlink" href="#check-build-content-of-directory-staging" title="Link to this heading"></a></h3>
+<p>To check the contents of the <code class="docutils literal notranslate"><span class="pre">staging</span></code> directory, which contains the built HTML documentation from Sphinx, you can use a script like <code class="docutils literal notranslate"><span class="pre">scripts/serv_staging.sh</span></code>.
+This script starts an HTTP server that hosts the staging directory locally and opens a web browser to view it automatically.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
@@ -345,17 +380,24 @@ open_browser_1sec_later<span class="w"> </span><span class="p">&amp;</span>
 python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">80</span>
 </pre></div>
 </div>
+<p>After a brief moment, your default web browser should open with the locally hosted documentation from the <code class="docutils literal notranslate"><span class="pre">staging</span></code> directory.
+You can navigate and inspect the documentation to ensure everything appears as expected before further steps like publishing.</p>
 </section>
-<section id="github-pages-directory-docs">
-<h2>GitHub Pages Directory: docs<a class="headerlink" href="#github-pages-directory-docs" title="Link to this heading"></a></h2>
-<p>After you confirmed staging contents has no problem.
-It’s time to publish the content.</p>
-<p>If you haven’t configured Github pages on your repository, please configure it first.
-You can do it at settings/pages.</p>
-<figure class="align-center">
+<section id="github-pages-settings">
+<h3>GitHub Pages Settings<a class="headerlink" href="#github-pages-settings" title="Link to this heading"></a></h3>
+<p>Configuring GitHub Pages for your repository allows you to host your Sphinx-generated documentation directly from your GitHub repository.
+If you haven’t configured GitHub Pages for your repository yet, please configure it first.</p>
+<figure class="align-center" id="id2">
 <a class="with-border reference internal image-reference" href="../../../_images/image_github_pages.png"><img alt="../../../_images/image_github_pages.png" class="with-border" src="../../../_images/image_github_pages.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Configure github pages</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
 </figure>
-<p>For moving files from <code class="docutils literal notranslate"><span class="pre">staging</span></code> to <code class="docutils literal notranslate"><span class="pre">docs</span></code>, call script <code class="docutils literal notranslate"><span class="pre">/scripts/deploy_from_staging_to_docs.sh</span></code>.</p>
+</section>
+<section id="move-html-to-github-pages-directory-docs">
+<h3>Move HTML to GitHub Pages Directory docs<a class="headerlink" href="#move-html-to-github-pages-directory-docs" title="Link to this heading"></a></h3>
+<p>To publish your Sphinx-generated documentation using GitHub Pages, you need to move the built HTML files from the staging directory to the docs directory.
+Below is a script named <code class="docutils literal notranslate"><span class="pre">deploy_from_staging_to_docs.sh</span></code> that automates this process:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
@@ -374,8 +416,20 @@ cp<span class="w"> </span>-r<span class="w"> </span>./staging<span class="w"> </
 touch<span class="w"> </span>.nojekyll
 </pre></div>
 </div>
-<p>After moving HTML content, do <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.
-After remote repository is updated, GitHub pages will be also updated.</p>
+<p>This script delete last HTML content first.
+And them move new HTML to GitHub Pages directory.</p>
+<p>GitHub Pages uses Jekyll by default to build and serve static websites.
+However, Sphinx-generated documentation does not require Jekyll processing.
+By including a .nojekyll file in the docs directory, GitHub Pages skips the Jekyll build process, allowing your Sphinx-generated HTML to be served as-is.</p>
+</section>
+<section id="publishing-your-documentation">
+<h3>Publishing Your Documentation<a class="headerlink" href="#publishing-your-documentation" title="Link to this heading"></a></h3>
+<p>Once you have successfully moved the newly built HTML documents to the GitHub Pages directory (docs), the next step is to sync these changes with the GitHub remote server.</p>
+<p>Before pushing changes to GitHub, commit the changes locally.
+After committing your changes locally, push them to the GitHub remote repository.
+Once git push completes, GitHub will automatically deploy the contents of the docs directory to your GitHub Pages site.
+You can access your published documentation using the GitHub Pages URL for your repository.</p>
+</section>
 </section>
 </section>
 

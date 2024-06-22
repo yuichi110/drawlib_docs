@@ -509,8 +509,8 @@ Here is an example. Note that the ``style`` argument takes text values.
    :linenos:
    :caption: image_theme1.py
 
-The style has this syntax: ``<color>_<type>_<thickness>``. 
-If the type and thickness are default, they are not shown in the style name. 
+The style has this syntax: ``<color>_<type>_<weight>``. 
+If the type and weight are default, they are not shown in the style name. 
 Executing this code yields the following image:
 
 .. figure:: image_theme1.png
@@ -523,7 +523,6 @@ Executing this code yields the following image:
 Drawlib offers several official themes:
 
 - ``default``
-- ``default2``
 - ``essentials``
 - ``monochrome``
 

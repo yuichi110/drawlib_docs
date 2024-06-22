@@ -80,21 +80,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging errors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-enable-debug-mode">How to enable debug mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-enable-debug-mode">How to Enable Debug Mode</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -132,26 +130,25 @@
              
   <section id="debugging-errors">
 <h1>Debugging errors<a class="headerlink" href="#debugging-errors" title="Link to this heading"></a></h1>
-<p>Drawlib hide detail error when user code makes trouble.
-On that time drawlib shows only</p>
+<p>Drawlib hides detailed errors when user code encounters issues.
+At such times, Drawlib only displays:</p>
 <ul class="simple">
-<li><p>Which file and line has problem</p></li>
-<li><p>What error happens</p></li>
+<li><p>The file and line where the problem occurred</p></li>
+<li><p>The type of error that happened</p></li>
 </ul>
-<p>It means drawlib doesn’t show stucktrace and where library code makes error from user input.
-It is because we believe showing detail error and inside of drawlib is not good for ordinary users.</p>
-<p>However, some times you want to check details.
-On that situation you need to enable debug mode.</p>
+<p>This means Drawlib does not show the stack trace or where the library code encountered an error due to user input.
+We believe that showing detailed errors and the internal workings of Drawlib is not beneficial for ordinary users.</p>
+<p>However, sometimes you may want to check the details. In such situations, you need to enable debug mode.</p>
 <section id="how-to-enable-debug-mode">
-<h2>How to enable debug mode<a class="headerlink" href="#how-to-enable-debug-mode" title="Link to this heading"></a></h2>
-<p>Drawlib controlls which output is shown on cosole via logging level.
-Detail of error log is shown only on debug level logging.</p>
-<p>To set logging level debug, you have 2 options.</p>
+<h2>How to Enable Debug Mode<a class="headerlink" href="#how-to-enable-debug-mode" title="Link to this heading"></a></h2>
+<p>Drawlib controls which output is shown on the console via logging levels.
+Detailed error logs are shown only at the debug logging level.</p>
+<p>To set the logging level to debug, you have two options:</p>
 <ul class="simple">
-<li><p>Set logging level via calling function: <code class="docutils literal notranslate"><span class="pre">dsettings.set_logging_mode(&quot;debug&quot;)</span></code></p></li>
-<li><p>Set logging level via CLI Option <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">drawlib</span> <span class="pre">--quiet/--verbose/--developer</span></code></p></li>
+<li><p>Set the logging level by calling a function: <code class="docutils literal notranslate"><span class="pre">dutil_settings.set_logging_mode(&quot;debug&quot;)</span></code></p></li>
+<li><p>Set the logging level via CLI options: <code class="docutils literal notranslate"><span class="pre">drawlib</span> <span class="pre">--verbose</span></code> or <code class="docutils literal notranslate"><span class="pre">drawlib</span> <span class="pre">--debug</span></code></p></li>
 </ul>
-<p>Please check details on settings doc and CLI options docs for details.</p>
+<p>Please check the settings documentation and CLI options documentation for more details.</p>
 </section>
 </section>
 

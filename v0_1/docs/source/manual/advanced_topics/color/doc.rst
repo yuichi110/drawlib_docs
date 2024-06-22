@@ -11,7 +11,7 @@ Therefore, we provide Color classes. Currently, we offer the following classes:
 
 - Colors: basic web 16 colors + Transparent
 - Colors140: basic web 140 colors + Transparent
-- ColorsThemeDefault: Colors which are used in theme ``default`` and ``default2``
+- ColorsThemeDefault: Colors which are used in theme ``default``
 - ColorsThemeEssentials: Colors which are used in theme ``essentials``
 - ColorsThemeMonochrome: Colors which are used in theme ``monochrome``
 - ColorBase: Base class for creating your own Color class

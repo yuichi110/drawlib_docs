@@ -8,7 +8,7 @@ arrow(
     tail_width=10,
     head_width=20,
     head_length=10,
-    head_style="<|-|>",
+    head="<->",
     text="arrow()",
 )
 save()

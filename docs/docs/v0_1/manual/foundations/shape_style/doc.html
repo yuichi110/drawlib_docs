@@ -91,16 +91,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -326,8 +324,8 @@ The x and y values are not absolute coordinates but are relative to the shape’
 <section id="theme-s-pre-defined-styles">
 <h2>Theme’s Pre-defined Styles<a class="headerlink" href="#theme-s-pre-defined-styles" title="Link to this heading"></a></h2>
 <p>Shapes can use pre-defined styles from the theme you choose.</p>
-<p>The style syntax is: <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;thickness&gt;</span></code>.
-If the color, type, and thickness are default, they are not shown in the style name.</p>
+<p>The style syntax is: <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;_&lt;type&gt;_&lt;weight&gt;</span></code>.
+If the color, type, and weight are default, they are not shown in the style name.</p>
 <p>Each style type has variations for line and fill styles with <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>.
 <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code> cannot use these styles.</p>
 <ul class="simple">
@@ -336,10 +334,10 @@ If the color, type, and thickness are default, they are not shown in the style n
 <li><p><code class="docutils literal notranslate"><span class="pre">solid</span></code>: Shape has an outline but no fill</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dashed</span></code>: Dashed outline, no fill</p></li>
 </ul>
-<p>Each thickness types has variation of line width except <code class="docutils literal notranslate"><span class="pre">flat</span></code> which doesn’t have line.
+<p>Each weight types has variation of line width except <code class="docutils literal notranslate"><span class="pre">flat</span></code> which doesn’t have line.
 On <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code>, it means tyep of fonts.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">thin</span></code>: Half of the default line width; font is thin</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">light</span></code>: Half of the default line width; font is light</p></li>
 <li><p>default: Regular line width; font is regular</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: Double the default line width; font is bold</p></li>
 </ul>
@@ -348,41 +346,39 @@ On <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</
 <div class="code-block-caption"><span class="caption-text">image_theme1.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">dtheme</span><span class="o">.</span><span class="n">apply_official_theme</span><span class="p">(</span><span class="s2">&quot;default2&quot;</span><span class="p">)</span>
-<span class="linenos"> 4</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="c1"># left</span>
-<span class="linenos"> 7</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos"> 8</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
-<span class="linenos"> 9</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-<span class="linenos">10</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_flat&quot;</span><span class="p">,</span>
-<span class="linenos">11</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
-<span class="linenos">12</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
-<span class="linenos">13</span><span class="p">)</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span><span class="c1"># center</span>
-<span class="linenos">16</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos">17</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
-<span class="linenos">18</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-<span class="linenos">19</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue_solid&quot;</span><span class="p">,</span>
-<span class="linenos">20</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
-<span class="linenos">21</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;blue_bold&quot;</span><span class="p">,</span>
-<span class="linenos">22</span><span class="p">)</span>
-<span class="linenos">23</span>
-<span class="linenos">24</span><span class="c1"># right</span>
-<span class="linenos">25</span><span class="n">circle</span><span class="p">(</span>
-<span class="linenos">26</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
-<span class="linenos">27</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-<span class="linenos">28</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_dashed_thin&quot;</span><span class="p">,</span>
-<span class="linenos">29</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
-<span class="linenos">30</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;green_thin&quot;</span><span class="p">,</span>
-<span class="linenos">31</span><span class="p">)</span>
-<span class="linenos">32</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># left</span>
+<span class="linenos"> 6</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;red_flat&quot;</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+<span class="linenos">12</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># center</span>
+<span class="linenos">15</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos">16</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos">17</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">18</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;blue_solid&quot;</span><span class="p">,</span>
+<span class="linenos">19</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<span class="linenos">20</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;blue_bold&quot;</span><span class="p">,</span>
+<span class="linenos">21</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c1"># right</span>
+<span class="linenos">24</span><span class="n">circle</span><span class="p">(</span>
+<span class="linenos">25</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos">26</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+<span class="linenos">27</span>    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;green_dashed_light&quot;</span><span class="p">,</span>
+<span class="linenos">28</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<span class="linenos">29</span>    <span class="n">textstyle</span><span class="o">=</span><span class="s2">&quot;green_light&quot;</span><span class="p">,</span>
+<span class="linenos">30</span><span class="p">)</span>
+<span class="linenos">31</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>In this example, we use theme <code class="docutils literal notranslate"><span class="pre">&quot;default2&quot;</span></code>.
-Below is a figure illustrating these styles:</p>
+<p>Below is a figure illustrating these styles:</p>
 <figure class="align-center" id="id6">
 <a class="with-border reference internal image-reference" href="../../../_images/image_theme1.png"><img alt="../../../_images/image_theme1.png" class="with-border" src="../../../_images/image_theme1.png" style="width: 600px;" /></a>
 <figcaption>

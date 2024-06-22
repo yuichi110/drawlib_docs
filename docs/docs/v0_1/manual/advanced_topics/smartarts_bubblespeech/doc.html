@@ -82,16 +82,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -129,9 +127,9 @@
              
   <section id="smart-arts-bubblespeech">
 <h1>Smart Arts: Bubblespeech<a class="headerlink" href="#smart-arts-bubblespeech" title="Link to this heading"></a></h1>
-<p>Bubble Speech is not regular shape but it is used on illustrations some times.
-It is implemented in smart art function <code class="docutils literal notranslate"><span class="pre">dsart.</span></code>.
-You can consider bubble speech as oee of complex shape functions.</p>
+<p>The Bubblespeech feature in Drawlib allows you to create irregular bubble-shaped speech graphics, often used in illustrations.
+It’s implemented within the <code class="docutils literal notranslate"><span class="pre">dsart</span></code> module as part of the Smart Art functions, offering advanced shape drawing capabilities.</p>
+<p>Here’s an example of using Bubblespeech in Drawlib:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.v0_1.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -154,29 +152,29 @@ You can consider bubble speech as oee of complex shape functions.</p>
 </pre></div>
 </div>
 </div>
-<p>We can draw source code like this.</p>
+<p>This function call draws a bubble speech shape with a tail starting from the right edge, beginning at 30% from the bottom, extending to 70% along its path.</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image11.png"><img alt="../../../_images/image11.png" class="with-border" src="../../../_images/image11.png" style="width: 600px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image1.png"><img alt="../../../_images/image1.png" class="with-border" src="../../../_images/image1.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Options are little bit complex, but the key point is how to draw tail.
-Except tail, bubble speech is almost rectangle which can use only align left, bottom.</p>
+<p>In the example above, the options for drawing Bubblespeech are specified. The key parameters include:</p>
 <ul class="simple">
-<li><p>xy: always left, bottom.</p></li>
-<li><p>tail_edge: which edge tail exist. one of <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code>, <code class="docutils literal notranslate"><span class="pre">top</span></code></p></li>
-<li><p>tail_from_ratio: where tail start. 0.0 ~ 1.0. start point is bottom(edge is left or right) and left(edge is bottom or top)</p></li>
-<li><p>tail_vertex_xy: tail vertex location</p></li>
-<li><p>tail_to_ratio: where tail end. 0.0 ~ 1.0. It must be bigger than <code class="docutils literal notranslate"><span class="pre">tail_from_ratio</span></code>.</p></li>
+<li><p>xy: Coordinates specifying the position of the bottom-left corner.</p></li>
+<li><p>tail_edge: Specifies the edge from which the tail extends (<code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code>, <code class="docutils literal notranslate"><span class="pre">top</span></code>).</p></li>
+<li><p>tail_from_ratio: Determines where the tail starts along the specified edge (0.0 to 1.0).</p></li>
+<li><p>tail_vertex_xy: Specifies the exact vertex location of the tail.</p></li>
+<li><p>tail_to_ratio: Specifies where the tail ends along its path (must be greater than tail_from_ratio).</p></li>
 </ul>
-<p>OK, let’s check those options at image picture.</p>
+<p>Please refer the below picture for understanding the parameters.</p>
 <figure class="align-center" id="id3">
 <a class="with-border reference internal image-reference" href="../../../_images/image2.png"><img alt="../../../_images/image2.png" class="with-border" src="../../../_images/image2.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">image2.png</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+<p>Ellipse like bubblespeech is not supported yet.</p>
 </section>
 
 

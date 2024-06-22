@@ -110,7 +110,7 @@ Drawlib provides pre-defined line styles.
 You can provide style via name easily.
 What name you can use depends on theme you choose.
 
-The style has this syntax: ``<color>_<type>_<thickness>``. 
+The style has this syntax: ``<color>_<type>_<weight>``. 
 
 - ``<color>``: Specifies the color of the line.
 
@@ -120,13 +120,13 @@ The style has this syntax: ``<color>_<type>_<thickness>``.
 - ``solid``: solid line
 - ``dashed``: dashed line
 
-``<thickness>`` is one of them
+``<weight>`` is one of them
 
 - (default): regular line width
-- ``thin``: half of the default width
+- ``light``: half of the default width
 - ``bold``: double the default width
 
-If the type and thickness are default, they may not be explicitly shown in the style name.
+If the type and weight are default, they may not be explicitly shown in the style name.
 
 Let's look at an example:
 
@@ -135,7 +135,6 @@ Let's look at an example:
    :linenos:
    :caption: image3.py
 
-In our case, we use theme ``"default2"``.
 Executing this code generates the following output:
 
 .. figure:: image3.png

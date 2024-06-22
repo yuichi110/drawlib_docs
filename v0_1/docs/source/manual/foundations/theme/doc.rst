@@ -42,7 +42,6 @@ Here is an example.
 As you can see, we supports these themes now.
 
 - ``"default"``
-- ``"default2"``
 - ``"essentials"``
 - ``"monochrome"``
 
@@ -160,18 +159,13 @@ For instance, theme default's style names can be used across all style classes.
 Style Name Rules
 =====================
 
-The theme ``default`` primarily uses color style names, whereas other themes offer a wider variety of styles compared to default. 
-These themes follow common naming rules.
-
-Before delving into the rules, let's examine another official theme, ``default2``, with an example:
+We uses color style names at last example, however other style names are also provided.
+Before delving into the rules, let's examine them, with an example:
 
 .. literalinclude:: image3.py
    :language: python
    :linenos:
    :caption: image3.py
-
-In the previous example, the styles were primarily color names. 
-However, ``default2`` introduces additional descriptors this time.
 
 Executing this code results in the following image:
 
@@ -182,8 +176,8 @@ Executing this code results in the following image:
 
    Specifying theme style name
 
-The style names in ``default2`` follow this syntax: ``<color>_<type>_<thickness>``. 
-If the color, type, and thickness are default, they may not appear in the style name.
+The style names follow this syntax: ``<color>_<type>_<weight>``. 
+If the color, type, and weight are default, they may not appear in the style name.
 
 Each style type has variations for line and fill styles with ``ImageStyle``, ``ShapeStyle``, ``LineStyle``. 
 ``IconStyle`` supports only default and ``flat``(fill) style types.
@@ -194,21 +188,21 @@ Each style type has variations for line and fill styles with ``ImageStyle``, ``S
 - ``solid``: Shape has an outline but no fill
 - ``dashed``: Dashed outline, no fill
 
-Each thickness types has variation of line width for ``ImageStyle``, ``ShapeStyle``, ``LineStyle``.
+Each weight types has variation of line width for ``ImageStyle``, ``ShapeStyle``, ``LineStyle``.
 On ``TextStyle`` and ``ShapeTextStyle``,  it refers to font weight:
 
-- ``thin``: Half of the default line width; font is thin
+- ``light``: Half of the default line width; font is light
 - default: Regular line width; font is regular
 - ``bold``: Double the default line width; font is bold
 
-Here is a matrix illustrating style types and thickness:
+Here is a matrix illustrating style types and weight:
 
 .. figure:: image_matrix.png
    :width: 600
    :class: with-border
    :align: center
 
-   Matrix of style type and thickness
+   Matrix of style type and weight
 
 In this matrix example, we use only the color ``"blue"``, but other colors are also available. 
 Note that ``ImageStyle`` and ``ShapeTextStyle`` are not explicitly shown, but they follow similar principles to ``ShapeStyle`` and ``TextStyle`` regarding theme styles.

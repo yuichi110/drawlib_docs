@@ -74,9 +74,12 @@
 <p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Color Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#colors">Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#colors140">Colors140</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colorsthemedefault">ColorsThemeDefault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colorsthemeessentials">ColorsThemeEssentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colorsthememonochrome">ColorsThemeMonochrome</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#implement-your-own-colors">Implement Your Own Colors</a></li>
 </ul>
 </li>
@@ -88,16 +91,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -135,36 +136,37 @@
              
   <section id="color-classes">
 <h1>Color Classes<a class="headerlink" href="#color-classes" title="Link to this heading"></a></h1>
-<p>Drawlib’s color format are RGB(Red Green Blue) or RGBA(RGB and Alpha).
-RGB format is <code class="docutils literal notranslate"><span class="pre">tuple(0~255,</span> <span class="pre">0~255,</span> <span class="pre">0~255)</span></code> and RGBA format is <code class="docutils literal notranslate"><span class="pre">tuple(0~255,</span> <span class="pre">0~255,</span> <span class="pre">0~255,</span> <span class="pre">0.0~1.0)</span></code>.
-Drawlib doesn’t support string color coode (<code class="docutils literal notranslate"><span class="pre">&quot;red&quot;</span></code> etc.) and Hex style (<code class="docutils literal notranslate"><span class="pre">&quot;#00FF00&quot;</span></code> etc.) for simplicity.</p>
-<p>However RGB is inconvinient for just using basic colors.
-So, we provide Color classes.
-Currently, we have these classes.</p>
+<p>Drawlib’s color format is either RGB (Red, Green, Blue) or RGBA (RGB with Alpha).
+The RGB format is represented as tuple(0-255, 0-255, 0-255), and the RGBA format is tuple(0-255, 0-255, 0-255, 0.0-1.0).
+For simplicity, Drawlib does not support string color codes (e.g., “red”) or hex style codes (e.g., “#00FF00”).</p>
+<p>However, using RGB can be inconvenient for basic colors.
+Therefore, we provide Color classes. Currently, we offer the following classes:</p>
 <ul class="simple">
-<li><p>Color: basic web 16 colors + Transparent</p></li>
-<li><p>Color140: basic web 140 colors + Transparent</p></li>
+<li><p>Colors: basic web 16 colors + Transparent</p></li>
+<li><p>Colors140: basic web 140 colors + Transparent</p></li>
+<li><p>ColorsThemeDefault: Colors which are used in theme <code class="docutils literal notranslate"><span class="pre">default</span></code></p></li>
+<li><p>ColorsThemeEssentials: Colors which are used in theme <code class="docutils literal notranslate"><span class="pre">essentials</span></code></p></li>
+<li><p>ColorsThemeMonochrome: Colors which are used in theme <code class="docutils literal notranslate"><span class="pre">monochrome</span></code></p></li>
 <li><p>ColorBase: Base class for creating your own Color class</p></li>
 </ul>
-<p>Here is an image for showing their relations.</p>
+<p>Here is an image showing their relationships:</p>
 <figure class="align-center" id="id1">
 <a class="with-border reference internal image-reference" href="../../../_images/image_architecture.png"><img alt="../../../_images/image_architecture.png" class="with-border" src="../../../_images/image_architecture.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-text">Structure of color classes</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see, <code class="docutils literal notranslate"><span class="pre">ColorBase</span></code> implements color <code class="docutils literal notranslate"><span class="pre">TransParent</span></code> and utility functions.
-Each child classes inherit them and implement each colors.
-You can create your color class too.
-We will take a look example of creating Google color class.</p>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code> class implements the <code class="docutils literal notranslate"><span class="pre">Transparent</span></code> color and utility functions.
+Each child class inherits these and implements its own colors.</p>
+<p>You can create your own color class as well.
+Let’s look at an example of creating a Google color class at end of this page.</p>
 <section id="utility-functions">
-<h2>Utility functions<a class="headerlink" href="#utility-functions" title="Link to this heading"></a></h2>
+<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Link to this heading"></a></h2>
 <p>Drawlib’s color format is only RGB and RGBA.
-However, there are many color format such as hex.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code> posses utility functions (static method).
-They will be able to be used for converting color style.
-Since color classes inherit <code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code>, all color classes can use utility functions of course.
-Let’s take a look functions.</p>
+However, there are many color formats such as hex.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code> possesses utility functions that can be used for converting color styles.
+Since all color classes inherit from <code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code>, they can all use these utility functions.</p>
+<p>Here is an example:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">color_util.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -187,11 +189,11 @@ Let’s take a look functions.</p>
 </pre></div>
 </div>
 </div>
-<p>Default alpha values are <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+<p>The default alpha value is <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
 </section>
 <section id="colors">
 <h2>Colors<a class="headerlink" href="#colors" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">Colors</span></code> posses these members.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Colors</span></code> class contains the following members:</p>
 <ul class="simple">
 <li><p>Transparent: (0, 0, 0, 0.0)</p></li>
 <li><p>Aqua: (0, 255, 255)</p></li>
@@ -214,7 +216,7 @@ Let’s take a look functions.</p>
 </section>
 <section id="colors140">
 <h2>Colors140<a class="headerlink" href="#colors140" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">Colors140</span></code> posses these members.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Colors140</span></code> class contains the following members:</p>
 <ul class="simple">
 <li><p>Transparent: (0, 0, 0, 0.0)</p></li>
 <li><p>AliceBlue: (240, 248, 255)</p></li>
@@ -360,14 +362,69 @@ Let’s take a look functions.</p>
 <li><p>YellowGreen: (154, 205, 50)</p></li>
 </ul>
 </section>
+<section id="colorsthemedefault">
+<h2>ColorsThemeDefault<a class="headerlink" href="#colorsthemedefault" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ColorsThemeDefault</span></code> class contains the following members:</p>
+<ul class="simple">
+<li><p>Red: (239, 95, 95)</p></li>
+<li><p>Green: (79, 191, 79)</p></li>
+<li><p>Blue: (111, 111, 239)</p></li>
+<li><p>Black: (0, 0, 0)</p></li>
+<li><p>White: (255, 255, 255)</p></li>
+</ul>
+</section>
+<section id="colorsthemeessentials">
+<h2>ColorsThemeEssentials<a class="headerlink" href="#colorsthemeessentials" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ColorsThemeEssentials</span></code> class contains the following members:</p>
+<ul class="simple">
+<li><p>Red:  (255, 23, 23)</p></li>
+<li><p>LightRed: (239, 95, 95)</p></li>
+<li><p>Green: (15, 127, 15)</p></li>
+<li><p>LightGreen: (79, 191, 79)</p></li>
+<li><p>Blue: (31, 31, 255)</p></li>
+<li><p>LightBlue: (111, 111, 239)</p></li>
+<li><p>Yellow: (239, 239, 31)</p></li>
+<li><p>Purple: (127, 31, 127)</p></li>
+<li><p>Orange: (255, 95, 31)</p></li>
+<li><p>Navy: (15, 15, 127)</p></li>
+<li><p>Pink: (239, 63, 239)</p></li>
+<li><p>Charcoal: (39, 39, 39)</p></li>
+<li><p>Graphite: (63, 63, 63)</p></li>
+<li><p>Gray: (127, 127, 127)</p></li>
+<li><p>Silver: (191, 191, 191)</p></li>
+<li><p>Snow: (239, 239, 239)</p></li>
+<li><p>Teal: (15, 127, 127)</p></li>
+<li><p>Olive: (127, 127, 31)</p></li>
+<li><p>Brown: (159, 31, 31)</p></li>
+<li><p>Black: (0, 0, 0)</p></li>
+<li><p>White: (255, 255, 255)</p></li>
+<li><p>Aqua: (47, 239, 239)</p></li>
+<li><p>GreenYellow: (127, 207, 31)</p></li>
+<li><p>Ivory: (239, 239, 207)</p></li>
+<li><p>Steel: (96, 96, 143)</p></li>
+</ul>
+</section>
+<section id="colorsthememonochrome">
+<h2>ColorsThemeMonochrome<a class="headerlink" href="#colorsthememonochrome" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ColorsThemeMonochrome</span></code> class contains the following members:</p>
+<ul class="simple">
+<li><p>Black: (0, 0, 0)</p></li>
+<li><p>Charcoal: (39, 39, 39)</p></li>
+<li><p>Graphite: (63, 63, 63)</p></li>
+<li><p>Gray: (127, 127, 127)</p></li>
+<li><p>Silver: (191, 191, 191)</p></li>
+<li><p>Snow: (239, 239, 239)</p></li>
+<li><p>White: (255, 255, 255)</p></li>
+</ul>
+</section>
 <section id="implement-your-own-colors">
 <h2>Implement Your Own Colors<a class="headerlink" href="#implement-your-own-colors" title="Link to this heading"></a></h2>
-<p>We provide base class of colors <code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code>.
-You can define your color palette class via extend the base class.</p>
-<p>Suppose you are Google’s official partner who eligible to use corporate color.
-Let’s try define colors and use it.</p>
-<p>Partner Marketing Hub: Google News Color Palette.</p>
-<p><a class="reference external" href="https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/">https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/</a></p>
+<p>We provide a base class for colors called <code class="docutils literal notranslate"><span class="pre">ColorsBase</span></code>.
+You can define your own color palette class by extending this base class.</p>
+<p>Suppose you are an official partner of Google, eligible to use their corporate colors.
+Let’s define these colors and use them.</p>
+<p>Partner Marketing Hub: Google News Color Palette.
+<a class="reference external" href="https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/">https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/</a></p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">image_mycolor.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -433,9 +490,9 @@ Let’s try define colors and use it.</p>
 </pre></div>
 </div>
 </div>
-<p>In this example, we define color class and using it at image drawing code.
-But normally, you should define your color class at styling code and import it at image code.</p>
-<p>Here is an output.</p>
+<p>In this example, we define a color class and use it in image drawing code.
+Typically, you should define your color class in a styling module and import it into your image code.</p>
+<p>Here is the output:</p>
 <figure class="align-center">
 <a class="with-border reference internal image-reference" href="../../../_images/image_mycolor.png"><img alt="../../../_images/image_mycolor.png" class="with-border" src="../../../_images/image_mycolor.png" style="width: 600px;" /></a>
 </figure>

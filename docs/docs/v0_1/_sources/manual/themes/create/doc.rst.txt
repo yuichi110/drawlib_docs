@@ -2,30 +2,34 @@
 Create Your Custom Theme from Scratch
 ========================================
 
-We provides official themes.
-But some users may want to create your own theme.
+We provide official themes that you can customize to fit your needs. 
+Consider customizing our themes first if you only need to make slight style changes.
 
-You can create your own theme with this procedure.
+However, some users may prefer to create their own custom theme entirely from scratch. 
+You can achieve this by following these procedures:
 
-- Create default theme styles
-- Optional: Create named theme styles such as "blue".
-- Optional: Define background color and source code font.
-- Passing them to ``dtheme.apply_custom_theme()``
+- Create Your Theme's Default Styles: Define the fundamental styles that will form the basis of your theme.
+- Optional: Create Named Theme Styles: Optionally, define named theme styles such as "blue", "blue_solid" to customize specific elements further.
+- Optional: Define Background Color and Source Code Font: Set preferences for background color and source code font if desired.
+- Apply Your Custom Theme: Pass your defined styles and preferences to ``dtheme.apply_custom_theme()`` to apply your custom theme.
 
-Let's take a look
+The ``dtheme.apply_custom_theme()`` function accepts the following arguments:
 
-Create Theme Style Object
-============================
+- ``default_style``: Default styles for your theme.
+- ``named_styles`` (optional): Named styles within your theme, e.g., "blue".
+- ``theme_colors`` (optional): List of colors used in your theme.
+- ``backgroundcolor`` (optional): Background color of your theme.
+- ``sourcecodefont`` (optional): Default font for displaying source code.
 
-We use data class ``dtheme.ThemeStyles`` for defining theme styles.
-This class is just a holder of drawlib's styles such as ``LineStyle`` and ``ShapeStyle`` etc.
-After defining data, binding styles to style name at later.
+Let's go through these steps in detail.
 
-You need to define themes at least for default styles.
-If you want named styles which can be retrieved like ``circle((50, 50), radius=10, style="blue")``, you need to define styles for the each style name.
+Create ``ThemeStyles`` Object
+===============================
 
-All members of the this class is optional for ``named_styles``.
-But ``default_style`` requires all of belows items.
+The ``default_style`` and ``named_styles`` arguments require a ``dtheme.ThemeStyles`` object. 
+This class serves as a container for Drawlib's styles such as ``LineStyle``, ``ShapeStyle``, etc.
+
+When defining your data, populate the ``default_style`` object with the following mandatory items:
 
 - iconstyle
 - imagestyle
@@ -35,39 +39,37 @@ But ``default_style`` requires all of belows items.
 - shapetextstyle
 - textstyle
 
-Other items are optional on default style too.
+Other items are optional for the ``default_style``, and all items are optional for ``named_styles``.
+
 
 
 Apply Theme Styles
 ====================
 
-``dtheme.apply_custom_theme()`` provides setting custom theme feature.
-It takes these arguments.
+Once you have defined your ``ThemeStyles`` objects, pass them to ``dtheme.apply_custom_theme()``. 
+This function clears old theme styles internally before applying your new custom theme.
 
-- default_style: default style.
-- named_styles: list of "name and style" pairs.
-- theme_colors: list of "name and color" pairs.
-- backgroundcolor: background color
-- sourcecodefont: source code font
-
-We use ``dtheme.ThemeStyles`` for ``default_style`` and ``named_styles``.
-Mandatory arg is only ``default_style``.
-
-OK, let's check create custom theme which uses gold and silver colors.
+Here's an example script demonstrating the creation of a gold and silver themed custom theme:
 
 .. literalinclude:: image1.py
    :language: python
    :linenos:
    :caption: image1.py
 
-We define theme styles first.
-After that, calling ``dtheme.apply_custom_theme()``.
+In this example, we define ``ThemeStyles`` for gold and silver themes and apply them using ``dtheme.apply_custom_theme()``.
+
+Executing this script will produce the following output:
 
 .. figure:: image1.png
     :width: 600
     :class: with-border
     :align: center
 
-    image1.png
+    Drawing items with custom theme
 
-You can see your theme is applied.
+You can observe that the default style of the theme has been set to gold, and the named styles "gold" and "silver" are also applied.
+
+Recommendation
+=================
+
+While you have the flexibility to create your own theme, it is recommended to adhere to Drawlib's official style guidelines when sharing themes to ensure consistency and compatibility.

@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="drawlib" href="../../../api/modules.html" />
-    <link rel="prev" title="Customize official theme" href="../customize/doc.html" /> 
+    <link rel="prev" title="Official Theme: monochrome" href="../official_monochrome/doc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -82,19 +82,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Create Your Custom Theme from Scratch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#create-theme-style-object">Create Theme Style Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-themestyles-object">Create <code class="docutils literal notranslate"><span class="pre">ThemeStyles</span></code> Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#apply-theme-styles">Apply Theme Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommendation">Recommendation</a></li>
 </ul>
 </li>
 </ul>
@@ -133,25 +132,30 @@
              
   <section id="create-your-custom-theme-from-scratch">
 <h1>Create Your Custom Theme from Scratch<a class="headerlink" href="#create-your-custom-theme-from-scratch" title="Link to this heading"></a></h1>
-<p>We provides official themes.
-But some users may want to create your own theme.</p>
-<p>You can create your own theme with this procedure.</p>
+<p>We provide official themes that you can customize to fit your needs.
+Consider customizing our themes first if you only need to make slight style changes.</p>
+<p>However, some users may prefer to create their own custom theme entirely from scratch.
+You can achieve this by following these procedures:</p>
 <ul class="simple">
-<li><p>Create default theme styles</p></li>
-<li><p>Optional: Create named theme styles such as “blue”.</p></li>
-<li><p>Optional: Define background color and source code font.</p></li>
-<li><p>Passing them to <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code></p></li>
+<li><p>Create Your Theme’s Default Styles: Define the fundamental styles that will form the basis of your theme.</p></li>
+<li><p>Optional: Create Named Theme Styles: Optionally, define named theme styles such as “blue”, “blue_solid” to customize specific elements further.</p></li>
+<li><p>Optional: Define Background Color and Source Code Font: Set preferences for background color and source code font if desired.</p></li>
+<li><p>Apply Your Custom Theme: Pass your defined styles and preferences to <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code> to apply your custom theme.</p></li>
 </ul>
-<p>Let’s take a look</p>
-<section id="create-theme-style-object">
-<h2>Create Theme Style Object<a class="headerlink" href="#create-theme-style-object" title="Link to this heading"></a></h2>
-<p>We use data class <code class="docutils literal notranslate"><span class="pre">dtheme.ThemeStyles</span></code> for defining theme styles.
-This class is just a holder of drawlib’s styles such as <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code> and <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> etc.
-After defining data, binding styles to style name at later.</p>
-<p>You need to define themes at least for default styles.
-If you want named styles which can be retrieved like <code class="docutils literal notranslate"><span class="pre">circle((50,</span> <span class="pre">50),</span> <span class="pre">radius=10,</span> <span class="pre">style=&quot;blue&quot;)</span></code>, you need to define styles for the each style name.</p>
-<p>All members of the this class is optional for <code class="docutils literal notranslate"><span class="pre">named_styles</span></code>.
-But <code class="docutils literal notranslate"><span class="pre">default_style</span></code> requires all of belows items.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code> function accepts the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default_style</span></code>: Default styles for your theme.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named_styles</span></code> (optional): Named styles within your theme, e.g., “blue”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">theme_colors</span></code> (optional): List of colors used in your theme.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">backgroundcolor</span></code> (optional): Background color of your theme.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sourcecodefont</span></code> (optional): Default font for displaying source code.</p></li>
+</ul>
+<p>Let’s go through these steps in detail.</p>
+<section id="create-themestyles-object">
+<h2>Create <code class="docutils literal notranslate"><span class="pre">ThemeStyles</span></code> Object<a class="headerlink" href="#create-themestyles-object" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">default_style</span></code> and <code class="docutils literal notranslate"><span class="pre">named_styles</span></code> arguments require a <code class="docutils literal notranslate"><span class="pre">dtheme.ThemeStyles</span></code> object.
+This class serves as a container for Drawlib’s styles such as <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>, etc.</p>
+<p>When defining your data, populate the <code class="docutils literal notranslate"><span class="pre">default_style</span></code> object with the following mandatory items:</p>
 <ul class="simple">
 <li><p>iconstyle</p></li>
 <li><p>imagestyle</p></li>
@@ -161,22 +165,13 @@ But <code class="docutils literal notranslate"><span class="pre">default_style</
 <li><p>shapetextstyle</p></li>
 <li><p>textstyle</p></li>
 </ul>
-<p>Other items are optional on default style too.</p>
+<p>Other items are optional for the <code class="docutils literal notranslate"><span class="pre">default_style</span></code>, and all items are optional for <code class="docutils literal notranslate"><span class="pre">named_styles</span></code>.</p>
 </section>
 <section id="apply-theme-styles">
 <h2>Apply Theme Styles<a class="headerlink" href="#apply-theme-styles" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code> provides setting custom theme feature.
-It takes these arguments.</p>
-<ul class="simple">
-<li><p>default_style: default style.</p></li>
-<li><p>named_styles: list of “name and style” pairs.</p></li>
-<li><p>theme_colors: list of “name and color” pairs.</p></li>
-<li><p>backgroundcolor: background color</p></li>
-<li><p>sourcecodefont: source code font</p></li>
-</ul>
-<p>We use <code class="docutils literal notranslate"><span class="pre">dtheme.ThemeStyles</span></code> for <code class="docutils literal notranslate"><span class="pre">default_style</span></code> and <code class="docutils literal notranslate"><span class="pre">named_styles</span></code>.
-Mandatory arg is only <code class="docutils literal notranslate"><span class="pre">default_style</span></code>.</p>
-<p>OK, let’s check create custom theme which uses gold and silver colors.</p>
+<p>Once you have defined your <code class="docutils literal notranslate"><span class="pre">ThemeStyles</span></code> objects, pass them to <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code>.
+This function clears old theme styles internally before applying your new custom theme.</p>
+<p>Here’s an example script demonstrating the creation of a gold and silver themed custom theme:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -230,28 +225,34 @@ Mandatory arg is only <code class="docutils literal notranslate"><span class="pr
 <span class="linenos">49</span><span class="n">y2</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="linenos">50</span><span class="n">y3</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="linenos">51</span>
-<span class="linenos">52</span><span class="n">line</span><span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
-<span class="linenos">53</span><span class="n">circle</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">54</span><span class="n">text</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Hello Drawlib!&quot;</span><span class="p">)</span>
-<span class="linenos">55</span>
-<span class="linenos">56</span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">x2</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">)]:</span>
-<span class="linenos">57</span>    <span class="n">line</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-<span class="linenos">58</span>    <span class="n">circle</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-<span class="linenos">59</span>    <span class="n">text</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Hello Drawlib!&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-<span class="linenos">60</span>
-<span class="linenos">61</span><span class="n">save</span><span class="p">()</span>
+<span class="linenos">52</span><span class="c1"># apply default style</span>
+<span class="linenos">53</span><span class="n">line</span><span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
+<span class="linenos">54</span><span class="n">circle</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">55</span><span class="n">text</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Hello Drawlib!&quot;</span><span class="p">)</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="c1"># apply named style</span>
+<span class="linenos">58</span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">x2</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">)]:</span>
+<span class="linenos">59</span>    <span class="n">line</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">60</span>    <span class="n">circle</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">61</span>    <span class="n">text</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span> <span class="s2">&quot;Hello Drawlib!&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>We define theme styles first.
-After that, calling <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code>.</p>
+<p>In this example, we define <code class="docutils literal notranslate"><span class="pre">ThemeStyles</span></code> for gold and silver themes and apply them using <code class="docutils literal notranslate"><span class="pre">dtheme.apply_custom_theme()</span></code>.</p>
+<p>Executing this script will produce the following output:</p>
 <figure class="align-center" id="id2">
-<a class="with-border reference internal image-reference" href="../../../_images/image114.png"><img alt="../../../_images/image114.png" class="with-border" src="../../../_images/image114.png" style="width: 600px;" /></a>
+<a class="with-border reference internal image-reference" href="../../../_images/image113.png"><img alt="../../../_images/image113.png" class="with-border" src="../../../_images/image113.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">image1.png</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Drawing items with custom theme</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>You can see your theme is applied.</p>
+<p>You can observe that the default style of the theme has been set to gold, and the named styles “gold” and “silver” are also applied.</p>
+</section>
+<section id="recommendation">
+<h2>Recommendation<a class="headerlink" href="#recommendation" title="Link to this heading"></a></h2>
+<p>While you have the flexibility to create your own theme, it is recommended to adhere to Drawlib’s official style guidelines when sharing themes to ensure consistency and compatibility.</p>
 </section>
 </section>
 
@@ -259,7 +260,7 @@ After that, calling <code class="docutils literal notranslate"><span class="pre"
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../customize/doc.html" class="btn btn-neutral float-left" title="Customize official theme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../official_monochrome/doc.html" class="btn btn-neutral float-left" title="Official Theme: monochrome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../../../api/modules.html" class="btn btn-neutral float-right" title="drawlib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

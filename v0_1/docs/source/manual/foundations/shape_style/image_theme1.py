@@ -1,6 +1,5 @@
 from drawlib.apis import *
 
-dtheme.apply_official_theme("default2")
 config(width=150, height=50)
 
 # left
@@ -25,8 +24,8 @@ circle(
 circle(
     xy=(125, 25),
     radius=15,
-    style="green_dashed_thin",
+    style="green_dashed_light",
     text="circle",
-    textstyle="green_thin",
+    textstyle="green_light",
 )
 save()

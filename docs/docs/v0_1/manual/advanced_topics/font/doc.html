@@ -97,16 +97,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/doc.html">Debugging errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/doc.html">Library Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_options/doc.html">CLI and Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Doc Build Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_flow/doc.html">Example of Documentation Build Flow</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default2/doc.html">Official Theme: default2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes/customize/doc.html">Customize official theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Docs:</span></p>
@@ -144,45 +142,56 @@
              
   <section id="font-classes">
 <h1>Font Classes<a class="headerlink" href="#font-classes" title="Link to this heading"></a></h1>
-<p>Drawlib posses variety of fonts.
-Fonts are grouped by Font Classes.
-And also you can use your own font through <code class="docutils literal notranslate"><span class="pre">FontFile</span></code> class and font files.
-Both font and FontFile are mainly used for <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code> and <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code>.</p>
-<p>Here is a list of supported font classes.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Font</span></code>: SanSerif and Serif for Alphabet + CJK(Chinese, Japanese, Korean)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontSansSerif</span></code>: SanSerif fonts for Alphabet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontSerif</span></code>: Serif fonts for Alphabet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontMonoSpace</span></code>: Mono space fonts</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontSourcecode</span></code>: Subset of FontMonoSpace. It is used for <code class="docutils literal notranslate"><span class="pre">dsart.sourcecode()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontRoboto</span></code>: Roboto fonts for Alphabet</p></li>
+<p>In Drawlib, fonts are categorized into various Font Classes, each serving different purposes and supporting different styles and languages.
+Here’s an overview of the supported Font Classes:</p>
+<ul>
+<li><p>Default Fonts</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Font</span></code>: Supports both SanSerif and Serif fonts for Alphabet and CJK (Chinese, Japanese, Korean) characters.</p></li>
 </ul>
-<p>And also, we supports local language fonts.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FontArabic</span></code>: Arabic</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontBrahmic</span></code>: Fonts which are categorized to Brahmic. India and near countries.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontChinese</span></code>: Chinese</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontJapanese</span></code>: Japanese</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontKorean</span></code>: Korean</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FontThai</span></code>: Thai</p></li>
+</div></blockquote>
+</li>
+<li><p>Alphabet Fonts</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FontSansSerif</span></code>: Specifically SanSerif fonts for Alphabet characters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontSerif</span></code>: Specifically Serif fonts for Alphabet characters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontMonoSpace</span></code>: Monospace fonts, where each character occupies the same amount of horizontal space.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontSourcecode</span></code>:  A subset of FontMonoSpace fonts, optimized for source code display using <code class="docutils literal notranslate"><span class="pre">dsart.sourcecode()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontRoboto</span></code>: Fonts from the Roboto family, tailored for Alphabet characters.</p></li>
 </ul>
-<p>Each fonts posses these styles.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Light</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Regular</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bold</span></code></p></li>
+</div></blockquote>
+</li>
+<li><p>Local Language Fonts</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FontArabic</span></code>: Fonts specifically designed for Arabic script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontBrahmic</span></code>: Fonts for Brahmic scripts used in India and neighboring countries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontChinese</span></code>: Fonts tailored for Chinese characters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontJapanese</span></code>: Fonts designed for Japanese characters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontKorean</span></code>: Fonts specifically for Korean characters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FontThai</span></code>: Fonts optimized for Thai script.</p></li>
 </ul>
-<p>However, few fonts have only 1 or 2 styles.
-On that situation, drawlib lacks few styles too.</p>
-<p>By the way, these font file size are not small.
-So, drawlib doesn’t include them when you did <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.
-But drawlib downloads specific font file when you use it first time.
-After downloading them, they will be cached on your PC.
-You can delete cache via utility module <code class="docutils literal notranslate"><span class="pre">dutil</span></code>.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Each font class supports various styles, though some fonts may have fewer styles available:</p>
+<ul class="simple">
+<li><p>Light: A lighter weight variant of the font.</p></li>
+<li><p>Regular: The standard, normal-weight variant of the font.</p></li>
+<li><p>Bold: A heavier, bold-weight variant of the font.</p></li>
+</ul>
+<p>Due to the large file sizes of font files, Drawlib does not include them in the initial package when installed via pip.
+Instead, the necessary font files are downloaded dynamically the first time they are used.
+This approach minimizes the initial package size and allows for on-demand fetching of resources.
+Once downloaded, these font files are cached on your local machine.</p>
+<p>If needed, you can manage the font cache using the <code class="docutils literal notranslate"><span class="pre">drawlib</span> <span class="pre">--purge_font_cache</span></code> command.
+This command clears the cached font files from your system, freeing up storage space if necessary.</p>
 <section id="fontfile">
 <h2>FontFile<a class="headerlink" href="#fontfile" title="Link to this heading"></a></h2>
-<p>Before going to explain font classes, we will handle <code class="docutils literal notranslate"><span class="pre">FontFile</span></code> class which is used for your own font.
-Passing font file to <code class="docutils literal notranslate"><span class="pre">FontFile</span></code> class let you use the font for <code class="docutils literal notranslate"><span class="pre">text()</span></code> etc.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">FontFile</span></code> class in Drawlib allows users to utilize custom fonts for rendering text using the <code class="docutils literal notranslate"><span class="pre">text()</span></code> function and similar methods.
+Here’s how you can use the FontFile class in your Python code:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">image_file.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
@@ -200,6 +209,7 @@ Passing font file to <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 </div>
+<p>Executing this code generate the output:</p>
 <figure class="align-center" id="id2">
 <a class="with-border reference internal image-reference" href="../../../_images/image_file.png"><img alt="../../../_images/image_file.png" class="with-border" src="../../../_images/image_file.png" style="width: 600px;" /></a>
 <figcaption>
@@ -209,17 +219,31 @@ Passing font file to <code class="docutils literal notranslate"><span class="pre
 </section>
 <section id="font">
 <h2>Font<a class="headerlink" href="#font" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">Font</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>The <code class="docutils literal notranslate"><span class="pre">Font</span></code> class in Drawlib provides default fonts.
+Here’s an overview of the fonts available in the Font class:</p>
+<ul>
+<li><p>SanSerif Fonts</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_LIGHT</span></code>: Noto SansSerif CJK(Chinese, Japanese, Korean)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Serif Fonts</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_LIGHT</span></code>: Noto Serif CJK Japanese</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_BOLD</span></code></p></li>
 </ul>
-<p>Default theme’s default font is <code class="docutils literal notranslate"><span class="pre">Font.SANSSERIF_REGULAR</span></code>.
-We choose them since font shape is standard and population coverage is large.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>By default, the Drawlib’s default theme uses <code class="docutils literal notranslate"><span class="pre">Font.SANSSERIF_REGULAR</span></code>.
+This font choice is based on its standard shape and wide coverage across different languages and populations.</p>
+<p>The following image illustrates the fonts available in the Font class:</p>
 <figure class="align-center" id="id3">
 <a class="with-border reference internal image-reference" href="../../../_images/image_Font.png"><img alt="../../../_images/image_Font.png" class="with-border" src="../../../_images/image_Font.png" style="width: 600px;" /></a>
 <figcaption>
@@ -229,25 +253,55 @@ We choose them since font shape is standard and population coverage is large.</p
 </section>
 <section id="fontsansserif">
 <h2>FontSansSerif<a class="headerlink" href="#fontsansserif" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontSansSerif</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontSansSerif</span></code> contains popular SansSerif fonts for alphabet languages.</p>
+<ul>
+<li><p>Lato</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">LATO_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LATO_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LATO_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Raleways</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">RALEWAYS_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RALEWAYS_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RALEWAYS_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Montserrat</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MONTSERRAT_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MONTSERRAT_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MONTSERRAT_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Oswald</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">OSWALD_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OSWALD_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">OSWALD_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Poppins</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">POPPINS_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">POPPINS_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">POPPINS_BOLD</span></code></p></li>
 </ul>
-<p>It covers popular SansSerif fonts for alphabet languages.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontSansSerif class:</p>
 <figure class="align-center" id="id4">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontSansSerif.png"><img alt="../../../_images/image_FontSansSerif.png" class="with-border" src="../../../_images/image_FontSansSerif.png" style="width: 600px;" /></a>
 <figcaption>
@@ -257,21 +311,45 @@ We choose them since font shape is standard and population coverage is large.</p
 </section>
 <section id="fontserif">
 <h2>FontSerif<a class="headerlink" href="#fontserif" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontSerif</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontSerif</span></code> contains popular Serif fonts for alphabet languages.</p>
+<ul>
+<li><p>Courier</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">COURIER_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COURIER_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Merriweather</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MERRIWEATHER_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MERRIWEATHER_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MERRIWEATHER_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Platypi</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">PLATYPI_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PLATYPI_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PLATYPI_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>PlayFairDisplay</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">PLAYFAIRDISPLAY_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PLAYFAIRDISPLAY_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PLAYFAIRDISPLAY_BOLD</span></code></p></li>
 </ul>
-<p>It covers popular Serif fonts for alphabet languages.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontSerif class:</p>
 <figure class="align-center" id="id5">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontSerif.png"><img alt="../../../_images/image_FontSerif.png" class="with-border" src="../../../_images/image_FontSerif.png" style="width: 600px;" /></a>
 <figcaption>
@@ -281,51 +359,104 @@ We choose them since font shape is standard and population coverage is large.</p
 </section>
 <section id="fontroboto">
 <h2>FontRoboto<a class="headerlink" href="#fontroboto" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontRoboto</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontRoboto</span></code> famous and popular Roboto group fonts.</p>
+<ul>
+<li><p>Roboto</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ROBOTO_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ROBOTO_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ROBOTO_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Roboto Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Roboto Mono</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MONO_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MONO_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MONO_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Roboto Condensed</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CONDENSED_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONDENSED_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONDENSED_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Roboto Slab</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SLAB_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SLAB_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SLAB_BOLD</span></code></p></li>
 </ul>
-<p>Roboto is famous and popular free font.
-It provides many styles.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontRoboto class:</p>
 <figure class="align-center" id="id6">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontRoboto.png"><img alt="../../../_images/image_FontRoboto.png" class="with-border" src="../../../_images/image_FontRoboto.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">class FontSansSerif</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">class FontRoboto</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="fontmonospace">
 <h2>FontMonoSpace<a class="headerlink" href="#fontmonospace" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontMonoSpace</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontMonoSpace</span></code> contains  mono space fonts.
+Almost all are for alphabet, but SourceHanCodeJP supports Japanese.</p>
+<ul>
+<li><p>Courier</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">COURIER_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COURIER_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Roboto Mono</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ROBOTO_MONO_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ROBOTO_MONO_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ROBOTO_MONO_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>SourceCodePro</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SOURCECODEPRO_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SOURCECODEPRO_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SOURCECODEPRO_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>SourceHanCodeJP</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SOURCEHANCODEJP_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SOURCEHANCODEJP_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SOURCEHANCODEJP_BOLD</span></code></p></li>
 </ul>
-<p>It covers popular mono space fonts.
-Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontMonoSpace class:</p>
 <figure class="align-center" id="id7">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontMonoSpace.png"><img alt="../../../_images/image_FontMonoSpace.png" class="with-border" src="../../../_images/image_FontMonoSpace.png" style="width: 600px;" /></a>
 <figcaption>
@@ -335,19 +466,37 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="fontarabic">
 <h2>FontArabic<a class="headerlink" href="#fontarabic" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontArabic</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontArabic</span></code> contains Arabic fonts.</p>
+<ul>
+<li><p>Sans Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Kufi</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">KUFI_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">KUFI_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">KUFI_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Naskh</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">NASKH_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NASKH_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NASKH_BOLD</span></code></p></li>
 </ul>
-<p>It covers Arabic fonts.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontArabic class:</p>
 <figure class="align-center" id="id8">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontArabic.png"><img alt="../../../_images/image_FontArabic.png" class="with-border" src="../../../_images/image_FontArabic.png" style="width: 600px;" /></a>
 <figcaption>
@@ -357,26 +506,47 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="fontbrahmic">
 <h2>FontBrahmic<a class="headerlink" href="#fontbrahmic" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontBrahmic</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontBrahmic</span></code> contains fonts for characters which delived from Brahmic.</p>
+<ul>
+<li><p>Bengali</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">BENGALI_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BENGALI_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BENGALI_SANSSERIF_BOLD</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BENGALI_SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BENGALI_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BENGALI_SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Devanagari</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DEVANAGARI_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEVANAGARI_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEVANAGARI_SANSSERIF_BOLD</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEVANAGARI_SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEVANAGARI_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEVANAGARI_SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Tamil</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TAMIL_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TAMIL_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TAMIL_SANSSERIF_BOLD</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TAMIL_SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TAMIL_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TAMIL_SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Telugu</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TELUGU_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TELUGU_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TELUGU_SANSSERIF_BOLD</span></code></p></li>
@@ -384,7 +554,10 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">TELUGU_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TELUGU_SERIF_BOLD</span></code></p></li>
 </ul>
-<p>It covers characters which delived from Brahmic.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontBrahmic class:</p>
 <figure class="align-center" id="id9">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontBrahmic.png"><img alt="../../../_images/image_FontBrahmic.png" class="with-border" src="../../../_images/image_FontBrahmic.png" style="width: 600px;" /></a>
 <figcaption>
@@ -394,20 +567,35 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="fontchinese">
 <h2>FontChinese<a class="headerlink" href="#fontchinese" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontChinese</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontChinese</span></code> contains Chinese fonts.</p>
+<ul>
+<li><p>Simplified</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SIMPLIFIED_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SIMPLIFIED_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SIMPLIFIED_SANSSERIF_BOLD</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SIMPLIFIED_SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SIMPLIFIED_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SIMPLIFIED_SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Traditional</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TRADITIONAL_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TRADITIONAL_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TRADITIONAL_SANSSERIF_BOLD</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TRADITIONAL_SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TRADITIONAL_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TRADITIONAL_SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>HongKong</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">HONGKONG_SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HONGKONG_SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HONGKONG_SANSSERIF_BOLD</span></code></p></li>
@@ -415,7 +603,10 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">HONGKONG_SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HONGKONG_SERIF_BOLD</span></code></p></li>
 </ul>
-<p>Chinese has many character types.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontChinese class:</p>
 <figure class="align-center" id="id10">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontChinese.png"><img alt="../../../_images/image_FontChinese.png" class="with-border" src="../../../_images/image_FontChinese.png" style="width: 600px;" /></a>
 <figcaption>
@@ -425,24 +616,54 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="fontjapanese">
 <h2>FontJapanese<a class="headerlink" href="#fontjapanese" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontJapanese</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontJapanese</span></code> contains Japanese fonts.</p>
+<ul>
+<li><p>Sans Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Mplus 1P</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MPLUS1P_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MPLUS1P_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MPLUS1P_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Mplus Rounded 1C</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MPLUSROUNDED1C_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MPLUSROUNDED1C_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MPLUSROUNDED1C_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Sawarabi</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SAWARABI_GOTHIC</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SAWARABI_MINCHO</span></code></p></li>
 </ul>
-<p>It covers popular japanese free fonts.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontJapanese class:</p>
 <figure class="align-center" id="id11">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontJapanese.png"><img alt="../../../_images/image_FontJapanese.png" class="with-border" src="../../../_images/image_FontJapanese.png" style="width: 600px;" /></a>
 <figcaption>
@@ -452,16 +673,28 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="fontkorean">
 <h2>FontKorean<a class="headerlink" href="#fontkorean" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontKorean</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontKorean</span></code> contains Korean fonts.</p>
+<ul>
+<li><p>Sans Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_BOLD</span></code></p></li>
 </ul>
-<p>It covers popular Serif fonts for alphabet languages.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontKorean class:</p>
 <figure class="align-center" id="id12">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontKorean.png"><img alt="../../../_images/image_FontKorean.png" class="with-border" src="../../../_images/image_FontKorean.png" style="width: 600px;" /></a>
 <figcaption>
@@ -471,16 +704,28 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="fontthai">
 <h2>FontThai<a class="headerlink" href="#fontthai" title="Link to this heading"></a></h2>
-<p>Class <code class="docutils literal notranslate"><span class="pre">FontThai</span></code> contains these fonts.</p>
-<ul class="simple">
+<p>Class <code class="docutils literal notranslate"><span class="pre">FontThai</span></code> contains Thai fonts.</p>
+<ul>
+<li><p>Sans Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SANSSERIF_BOLD</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Serif</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_LIGHT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_REGULAR</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SERIF_BOLD</span></code></p></li>
 </ul>
-<p>It covers Thai fonts.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The following image illustrates the fonts available in the FontThai class:</p>
 <figure class="align-center" id="id13">
 <a class="with-border reference internal image-reference" href="../../../_images/image_FontThai.png"><img alt="../../../_images/image_FontThai.png" class="with-border" src="../../../_images/image_FontThai.png" style="width: 600px;" /></a>
 <figcaption>
@@ -490,17 +735,18 @@ Almost all are for alphabet, but Source Han Code JP supports Japanese.</p>
 </section>
 <section id="request-for-adding-fonts">
 <h2>Request for Adding Fonts<a class="headerlink" href="#request-for-adding-fonts" title="Link to this heading"></a></h2>
-<p>Please let us know which font you want to have in our library.
-If request meets the criteria, we will add it to next new release.</p>
+<p>We welcome suggestions for adding new fonts to our Drawlib library.
+To ensure compatibility and usability, please consider the following criteria before making a request:</p>
 <ul class="simple">
-<li><p>The font must be free</p></li>
-<li><p>The font works on drawlib (Emoji font doesn’t work well now.)</p></li>
-<li><p>Your language is not supported. We want to add font even if the language is minor.</p></li>
-<li><p>The font is popular globally</p></li>
-<li><p>The local language font is popular on the region</p></li>
+<li><p>Free License: The font must be available under a free license.</p></li>
+<li><p>Compatibility: The font should work seamlessly with Drawlib. Note that emoji fonts may not be fully supported at this time.</p></li>
+<li><p>Language Support: Fonts for languages currently not supported by Drawlib are prioritized, including minor languages.</p></li>
+<li><p>Global Popularity: The font should be widely recognized and used globally.</p></li>
+<li><p>Regional Popularity: Fonts for local languages that are popular in specific regions are also highly considered.</p></li>
 </ul>
-<p>We recommend to use <code class="docutils literal notranslate"><span class="pre">FontFile()</span></code> first before requesting adding fonts officially.
-Currently, we are not have fancy fonts.</p>
+<p>Before submitting a request, we recommend testing the font using the <code class="docutils literal notranslate"><span class="pre">FontFile()</span></code> class to ensure it meets your requirements.
+At present, Drawlib does not include decorative or ornamental fonts.</p>
+<p>Your input is valuable to us, and if your font suggestion meets these criteria, we will consider adding it in a future release.</p>
 </section>
 </section>
 

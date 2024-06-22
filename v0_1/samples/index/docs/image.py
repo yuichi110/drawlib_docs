@@ -4,12 +4,12 @@ from drawlib.apis import *
 import docs.style
 
 # Configure drawing canvas size
-config(width=100, height=60)
+config(width=100, height=50)
 
-# Use predefined styles
-circle(xy=(25, 35), radius=15, style="mystyle")
+# Apply predefined styles
+circle(xy=(25, 30), radius=10, style="mystyle")
 text(xy=(25, 10), text="Circle", style="mystyle")
-rectangle(xy=(75, 35), width=25, height=25, style="mystyle")
+rectangle(xy=(75, 30), width=20, height=20, style="mystyle")
 text(xy=(75, 10), text="Rectangle", style="mystyle")
 
 # Save canvas

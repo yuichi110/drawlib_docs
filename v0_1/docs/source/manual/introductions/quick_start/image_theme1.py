@@ -1,6 +1,5 @@
 from drawlib.apis import *
 
-dtheme.apply_official_theme("default2")
 config(width=100, height=50)
 x1 = 12
 x2 = 34

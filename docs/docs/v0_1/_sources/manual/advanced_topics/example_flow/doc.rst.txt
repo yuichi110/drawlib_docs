@@ -1,49 +1,47 @@
-===========================
-Example of Doc Build Flow
-===========================
+====================================
+Example of Documentation Build Flow
+====================================
 
-Here is a high level documentation build frlow with drawlib.
+Here is a high-level documentation build flow using Drawlib:
 
-.. figure:: ../../introductions/index/image3.png
+.. figure:: ../../index/image_buildmany.png
    :width: 600
    :class: with-border
    :align: center
 
    Build many images
 
-In this document, we will explain real world example and its procedure step by step.
-The content is based on this documentation's build flow itself.
-However, it is normalized to simlify the explanation.
+In this document, we will explain our example documentation project and the step-by-step procedure for building it.
 
 Example GitHub Repository
-==========================
+---------------------------
 
-We created example GitHub Repository which build documentation and publish it through GitHub pages.
+We have created an example GitHub repository that contains the source images and documentation for this demonstration. 
+This repository will serve as the basis for building and creating documentation, which will then be published to the internet using GitHub Pages.
 
 https://github.com/yuichi110/drawlib_docs_example
 
 
-What tool we use
+Tools Used
 ==================
 
-We will use these tools for writing and publishing doc.
+We will use the following tools for writing and publishing our documentation:
 
-- Drawlib: For building image
-- Sphinx: For building docs with pre-build images
-- GitHub Pages: Publish the document
+- Drawlib: For building images programmatically.
+- Sphinx: For generating documentation with pre-built images.
+- GitHub Pages: To publish the documentation online.
 
-We will write python doc in our scenario.
-So, we choose ``Sphinx`` since it is popular.
+In our scenario of writing Python documentation, we have chosen ``Sphinx`` due to its popularity and suitability for structured documentation.
+It requires understanding of reStructuredText (reST), which is similar to markdown but offers more complexity and flexibility for structuring comprehensive documentation pages. 
+This complexity allows for detailed and organized documentation creation.
 
-Sphinx requires understanding reStructuredText.
-In my opinion it is similar to markdown but less popular and more complex.
-However the complexity make you free for difficulty of structuring doc pages to one documentation.
-``Jekyll`` might be alternative option of Sphinx. It create documentation from markdown files.
+An alternative to Sphinx could be ``MkDocs`` and ``Jekyll``, which generates documentation from markdown files. 
+Both MkDocs and Jekyll are popular for creating static websites, including documentation sites.
 
-Repository structure
+Repository Structure
 =======================
 
-Here is repository structure.
+Here is the structure of the repository:
 
 .. code-block:: none
 
@@ -54,9 +52,9 @@ Here is repository structure.
    ├── README.md
    ├── requirements.txt
    ├── docs
-   |   └── ...
+   |   └── ... # Generated documentation files (HTML)
    ├── scripts
-   |   └── ...
+   |   └── ... # Scripts for building, checking, and publishing
    ├── source
    │   ├── __init__.py
    │   ├── _static
@@ -66,28 +64,60 @@ Here is repository structure.
    │   ├── commons
    │   ├── conf.py
    │   ├── index
-   │   └── index.rst
+   │   └── index.rst # Main entry point for documentation
    └── staging
-       └── ...
+       └── ... # Intermediate directory for checking generated documentation
 
-Documentation source is contained in ``/source``.
-We build image first and then build docs at here.
+Description of each files
+---------------------------
 
-Builded docs(HTML) are stored in ``/staging`` first.
-As its name denotes, this is the directory for checking documentation.
+- .gitignore: Specifies files and directories to ignore in version control.
+- .venv: Virtual environment directory for Python dependencies.
+- LICENSE: License file for the repository.
+- README.md: Markdown file providing an overview of the repository.
+- requirements.txt: File listing Python dependencies.
+- docs/: Directory where generated HTML documentation files are stored.
+- scripts/: Directory containing scripts for various tasks related to documentation.
+- source/: Directory containing the source files for documentation.
 
-After finding new document has no problem, move its content to ``/docs``.
-This is a directory for GitHub pages publication.
-Please be careful, GitHub page can publish its content at root level or ``/docs`` directory.
+   - __init__.py: Initialization file (typically for Python modules).
+   - _static/: Static files directory for the documentation.
+   - _templates/: Templates directory for custom Sphinx templates.
+   - chapter01/, chapter02/: Directories for organizing documentation chapters.
+   - commons/: Directory for common resources used across documentation.
+   - conf.py: Configuration file for Sphinx.
+   - index.rst: Main entry point for the documentation, typically starting with index.
 
-Directory ``/scripts`` contains many script files for building/checking/publishing.
+- staging/: Temporary directory for checking generated documentation before moving to docs/.
 
-Python Environment
-======================
+Abstract Workflow
+=====================
 
-Building images and docs requires Python packages.
-We will use virtual environment for avoiding package conflict etc.
-Here is a bash script for creating environment.
+Here's the workflow for managing and publishing documentation:
+
+1. Image Build Process: Images are built first
+2. Documentation Build Process: Documentation is generated in the staging/ directory.
+3. Review: Newly generated documentation in staging/ is reviewed for any issues.
+4. Deployment: Once validated, the content from staging/ is moved to docs/, which is used for GitHub Pages publication.
+5. Publication: GitHub Pages can publish its new content after Git commit and push
+
+Scripts
+--------
+
+The ``scripts/`` directory contains script files for each step of the workflow. 
+Whether adopting CI/CD or not, having these scripts helps facilitate local operations such as image and documentation generation.
+
+
+Python Environment Setup
+===========================
+
+To build images and documentation, you need specific Python packages installed in a virtual environment to avoid conflicts. 
+Here's a bash script that sets up the environment:
+
+setup_python.sh
+------------------
+
+We created a bash script named setup_python.sh with the following content:
 
 .. code-block:: bash
 
@@ -109,49 +139,30 @@ Here is a bash script for creating environment.
    # install python packages
    pip install -U -r requirements.txt
 
-At last, installing python packages from ``requirements.txt``.
+At last of the script, installing python packages from ``requirements.txt``.
 
+requirements.txt
+--------------------
+
+We created requirements.txt file with the following content:
 .. code-block:: none
 
    drawlib == 0.1.*
    sphinx == 7.2.*
    sphinx-rtd-theme == 2.0.*
 
-After issuing this script, python environment and its libraries are installed.
-If sphinx configs are not ready, prepare them with ``sphinx`` commands.
+After running the setup script, if your Sphinx configuration (conf.py) is not ready, you need to prepare it using Sphinx commands.
+Please refere to sphinx documentation for details.
 
 
-Source Directory: source
-=========================
+Building Images
+==============
 
-Directory ``source`` contains sphinx project files and documentation source.
-From point of drawlib, ``source`` is a root of your package.
-Since it is python package, it has ``__init__.py``.
+The source directory serves as the root of your Sphinx project and contains both the Sphinx configuration files and the source files for your documentation.
+If you are not familiar to how to build many images with common style, please check foundation document first.
+We will skip Python code explanation at here.
 
-This directory contains many python files for illustration.
-Such as 
-
-- source/chapter01/section01/image.py
-- source/chapter01/section02/image.py
-
-Here is a code of ``/source/chapter01/section01/image.py``
-
-.. code-block:: python
-
-   from drawlib.apis import *
-
-   import source.commons.style
-   import source.commons.util as util
-
-   config(width=100, height=50)
-   util.draw_3rectangle(50, 25, 20, 15, 5)
-   util.draw_logo()
-   save()
-
-As you can see, it imports ``source.commons`` package's modules.
-They are style definition codes which we explain at previous document.
-
-For building images, we use script ``/scripts/build_images.py``
+For building images, we use script ``/scripts/build_images.sh``
 
 .. code-block:: bash
 
@@ -168,9 +179,8 @@ For building images, we use script ``/scripts/build_images.py``
    # build
    drawlib ./source
 
-It builds all images in source directory.
-If the documentation project is large, we recommend creating build scripts per chapter or section.
-We have ``scripts/build_images_chapter01.py`` and ``scripts/build_images_chapter02.py`` in our case.
+For larger documentation projects, consider creating separate build scripts for specific chapters or sections. 
+For example, you can create scripts like ``scripts/build_images_chapter01.sh`` and ``scripts/build_images_chapter02.sh``.
 
 .. code-block:: bash
 
@@ -184,11 +194,18 @@ We have ``scripts/build_images_chapter01.py`` and ``scripts/build_images_chapter
    # activate
    source .venv/bin/activate
 
-   # build
+   # build only chapter01
    drawlib ./source/chapter01
 
-After confirming builded images are OK, we will build documentation with another script again.
-``script/build_docs.sh`` do that.
+After building the images, verify their correctness and quality before proceeding to build the documentation. 
+This ensures that all images are correctly generated and meet your project's requirements.
+
+
+Building Documentation
+========================
+
+To compile your documentation using Sphinx, you can utilize the script ``script/build_docs.sh``. 
+This script manages the compilation process, creating HTML files in the ``staging`` directory from ``source`` directory.
 
 .. code-block:: bash
 
@@ -208,16 +225,16 @@ After confirming builded images are OK, we will build documentation with another
    # build to html
    sphinx-build -a ./source ./staging
 
-At the script, we delete old build file at first with ``rm -rf ./staging``.
-And then, build docs normally with ``sphinx-build -a ./source ./staging``.
 
-Build Output Directory: staging
-=================================
+At the script, deletes the contents of the ``staging`` directory to remove any remnants from previous builds.
+And then, executes ``sphinx-build -a ./source ./staging`` to generate HTML files from the source files in the source directory and store them in the staging directory.
 
-Directory ``staging`` is just an sphinx build's output directory.
-However, you need to check it before publishing.
-Script ``scripts/serv_staging.sh`` start HTTP server which hosts this directory.
-And then open browser automatically.
+
+Check Build Content of Directory staging
+============================================
+
+To check the contents of the ``staging`` directory, which contains the built HTML documentation from Sphinx, you can use a script like ``scripts/serv_staging.sh``. 
+This script starts an HTTP server that hosts the staging directory locally and opens a web browser to view it automatically.
 
 .. code-block:: bash
 
@@ -243,23 +260,31 @@ And then open browser automatically.
    cd ./staging
    python -m http.server 80
 
-GitHub Pages Directory: docs
+
+After a brief moment, your default web browser should open with the locally hosted documentation from the ``staging`` directory. 
+You can navigate and inspect the documentation to ensure everything appears as expected before further steps like publishing.
+
+
+GitHub Pages Settings
 ======================================
 
-After you confirmed staging contents has no problem.
-It's time to publish the content.
-
-If you haven't configured Github pages on your repository, please configure it first.
-You can do it at settings/pages.
+Configuring GitHub Pages for your repository allows you to host your Sphinx-generated documentation directly from your GitHub repository.
+If you haven't configured GitHub Pages for your repository yet, please configure it first.
 
 .. figure:: image_github_pages.png
    :width: 600
    :class: with-border
    :align: center
 
-    Configure github pages
+   Configure github pages
 
-For moving files from ``staging`` to ``docs``, call script ``/scripts/deploy_from_staging_to_docs.sh``.
+
+Move HTML to GitHub Pages Directory docs
+============================================
+
+
+To publish your Sphinx-generated documentation using GitHub Pages, you need to move the built HTML files from the staging directory to the docs directory. 
+Below is a script named ``deploy_from_staging_to_docs.sh`` that automates this process:
 
 .. code-block:: bash
 
@@ -280,5 +305,20 @@ For moving files from ``staging`` to ``docs``, call script ``/scripts/deploy_fro
    cd ./docs
    touch .nojekyll
 
-After moving HTML content, do ``git commit`` and ``git push``.
-After remote repository is updated, GitHub pages will be also updated.
+This script delete last HTML content first.
+And them move new HTML to GitHub Pages directory.
+
+GitHub Pages uses Jekyll by default to build and serve static websites. 
+However, Sphinx-generated documentation does not require Jekyll processing. 
+By including a .nojekyll file in the docs directory, GitHub Pages skips the Jekyll build process, allowing your Sphinx-generated HTML to be served as-is.
+
+
+Publishing Your Documentation
+===============================
+
+Once you have successfully moved the newly built HTML documents to the GitHub Pages directory (docs), the next step is to sync these changes with the GitHub remote server.
+
+Before pushing changes to GitHub, commit the changes locally.
+After committing your changes locally, push them to the GitHub remote repository.
+Once git push completes, GitHub will automatically deploy the contents of the docs directory to your GitHub Pages site. 
+You can access your published documentation using the GitHub Pages URL for your repository.

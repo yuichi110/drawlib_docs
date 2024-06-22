@@ -8,7 +8,7 @@ It provides the ``drawlib`` command for bulk building images under a specified d
 Here is a typical build process for documentation. 
 As shown, we first build many images and then build the documentation using those images.
 
-.. figure:: ../../introductions/index/image3.png
+.. figure:: ../../index/image_buildmany.png
     :width: 600
     :class: with-border
     :align: center

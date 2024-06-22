@@ -6,20 +6,23 @@ Theme ``monochrome`` has colors between black and white.
 There are many possibility that printed documents and published books has only black color.
 This theme is useful for those kind of situation.
 
-Style rule is almost same to simple theme ``simple``.
-If you don't know the style, please check it first.
+The styling rules are the same as those for the ``default`` theme. 
+If you are unfamiliar with these rules, please refer to the documentation for the default theme first, as this document does not provide detailed styling information.
 
 Colors
 ==============
 
-Theme monochrome posses 5 colors between black and white.
+Theme ``monochrome`` posses 7 colors between black and white.
 
 .. figure:: image_colors.png
     :width: 600
     :class: with-border
     :align: center
 
-    image_colors.png
+    Theme ``monochrome`` color chart
+
+Here is a list of the colors. 
+You can use ``ColorsThemeMonochrome`` to retrieve RGB codes by their names.
 
 - ``black``: RGB(0, 0, 0)
 - ``charcoal``: RGB(39, 39, 39)
@@ -40,9 +43,18 @@ Here is a list of style names.
    :linenos:
    :caption: style table
 
-And output of each styles.
+Color: default
+---------------------------
 
-Style ``black``
+.. figure:: image_style_black.png
+    :width: 600
+    :class: with-border
+    :align: center
+
+    Theme Style default
+
+Color: ``black``
+---------------------------
 
 .. figure:: image_style_black.png
     :width: 600
@@ -51,7 +63,8 @@ Style ``black``
 
     Theme Style black
 
-Style ``charcoal``
+Color: ``charcoal``
+---------------------------
 
 .. figure:: image_style_charcoal.png
     :width: 600
@@ -60,7 +73,8 @@ Style ``charcoal``
 
     Theme Style charcoal
 
-Style ``graphite``
+Color: ``graphite``
+---------------------------
 
 .. figure:: image_style_graphite.png
     :width: 600
@@ -69,7 +83,8 @@ Style ``graphite``
 
     Theme Style graphite
 
-Style ``gray``
+Color: ``gray``
+---------------------------
 
 .. figure:: image_style_gray.png
     :width: 600
@@ -78,7 +93,8 @@ Style ``gray``
 
     Theme Style gray
 
-Style ``silver``
+Color: ``silver``
+---------------------------
 
 .. figure:: image_style_silver.png
     :width: 600
@@ -87,7 +103,8 @@ Style ``silver``
 
     Theme Style silver
 
-Style ``snow``
+Color: ``snow``
+---------------------------
 
 .. figure:: image_style_snow.png
     :width: 600
@@ -96,7 +113,8 @@ Style ``snow``
 
     Theme Style snow
 
-Style ``white``
+Color: ``white``
+---------------------------
 
 .. figure:: image_style_white.png
     :width: 600

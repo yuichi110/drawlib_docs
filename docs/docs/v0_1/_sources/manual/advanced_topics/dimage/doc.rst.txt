@@ -2,98 +2,115 @@
 Dimage
 =================
 
-Dimage is a image data class of drawlib.
-It provides 2 features.
+The ``image()`` function draws an image from a file. 
+If you want to specify a file path and show it as is, providing a relative path is acceptable.
 
-- Effecting images
-- Cache (load data one place, use it many places)
+``Dimage`` is an image data class in Drawlib. 
+It is useful in the following situations:
 
-Cache
-=========
+- Applying effects to images
+- Caching (loading data in one place and using it in many places)
 
-Dimage posses class attribute ``cache``.
-The cache posses instance of ``DimageCache`` and it provides these methods.
+The ``image()`` function can take a Dimage object and draw the image.
 
-- ``has(name:str)``: Whether posses cache or not 
-- ``set(name:str, image:str|Dimage|PIL.Image)``: Cache image data with specified name
-- ``list()``: get all cache names
-- ``get(name:str)``: get cache data from name
-- ``delete(name:str)``: delete cache
+Image Cache Feature
+=====================
 
-You will not create ``DimageCache`` instance by yourself.
-Just understanding accessing cache through ``Dimage.cache`` and the provided methods are same to style cache feature of ``dtheme``.
-Here is an example.
+Each illustration code can refer to image files for drawing the image. 
+If the image is used only in the code, this is fine.
+
+However, if many of your illustration codes refer to the same image file, pointing to the same file is not ideal. 
+In such cases, changing the file name and location becomes difficult. 
+Dimage's cache feature is useful in this situation. 
+You can cache the image in the style code, and all illustration codes can access it through the cache name.
+
+Dimage possesses a class attribute ``cache``. 
+This means you can access it like ``Dimage.cache``. 
+It is an image cache management object with the following methods:
+
+- ``has(name:str)``: Checks if the cache exists
+- ``set(name:str, image:str|Dimage|PIL.Image)``: Caches image data with the specified name
+- ``list()``: Gets all cache names
+- ``get(name:str)``: Retrieves cache data by name
+- ``delete(name:str)``: Deletes cache data
+
+Here is an example:
 
 .. literalinclude:: image_cache.py
    :language: python
    :linenos:
    :caption: image_cache.py
 
-In this example, we make cache first with ``set()``.
-It takes image arg and all of its types are converted to Dimage internally.
+In this example, we first cache an image using the ``set()`` function. 
+The function has an ``image`` argument, which can handle a string (file name), Dimage object, or PIL.Image object. 
+When you cache an image with a name, the object is automatically copied or converted to a Dimage internally.
 
-And then, get the cache data by specifying name.
-Return data is copied one.
-So, changing data doesn't effects cache content.
-But in the first place, you can't change dimage data like str.
-Here is an output.
+You can retrieve the image using the ``get()`` function. 
+It will return the copied image data that matches the key name.
+
+Here is the output:
 
 .. figure:: image_cache.png
     :width: 600
     :class: with-border
     :align: center
 
-The most popular usage is loading to cache at common file and use it at every where.
-If you specify file name at each illustration code file, changing image path and name are burden.
-However, if you use cache, only changing location is common code.
+Not only can you cache images loaded from files, but you can also cache images you have modified. 
+If you repeatedly use some images, we recommend using this feature as well.
 
-Things Controlled by image()
-==============================
 
-Dimage is helper for function ``image()``.
-So, Dimage doesn't have features which ``image()`` has.
-These features are not implemented.
+Things Controlled by ``image()``
+=================================
 
-- rotate: Option ``angle``
-- add border: Attribute ``lwidth`` and ``lcolor`` of ``ImageStyle``.
+Dimage is a helper for the ``image()`` function. 
+Therefore, Dimage does not include features that are implemented in ``image()``. 
+These features are not included:
 
-Save
-======
+- Rotate: Controlled by the ``angle`` option
+- Add Border: Controlled by the ``lwidth`` and ``lcolor`` attributes of ``ImageStyle``
 
-Dimage can save its data to file without using drawlib's canvas.
-``save()`` method does this.
-It takes mandatory arg ``file``.
-Arg ``file`` of Canvas's ``save()`` is optional, but Dimage's ``save()`` requires it.
+Save Dimage to File
+=====================
 
-If you provide relative path, image file is save to relative to script path.
-Absolute path will work also.
+Dimage can save its data to a file without using Drawlib's canvas. 
+The ``save()`` method performs this function. 
+It requires a mandatory argument, ``file``. 
+While the file argument in Canvas's ``save()`` is optional, it is required for Dimage's ``save()``.
+
+If you provide a relative path, the image file will be saved relative to the script's path. 
+An absolute path will also work.
 
 Get Image Pixel Size 
 =======================
 
-You can get original image size through method ``get_image_size()``.
-It returns tuple of width and height.
-This function might be used with ``resize()`` and ``trim()``.
+You can get the original image size using the ``get_image_size()`` method. 
+It returns a tuple of width and height. 
+
+This method is helpful for determining the dimensions of the image before performing operations like ``resize()`` or ``trim()``
 
 Resizing and Changing Aspect
 ===============================
 
-Method ``resize()`` takes 2 arguments ``width`` and ``height``.
-They are not size on drawlib's canvas but original data pixel size.
+The ``resize()`` method in Dimage takes two arguments: ``width`` and ``height``. 
+These dimensions refer to the original pixel size of the image data, not the size on Drawlib's canvas.
 
-Before resizing, you can check original width and height with method ``resize()``.
-If you keep ratio between width and height, the original image size becomes big and small with keeping original aspect.
-If you want to change aspect, calculate new width or height.
+Before resizing, you can check the original width and height using the ``get_image_size()`` method. 
+If you want to maintain the aspect ratio of the original image, you should calculate either the new width or the new height while keeping the ratio between them. 
+If you want to change the aspect ratio, you need to calculate both the new width and height accordingly.
 
-Here is a example of changing aspect.
-We will make image height half.
+Here's an example of changing the aspect ratio where we halve the image height:
 
 .. literalinclude:: image_getsize_resize.py
    :language: python
    :linenos:
    :caption: image_getsize_resize.py
 
-Here is an output.
+In this example, we retrieve the original image dimensions using ``get_image_size()``.
+And then resize the image using ``resize()``.
+We keep original width, but new height is half of original. 
+Finally, the resized image is drawn with ``image()`` function.
+
+Here is the output:
 
 .. figure:: image_getsize_resize.png
    :width: 600
@@ -102,27 +119,54 @@ Here is an output.
 
    resize
 
-Trimming
+Crop
 ==========
 
-If the image contains useless part, you can trim/crop it with method ``trim()``.
+If an image contains unnecessary parts, you can trim or crop it using the ``crop()`` method. 
+This method accepts the following arguments:
 
-Implementing this for next release.
+- x: Specifies the starting point from the left (0 to x pixels will be cropped).
+- y: Specifies the starting point from the bottom (0 to y pixels will be cropped).
+- width: Specifies the width of the cropped area starting from x.
+- height: Specifies the height of the cropped area starting from y.
+
+Here's an example that keeps the center 50% of the image:
+
+.. literalinclude:: image_crop.py
+   :language: python
+   :linenos:
+   :caption: image_crop.py
+
+In this example, we calculate the cropping parameters to keep the center 50% of the image. 
+We then use the ``crop()`` method to apply the cropping operation to the Dimage object. 
+Finally, the cropped image can be used in drawing operations with ``image()``.
+
+Here is the output:
+
+.. figure:: image_crop.png
+   :width: 600
+   :class: with-border
+   :align: center
+
+   crop()
 
 
 Flip Horizontally and Vertically
 ==================================
 
-You can flip image easily.
-``mirror()`` is used for horizontal flip.
-And ``flip()`` is used for vertical flip.
+You can easily flip an image using Dimage:
+
+- Horizontal Flip: Use the ``mirror()`` method.
+- Vertical Flip: Use the ``flip()`` method.
+
+Here's an example:
 
 .. literalinclude:: image_mirror_flip.py
    :language: python
    :linenos:
    :caption: image_mirror_flip.py
 
-Here is an output.
+Here is the output:
 
 .. figure:: image_mirror_flip.png
    :width: 600
@@ -132,24 +176,31 @@ Here is an output.
 Change color
 ==============
 
-Drawlib provides lots of changing color function.
-``grayscale()`` makes the image gray scale.
-And ``sepia()`` makes the image sepia color.
+Drawlib provides several functions to modify the color of images:
+
+- ``grayscale()``: Converts the image to grayscale
+- ``sepia()``: Applies a sepia tone effect to the image
+
+Here's an example:
 
 .. literalinclude:: image_grayscale_sepia.py
    :language: python
    :linenos:
    :caption: image_grayscale_sepia.py
 
-Here is an output.
+Here is the output.
 
 .. figure:: image_grayscale_sepia.png
    :width: 600
    :class: with-border
    :align: center
 
-``brightness()`` change brightness.
-0.0 is complete dark and 1.0 is original. You can set values bigger than 1.0. It makes more light on the image.
+
+- ``brightness()``:  Adjusts the brightness of the image
+
+A value of ``0.0`` makes the image completely dark, ``1.0`` keeps the original brightness, and values greater than ``1.0`` increase the brightness.
+
+Here's an example:
 
 .. literalinclude:: image_brightness.py
    :language: python
@@ -163,30 +214,38 @@ Here is an output.
    :class: with-border
    :align: center
 
-``invert()`` reverse RGB and ``colorize()`` put colors to grayscaled image.
+- ``invert()``: Reverses the RGB values of the image
+- ``colorize()``: Applies colors to a grayscale image. If the image is not grayscaled, it will be automatically grayscaled before colorize.
 
 .. literalinclude:: image_invert_colorize.py
    :language: python
    :linenos:
    :caption: image_invert_colorize.py
 
-Here is an output.
+Here is the output.
 
 .. figure:: image_invert_colorize.png
    :width: 600
    :class: with-border
    :align: center
 
-``mosaic()`` apply mosaic effect.
-It takes optional argument ``block_size``. It is a mosaic pixel size. Default is 8.
-``blur()`` apply blur effect.
+
+Apply Effects
+================
+
+You can apply various effects to images using Drawlib:
+
+- ``mosaic()``: Applies a mosaic effect to the image. You can specify the size of mosaic blocks with the optional ``block_size`` argument. Default is 8.
+- ``blur()``: Applies a blur effect to the image
+
+Here's an example:
 
 .. literalinclude:: image_mosaic_blur.py
    :language: python
    :linenos:
    :caption: image_mosaic_blur.py
 
-Here is an output.
+Here is the output.
 
 .. figure:: image_mosaic_blur.png
    :width: 600

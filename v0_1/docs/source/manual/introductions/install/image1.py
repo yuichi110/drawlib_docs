@@ -67,7 +67,7 @@ arrow(
     tail_width=3,
     head_width=7,
     head_length=5,
-    head_style="-|>",
+    head="->",
     style=ShapeStyle(lwidth=0),
     text="Time",
     textstyle=ShapeTextStyle(color=Colors.White, size=14, font=FontRoboto.ROBOTO_REGULAR),

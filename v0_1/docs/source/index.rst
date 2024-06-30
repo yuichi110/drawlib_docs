@@ -33,7 +33,7 @@ Below is a sample image showcasing the major drawing items with varying styles.
 - Image: Easily apply effects
 - Line: Supports many styles
 - Shape: Around 20 patterns
-- Text: Various sizes, fonts, and weights (thin, regular, bold), supporting major local languages
+- Text: Various sizes, fonts, and weights (light, regular, bold), supporting major local languages
 
 Drawlib is inspired by the features of Microsoft PowerPoint. 
 We aim to implement as many popular features as possible. 

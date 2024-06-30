@@ -31,25 +31,6 @@ Each child class inherits these and implements its own colors.
 You can create your own color class as well. 
 Let's look at an example of creating a Google color class at end of this page.
 
-Utility Functions
-====================
-
-Drawlib's color format is only RGB and RGBA. 
-However, there are many color formats such as hex.
-
-``ColorsBase`` possesses utility functions that can be used for converting color styles. 
-Since all color classes inherit from ``ColorsBase``, they can all use these utility functions.
-
-Here is an example:
-
-.. literalinclude:: color_util.py
-   :language: python
-   :linenos:
-   :caption: color_util.py
-
-The default alpha value is ``1.0``.
-
-
 Colors
 ========
 

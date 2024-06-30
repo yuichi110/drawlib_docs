@@ -446,9 +446,6 @@ However, since we've specified it in the style, it remains at 0 degrees.
 Drawing texts
 ================
 
-Thank you for reading through this comprehensive quick start guide. 
-We've reached the final section.
-
 The ``text()`` function is used to render text onto the canvas. 
 It requires specifications for xy coordinates, the text message, and an optional angle. 
 All other text parameters are defined within the ``TextStyle``.

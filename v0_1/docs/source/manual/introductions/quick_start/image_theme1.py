@@ -10,7 +10,6 @@ line_length = 7
 circle_y = 25
 text_y = 10
 
-
 # blue style
 line((x1 - line_length, line_y), (x1 + line_length, line_y), style="blue")
 circle((x1, circle_y), radius=8, style="blue")

@@ -1,7 +1,0 @@
-drawlib.assets.v0\_1.fonticons package
-======================================
-
-.. automodule:: drawlib.assets.v0_1.fonticons
-   :members:
-   :undoc-members:
-   :show-inheritance:

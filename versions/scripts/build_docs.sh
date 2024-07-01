@@ -19,7 +19,7 @@ cd ../
 source .venv/bin/activate
 
 # delete last build target contents
-rm -rf ./docs/html
+rm -rf ./html
 
 # build to html
-sphinx-build -a ./docs/source ./docs/html
+sphinx-build -a ./source ./html

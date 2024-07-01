@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing Shape &mdash; drawlib 0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=6432bc99" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=10f1778b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Shape Style" href="../shape_style/doc.html" />
+    <link rel="prev" title="Line Style" href="../line_style/doc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            drawlib
+          </a>
+              <div class="version">
+                version: 0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introductions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/about/doc.html">About drawlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/install/doc.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/lib_design/doc.html">Drawlib from a High Perspective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/quick_start/doc.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introductions/other_version_docs/doc.html">Other Version Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Foundations:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../canvas/doc.html">Canvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coordinate_align/doc.html">Coordinate and Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icon/doc.html">Drawing Icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image/doc.html">Drawing Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../line/doc.html">Drawing line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../line_style/doc.html">Line Style</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Drawing Shape</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#circle-like-shapes">Circle-like Shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rectangle-like-shapes">Rectangle-like Shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-shapes">Other Shapes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text-of-shapes">Text of Shapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#draw-circle-like-shapes">Draw Circle-like Shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#circle">circle()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#donuts">donuts()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fan">fan()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#regularpolygon">regularpolygon()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#star">star()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wedge">wedge()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#draw-rectangle-like-shapes">Draw Rectangle Like Shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#arc">arc()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chevron">chevron()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ellipse">ellipse()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parallelogram">parallelogram()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rectangle">rectangle()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rhombus">rhombus()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trapezoid">trapezoid()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#triangle">triangle()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#draw-other-type-of-shapes">Draw Other Type of Shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#arrow">arrow()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#polygon">polygon()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shape_style/doc.html">Shape Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text/doc.html">Drawing Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theme/doc.html">Theme feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build_many/doc.html">Building many images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/doc.html">Coding Best Practices</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/color/doc.html">Color Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/font/doc.html">Font Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/dimage/doc.html">Dimage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts/doc.html">Smart Arts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts_bubblespeech/doc.html">Smart Arts: Bubblespeech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/smartarts_sourcecode/doc.html">Smart Arts: SourceCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/debug/doc.html">Debugging errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/settings/doc.html">Library Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/cli_options/doc.html">CLI and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topics/example_flow/doc.html">Example of Documentation Build Flow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/advanced_topics/doc.html">Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_default/doc.html">Official Theme: default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_essentials/doc.html">Official Theme: essentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/official_monochrome/doc.html">Official Theme: monochrome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/create/doc.html">Create Your Custom Theme from Scratch</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">drawlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Drawing Shape</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/manual/foundations/shape/doc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="drawing-shape">
+<h1>Drawing Shape<a class="headerlink" href="#drawing-shape" title="Link to this heading"></a></h1>
+<p>Drawlib provides a variety of functions for drawing shapes, from basic circles and rectangles to more specialized shapes like bubblespeech and chevrons.
+These functions are categorized into three types based on the shapes they draw:</p>
+<ul class="simple">
+<li><p>Circle-like shape: Specify <code class="docutils literal notranslate"><span class="pre">xy</span></code> and <code class="docutils literal notranslate"><span class="pre">radius</span></code></p></li>
+<li><p>Rectangle-like shape: Specify <code class="docutils literal notranslate"><span class="pre">xy</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code></p></li>
+<li><p>Other shapes: Arrow(from <code class="docutils literal notranslate"><span class="pre">xy1</span></code> to <code class="docutils literal notranslate"><span class="pre">xy2</span></code>), Polygon(connects <code class="docutils literal notranslate"><span class="pre">xys</span></code> and filling) etc.</p></li>
+</ul>
+<section id="circle-like-shapes">
+<h2>Circle-like Shapes<a class="headerlink" href="#circle-like-shapes" title="Link to this heading"></a></h2>
+<p>Functions that draw circle-like shapes include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">circle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">donuts()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fan()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regularpolygon()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">star()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wedge()</span></code></p></li>
+</ul>
+</section>
+<section id="rectangle-like-shapes">
+<h2>Rectangle-like Shapes<a class="headerlink" href="#rectangle-like-shapes" title="Link to this heading"></a></h2>
+<p>Functions that draw rectangle-like shapes include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arc()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chevron()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ellipse()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parallelogram()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rectangle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rhombus()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">triangle</span></code></p></li>
+</ul>
+</section>
+<section id="other-shapes">
+<h2>Other Shapes<a class="headerlink" href="#other-shapes" title="Link to this heading"></a></h2>
+<p>Functions that draw other types of shapes include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arrow()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">polygon()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shape()</span></code></p></li>
+</ul>
+<p>Let’s explore all of these functions, except <code class="docutils literal notranslate"><span class="pre">shape()</span></code> which is covered on another page.
+The <code class="docutils literal notranslate"><span class="pre">shape()</span></code> function is useful for drawing custom shapes.</p>
+<p>By default, all shapes are horizontally and vertically centered.
+This can be changed using the <code class="docutils literal notranslate"><span class="pre">ShapeStyle()</span></code> object.
+However, <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> and <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> do not have alignment attributes and will ignore these settings.</p>
+<p>We’ll discuss styling with <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code> and <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code> on another page.</p>
+<section id="text-of-shapes">
+<h3>Text of Shapes<a class="headerlink" href="#text-of-shapes" title="Link to this heading"></a></h3>
+<p>All shapes can have text at their center.
+Before diving into each shape, let’s explain this common feature.</p>
+<p>Shape functions can take these three optional arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: The text to display at the center of the shape.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">textsize</span></code>: The font size of the text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">textstyle</span></code>: The style of the center text. You can configure the size and other properties here as well.</p></li>
+</ul>
+<p>All of these arguments are optional.
+If you do not provide any value for text, no text will be shown.
+We recommend setting font size at textstyle rather than textsize.</p>
+</section>
+<section id="draw-circle-like-shapes">
+<h3>Draw Circle-like Shapes<a class="headerlink" href="#draw-circle-like-shapes" title="Link to this heading"></a></h3>
+<p>Circle-like shapes specify <code class="docutils literal notranslate"><span class="pre">xy</span></code>, <code class="docutils literal notranslate"><span class="pre">radius</span></code>, and other shape-specific arguments.</p>
+</section>
+</section>
+<section id="circle">
+<h2>circle()<a class="headerlink" href="#circle" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">circle()</span></code> function draws a circle and takes the following arguments:</p>
+<ul class="simple">
+<li><p>xy : X, Y coordinates.</p></li>
+<li><p>radius: Radius of the circle.</p></li>
+<li><p>angle: Angle which affects the text inside the circle.</p></li>
+<li><p>style: Style of the circle.</p></li>
+<li><p>text: Text displayed at the center of the circle.</p></li>
+<li><p>textsize: The font size of the text.</p></li>
+<li><p>textstyle: The style of the center text</p></li>
+</ul>
+<p>Let’s explore two examples.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">image_circle1.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">circle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">circle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;circle&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The circle shape itself does not have an angle effect, but the text inside does.</p>
+<p>Executing the above script generates the following output:</p>
+<figure class="align-center" id="id2">
+<a class="with-border reference internal image-reference" href="../../../_images/image_circle1.png"><img alt="../../../_images/image_circle1.png" class="with-border" src="../../../_images/image_circle1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">circle()</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="donuts">
+<h2>donuts()<a class="headerlink" href="#donuts" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">donuts()</span></code> function draws a donut-like shape.
+This shape is defined by an external radius and the width of the filled area, meaning the internal radius is calculated as <code class="docutils literal notranslate"><span class="pre">external</span> <span class="pre">radius</span> <span class="pre">-</span> <span class="pre">width</span></code>.</p>
+<p>This function takes these arguments.</p>
+<ul class="simple">
+<li><p>xy : X, Y coordinates.</p></li>
+<li><p>radius: Radius of the donuts.</p></li>
+<li><p>width: Width of donuts fill area</p></li>
+<li><p>angle: Angle which affects the text inside the donuts.</p></li>
+<li><p>style: Style of the donuts.</p></li>
+<li><p>text: Text displayed at the center of the donuts.</p></li>
+<li><p>textsize: The font size of the text.</p></li>
+<li><p>textstyle: The style of the center text</p></li>
+</ul>
+<p>Let’s explore two examples.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">image_donuts1.py</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">donuts</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">donuts</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;donuts&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>By adjusting the <code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> arguments, you can control the size and thickness of the donut shape.
+Executing the above script generates donut shapes with centered text, showing the usage of various arguments.</p>
+<figure class="align-center" id="id4">
+<a class="with-border reference internal image-reference" href="../../../_images/image_donuts1.png"><img alt="../../../_images/image_donuts1.png" class="with-border" src="../../../_images/image_donuts1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">donuts()</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">donuts()</span></code> function is essentially a simplified wrapper around the <code class="docutils literal notranslate"><span class="pre">wedge()</span></code> function, providing an easy way to draw donut shapes without needing to handle the internal radius calculations manually.</p>
+</section>
+<section id="fan">
+<h2>fan()<a class="headerlink" href="#fan" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">fan()</span></code> function draws a fan shape, which is a sector of a circle. In other words, it creates a part of a circle from one angle to another.</p>
+<ul class="simple">
+<li><p>xy : X, Y coordinates.</p></li>
+<li><p>radius: Radius of the fan.</p></li>
+<li><p>from_angle: The starting angle of the fan.</p></li>
+<li><p>to_angle: The ending angle of the fan.</p></li>
+<li><p>angle: Angle of the fan.</p></li>
+<li><p>style: Style of the fan.</p></li>
+<li><p>text: Text displayed at the center of the fan.</p></li>
+<li><p>textsize: The font size of the text.</p></li>
+<li><p>textstyle: The style of the center text</p></li>
+</ul>
+<p>There are three angle-related arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">from_angle</span></code>: Defines where the fan shape starts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to_angle</span></code>: Defines where the fan shape ends.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">angle</span></code>: Rotates the entire fan shape after it is created.</p></li>
+</ul>
+<p>Let’s explore two examples.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">image_fan1.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">fan</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">from_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">to_angle</span><span class="o">=</span><span class="mi">135</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">fan</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">from_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">to_angle</span><span class="o">=</span><span class="mi">135</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;fan&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>By adjusting the from_angle, to_angle, and angle arguments, you can create and position the fan shape as desired.</p>
+<p>First example draws fan from angle(<code class="docutils literal notranslate"><span class="pre">from_angle</span></code>) 0 to angle(<code class="docutils literal notranslate"><span class="pre">to_angle</span></code>) 135.
+Second example is same, but it rotate fan via specifying <code class="docutils literal notranslate"><span class="pre">angle</span></code>.</p>
+<p>Executing the above script generates fan shapes with centered text, showing the usage of various arguments.</p>
+<figure class="align-center" id="id6">
+<a class="with-border reference internal image-reference" href="../../../_images/image_fan1.png"><img alt="../../../_images/image_fan1.png" class="with-border" src="../../../_images/image_fan1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">fan()</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">fan()</span></code> function is essentially a simplified wrapper around the <code class="docutils literal notranslate"><span class="pre">wedge()</span></code> function, making it easy to draw fan shapes by specifying start and end angles, and then optionally rotating the shape.</p>
+</section>
+<section id="regularpolygon">
+<h2>regularpolygon()<a class="headerlink" href="#regularpolygon" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">regularpolygon()</span></code> function draws a regular polygon with a specified number of vertices.</p>
+<p>This function takes these arguments.</p>
+<ul class="simple">
+<li><p>xy : X, Y coordinates.</p></li>
+<li><p>radius: Radius of the regularpolygon.</p></li>
+<li><p>num_vertices: Number of vertices of the polygon (must be 3 or more).</p></li>
+<li><p>angle: Angle of the regularpolygon.</p></li>
+<li><p>style: Style of the regularpolygon.</p></li>
+<li><p>text: Text displayed at the center of the regularpolygon.</p></li>
+<li><p>textsize: The font size of the text.</p></li>
+<li><p>textstyle: The style of the center text</p></li>
+</ul>
+<p>Here are two examples demonstrating the use of <code class="docutils literal notranslate"><span class="pre">regularpolygon()</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">image_regularpolygon1.py</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">regularpolygon</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">num_vertex</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">regularpolygon</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">num_vertex</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;regular polygon&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Executing the above script generates regular polygons with centered text, demonstrating the usage of various arguments.</p>
+<figure class="align-center" id="id8">
+<a class="with-border reference internal image-reference" href="../../../_images/image_regularpolygon1.png"><img alt="../../../_images/image_regularpolygon1.png" class="with-border" src="../../../_images/image_regularpolygon1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">regularpolygon()</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">regularpolygon()</span></code> function allows you to specify the number of vertices from 3 upwards to create polygons of various shapes.</p>
+</section>
+<section id="star">
+<h2>star()<a class="headerlink" href="#star" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">star()</span></code> function draws a star shape with a specified number of external vertices.</p>
+<p>This function takes these arguments.</p>
+<ul class="simple">
+<li><p>xy : X, Y coordinates.</p></li>
+<li><p>radius_ext: Radius of the circle circumscribing the outermost vertices of the star.</p></li>
+<li><p>radius_int: Radius of the circle circumscribing the innermost vertices of the star.</p></li>
+<li><p>num_vertices: Number of external vertices of the star (must be 3 or more).</p></li>
+<li><p>angle: Angle of the star.</p></li>
+<li><p>style: Style of the star.</p></li>
+<li><p>text: Text displayed at the center of the star.</p></li>
+<li><p>textsize: The font size of the text.</p></li>
+<li><p>textstyle: The style of the center text</p></li>
+</ul>
+<p>Here are two examples demonstrating the use of <code class="docutils literal notranslate"><span class="pre">star()</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">image_star1.py</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">star</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">num_vertex</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">radius_ext</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">radius_int</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">star</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">num_vertex</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">radius_ext</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">radius_int</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;star&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">star()</span></code> function allows you to specify the number of external vertices to create stars of different shapes and sizes.
+Executing the above script generates stars with centered text, demonstrating the usage of various arguments.</p>
+<figure class="align-center" id="id10">
+<a class="with-border reference internal image-reference" href="../../../_images/image_star1.png"><img alt="../../../_images/image_star1.png" class="with-border" src="../../../_images/image_star1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">star()</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="wedge">
+<h2>wedge()<a class="headerlink" href="#wedge" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">wedge()</span></code> function draws a wedge shape, which is a combination of a donut (ring) and a fan (sector of a circle).</p>
+<p>This function takes these arguments.</p>
+<ul class="simple">
+<li><p>xy : X, Y coordinates.</p></li>
+<li><p>radius: Radius of the wedge.</p></li>
+<li><p>width : width of donuts fill area</p></li>
+<li><p>from_angle: Starting angle of the wedge.</p></li>
+<li><p>to_angle: Ending angle of the wedge.</p></li>
+<li><p>angle: Angle of the wedge.</p></li>
+<li><p>style: Style of the wedge.</p></li>
+<li><p>text: Text displayed at the center of the wedge.</p></li>
+<li><p>textsize: The font size of the text.</p></li>
+<li><p>textstyle: The style of the center text</p></li>
+</ul>
+<p>Here is an example demonstrating the use of <code class="docutils literal notranslate"><span class="pre">wedge()</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">image_wedge1.py</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">wedge</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">from_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">to_angle</span><span class="o">=</span><span class="mi">135</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">wedge</span><span class="p">(</span>
+<span class="linenos"> 6</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="n">from_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">to_angle</span><span class="o">=</span><span class="mi">135</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+<span class="linenos">12</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;wedge&quot;</span><span class="p">,</span>
+<span class="linenos">13</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Executing the above script generates a wedge shape with centered text, demonstrating the usage of various arguments.</p>
+<figure class="align-center" id="id12">
+<a class="with-border reference internal image-reference" href="../../../_images/image_wedge1.png"><img alt="../../../_images/image_wedge1.png" class="with-border" src="../../../_images/image_wedge1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">wedge()</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">wedge()</span></code> function allows you to specify the radius, width, starting angle, and ending angle to create wedge shapes, which are useful for visualizing segments of circles with customizable styles and text.</p>
+<section id="draw-rectangle-like-shapes">
+<h3>Draw Rectangle Like Shapes<a class="headerlink" href="#draw-rectangle-like-shapes" title="Link to this heading"></a></h3>
+<p>Rectangle-like shapes in Drawlib are defined using X, Y coordinates along with width and height parameters.
+These shapes, such as <code class="docutils literal notranslate"><span class="pre">arc()</span></code> and <code class="docutils literal notranslate"><span class="pre">ellipse()</span></code>, resemble rectangles in their parameterization despite their curved appearances, hence they are categorized as rectangle-like shapes.</p>
+</section>
+</section>
+<section id="arc">
+<h2>arc()<a class="headerlink" href="#arc" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">arc()</span></code> function is used to draw arcs.</p>
+<p>An arc resembles a line but is drawn as a shape, thus arrow styles cannot be specified.
+However, you can define the line style using attributes of <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>.</p>
+<p>This function requires the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the underlying ellipse</p></li>
+<li><p>height: Height of the underlying ellipse</p></li>
+<li><p>from_angle: Starting angle of the arc</p></li>
+<li><p>to_angle: Ending angle of the arc</p></li>
+<li><p>angle: Rotation angle of the arc</p></li>
+<li><p>style: Style of the arc</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">image_arc1.py</span><a class="headerlink" href="#id13" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">arc</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">from_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">to_angle</span><span class="o">=</span><span class="mi">135</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">arc</span><span class="p">(</span>
+<span class="linenos"> 6</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="n">from_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">to_angle</span><span class="o">=</span><span class="mi">135</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+<span class="linenos">12</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;arc&quot;</span><span class="p">,</span>
+<span class="linenos">13</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Handling angles is similar to functions like <code class="docutils literal notranslate"><span class="pre">donuts()</span></code>.
+Please refer to its explanation for more details.
+Here’s an example output:</p>
+<figure class="align-center" id="id14">
+<a class="with-border reference internal image-reference" href="../../../_images/image_arc1.png"><img alt="../../../_images/image_arc1.png" class="with-border" src="../../../_images/image_arc1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">arc()</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="chevron">
+<h2>chevron()<a class="headerlink" href="#chevron" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">chevron()</span></code> function draws a chevron shape.
+In addition to specifying width and height, it allows you to define the angle of the bottom-left corner using corner_angle.
+The shape of the chevron varies based on this parameter.</p>
+<p>This function takes the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the chevron</p></li>
+<li><p>height: Height of the chevron</p></li>
+<li><p>corner_angle: Angle of the bottom-left corner</p></li>
+<li><p>mirror: Optionally reverses the chevron horizontally (default is False)</p></li>
+<li><p>angle: Rotation angle of the chevron</p></li>
+<li><p>style: Style of the chevron</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples:</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">image_chevron1.py</span><a class="headerlink" href="#id15" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">chevron</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">corner_angle</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">chevron</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">corner_angle</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">mirror</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;chevron()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The shape of the chevron is influenced by <code class="docutils literal notranslate"><span class="pre">corner_angle</span></code>.
+When <code class="docutils literal notranslate"><span class="pre">mirror</span></code> is set to True, the chevron is horizontally reversed.
+Here is an example output:</p>
+<figure class="align-center" id="id16">
+<a class="with-border reference internal image-reference" href="../../../_images/image_chevron1.png"><img alt="../../../_images/image_chevron1.png" class="with-border" src="../../../_images/image_chevron1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">chevron()</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ellipse">
+<h2>ellipse()<a class="headerlink" href="#ellipse" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ellipse()</span></code> function draws an ellipse.
+If the width and height are identical, it behaves similarly to the <code class="docutils literal notranslate"><span class="pre">circle()</span></code> function.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the ellipse</p></li>
+<li><p>height: Height of the ellipse</p></li>
+<li><p>angle: Rotation angle of the ellipse</p></li>
+<li><p>style: Style of the ellipse</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples:</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">image_ellipse1.py</span><a class="headerlink" href="#id17" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;ellipse()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id18">
+<a class="with-border reference internal image-reference" href="../../../_images/image_ellipse1.png"><img alt="../../../_images/image_ellipse1.png" class="with-border" src="../../../_images/image_ellipse1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">ellipse()</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parallelogram">
+<h2>parallelogram()<a class="headerlink" href="#parallelogram" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">parallelogram()</span></code> function draws a parallelogram shape.
+It allows you to specify the angle of the bottom-left corner using <code class="docutils literal notranslate"><span class="pre">corner_angle</span></code>.
+Additionally, you can mirror the shape horizontally by setting the <code class="docutils literal notranslate"><span class="pre">mirror</span></code> parameter to True.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the parallelogram</p></li>
+<li><p>height: Height of the parallelogram</p></li>
+<li><p>corner_angle: Angle of the bottom-left corner</p></li>
+<li><p>mirror: Optionally reverses the parallelogram horizontally (default is False)</p></li>
+<li><p>angle: Rotation angle of the parallelogram</p></li>
+<li><p>style: Style of the parallelogram</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">image_parallelogram1.py</span><a class="headerlink" href="#id19" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">parallelogram</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">corner_angle</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">parallelogram</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">corner_angle</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;parallelogram()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id20">
+<a class="with-border reference internal image-reference" href="../../../_images/image_parallelogram1.png"><img alt="../../../_images/image_parallelogram1.png" class="with-border" src="../../../_images/image_parallelogram1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">parallelogram()</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rectangle">
+<h2>rectangle()<a class="headerlink" href="#rectangle" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rectangle()</span></code> function draws a rectangle shape.
+It allows you to specify the radius of the rounded corners using the <code class="docutils literal notranslate"><span class="pre">r</span></code> parameter.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the rectangle</p></li>
+<li><p>height: Height of the rectangle</p></li>
+<li><p>r: Radius of the rounded corners (default is 0, resulting in sharp corners)</p></li>
+<li><p>angle: Rotation angle of the rectangle</p></li>
+<li><p>style: Style of the rectangle</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples:</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">image_rectangle1.py</span><a class="headerlink" href="#id21" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">rectangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">rectangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;rectangle()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id22">
+<a class="with-border reference internal image-reference" href="../../../_images/image_rectangle1.png"><img alt="../../../_images/image_rectangle1.png" class="with-border" src="../../../_images/image_rectangle1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">rectangle()</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rhombus">
+<h2>rhombus()<a class="headerlink" href="#rhombus" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rhombus()</span></code> function draws a rhombus shape, which is a diamond-like figure with equal sides.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the rhombus</p></li>
+<li><p>height: Height of the rhombus</p></li>
+<li><p>angle: Rotation angle of the rhombus</p></li>
+<li><p>style: Style of the rhombus</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples:</p>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">image_rhombus1.py</span><a class="headerlink" href="#id23" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">rhombus</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">rhombus</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;rhombus()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id24">
+<a class="with-border reference internal image-reference" href="../../../_images/image_rhombus1.png"><img alt="../../../_images/image_rhombus1.png" class="with-border" src="../../../_images/image_rhombus1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">rhombus()</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="trapezoid">
+<h2>trapezoid()<a class="headerlink" href="#trapezoid" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">trapezoid()</span></code> function draws a trapezoid shape, which has two different widths at its top and bottom edges.
+The positioning of the top side relative to the bottom side can be adjusted using the <code class="docutils literal notranslate"><span class="pre">top_width</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom_width</span></code>, and optionally <code class="docutils literal notranslate"><span class="pre">top_start</span></code> parameters.</p>
+<p>This function takes these arguments.</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the trapezoid</p></li>
+<li><p>height: Height of the trapezoid</p></li>
+<li><p>bottom_width: Width of the bottom side of the trapezoid</p></li>
+<li><p>top_width: Width of the top side of the trapezoid</p></li>
+<li><p>top_start: Optional parameter to specify where the top side starts (default places the top side centered). If set to 0, the top side starts at the same position as the bottom side.</p></li>
+<li><p>angle: Rotation angle of the trapezoid</p></li>
+<li><p>style: Style of the trapezoid</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples:</p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">image_trapezoid1.py</span><a class="headerlink" href="#id25" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">bottomedge_width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">topedge_width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">trapezoid</span><span class="p">(</span>
+<span class="linenos"> 6</span>    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">bottomedge_width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="n">topedge_width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">topedge_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+<span class="linenos">12</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;trapezoid()&quot;</span><span class="p">,</span>
+<span class="linenos">13</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id26">
+<a class="with-border reference internal image-reference" href="../../../_images/image_trapezoid1.png"><img alt="../../../_images/image_trapezoid1.png" class="with-border" src="../../../_images/image_trapezoid1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">trapezoid()</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="triangle">
+<h2>triangle()<a class="headerlink" href="#triangle" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">triangle()</span></code> function draws a triangle shape.
+It has an optional parameter <code class="docutils literal notranslate"><span class="pre">topvertex_xpos</span></code> to specify where the top vertex is positioned horizontally.
+If not specified, the triangle is drawn as an isosceles triangle with the top vertex aligned at the center of its width.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xy: X, Y coordinates</p></li>
+<li><p>width: Width of the triangle</p></li>
+<li><p>height: Height of the triangle</p></li>
+<li><p>topvertex_xpos: Optional parameter to specify the horizontal position where the top vertex is pointed</p></li>
+<li><p>angle: Rotation angle of the triangle</p></li>
+<li><p>style: Style of the triangle</p></li>
+<li><p>text: Centered text</p></li>
+<li><p>textsize: Font size of the text</p></li>
+<li><p>textstyle: Style of the centered text</p></li>
+</ul>
+<p>Let’s explore two examples:</p>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-text">image_triangle1.py</span><a class="headerlink" href="#id27" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">triangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">triangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">topvertex_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;rectangle()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id28">
+<a class="with-border reference internal image-reference" href="../../../_images/image_triangle1.png"><img alt="../../../_images/image_triangle1.png" class="with-border" src="../../../_images/image_triangle1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">triangle()</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In this example, inner text is drawn at the center of the right triangle shape.
+However, the text extends beyond the shape’s boundaries.
+In such situations, you can adjust the position where the text is drawn by specifying the <code class="docutils literal notranslate"><span class="pre">xy_shift</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">ShapeTextStyle</span></code>.
+For further details, refer to the shape style documentation.</p>
+<section id="draw-other-type-of-shapes">
+<h3>Draw Other Type of Shapes<a class="headerlink" href="#draw-other-type-of-shapes" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="arrow">
+<h2>arrow()<a class="headerlink" href="#arrow" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> function draws an arrow shape between two points defined by <code class="docutils literal notranslate"><span class="pre">xy1</span></code> (start point) and <code class="docutils literal notranslate"><span class="pre">xy2</span></code> (end point).
+You can customize the arrow’s tail and head sizes and styles.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xy1: Start point coordinates (x1, y1)</p></li>
+<li><p>xy2: End point coordinates (x2, y2)</p></li>
+<li><p>tail_width: Width of the arrow’s tail (not the head)</p></li>
+<li><p>head_width: Width of the arrow’s head</p></li>
+<li><p>head_length: Length of the arrow’s head</p></li>
+<li><p>head_style (optional): Style of the arrow’s head (<code class="docutils literal notranslate"><span class="pre">&quot;-&gt;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&lt;-&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&lt;-&gt;&quot;</span></code> for different configurations)</p></li>
+<li><p>style (optional): Style of the arrow</p></li>
+<li><p>text (optional): Centered text</p></li>
+<li><p>textstyle (optional): Style of the centered text</p></li>
+</ul>
+<p>Let’s explore an example:</p>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-text">image_arrow1.py</span><a class="headerlink" href="#id29" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">arrow</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">tail_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">arrow</span><span class="p">(</span>
+<span class="linenos"> 6</span>    <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+<span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span>
+<span class="linenos"> 8</span>    <span class="n">tail_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="n">head_width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="linenos">10</span>    <span class="n">head_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="linenos">11</span>    <span class="n">head</span><span class="o">=</span><span class="s2">&quot;&lt;-&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">12</span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;arrow()&quot;</span><span class="p">,</span>
+<span class="linenos">13</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id30">
+<a class="with-border reference internal image-reference" href="../../../_images/image_arrow1.png"><img alt="../../../_images/image_arrow1.png" class="with-border" src="../../../_images/image_arrow1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">arrow()</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the <code class="docutils literal notranslate"><span class="pre">arrow()</span></code> function, the angle of the arrow is determined automatically by its start and end points.
+The function does not use the alignment attributes (<code class="docutils literal notranslate"><span class="pre">halign</span></code> and <code class="docutils literal notranslate"><span class="pre">valign</span></code>) from <code class="docutils literal notranslate"><span class="pre">ShapeStyle</span></code>.</p>
+</section>
+<section id="polygon">
+<h2>polygon()<a class="headerlink" href="#polygon" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> function draws a shape that connects specified points to form a polygon.
+The start point and end point are automatically connected.</p>
+<p>This function accepts the following arguments:</p>
+<ul class="simple">
+<li><p>xys: List of tuples specifying the points of the polygon [(x1, y1), (x2, y2), …, (xn, yn)]</p></li>
+<li><p>style (optional): Style of the polygon</p></li>
+<li><p>text (optional): Centered text</p></li>
+<li><p>textstyle (optional): Style of the centered text</p></li>
+</ul>
+<p>Let’s explore an example:</p>
+<div class="literal-block-wrapper docutils container" id="id31">
+<div class="code-block-caption"><span class="caption-text">image_polygon1.py</span><a class="headerlink" href="#id31" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">drawlib.apis</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">grid_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">polygon</span><span class="p">(</span><span class="n">xys</span><span class="o">=</span><span class="p">[(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">)])</span>
+<span class="linenos">5</span><span class="n">polygon</span><span class="p">(</span><span class="n">xys</span><span class="o">=</span><span class="p">[(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">95</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">30</span><span class="p">)],</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;polygon()&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here is an example output:</p>
+<figure class="align-center" id="id32">
+<a class="with-border reference internal image-reference" href="../../../_images/image_polygon1.png"><img alt="../../../_images/image_polygon1.png" class="with-border" src="../../../_images/image_polygon1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">polygon()</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> function does not use an angle argument because the shape’s orientation is determined by the order of the specified points.
+If you prefer to draw shapes with a standard coordinate system and angle features, consider using the <code class="docutils literal notranslate"><span class="pre">shape()</span></code> function.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../line_style/doc.html" class="btn btn-neutral float-left" title="Line Style" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../shape_style/doc.html" class="btn btn-neutral float-right" title="Shape Style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yuichi Ito &lt;yuichi@yuichi.com&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

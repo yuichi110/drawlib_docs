@@ -156,6 +156,12 @@ Executing this code generates the following output:
 
     Bézier curves from xy1 to xy2
 
+line_arc()
+===============
+
+The ``line_arc()`` function draws a line on the ellipse arc. If the width and height of the ellipse are same, line will be drawn on circle arc.
+
+
 lines()
 ==========
 

@@ -11,7 +11,6 @@ select = [
     "I",   # isort
     "N",   # pep8-naming (N)
     "W",   # Pycodestyle Warning
-    "ANN", # flake8-annotations (ANN)
     "S",   # flake8-bandit
     "PL"   # Pylint
 ]
@@ -20,7 +19,6 @@ ignore = [
     "F401",    # imported but unused
     "F403",   
     "F405", 
-    "ANN101",  # Missing type annotation for self in method
     "PLC1901", # compare-to-empty-string
     "PLR0904", # Too many public methods
     "PLR0912", # Too many branches

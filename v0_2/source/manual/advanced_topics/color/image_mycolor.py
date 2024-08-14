@@ -45,7 +45,7 @@ wedge(
     (85, shape_y),
     radius=10,
     width=5,
-    to_angle=270,
+    angle_end=270,
     style=ShapeStyle(lwidth=0, fcolor=ColorsGoogle.MediumGreen),
 )
 text(

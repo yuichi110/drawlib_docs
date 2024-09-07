@@ -25,6 +25,6 @@ gl2.add(position=(3, 2), width=1, height=1, text="w", textangle=180)
 gl2.add(position=(4, 2), width=1, height=1, text="l", textangle=270)
 gl2.add(position=(5, 2), width=1, height=1, text="i")
 gl2.add(position=(6, 2), width=1, height=1, text="b")
-gl2.draw((55, 5), width=40, height=20, margin=1, outer_style="solid", outer_r=1)
+gl2.draw((55, 10), width=40, height=20, margin=1, outer_style="solid", outer_r=1)
 
 save()

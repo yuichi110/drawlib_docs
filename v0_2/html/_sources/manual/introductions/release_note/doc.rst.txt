@@ -5,10 +5,10 @@ Release Note of 0.2.*
 Version 0.2.3 
 ================
 
-Release data: 2024/08/13
+Release data: 2024/09/08
 --------------------------
 
-Commit: `fa1d90a <https://github.com/yuichi110/drawlib/commit/fa1d90a4a45fb3edab2cbafddfa04ef23d6a5691>`_
+Commit: `4cc6e6e <https://github.com/yuichi110/drawlib/commit/4cc6e6ef2a72baeaf7e5405988d20f551e2eae3a>`_
 -----------------------------------------------------------------------------------------------------------
 
 New features
